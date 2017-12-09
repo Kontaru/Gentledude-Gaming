@@ -8,7 +8,7 @@ public class CPU_Controller : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
-        //
+        //Add our enemy to our count, then immediately reinitialise the list
         npcCount++;
         GameManager.instance.heroTargets = new GameObject[npcCount];
     }
