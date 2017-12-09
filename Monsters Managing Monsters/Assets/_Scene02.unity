@@ -1832,8 +1832,13 @@ RectTransform:
   m_GameObject: {fileID: 972116092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalPosition: {x: 464, y: 261, z: 0}
+  m_LocalScale: {x: 1.16, y: 1.16, z: 1.16}
+>>>>>>> Stashed changes
 =======
   m_LocalPosition: {x: 464, y: 261, z: 0}
   m_LocalScale: {x: 1.16, y: 1.16, z: 1.16}
@@ -3792,7 +3797,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1776558741}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1804526227
+=======
+--- !u!1 &1829565337
+>>>>>>> Stashed changes
 =======
 --- !u!1 &1829565337
 >>>>>>> Stashed changes
@@ -3803,23 +3812,30 @@ GameObject:
   serializedVersion: 5
   m_Component:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 1804526228}
   - component: {fileID: 1804526231}
   - component: {fileID: 1804526230}
   m_Layer: 0
   m_Name: TimerText
 =======
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 1829565338}
   - component: {fileID: 1829565340}
   - component: {fileID: 1829565339}
   m_Layer: 0
   m_Name: Sprite
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 --- !u!224 &1804526228
 RectTransform:
@@ -3842,6 +3858,8 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1804526230
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!4 &1829565338
 Transform:
   m_ObjectHideFlags: 0
@@ -3856,11 +3874,15 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1829565339
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1804526227}
   m_Enabled: 1
@@ -3891,6 +3913,8 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1804526227}
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1829565337}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3943,6 +3967,9 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1838171696
 GameObject:
