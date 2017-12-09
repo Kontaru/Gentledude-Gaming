@@ -13,7 +13,7 @@ public class PC_Move : MonoBehaviour {
     [Header("Movement")]
     public float FL_moveSpeed;
     public bool isMoving = false;
-    public bool canMove = true;
+    public static bool canMove = true;
     float FL_defaultSpeed;
 
     // Use this for initialization
