@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss_Attack : MonoBehaviour
+public class NPC_Attack : MonoBehaviour
 {
 
-    public GameObject Sword_Lunge;
+    public GameObject Sword_Graphic;
     public GameObject PF_Bullet;
     public GameObject PF_Lunge;
     public GameObject GO_EjectionPoint;
@@ -37,8 +37,10 @@ public class Boss_Attack : MonoBehaviour
             BL_Spotted = true;
         }
 
-        FireAtPC();
-        LungeAtPC();
+        if(PF_Bullet != null)
+            FireAtPC();
+        if(PF_Lunge != null)
+            LungeAtPC();
 
     }
 
@@ -46,7 +48,7 @@ public class Boss_Attack : MonoBehaviour
 
     void SpawnLunge()
     {
-        Sword_Lunge.SetActive(false);
+        Sword_Graphic.SetActive(false);
         if (!BL_LungeAnimator)
         {
             StartCoroutine(SwordSpriteAnimator());
@@ -76,7 +78,7 @@ public class Boss_Attack : MonoBehaviour
     {
         yield return new WaitForSeconds(0.21f);
         BL_LungeAnimator = false;
-        Sword_Lunge.SetActive(true);
+        Sword_Graphic.SetActive(true);
     }
 
     #region --- Spawn Bullet ---

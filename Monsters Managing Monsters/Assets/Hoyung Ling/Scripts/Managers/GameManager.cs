@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+    public GameObject[] heroTargets = new GameObject[3];
+    public GameObject[] test;
+
     public static GameManager instance;
 
     [Header("Controls")]
@@ -27,6 +30,8 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
+        test = new GameObject[heroTargets.Length];
+
         if (instance == null)
             instance = this;
         else

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PC_Controller : MonoBehaviour {
+public class PC_Controller : Entity {
 
     //Bool
     public bool BL_Staggered = false;

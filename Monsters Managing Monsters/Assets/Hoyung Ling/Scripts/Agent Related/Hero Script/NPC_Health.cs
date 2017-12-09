@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss_Health : MonoBehaviour
+public class NPC_Health : MonoBehaviour
 {
 
     public GameObject GO_Hatch;
@@ -34,7 +34,6 @@ public class Boss_Health : MonoBehaviour
         else if (health <= 0)
         {
             Destroy(gameObject);
-            GO_Hatch.SetActive(true);
         }
 
         int rand = Random.Range(0, 2);
