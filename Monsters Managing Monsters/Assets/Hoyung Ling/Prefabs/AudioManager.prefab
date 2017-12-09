@@ -51,4 +51,109 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b871b0216122ec40a7351a26b4993b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Main Menu
+    description: 
+    source: {fileID: 0}
+    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    Fade: 0
+    fadeDuration: 0
+    startVol: 0
+    endVol: 0
+    useGraph: 0
+    AC:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    wasFading: 0
+    fadeTime: 0
+    fadeStartTime: 0
+  - name: Theme
+    description: 
+    source: {fileID: 0}
+    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    Fade: 0
+    fadeDuration: 0
+    startVol: 0
+    endVol: 0
+    useGraph: 0
+    AC:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    wasFading: 0
+    fadeTime: 0
+    fadeStartTime: 0
+  - name: Footsteps
+    description: 
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 070795441cbb34b479b999cfe53e7ad2, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    Fade: 0
+    fadeDuration: 0
+    startVol: 0
+    endVol: 0
+    useGraph: 0
+    AC:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    wasFading: 0
+    fadeTime: 0
+    fadeStartTime: 0
+  - name: Slow Footsteps
+    description: 
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 2943081eb79c1b046a69b08c84a25f3f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    Fade: 0
+    fadeDuration: 0
+    startVol: 0.5
+    endVol: 1
+    useGraph: 0
+    AC:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    wasFading: 0
+    fadeTime: 0
+    fadeStartTime: 0
+  - name: 
+    description: 
+    source: {fileID: 0}
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    Fade: 0
+    fadeDuration: 0
+    startVol: 0
+    endVol: 0
+    useGraph: 0
+    AC:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    wasFading: 0
+    fadeTime: 0
+    fadeStartTime: 0
