@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class PC_Move : MonoBehaviour {
 
+    [TextArea(2, 10)]
+    public string Description;
+
     Rigidbody RB_PC;
     Vector3 direction;
 
     [Header("Movement")]
     public float FL_moveSpeed;
+    public bool isMoving = false;
+    public bool canMove = true;
     float FL_defaultSpeed;
 
     // Use this for initialization
@@ -22,7 +27,7 @@ public class PC_Move : MonoBehaviour {
     {
         FL_moveSpeed = FL_defaultSpeed;
         PlayerMove();
-        //LookInput();
+        LookInput();
     }
 
     void FixedUpdate()
@@ -32,7 +37,19 @@ public class PC_Move : MonoBehaviour {
 
     void PlayerMove()
     {
+        if (!canMove)
+        {
+            isMoving = false;
+            return;
+        }
+
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+
+        if (moveInput == new Vector3(0, 0, 0))
+            isMoving = false;
+        else
+            isMoving = true;
+
         direction = moveInput.normalized * FL_moveSpeed;
     }
 

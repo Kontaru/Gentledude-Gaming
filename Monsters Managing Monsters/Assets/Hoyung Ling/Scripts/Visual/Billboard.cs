@@ -12,10 +12,6 @@ public class Billboard : MonoBehaviour
     public Transform Forward;
 
     // Use this for initialization
-    void Start()
-    {
-        transform.LookAt(Camera.main.transform);
-    }
 
     // Update is called once per frame
     virtual public void Update()

@@ -38,7 +38,7 @@ public class NPCInteraction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (TM.Tasks[IN_NPCQuestID].quest_complete) QuestCompleted();
+                if (TM.Tasks[IN_NPCQuestID].QuestComplete) QuestCompleted();
                 else QuestAccepted();
             }
         }
@@ -47,7 +47,7 @@ public class NPCInteraction : MonoBehaviour
     void Start()
     {
 
-        TM = FindObjectOfType<TaskManager>();
+        TM = TaskManager.instance;
 
         if (BL_HasQuest) ShowExclaimantion();
         else HideAll();
