@@ -27,7 +27,7 @@ public class PC_Move : MonoBehaviour {
     {
         FL_moveSpeed = FL_defaultSpeed;
         PlayerMove();
-        LookInput();
+        //LookInput();
     }
 
     void FixedUpdate()
