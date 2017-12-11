@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour {
     public enum Entities
     {
         None,
-        NPC,
+        Monster,
         Player,
         Hero
     }
