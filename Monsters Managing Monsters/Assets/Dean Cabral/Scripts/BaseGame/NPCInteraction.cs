@@ -57,11 +57,6 @@ public class NPCInteraction : MonoBehaviour
     {
 
         TM = TaskManager.instance;
-
-    }
-
-    void Update()
-    {
         if (BL_HasQuest) ShowExclaimantion();
         else HideAll();
     }
