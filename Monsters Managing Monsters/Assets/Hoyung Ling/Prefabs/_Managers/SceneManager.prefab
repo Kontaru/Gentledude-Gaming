@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4645610427668490}
   - component: {fileID: 114065963460816598}
+  - component: {fileID: 114298160908449022}
+  - component: {fileID: 114255361010624350}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -59,3 +61,31 @@ MonoBehaviour:
   - {fileID: 0}
   monsterCount: 0
   heroCount: 0
+--- !u!114 &114255361010624350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371425909073192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6762026c3ebb87458a46627f8b9dbb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayHours: 0
+  realTime: 0
+  currentDay: 0
+  Hour: {fileID: 0}
+  Minute: {fileID: 0}
+--- !u!114 &114298160908449022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371425909073192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ab1d5154169d443b586d155abf308e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnHeroes: 0

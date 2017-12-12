@@ -30,7 +30,7 @@ public class Monster_Combat : MonoBehaviour {
     public float aggroRange;
     public float meleeRange;
     public float rangedRange;
-    bool BL_Attack = false;
+    public bool BL_Attack = false;
 
     [Header("Cooldown between attacks")]
     // -------- COOLDOWNS ------------ ------------ ------------ ------------ ------------
@@ -38,7 +38,7 @@ public class Monster_Combat : MonoBehaviour {
     private float FL_rangeInterval = 0;             //The value which Time.time compares itself to to know when to shoot
 
     public float meleeCooldown = 2f;
-    private float FL_meleeInterval = 0;             //The value which Time.time compares itself to to know when to shoot
+    public float FL_meleeInterval = 0;             //The value which Time.time compares itself to to know when to shoot
 
     // Use this for initialization
     void Start()
@@ -53,10 +53,13 @@ public class Monster_Combat : MonoBehaviour {
 
         if (BL_InitiateCombat && Vector3.Distance(Target.transform.position, transform.position) < aggroRange)
         {
+            if (BL_Attack == false)
+            {
+                FL_meleeInterval = Time.time + meleeCooldown;
+                FL_rangeInterval = Time.time + rangeCooldown;
+            }
             BL_Move = true;
             BL_Attack = true;
-            FL_meleeInterval = Time.time + meleeCooldown;
-            FL_rangeInterval = Time.time + rangeCooldown;
         }
 
         if (BL_InitiateCombat)
@@ -81,7 +84,7 @@ public class Monster_Combat : MonoBehaviour {
 
     void MeleeAttack()
     {
-        SpawnGO(FL_meleeInterval, meleeCooldown, meleeAttack);
+        FL_meleeInterval = SpawnGO(FL_meleeInterval, meleeCooldown, meleeAttack);
     }
 
     void RangedAttack()
@@ -89,14 +92,15 @@ public class Monster_Combat : MonoBehaviour {
         SpawnGO(FL_rangeInterval, rangeCooldown, rangeAttack);
     }
 
-    void SpawnGO(float interval, float cooldown, GameObject spawnObject)
+    float SpawnGO(float interval, float cooldown, GameObject spawnObject)
     {
-        if (Time.time > interval)                                                                               //If the time is right...
+        if (Time.time > interval)                                      //If the time is right...
         {
+            interval = Time.time + cooldown;                           //Add a cooldown
             Instantiate(spawnObject, 
                 GO_EjectionPoint.transform.position, 
-                GO_EjectionPoint.transform.rotation);                  //Spawn a bullet
-            interval = Time.time + cooldown;                                                                 //Add a cooldown
+                GO_EjectionPoint.transform.rotation);                  //Spawn a bullet                   
         }
+        return interval;
     }
 }

@@ -508,8 +508,10 @@ MonoBehaviour:
   aggroRange: 40
   meleeRange: 5
   rangedRange: 10
-  rangeCooldown: 3
-  meleeCooldown: 2
+  BL_Attack: 0
+  rangeCooldown: 2
+  meleeCooldown: 1
+  FL_meleeInterval: 0
 --- !u!114 &114409259214971732
 MonoBehaviour:
   m_ObjectHideFlags: 1

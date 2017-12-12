@@ -29,7 +29,7 @@ public class Hero_Movement : MonoBehaviour {
     {
         if (Target == null) return;
 
-        if (!BL_Alerted && Vector3.Distance(Target.transform.position, transform.position) < 40.0f)
+        if (!BL_Alerted && Vector3.Distance(Target.transform.position, transform.position) < 4000.0f)
         {
             BL_Alerted = true;
             BL_Move = true;
