@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetHandler : MonoBehaviour {
+[System.Serializable]
+public class Squad
+{
+    public string name;
+    public int level;
+    public Hero[] heroes;
+}
 
-    public static TargetHandler instance;
+public class HeroManager : MonoBehaviour {
 
-    public GameObject[] monsters = new GameObject[3];
-    public GameObject[] heroes;
+    public Squad[] Squads;
 
-    public int monsterCount = 0;                    //Number of enemies we have. Is increased each time an NPC is spawned
-    public int heroCount = 0;
+    public static HeroManager instance;
 
     #region Typical Singleton Format
 
     void Awake()
     {
+
+        //Singleton stuff
         if (instance == null)
             instance = this;
         else
@@ -23,12 +29,15 @@ public class TargetHandler : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
-    #endregion 
+    #endregion
 
     // Use this for initialization
     void Start () {
+		
 	}
 	
 	// Update is called once per frame
