@@ -21,7 +21,7 @@ public class BC_ComputerBehaviour : MonoBehaviour {
 
         if (other.gameObject.name == "PC")
         {
-            InitialiseGame();
+            InitialiseGame(false);
             ShowRepairObject();
             BL_IsPlaying = true;
         }
@@ -41,7 +41,7 @@ public class BC_ComputerBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        InitialiseGame();
+        InitialiseGame(true);
     }
 	
 	// Update is called once per frame
@@ -74,12 +74,12 @@ public class BC_ComputerBehaviour : MonoBehaviour {
         timerText.text = timer.ToString();
     }
 
-    private void InitialiseGame()
+    private void InitialiseGame(bool firstFlag)
     {
         timer = 5;
         repairBar.fillAmount = 0;
         StopAllCoroutines();
-        StartCoroutine(RunTimer());
+        if (!firstFlag) StartCoroutine(RunTimer());
     }    
 
     private void RepairComputer()

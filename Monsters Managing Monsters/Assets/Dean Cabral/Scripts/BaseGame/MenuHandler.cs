@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour {
 
@@ -96,7 +95,7 @@ public class MenuHandler : MonoBehaviour {
             yield return null;
         }
 
-        if (progress >= 1) SceneManager.LoadSceneAsync(_sceneIndex);
+        if (progress >= 1) GameManager.instance.LoadScene(1);
     }
 
     IEnumerator ShowScreen(GameObject screen)
