@@ -231,6 +231,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114204167371309042, guid: f5f4ac2acd9218745b721673ab0a5df0,
+        type: 2}
+      propertyPath: QuestIDs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219051748931284, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 131.43
@@ -267,6 +272,11 @@ Prefab:
       propertyPath: m_Name
       value: NPC (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114204167371309042, guid: f5f4ac2acd9218745b721673ab0a5df0,
+        type: 2}
+      propertyPath: QuestIDs.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
   m_IsPrefabParent: 0
@@ -277,6 +287,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114204167371309042, guid: f5f4ac2acd9218745b721673ab0a5df0,
+        type: 2}
+      propertyPath: QuestIDs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219051748931284, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 136.43
@@ -312,6 +327,11 @@ Prefab:
     - target: {fileID: 1431076140563802, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
       propertyPath: m_Name
       value: NPC (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204167371309042, guid: f5f4ac2acd9218745b721673ab0a5df0,
+        type: 2}
+      propertyPath: QuestIDs.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
@@ -1840,6 +1860,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114204167371309042, guid: f5f4ac2acd9218745b721673ab0a5df0,
+        type: 2}
+      propertyPath: QuestIDs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219051748931284, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 146.5
@@ -1875,6 +1900,11 @@ Prefab:
     - target: {fileID: 1431076140563802, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
       propertyPath: m_Name
       value: NPC (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204167371309042, guid: f5f4ac2acd9218745b721673ab0a5df0,
+        type: 2}
+      propertyPath: QuestIDs.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
@@ -2578,6 +2608,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114204167371309042, guid: f5f4ac2acd9218745b721673ab0a5df0,
+        type: 2}
+      propertyPath: QuestIDs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219051748931284, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 141.48
@@ -2613,6 +2648,11 @@ Prefab:
     - target: {fileID: 1431076140563802, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
       propertyPath: m_Name
       value: NPC (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204167371309042, guid: f5f4ac2acd9218745b721673ab0a5df0,
+        type: 2}
+      propertyPath: QuestIDs.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5f4ac2acd9218745b721673ab0a5df0, type: 2}
@@ -4749,7 +4789,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 10
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -4770,7 +4810,7 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0

@@ -22,6 +22,14 @@ public class CurrentTasks : MonoBehaviour {
             {
                 GrabQuest(currentTask[i]);
             }
+            else if (currentTask[i].QuestComplete == true)
+            {
+                GrabQuest(currentTask[i]);
+            }
+            else
+            {
+                currentTask[i].isObtainable = true;
+            }
         }
 	}
 
@@ -34,7 +42,7 @@ public class CurrentTasks : MonoBehaviour {
                 break;
             }else
             {
-                current = TaskManager.instance.Tasks[0];
+                current = TaskManager.instance.Tasks[i];
             }
         }
     }

@@ -29,9 +29,11 @@ public class NPCInteraction : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Entity>() != null)
         {
-            if (other.gameObject.GetComponent<Entity>().EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            Entity e_coll = other.gameObject.GetComponent<Entity>();
+            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
             {
                 if (BL_HasQuest) ShowInteraction();
+                BL_WithinSpace = true;
             }
         }
     }
@@ -43,9 +45,11 @@ public class NPCInteraction : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Entity>() != null)
         {
-            if (other.gameObject.GetComponent<Entity>().EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            Entity e_coll = other.gameObject.GetComponent<Entity>();
+            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
             {
                 if (BL_HasQuest) HideInteraction();
+                BL_WithinSpace = false;
             }
         }
     }
@@ -58,11 +62,12 @@ public class NPCInteraction : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Entity>() != null)
         {
-            if (other.gameObject.GetComponent<Entity>().EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            Entity e_coll = other.gameObject.GetComponent<Entity>();
+            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (TM.Tasks[IN_NPCQuestID].QuestComplete) QuestCompleted();
+                    if (ActiveTask.QuestComplete) QuestCompleted();
                     else QuestAccepted();
                 }
             }
@@ -72,13 +77,34 @@ public class NPCInteraction : MonoBehaviour
     void Start()
     {
         TM = TaskManager.instance;
-
+        Quests = GetComponent<myQuests>();
     }
 
     void Update()
     {
-        if (BL_HasQuest) ShowExclaimantion();
-        else HideAll();
+        //If I'm in combat, don't bother doing things anymore
+        if (BL_inCombat == true) return;
+
+        //Check all of my quests, if any of them are obtainable, then I have a quest
+        foreach (Task quest in Quests.Tasks)
+        {
+            if (quest.isObtainable)
+            {
+                BL_HasQuest = true;
+                ActiveTask = quest;
+                break;
+            }
+        }
+
+        //If I've accepted a quest, don't bother with anything else below
+        if (BL_QuestAccepted)
+        {
+            ActiveTask.isAccepted = true;
+            return;
+        }
+
+        if (BL_HasQuest && !BL_WithinSpace) HasQuest();
+        else if (!BL_HasQuest && !BL_WithinSpace) HideAll();
     }
 
     private void ShowInteraction()
@@ -114,62 +140,4 @@ public class NPCInteraction : MonoBehaviour
     private void QuestCompleted()
     {
         Debug.Log("Quest Completed");
-    }
-}
-
-    {
-        if (other.gameObject.GetComponent<Entity>() != null)
-        {
-            Entity e_coll = other.gameObject.GetComponent<Entity>();
-            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
-            {
-                if (BL_HasQuest) ShowInteraction();
-                BL_WithinSpace = true;
-            }
-    {
-        if (other.gameObject.GetComponent<Entity>() != null)
-        {
-            Entity e_coll = other.gameObject.GetComponent<Entity>();
-            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
-            {
-                if (BL_HasQuest) HideInteraction();
-                BL_WithinSpace = false;
-            }
-        if (other.gameObject.GetComponent<Entity>() != null)
-        {
-            Entity e_coll = other.gameObject.GetComponent<Entity>();
-            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    if (ActiveTask.QuestComplete) QuestCompleted();
-                    else QuestAccepted();
-                }
-            }
-        Quests = GetComponent<myQuests>();
-    }
-
-    void Update()
-    {
-        //If I'm in combat, don't bother doing things anymore
-        if (BL_inCombat == true) return;
-
-
-        foreach (Task quest in Quests.Tasks)
-        {
-            if (quest.isObtainable)
-            {
-                BL_HasQuest = true;
-                ActiveTask = quest;
-                break;
-            }
-        }
-
-        if(BL_QuestAccepted)
-        {
-            ActiveTask.isAccepted = true;
-            return;
-        }
-
-        if (BL_HasQuest && !BL_WithinSpace) HasQuest();
-        else if (!BL_HasQuest && !BL_WithinSpace) HideAll();
+    }}
