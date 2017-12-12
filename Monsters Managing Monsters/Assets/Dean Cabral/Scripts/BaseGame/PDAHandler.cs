@@ -12,14 +12,13 @@ public class PDAHandler : MonoBehaviour {
 
     public bool BL_PDAactive;
 
-    // Use this for initialization
-    void Start () {
+    private void Start()
+    {
+        GetComponent<RectTransform>().localPosition = new Vector3(249, -380, 0);
+    }
 
-        BL_PDAactive = true;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 
         CheckInput();
         TogglePDA();
@@ -106,7 +105,7 @@ public class PDAHandler : MonoBehaviour {
         while (lerpTime < 1)
         {
             lerpTime += Time.deltaTime * 3;
-            GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(249, -380, 0), new Vector3(249, -73, 0), lerpTime);
+            GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(249, -380, 0), new Vector3(249, 50, 0), lerpTime);
 
             yield return null;
         }
@@ -120,7 +119,7 @@ public class PDAHandler : MonoBehaviour {
         while (lerpTime < 1)
         {
             lerpTime += Time.deltaTime * 3;
-            GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(249, -73, 0), new Vector3(249, -380, 0), lerpTime);
+            GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(249, 50, 0), new Vector3(249, -380, 0), lerpTime);
 
             yield return null;
         }

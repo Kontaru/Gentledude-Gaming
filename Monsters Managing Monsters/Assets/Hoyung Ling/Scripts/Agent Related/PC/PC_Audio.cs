@@ -6,7 +6,6 @@ public class PC_Audio : MonoBehaviour
 {
 
     PC_Controller CC_Controller;
-    PC_Health CC_Health;
     bool sound_Move = true;
     bool sound_Stagger = true;
 

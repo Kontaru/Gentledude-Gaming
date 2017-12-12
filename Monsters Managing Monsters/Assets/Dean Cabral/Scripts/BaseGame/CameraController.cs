@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour {
     public float panRestriction;
     public float scrollSpeed;
 
-    private PlayerMovement PM;
+    private PC_Controller PM;
     private PDAHandler PDAH;
     private bool camLock;
     private bool camInMotion;
@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour {
     private void Initialise()
     {
         // Variables to be initilaised on start
-        PM = FindObjectOfType<PlayerMovement>();
+        PM = FindObjectOfType<PC_Controller>();
         PDAH = FindObjectOfType<PDAHandler>();
         orthographicSize = Camera.main.orthographicSize;
 
@@ -63,8 +63,8 @@ public class CameraController : MonoBehaviour {
             camLock = !camLock;
 
             // Freecam mode
-            if (camLock) PM.LockMovement(true);
-            else PM.LockMovement(false);
+            //if (camLock) PM.LockMovement(true);
+            //else PM.LockMovement(false);
 
             // Resets the camera position on toggle (design decision?)
             StartCoroutine(MoveCamToPlayer());            
@@ -73,7 +73,7 @@ public class CameraController : MonoBehaviour {
 
     private void CameraMovement()
     {
-        PanCamera();
+        //PanCamera();
         ZoomCamera();        
     }
 
@@ -82,8 +82,8 @@ public class CameraController : MonoBehaviour {
         if (PDAH.BL_PDAactive) return;
         // Prevents movement and camera panning happening at the same time
         if (PlayerInMotion()) return;
-        if (camInMotion) PM.LockMovement(true);
-        else PM.LockMovement(false);
+        //if (camInMotion) PM.LockMovement(true);
+        //else PM.LockMovement(false);
 
         // Camera pan movement logic - uses camera border thickness to manipulate camera position
         camPosition = transform.position;

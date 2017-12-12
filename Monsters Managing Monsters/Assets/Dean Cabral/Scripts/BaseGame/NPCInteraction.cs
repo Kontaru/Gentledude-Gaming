@@ -18,28 +18,37 @@ public class NPCInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "PC" && !BL_QuestAccepted)
+        if (other.gameObject.GetComponent<Entity>() != null)
         {
-            if (BL_HasQuest) ShowInteraction();
+            if (other.gameObject.GetComponent<Entity>().EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            {
+                if (BL_HasQuest) ShowInteraction();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "PC" && !BL_QuestAccepted)
+        if (other.gameObject.GetComponent<Entity>() != null)
         {
-            if (BL_HasQuest) HideInteraction();
+            if (other.gameObject.GetComponent<Entity>().EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            {
+                if (BL_HasQuest) HideInteraction();
+            }
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.name == "PC" && !BL_QuestAccepted)
+        if (other.gameObject.GetComponent<Entity>() != null)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (other.gameObject.GetComponent<Entity>().EntityType == Entity.Entities.Player && !BL_QuestAccepted)
             {
-                if (TM.Tasks[IN_NPCQuestID].QuestComplete) QuestCompleted();
-                else QuestAccepted();
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (TM.Tasks[IN_NPCQuestID].QuestComplete) QuestCompleted();
+                    else QuestAccepted();
+                }
             }
         }
     }
@@ -49,6 +58,10 @@ public class NPCInteraction : MonoBehaviour
 
         TM = TaskManager.instance;
 
+    }
+
+    void Update()
+    {
         if (BL_HasQuest) ShowExclaimantion();
         else HideAll();
     }

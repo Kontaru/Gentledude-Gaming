@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1071269350306510}
+  m_IsPrefabParent: 1
+--- !u!1 &1071269350306510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4438948802543868}
+  - component: {fileID: 114460942788931260}
+  - component: {fileID: 114219410057243416}
+  m_Layer: 0
+  m_Name: TaskManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4438948802543868
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071269350306510}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.2231145, y: -5.5913687, z: 0.61611414}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114219410057243416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071269350306510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a74c7c17e239d498570ce8f7068f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTask:
+  - name: 
+    description: 
+    QuestID: 0
+    QuestComplete: 0
+    belongsTo: {fileID: 0}
+    isObtainable: 0
+    isAccepted: 0
+    Steps: []
+  - name: 
+    description: 
+    QuestID: 0
+    QuestComplete: 0
+    belongsTo: {fileID: 0}
+    isObtainable: 0
+    isAccepted: 0
+    Steps: []
+  - name: 
+    description: 
+    QuestID: 0
+    QuestComplete: 0
+    belongsTo: {fileID: 0}
+    isObtainable: 0
+    isAccepted: 0
+    Steps: []
+  - name: 
+    description: 
+    QuestID: 0
+    QuestComplete: 0
+    belongsTo: {fileID: 0}
+    isObtainable: 0
+    isAccepted: 0
+    Steps: []
+  - name: 
+    description: 
+    QuestID: 0
+    QuestComplete: 0
+    belongsTo: {fileID: 0}
+    isObtainable: 0
+    isAccepted: 0
+    Steps: []
+--- !u!114 &114460942788931260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071269350306510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ecaa3076b54a424a90c151089a73247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tasks:
+  - name: Jeff's Quest 1
+    description: Placeholder
+    QuestID: 0
+    QuestComplete: 0
+    belongsTo: {fileID: 0}
+    isObtainable: 0
+    isAccepted: 0
+    Steps:
+    - name: Find Jeff's Comb
+      description: The player should do a thing which does another thing.
+      complete: 0
+    - name: Cut Jeff's Hair
+      description: The player should do a thing which does another thing.
+      complete: 0
+  - name: 
+    description: 
+    QuestID: 0
+    QuestComplete: 0
+    belongsTo: {fileID: 0}
+    isObtainable: 0
+    isAccepted: 0
+    Steps: []
+  - name: 
+    description: 
+    QuestID: 0
+    QuestComplete: 0
+    belongsTo: {fileID: 0}
+    isObtainable: 0
+    isAccepted: 0
+    Steps: []
