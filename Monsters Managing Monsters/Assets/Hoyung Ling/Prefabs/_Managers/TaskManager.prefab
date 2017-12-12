@@ -107,7 +107,7 @@ MonoBehaviour:
   Tasks:
   - name: Jeff's Quest 1
     description: Placeholder
-    QuestID: 0
+    QuestID: 1
     QuestComplete: 0
     belongsTo: {fileID: 0}
     isObtainable: 0
@@ -119,14 +119,17 @@ MonoBehaviour:
     - name: Cut Jeff's Hair
       description: The player should do a thing which does another thing.
       complete: 0
-  - name: 
+  - name: Fix Stacey's Printer
     description: 
-    QuestID: 0
+    QuestID: 2
     QuestComplete: 0
     belongsTo: {fileID: 0}
     isObtainable: 0
     isAccepted: 0
-    Steps: []
+    Steps:
+    - name: Fix Stacey's Printer
+      description: Go fix Stacey's printer!
+      complete: 0
   - name: 
     description: 
     QuestID: 0

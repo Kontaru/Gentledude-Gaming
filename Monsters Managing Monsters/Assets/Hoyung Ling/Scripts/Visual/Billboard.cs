@@ -7,6 +7,7 @@ public class Billboard : MonoBehaviour
 
     //Should we look at the camera?
     public bool BL_LookAtCam = false;
+    float playerfollowSmoothSpeed = 1f;
 
     //Direction in front of the player
     public Transform Forward;
@@ -18,8 +19,17 @@ public class Billboard : MonoBehaviour
     {
         if (BL_LookAtCam == true)
         {
-            transform.LookAt(Camera.main.transform);
+            var lookPos = transform.position - Camera.main.transform.position;
+            lookPos.y = 0;
+            var rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
         }
-        else transform.LookAt(Forward);
+        else
+        {
+            var lookPos = transform.position - Forward.position;
+            lookPos.y = 0;
+            var rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
+        }
     }
 }

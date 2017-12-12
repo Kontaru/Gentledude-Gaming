@@ -56,9 +56,20 @@ public class TextManager : MonoBehaviour {
         textBox.text = string.Format(dialogLines);
     }
 
+    public void CustomText(string text)
+    {
+        textBox.text = string.Format(text);
+    }
+
     //Don't worry about this one. It's just an identifier used by MainTextBox
     public void textBoxSetter(Text box)
     {
         textBox = box;
+    }
+
+    //Tells us who the textbox is
+    public Text textBoxGetter()
+    {
+        return textBox;
     }
 }

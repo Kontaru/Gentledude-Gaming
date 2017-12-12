@@ -6,16 +6,25 @@ using UnityEngine.UI;
 public class NPCInteraction : MonoBehaviour
 {
 
-    public bool BL_HasQuest;
-    public bool BL_QuestAccepted;
-    public int IN_NPCQuestID = 0;
+    public bool BL_inCombat;            //Am I in combat?
+    bool BL_HasQuest;                   //Do I have a quest?
+    bool BL_QuestAccepted;              //Did I accept a quest?
+    public int IN_NPCQuestID = 0;       //Probably not needed
+    private bool BL_WithinSpace = false;//Am I inside the trigger box?
 
+    //----- INTERACTINO GOs -----------------------------------------------------
     public GameObject exclaimationPoint;
     public GameObject interactionObject;
 
+    //----- COMPONENTS ----------------------------------------------------------
     private Text interactionText;
     private TaskManager TM;
+    private myQuests Quests;
+    private Task ActiveTask;
 
+    //When something enters the collider
+    //Check if the colliding type is of type "Player"
+    //If so, allow for an interaction
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Entity>() != null)
@@ -27,6 +36,9 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 
+    //When something exits the collider
+    //Check if the colliding type is of type "Player"
+    //If so, disable the interaction
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.GetComponent<Entity>() != null)
@@ -38,6 +50,10 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 
+    //When something stays in the collider
+    //Check if the colliding type is of type "Player"
+    //If so, allow interaction of the player with the entity
+    //All code related to interaction with the entity should be here
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponent<Entity>() != null)
@@ -55,8 +71,12 @@ public class NPCInteraction : MonoBehaviour
 
     void Start()
     {
-
         TM = TaskManager.instance;
+
+    }
+
+    void Update()
+    {
         if (BL_HasQuest) ShowExclaimantion();
         else HideAll();
     }
@@ -73,7 +93,7 @@ public class NPCInteraction : MonoBehaviour
         exclaimationPoint.SetActive(true);
     }
 
-    private void ShowExclaimantion()
+    private void HasQuest()
     {
         exclaimationPoint.SetActive(true);
         interactionObject.SetActive(false);
@@ -89,7 +109,6 @@ public class NPCInteraction : MonoBehaviour
     {
         BL_QuestAccepted = true;
         HideAll();
-        Debug.Log("Add Quest to TaskManager");
     }
 
     private void QuestCompleted()
@@ -97,3 +116,60 @@ public class NPCInteraction : MonoBehaviour
         Debug.Log("Quest Completed");
     }
 }
+
+    {
+        if (other.gameObject.GetComponent<Entity>() != null)
+        {
+            Entity e_coll = other.gameObject.GetComponent<Entity>();
+            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            {
+                if (BL_HasQuest) ShowInteraction();
+                BL_WithinSpace = true;
+            }
+    {
+        if (other.gameObject.GetComponent<Entity>() != null)
+        {
+            Entity e_coll = other.gameObject.GetComponent<Entity>();
+            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            {
+                if (BL_HasQuest) HideInteraction();
+                BL_WithinSpace = false;
+            }
+        if (other.gameObject.GetComponent<Entity>() != null)
+        {
+            Entity e_coll = other.gameObject.GetComponent<Entity>();
+            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (ActiveTask.QuestComplete) QuestCompleted();
+                    else QuestAccepted();
+                }
+            }
+        Quests = GetComponent<myQuests>();
+    }
+
+    void Update()
+    {
+        //If I'm in combat, don't bother doing things anymore
+        if (BL_inCombat == true) return;
+
+
+        foreach (Task quest in Quests.Tasks)
+        {
+            if (quest.isObtainable)
+            {
+                BL_HasQuest = true;
+                ActiveTask = quest;
+                break;
+            }
+        }
+
+        if(BL_QuestAccepted)
+        {
+            ActiveTask.isAccepted = true;
+            return;
+        }
+
+        if (BL_HasQuest && !BL_WithinSpace) HasQuest();
+        else if (!BL_HasQuest && !BL_WithinSpace) HideAll();

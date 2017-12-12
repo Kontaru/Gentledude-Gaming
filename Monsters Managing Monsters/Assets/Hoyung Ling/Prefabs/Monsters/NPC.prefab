@@ -191,8 +191,9 @@ GameObject:
   - component: {fileID: 4836482881740384}
   - component: {fileID: 65750509430630268}
   - component: {fileID: 114657451285993776}
+  - component: {fileID: 114204167371309042}
   m_Layer: 0
-  m_Name: Monster_OutofCombat
+  m_Name: Quest Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,8 +445,21 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1000
---- !u!114 &114103743720984224
+  m_DynamicPixelsPerUnit: 1
+--- !u!114 &114204167371309042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611972992479672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec97a042335624444878e3d59b2ae823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestIDs: 01000000
+  Tasks: []
+--- !u!114 &114346077412334752
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -597,9 +611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5973b4846ef5f1841be197c927c792b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_HasQuest: 1
-  BL_QuestAccepted: 0
-  IN_NPCQuestID: 0
+  BL_inCombat: 0
+  IN_NPCQuestID: 2
   exclaimationPoint: {fileID: 1366644963810930}
   interactionObject: {fileID: 1405766608260064}
 --- !u!114 &114867690661583080
@@ -664,7 +677,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cc9cdc9b7465286448732f84615de37e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

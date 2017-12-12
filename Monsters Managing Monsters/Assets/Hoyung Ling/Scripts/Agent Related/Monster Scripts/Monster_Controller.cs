@@ -9,12 +9,14 @@ public class Monster_Controller : Attribution {
 
     // -------- MONSTER COMPONENTS ------------ ------------ ------------ ------------ ------------
     Monster_Combat CC_Combat;
+    NPCInteraction CC_Interaction;
 
     void Start()
     {
         AddMonster();
 
         CC_Combat = GetComponent<Monster_Combat>();
+        CC_Interaction = transform.GetChild(0).GetComponent<NPCInteraction>();
         Target = NearestEnemy();
         CC_Combat.Target = Target;
     }
@@ -27,12 +29,14 @@ public class Monster_Controller : Attribution {
         if (TargetHandler.instance.heroCount > 0)
         {
             CC_Combat.BL_InitiateCombat = true;
+            CC_Interaction.BL_inCombat = true;
             CombatLoop();
             return;
         }
         else
         {
             CC_Combat.BL_InitiateCombat = false;
+            CC_Interaction.BL_inCombat = false;
         }
     }
 

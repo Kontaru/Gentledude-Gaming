@@ -111,7 +111,7 @@ public class BC_ComputerBehaviour : MonoBehaviour {
 
     private void ShowFixedLabel()
     {
-        labelObject.GetComponentInChildren<Text>().text = "Fixed Computer";
+        labelObject.GetComponentInChildren<Text>().text = "Fixed Printer";
         labelObject.transform.GetChild(1).gameObject.SetActive(false);
         repairObject.SetActive(false);
     }
