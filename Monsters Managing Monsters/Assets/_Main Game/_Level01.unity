@@ -98,7 +98,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 1
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -106,7 +106,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.33333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -967,6 +967,31 @@ Prefab:
       propertyPath: GO_Player
       value: 
       objectReference: {fileID: 1959544899}
+    - target: {fileID: 4836196110357260, guid: 9a9d6b4eca66acb4e96eed55eb88496f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.23911765
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836196110357260, guid: 9a9d6b4eca66acb4e96eed55eb88496f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.3696438
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836196110357260, guid: 9a9d6b4eca66acb4e96eed55eb88496f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.09904577
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836196110357260, guid: 9a9d6b4eca66acb4e96eed55eb88496f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.89239913
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836196110357260, guid: 9a9d6b4eca66acb4e96eed55eb88496f, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 20851421462044918, guid: 9a9d6b4eca66acb4e96eed55eb88496f,
+        type: 2}
+      propertyPath: near clip plane
+      value: -24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a9d6b4eca66acb4e96eed55eb88496f, type: 2}
   m_IsPrefabParent: 0
