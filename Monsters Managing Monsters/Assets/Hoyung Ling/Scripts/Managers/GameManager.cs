@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour {
 
     public int player_Coins;
     public int player_Health;
-    public GameObject mainText;
 
     bool BL_Pause = false;
 

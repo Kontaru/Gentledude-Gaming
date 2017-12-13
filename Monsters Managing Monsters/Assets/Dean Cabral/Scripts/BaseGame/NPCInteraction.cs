@@ -14,12 +14,13 @@ public class NPCInteraction : MonoBehaviour
 
     //----- INTERACTINO GOs -----------------------------------------------------
     public GameObject exclaimationPoint;
+    public GameObject questionMark;
     public GameObject interactionObject;
 
     //----- COMPONENTS ----------------------------------------------------------
-    private Text interactionText;
     private TaskManager TM;
     private myQuests Quests;
+    private Monster_Dialogue CC_Dialogue;
     private Task ActiveTask;
 
     //When something enters the collider
@@ -30,8 +31,9 @@ public class NPCInteraction : MonoBehaviour
         if (other.gameObject.GetComponent<Entity>() != null)
         {
             Entity e_coll = other.gameObject.GetComponent<Entity>();
-            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            if (e_coll.EntityType == Entity.Entities.Player)
             {
+                if(!BL_QuestAccepted)
                 if (BL_HasQuest) ShowInteraction();
                 BL_WithinSpace = true;
             }
@@ -46,9 +48,13 @@ public class NPCInteraction : MonoBehaviour
         if (other.gameObject.GetComponent<Entity>() != null)
         {
             Entity e_coll = other.gameObject.GetComponent<Entity>();
-            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            if (e_coll.EntityType == Entity.Entities.Player)
             {
-                if (BL_HasQuest) HideInteraction();
+                if (!BL_QuestAccepted)
+                {
+                    if (BL_HasQuest) HideInteraction();
+                }
+                Monster_Dialogue.BL_ShowDialogue = false;
                 BL_WithinSpace = false;
             }
         }
@@ -63,13 +69,10 @@ public class NPCInteraction : MonoBehaviour
         if (other.gameObject.GetComponent<Entity>() != null)
         {
             Entity e_coll = other.gameObject.GetComponent<Entity>();
-            if (e_coll.EntityType == Entity.Entities.Player && !BL_QuestAccepted)
+            if (e_coll.EntityType == Entity.Entities.Player)
             {
                 if (Input.GetKeyDown(KeyCode.E))
-                {
-                    if (ActiveTask.QuestComplete) QuestCompleted();
-                    else QuestAccepted();
-                }
+                    ShowDialogue();
             }
         }
     }
@@ -78,6 +81,7 @@ public class NPCInteraction : MonoBehaviour
     {
         TM = TaskManager.instance;
         Quests = GetComponent<myQuests>();
+        CC_Dialogue = GetComponent<Monster_Dialogue>();
     }
 
     void Update()
@@ -105,6 +109,16 @@ public class NPCInteraction : MonoBehaviour
 
         if (BL_HasQuest && !BL_WithinSpace) HasQuest();
         else if (!BL_HasQuest && !BL_WithinSpace) HideAll();
+    }
+
+    private void ShowDialogue()
+    {
+        Monster_Dialogue.BL_ShowDialogue = true;
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (ActiveTask.QuestComplete) QuestCompleted();
+            else QuestAccepted();
+        }
     }
 
     private void ShowInteraction()

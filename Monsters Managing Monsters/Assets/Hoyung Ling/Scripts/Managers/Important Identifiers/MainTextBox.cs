@@ -7,12 +7,18 @@ public class MainTextBox : MonoBehaviour {
 
     [Header("Attached to the main text box")]
     public bool Main = false;
+    public GameObject body;
 
-	void Awake () {
+    private Text myText;
+
+	void Start () {
+        myText = GetComponent<Text>();
+        body = transform.parent.gameObject;
+
         if (Main == true)
         {
-            TextManager.instance.textBoxSetter(GetComponent<Text>());
-            GameManager.instance.mainText = gameObject;
+            TextManager.instance.textBoxSetter(myText);
+            TextManager.instance.textGO_Setter(transform.parent.gameObject);   
         }
 	}
 }

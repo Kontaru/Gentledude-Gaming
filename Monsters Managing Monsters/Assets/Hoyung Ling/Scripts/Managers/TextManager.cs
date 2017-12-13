@@ -8,7 +8,10 @@ public class TextManager : MonoBehaviour {
 
     public Dialogue[] dialogues;            //An array of dialogue files
     Text textBox;
+    GameObject textGO;
 
+    float lerpTime = 0;
+    public static bool showText = false;
     public static TextManager instance;
 
     #region Typical Singleton Format
@@ -28,6 +31,32 @@ public class TextManager : MonoBehaviour {
     }
 
     #endregion
+
+    private void Update()
+    {
+        if (textGO != null)
+        {
+            if (showText)
+            {
+                while (lerpTime < 1)
+                {
+                    lerpTime += Time.deltaTime;
+                }
+            }
+            else if (!showText)
+            {
+                while (lerpTime > 0)
+                {
+                    lerpTime -= Time.deltaTime;
+                }
+            }
+
+            textGO.GetComponent<RectTransform>().localPosition = Vector3.Lerp(
+                new Vector3(0, -275, 0),
+                new Vector3(0, -175, 0),
+                lerpTime);
+        }
+    }
 
     //PRINTTEXT - Prints text by name. Use TextManager.instance.PrintText() to print from a text file.
     public string PrintText(string name)
@@ -59,6 +88,11 @@ public class TextManager : MonoBehaviour {
     public void CustomText(string text)
     {
         textBox.text = string.Format(text);
+    }
+
+    public void textGO_Setter(GameObject GO)
+    {
+        textGO = GO;
     }
 
     //Don't worry about this one. It's just an identifier used by MainTextBox
