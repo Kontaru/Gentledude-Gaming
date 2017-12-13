@@ -7,12 +7,16 @@ public class DD_PlayerBehaviour : MonoBehaviour {
 
     public bool BL_MinigameFailed;
     public GameObject doughnuts;
+    public GameObject winScreen;
+    public GameObject failScreen;
     public Text timerText;
     public Text livesText;
+    public Text invText;
 
     private Vector3 playerSpawn;
     private int lives;
     private int timer;
+    private string inventory;
     private bool BL_DoughnutsVisible = true;
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -20,9 +24,18 @@ public class DD_PlayerBehaviour : MonoBehaviour {
         if (collision.gameObject.name == "Doughnuts(Clone)")
         {
             Destroy(collision.gameObject);
+            inventory = "Doughnuts";
             BL_DoughnutsVisible = false;
         }
         else RespawnPlayer();
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "DD_Office" && inventory == "Doughnuts")
+        {
+            WinScreen();
+        }
     }
 
     // Use this for initialization
@@ -31,6 +44,7 @@ public class DD_PlayerBehaviour : MonoBehaviour {
         playerSpawn = transform.position;
         lives = 3;
         timer = 30;
+        inventory = "Empty";
         StartCoroutine(CountdownTimer());
 	}
 	
@@ -46,6 +60,7 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     {
         timerText.text = "Timer: " + timer.ToString() + " seconds";
         livesText.text = "Lives: " + lives.ToString();
+        invText.text = "Inventory: " + inventory;
     }
 
     private void CheckMovement()
@@ -58,7 +73,15 @@ public class DD_PlayerBehaviour : MonoBehaviour {
 
     private void CheckFailure()
     {
-        if (BL_MinigameFailed) Time.timeScale = 0;
+        if (BL_MinigameFailed)
+        {
+            StartCoroutine(ShowScreen(failScreen));
+        }
+    }
+
+    private void WinScreen()
+    {
+        StartCoroutine(ShowScreen(winScreen));
     }
 
     private void RespawnPlayer()
@@ -66,6 +89,7 @@ public class DD_PlayerBehaviour : MonoBehaviour {
         if (lives > 0)
         {
             lives--;
+            inventory = "Empty";
             transform.position = playerSpawn;
         }
         else
@@ -89,5 +113,18 @@ public class DD_PlayerBehaviour : MonoBehaviour {
         }
 
         BL_MinigameFailed = true;
+    }
+
+    IEnumerator ShowScreen(GameObject screen)
+    {
+        float lerpTime = 0;
+        while (lerpTime < 1)
+        {
+            lerpTime += Time.deltaTime * 3;
+            screen.GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(0, -345, 0), Vector3.zero, lerpTime);
+
+            yield return null;
+        }
+        Time.timeScale = 0;
     }
 }

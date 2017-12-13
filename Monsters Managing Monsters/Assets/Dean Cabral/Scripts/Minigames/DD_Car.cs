@@ -10,7 +10,7 @@ public class DD_Car : MonoBehaviour {
 
     void Start()
     {
-        StartCoroutine(DestroyShark());
+        StartCoroutine(DestroyCar());
     }
     void Update()
     {
@@ -25,8 +25,15 @@ public class DD_Car : MonoBehaviour {
 
     void SpawnerType(string _type)
     {
-        if (_type == "LeftSpawner") leftSpawner = true;
-        else leftSpawner = false;
+        if (_type == "LeftSpawner")
+        {
+            leftSpawner = true;
+        }
+        else
+        {
+            leftSpawner = false;
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     void SpeedType(int _type)
@@ -34,9 +41,9 @@ public class DD_Car : MonoBehaviour {
         speed = _type;
     }
 
-    IEnumerator DestroyShark()
+    IEnumerator DestroyCar()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
         Destroy(this.gameObject);
     }
 }
