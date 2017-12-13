@@ -45,6 +45,11 @@ public class Hero_Controller : Attribution
         }
     }
 
+    private void LateUpdate()
+    {
+        TargetHandler.heroesSpawned = true;
+    }
+
     //Initialise
     void Initialise()
     {

@@ -12,6 +12,8 @@ public class NPCInteraction : MonoBehaviour
     public int IN_NPCQuestID = 0;       //Probably not needed
     private bool BL_WithinSpace = false;//Am I inside the trigger box?
 
+    public string[] flavourText;
+
     //----- INTERACTINO GOs -----------------------------------------------------
     public GameObject exclaimationPoint;
     public GameObject questionMark;
@@ -106,31 +108,42 @@ public class NPCInteraction : MonoBehaviour
         //If I've accepted a quest, don't bother with anything else below
         if (BL_QuestAccepted)
         {
+            //Logic for showing ? or !
             if (ActiveTask.QuestComplete)
             {
                 exclaimationPoint.SetActive(true);
                 questionMark.SetActive(false);
-                return;
             }
-            ActiveTask.isAccepted = true;
-            questionMark.SetActive(true);
-            return;
-        }else
-            questionMark.SetActive(false);
-
-
-
-        if (BL_HasQuest && !BL_WithinSpace) HasQuest();
-        else if (!BL_HasQuest && !BL_WithinSpace) HideAll();
+            else
+            {
+                ActiveTask.isAccepted = true;
+                exclaimationPoint.SetActive(false);
+                questionMark.SetActive(true);
+            }
+        }
+        else
+        {
+            ActiveTask.isAccepted = false;
+            if (BL_HasQuest && !BL_WithinSpace) HasQuest();
+            else if (!BL_HasQuest && !BL_WithinSpace) HideAll();
+        }
     }
 
     private void ShowDialogue()
     {
         Monster_Dialogue.BL_ShowDialogue = true;
-        CC_Dialogue.SetText(ActiveTask.description);
-        if (ActiveTask.QuestComplete)
-            QuestCompleted();
-        else QuestAccepted();
+        if (BL_HasQuest)
+        {
+            CC_Dialogue.SetText(ActiveTask.description);
+            if (ActiveTask.QuestComplete)
+                QuestCompleted();
+            else QuestAccepted();
+        }else
+        {
+            int rand = Random.Range(0, flavourText.Length - 1);
+
+            CC_Dialogue.SetText(flavourText[rand]);
+        }
     }
 
     private void ShowInteraction()
@@ -169,6 +182,7 @@ public class NPCInteraction : MonoBehaviour
 
     private void QuestCompleted()
     {
+        HideAll();
         ActiveTask.QuestFinish = true;
         BL_QuestAccepted = false;
         BL_HasQuest = false;
