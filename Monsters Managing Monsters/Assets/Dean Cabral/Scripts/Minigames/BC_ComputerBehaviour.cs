@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BC_ComputerBehaviour : MonoBehaviour {
+public class BC_ComputerBehaviour : QuestPart {
 
-    public bool BL_IsInteractable;
-    public bool BL_MinigameComplete;
     public bool BL_IsPlaying;
     public GameObject labelObject;
     public GameObject repairObject;

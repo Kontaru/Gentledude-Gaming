@@ -6,6 +6,7 @@ public class Step
     public string name;                     //This is a name which will display in our quest log. "Find Diana's bracelet!"
     [TextArea(2, 10)]
     public string description;              //Description of my step (how to complete it, what I need for it to be complete)
+    public QuestPart requires;
     public bool complete = false;           //Is this step complete?
 }
 
@@ -36,10 +37,33 @@ public class Task
         {
             //If any of these steps are false, just stop everything and quit the function.
             if (step.complete == false)
+            {
+                if (isAccepted)
+                {
+                    if (step.requires.GetComponent<QuestPart>().BL_MinigameComplete)
+                        step.complete = true;
+                    step.requires.GetComponent<QuestPart>().BL_IsInteractable = true;
+                }
                 return;
+            }
         }
         //If return is never called, then we can safetly set this to true.
 
         QuestComplete = true;
+    }
+
+    public void Obtained()
+    {
+        if(isAccepted)
+        {
+            foreach (Step step in Steps)
+            {
+                //If any of these steps are false, just stop everything and quit the function.
+                if (step.complete == false)
+                {
+
+                }
+            }
+        }
     }
 }

@@ -105,18 +105,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tasks:
-  - name: Jeff's Quest 1
-    description: Placeholder
+  - name: Fix Stacey's Printer
+    description: Hey, you~! Like, I hate to ask this of you, because frankly I don't
+      like talking to you, buuuut the printer's broken, soooo go fix it for me~!
     QuestID: 1
     QuestComplete: 0
     belongsTo: {fileID: 0}
     isObtainable: 0
     isAccepted: 0
     Steps:
-    - name: Find Jeff's Comb
-      description: The player should do a thing which does another thing.
-      complete: 0
-    - name: Cut Jeff's Hair
+    - name: Fix Stacey's Printer
       description: The player should do a thing which does another thing.
       complete: 0
   - name: Fix Stacey's Printer

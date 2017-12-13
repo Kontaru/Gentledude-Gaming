@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 20851421462044918}
   - component: {fileID: 124841009398931470}
   - component: {fileID: 81571287699481156}
-  - component: {fileID: 114334234651797078}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -53,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1182158987663788}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 35.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4836196110357260}
@@ -66,8 +65,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1405932185399420}
-  m_LocalRotation: {x: 0.23821622, y: -0.3776634, z: 0.10119461, w: 0.8890349}
-  m_LocalPosition: {x: 7, y: 7, z: -7}
+  m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
+  m_LocalPosition: {x: 12, y: 14, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4405857529991640}
@@ -92,8 +91,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -115,24 +114,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1405932185399420}
   m_Enabled: 1
---- !u!114 &114334234651797078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1405932185399420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b732d0e6200309498a523984a9467f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camPosition: {x: 0, y: 0, z: 0}
-  panLimit: {x: 400, y: 400}
-  player: {fileID: 0}
-  panBorder: 800
-  panSpeed: 50
-  panRestriction: 400
-  scrollSpeed: 20
 --- !u!114 &114677210180827836
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -21,7 +21,7 @@ public class NPCInteraction : MonoBehaviour
     private TaskManager TM;
     private myQuests Quests;
     private Monster_Dialogue CC_Dialogue;
-    private Task ActiveTask;
+    public Task ActiveTask;
 
     //When something enters the collider
     //Check if the colliding type is of type "Player"
@@ -92,6 +92,9 @@ public class NPCInteraction : MonoBehaviour
         //Check all of my quests, if any of them are obtainable, then I have a quest
         foreach (Task quest in Quests.Tasks)
         {
+            if (quest == null)
+                break;
+
             if (quest.isObtainable)
             {
                 BL_HasQuest = true;
@@ -104,8 +107,10 @@ public class NPCInteraction : MonoBehaviour
         if (BL_QuestAccepted)
         {
             ActiveTask.isAccepted = true;
+            questionMark.SetActive(true);
             return;
-        }
+        }else
+            questionMark.SetActive(false);
 
         if (BL_HasQuest && !BL_WithinSpace) HasQuest();
         else if (!BL_HasQuest && !BL_WithinSpace) HideAll();
@@ -114,6 +119,7 @@ public class NPCInteraction : MonoBehaviour
     private void ShowDialogue()
     {
         Monster_Dialogue.BL_ShowDialogue = true;
+        CC_Dialogue.SetText(ActiveTask.description);
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (ActiveTask.QuestComplete) QuestCompleted();
@@ -125,24 +131,28 @@ public class NPCInteraction : MonoBehaviour
     {
         exclaimationPoint.SetActive(false);
         interactionObject.SetActive(true);
+        questionMark.SetActive(false);
     }
 
     private void HideInteraction()
     {
         interactionObject.SetActive(false);
         exclaimationPoint.SetActive(true);
+        questionMark.SetActive(false);
     }
 
     private void HasQuest()
     {
         exclaimationPoint.SetActive(true);
         interactionObject.SetActive(false);
+        questionMark.SetActive(false);
     }
 
     private void HideAll()
     {
         exclaimationPoint.SetActive(false);
         interactionObject.SetActive(false);
+        questionMark.SetActive(false);
     }
 
     private void QuestAccepted()

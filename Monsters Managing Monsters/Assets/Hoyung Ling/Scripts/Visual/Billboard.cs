@@ -7,7 +7,8 @@ public class Billboard : MonoBehaviour
 
     //Should we look at the camera?
     public bool BL_LookAtCam = false;
-    float playerfollowSmoothSpeed = 1f;
+    public bool BL_LookAtPC = false;
+    float playerfollowSmoothSpeed = 2f;
 
     //Direction in front of the player
     public Transform Forward;
@@ -17,7 +18,19 @@ public class Billboard : MonoBehaviour
     // Update is called once per frame
     virtual public void Update()
     {
-        if (BL_LookAtCam == true)
+        if(TargetHandler.instance.heroCount > 0)
+        {
+            BL_LookAtPC = false;
+        }
+
+        if(BL_LookAtPC)
+        {
+            var lookPos = transform.position - FindObjectOfType<PC_Controller>().gameObject.transform.position;
+            lookPos.y = 0;
+            var rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
+        }
+        else if (BL_LookAtCam == true)
         {
             var lookPos = transform.position - Camera.main.transform.position;
             lookPos.y = 0;
