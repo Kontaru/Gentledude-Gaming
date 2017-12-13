@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void LastScene()
+    {
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
+    }
+
     public void LoadScene(int index)
     {
         SceneManager.LoadScene(index, LoadSceneMode.Single);

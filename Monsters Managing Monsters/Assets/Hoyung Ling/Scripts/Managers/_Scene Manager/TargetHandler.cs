@@ -52,7 +52,7 @@ public class TargetHandler : MonoBehaviour {
 
         if (monsterDeathCount == monsters.Length)
         {
-            GameManager.instance.LoadScene(2);
+            GameManager.instance.LastScene();
         }
     }
 
