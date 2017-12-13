@@ -7,6 +7,7 @@ public class Step
     [TextArea(2, 10)]
     public string description;              //Description of my step (how to complete it, what I need for it to be complete)
     public QuestPart requires;
+    public GameObject nextStep;
     public bool complete = false;           //Is this step complete?
 }
 
@@ -18,12 +19,16 @@ public class Task
 
     [TextArea(2, 10)]
     public string description;              //A description of the quest. Please fill this in so everyone else knows what the quest is and what the steps are to completing a quest.
+    [TextArea(2, 10)]
+    public string finishDialogue;
 
     public int QuestID;
 
     public bool QuestComplete = false;     //Is our quest complete?
+    public bool QuestFinish = false;       //Trigger for NPC hand in
 
     public GameObject belongsTo;
+    public GameObject[] reward;
     public bool isObtainable = false;
     public bool isAccepted = false;
 
@@ -42,6 +47,7 @@ public class Task
                 {
                     if (step.requires.GetComponent<QuestPart>().BL_MinigameComplete)
                         step.complete = true;
+
                     step.requires.GetComponent<QuestPart>().BL_IsInteractable = true;
                 }
                 return;
@@ -50,6 +56,14 @@ public class Task
         //If return is never called, then we can safetly set this to true.
 
         QuestComplete = true;
+
+        if (QuestFinish)
+        {
+            foreach (GameObject produce in reward)
+            {
+                produce.SetActive(true);
+            }
+        }
     }
 
     public void Obtained()

@@ -55,41 +55,56 @@ MonoBehaviour:
   currentTask:
   - name: 
     description: 
+    finishDialogue: 
     QuestID: 0
     QuestComplete: 0
+    QuestFinish: 0
     belongsTo: {fileID: 0}
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
   - name: 
     description: 
+    finishDialogue: 
     QuestID: 0
     QuestComplete: 0
+    QuestFinish: 0
     belongsTo: {fileID: 0}
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
   - name: 
     description: 
+    finishDialogue: 
     QuestID: 0
     QuestComplete: 0
+    QuestFinish: 0
     belongsTo: {fileID: 0}
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
   - name: 
     description: 
+    finishDialogue: 
     QuestID: 0
     QuestComplete: 0
+    QuestFinish: 0
     belongsTo: {fileID: 0}
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
   - name: 
     description: 
+    finishDialogue: 
     QuestID: 0
     QuestComplete: 0
+    QuestFinish: 0
     belongsTo: {fileID: 0}
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
@@ -108,31 +123,20 @@ MonoBehaviour:
   - name: Fix Stacey's Printer
     description: Hey, you~! Like, I hate to ask this of you, because frankly I don't
       like talking to you, buuuut the printer's broken, soooo go fix it for me~!
+    finishDialogue: OMG, you did it~! (I didn't think you had it in you) [Suddenly,
+      heroes bust in!] [END TECH DEMO]
     QuestID: 1
     QuestComplete: 0
+    QuestFinish: 0
     belongsTo: {fileID: 0}
+    reward:
+    - {fileID: 0}
+    - {fileID: 0}
     isObtainable: 0
     isAccepted: 0
     Steps:
     - name: Fix Stacey's Printer
       description: The player should do a thing which does another thing.
+      requires: {fileID: 0}
+      nextStep: {fileID: 0}
       complete: 0
-  - name: Fix Stacey's Printer
-    description: 
-    QuestID: 2
-    QuestComplete: 0
-    belongsTo: {fileID: 0}
-    isObtainable: 0
-    isAccepted: 0
-    Steps:
-    - name: Fix Stacey's Printer
-      description: Go fix Stacey's printer!
-      complete: 0
-  - name: 
-    description: 
-    QuestID: 0
-    QuestComplete: 0
-    belongsTo: {fileID: 0}
-    isObtainable: 0
-    isAccepted: 0
-    Steps: []

@@ -33,8 +33,7 @@ public class NPCInteraction : MonoBehaviour
             Entity e_coll = other.gameObject.GetComponent<Entity>();
             if (e_coll.EntityType == Entity.Entities.Player)
             {
-                if(!BL_QuestAccepted)
-                if (BL_HasQuest) ShowInteraction();
+                ShowInteraction();
                 BL_WithinSpace = true;
             }
         }
@@ -53,6 +52,7 @@ public class NPCInteraction : MonoBehaviour
                 if (!BL_QuestAccepted)
                 {
                     if (BL_HasQuest) HideInteraction();
+                    else HideAll();
                 }
                 Monster_Dialogue.BL_ShowDialogue = false;
                 BL_WithinSpace = false;
@@ -106,11 +106,19 @@ public class NPCInteraction : MonoBehaviour
         //If I've accepted a quest, don't bother with anything else below
         if (BL_QuestAccepted)
         {
+            if (ActiveTask.QuestComplete)
+            {
+                exclaimationPoint.SetActive(true);
+                questionMark.SetActive(false);
+                return;
+            }
             ActiveTask.isAccepted = true;
             questionMark.SetActive(true);
             return;
         }else
             questionMark.SetActive(false);
+
+
 
         if (BL_HasQuest && !BL_WithinSpace) HasQuest();
         else if (!BL_HasQuest && !BL_WithinSpace) HideAll();
@@ -120,11 +128,9 @@ public class NPCInteraction : MonoBehaviour
     {
         Monster_Dialogue.BL_ShowDialogue = true;
         CC_Dialogue.SetText(ActiveTask.description);
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (ActiveTask.QuestComplete) QuestCompleted();
-            else QuestAccepted();
-        }
+        if (ActiveTask.QuestComplete)
+            QuestCompleted();
+        else QuestAccepted();
     }
 
     private void ShowInteraction()
@@ -163,5 +169,9 @@ public class NPCInteraction : MonoBehaviour
 
     private void QuestCompleted()
     {
+        ActiveTask.QuestFinish = true;
+        BL_QuestAccepted = false;
+        BL_HasQuest = false;
+        CC_Dialogue.SetText(ActiveTask.finishDialogue);
         Debug.Log("Quest Completed");
     }}
