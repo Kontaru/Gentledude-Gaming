@@ -19,6 +19,16 @@ public class NPCInteraction : MonoBehaviour
     public GameObject questionMark;
     public GameObject interactionObject;
 
+    public RectTransform tempthing;
+    int tempvalue = 2;
+    int othertempvalue = 10;
+    float tempthingwidth;
+
+    public RectTransform vtempthing;
+    int vtempvalue = 2;
+    int vothertempvalue = 10;
+    float vtempthingwidth;
+
     //----- COMPONENTS ----------------------------------------------------------
     private TaskManager TM;
     private myQuests Quests;
@@ -81,6 +91,10 @@ public class NPCInteraction : MonoBehaviour
 
     void Start()
     {
+        if(tempthing != null)
+        tempthingwidth = tempthing.sizeDelta.x;
+        if (vtempthing != null)
+            vtempthingwidth = vtempthing.sizeDelta.x;
         TM = TaskManager.instance;
         Quests = GetComponent<myQuests>();
         CC_Dialogue = GetComponent<Monster_Dialogue>();
@@ -88,6 +102,10 @@ public class NPCInteraction : MonoBehaviour
 
     void Update()
     {
+        if(tempthing != null)
+        TempStuff();
+        if (vtempthing != null)
+            vTempStuff();
         //If I'm in combat, don't bother doing things anymore
         if (BL_inCombat == true) return;
 
@@ -127,6 +145,18 @@ public class NPCInteraction : MonoBehaviour
             if (BL_HasQuest && !BL_WithinSpace) HasQuest();
             else if (!BL_HasQuest && !BL_WithinSpace) HideAll();
         }
+    }
+
+    void TempStuff()
+    {
+        float scale = (float)tempvalue / (float)othertempvalue;
+        tempthing.sizeDelta = new Vector2(tempthingwidth * scale, tempthing.sizeDelta.y);
+    }
+
+    void vTempStuff()
+    {
+        float scale = (float)vtempvalue / (float)vothertempvalue;
+        vtempthing.sizeDelta = new Vector2(vtempthingwidth * scale, vtempthing.sizeDelta.y);
     }
 
     private void ShowDialogue()
@@ -183,6 +213,8 @@ public class NPCInteraction : MonoBehaviour
     private void QuestCompleted()
     {
         HideAll();
+        tempvalue += 4;
+        vtempvalue += 4;
         ActiveTask.QuestFinish = true;
         BL_QuestAccepted = false;
         BL_HasQuest = false;
