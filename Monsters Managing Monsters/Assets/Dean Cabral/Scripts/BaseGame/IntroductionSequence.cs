@@ -11,6 +11,7 @@ public class IntroductionSequence : MonoBehaviour {
     public GameObject saveIcon;
     public Text disclaimerText;
     public Text savingText;
+    public Text skipText;
     public Image menuBG;
 
     void Start()
@@ -18,11 +19,29 @@ public class IntroductionSequence : MonoBehaviour {
         SequenceOrder();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StopAllCoroutines();
+            HideAllScreens();
+            mainMenu.SetActive(true);
+        }
+    }
+
     private void SequenceOrder()
     {
         StartCoroutine(LoadDisclaimer());
         StartCoroutine(LoadSaving());
         StartCoroutine(LoadMenu());
+    }
+
+    private void HideAllScreens()
+    {
+        disclaimerScreen.SetActive(false);
+        savingScreen.SetActive(false);
+        skipText.gameObject.SetActive(false);
+        HideSave();
     }
 
     public IEnumerator LoadDisclaimer()
@@ -42,6 +61,7 @@ public class IntroductionSequence : MonoBehaviour {
     {
         yield return new WaitForSeconds(16);
         mainMenu.SetActive(true);
+        skipText.gameObject.SetActive(false);
         StartCoroutine(FadeImageToFullAlpha(6, menuBG));
 
     }
