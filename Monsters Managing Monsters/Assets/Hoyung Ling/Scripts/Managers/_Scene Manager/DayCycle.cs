@@ -8,6 +8,9 @@ public class DayCycle : MonoBehaviour
 
     public static DayCycle instance;
 
+    public bool ShowResults = false;
+    public bool EnterHeroes = false;
+
     [Header("Day Parameters")]
 
     //Variables we use to calculate ALL the things
@@ -85,15 +88,14 @@ public class DayCycle : MonoBehaviour
                 if (currentDay > 3)
                 {
                     //SpawnHero
+                    EnterHeroes = true;
+                    ShowResults = false;
                 }
                 else
                 {
-                    if (!ShowResults())
-                    {
-
-                    }
                     //Do calculations screen
-                    //Do a next day transition
+                    EnterHeroes = false;
+                    ShowResults = true;
                 }
                 return;
             }
@@ -157,11 +159,7 @@ public class DayCycle : MonoBehaviour
             Minute.text = string.Format("" + displayMinute);
     }
 
-    bool ShowResults()
-    {
-        //Show player scores
-        return false;
-    }
+    //Some return values for DLight
 
     public float DLightCurrentTime()
     {
@@ -170,6 +168,6 @@ public class DayCycle : MonoBehaviour
 
     public float DLightHour()
     {
-        return displayHour;
+        return (24 - workHours) + (currentTime * dayHours / timeInDay);
     }
 }
