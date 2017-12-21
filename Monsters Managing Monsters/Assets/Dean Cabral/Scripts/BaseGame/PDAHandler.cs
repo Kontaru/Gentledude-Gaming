@@ -85,18 +85,27 @@ public class PDAHandler : MonoBehaviour {
     {
         HideAllScreens();
         mapScreen.SetActive(true);
+        if (!BL_PDAactive) StartCoroutine(ShowPDA());
+
+        BL_PDAactive = true;
     }
 
     private void ShowStats()
     {
         HideAllScreens();
         statsScreen.SetActive(true);
+        if (!BL_PDAactive) StartCoroutine(ShowPDA());
+
+        BL_PDAactive = true;
     }
 
     private void ShowTasks()
     {
         HideAllScreens();
         tasksScreen.SetActive(true);
+        if (!BL_PDAactive) StartCoroutine(ShowPDA());
+
+        BL_PDAactive = true;
     }
 
     IEnumerator ShowPDA()
@@ -105,7 +114,7 @@ public class PDAHandler : MonoBehaviour {
         while (lerpTime < 1)
         {
             lerpTime += Time.deltaTime * 3;
-            GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(249, -380, 0), new Vector3(249, 50, 0), lerpTime);
+            GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(249, -380, 0), new Vector3(249, -50, 0), lerpTime);
 
             yield return null;
         }
@@ -119,7 +128,7 @@ public class PDAHandler : MonoBehaviour {
         while (lerpTime < 1)
         {
             lerpTime += Time.deltaTime * 3;
-            GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(249, 50, 0), new Vector3(249, -380, 0), lerpTime);
+            GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(249, -50, 0), new Vector3(249, -380, 0), lerpTime);
 
             yield return null;
         }
