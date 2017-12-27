@@ -3308,7 +3308,12 @@ Prefab:
     - target: {fileID: 20851421462044918, guid: 9a9d6b4eca66acb4e96eed55eb88496f,
         type: 2}
       propertyPath: near clip plane
-      value: -24
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 20851421462044918, guid: 9a9d6b4eca66acb4e96eed55eb88496f,
+        type: 2}
+      propertyPath: orthographic size
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a9d6b4eca66acb4e96eed55eb88496f, type: 2}
@@ -12069,8 +12074,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.7
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -12123,7 +12128,7 @@ MonoBehaviour:
   spotLights: []
   skyColour:
   - name: Morning (7am)
-    lightCastColour: {r: 0.78823537, g: 0.8862746, b: 1, a: 0}
+    lightCastColour: {r: 0.4828071, g: 0.58267856, b: 0.6985294, a: 0}
     brightness: 0.9
     when: 0
   - name: High Noon (12pm)
@@ -12134,15 +12139,14 @@ MonoBehaviour:
     lightCastColour: {r: 1, g: 0.5764706, b: 0.16078432, a: 0}
     brightness: 0.5
     when: 12
-  - name: Evening (6pm)
+  - name: Night (9pm)
     lightCastColour: {r: 1, g: 1, b: 1, a: 0}
     brightness: 0
     when: 18
-  DayTime: 0
-  HighNoon: 0
-  Evening: 0
-  Night: 0
-  currentHour: 0
+  morningStart: 7
+  afternoonStart: 12
+  eveningStart: 18
+  nightStart: 21
 --- !u!1 &2128524277
 GameObject:
   m_ObjectHideFlags: 0

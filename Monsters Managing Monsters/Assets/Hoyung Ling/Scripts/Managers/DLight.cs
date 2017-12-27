@@ -26,14 +26,20 @@ public class DLight : MonoBehaviour {
 
     public Daylight[] skyColour;
 
-    public bool DayTime;
-    public bool HighNoon;
-    public bool Evening;
-    public bool Night;
+    const int midnight = 24;
+    public int morningStart;
+    public int afternoonStart;
+    public int eveningStart;
+    public int nightStart;    
+
+    int currentStep = 0;
+    float until = 0;
+    float duration = 0;
+    float rate = 0;
 
     float currentTime;
     float timeInDay;
-    public float currentHour;
+    float currentHour;
 
     #region Typical Singleton Format
 
@@ -68,34 +74,24 @@ public class DLight : MonoBehaviour {
         timeInDay = DayCycle.instance.timeInDay;
         currentHour = DayCycle.instance.DLightHour();
 
-        DayToNight(currentTime, timeInDay);
+        UpdateLightCycle(timeInDay);
 	}
 
-    void DayToNight(float time, float realTime)
+    void UpdateLightCycle(float realTime)
     {
-        int currentStep = 0;
-        float until = 0;
-        float duration = 0;
-        float rate = 0;
+        if (currentHour > morningStart && currentHour < afternoonStart) currentStep = 0;
+        else if (currentHour > afternoonStart && currentHour < eveningStart) currentStep = 1;
+        else if (currentHour > eveningStart && currentHour < nightStart) currentStep = 2;
+        else if (currentHour > nightStart && currentHour < midnight) currentStep = 3;
 
-        for (int i = 0; i < skyColour.Length; i++)
-        {
-            if (currentHour > skyColour[i].when)
-            {
-                currentStep++;
-            }
-        }
-
-        if (currentStep == skyColour.Length - 1)
-            until = 24;
-        else
-            until = skyColour[currentStep + 1].when;
+        if (currentStep == skyColour.Length - 1) until = 24;
+        else until = skyColour[currentStep + 1].when;
 
         duration = until - skyColour[currentStep].when;
         rate = 24 / realTime;
         duration = rate * duration;
 
-        mainLight.intensity = Mathf.Lerp(mainLight.intensity, skyColour[currentStep].brightness,  Time.deltaTime * duration);
-        mainLight.color = Color.Lerp(mainLight.color, skyColour[currentStep].lightCastColour, Time.deltaTime * duration);
+        mainLight.intensity = Mathf.Lerp(mainLight.intensity, skyColour[currentStep].brightness, Time.deltaTime / duration);
+        mainLight.color = Color.Lerp(mainLight.color, skyColour[currentStep].lightCastColour, Time.deltaTime / duration);
     }
 }
