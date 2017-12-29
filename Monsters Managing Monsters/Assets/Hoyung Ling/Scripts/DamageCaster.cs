@@ -40,19 +40,19 @@ public class DamageCaster : Attribution {
     //If they are in favour of the weapon, deal double damage. Otherwise deal 1
     void AttributeCheck(Collider coll)
     {
-        if (Attribute == Attributes.Rock)
+        if (myAttribute == Attributes.Succubus)
         {
-            if (coll.GetComponent<Attribution>().Attribute == Attribution.Attributes.Scissors) DealDamage(coll, 2);
+            if (coll.GetComponent<Attribution>().myAttribute == Attribution.Attributes.Goblin) DealDamage(coll, 2);
             else DealDamage(coll, 1);
         }
-        else if (Attribute == Attributes.Paper)
+        else if (myAttribute == Attributes.Ogre)
         {
-            if (coll.GetComponent<Attribution>().Attribute == Attribution.Attributes.Rock) DealDamage(coll, 2);
+            if (coll.GetComponent<Attribution>().myAttribute == Attribution.Attributes.Succubus) DealDamage(coll, 2);
             else DealDamage(coll, 1);
         }
-        else if (Attribute == Attributes.Scissors)
+        else if (myAttribute == Attributes.Goblin)
         {
-            if (coll.GetComponent<Attribution>().Attribute == Attribution.Attributes.Paper) DealDamage(coll, 2);
+            if (coll.GetComponent<Attribution>().myAttribute == Attribution.Attributes.Ogre) DealDamage(coll, 2);
             else DealDamage(coll, 1);
         }
     }

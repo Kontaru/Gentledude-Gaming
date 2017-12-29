@@ -37,6 +37,12 @@ public class Monster_Controller : Attribution {
         {
             CC_Combat.BL_InitiateCombat = false;
             CC_Interaction.BL_inCombat = false;
+
+            if(CC_Interaction.BL_QuestCompleted)
+            {
+                CC_Interaction.BL_QuestCompleted = false;
+                GameManager.instance.PowerBoost(myAttribute);
+            }
         }
     }
 

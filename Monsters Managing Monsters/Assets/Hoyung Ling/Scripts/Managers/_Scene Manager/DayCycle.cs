@@ -39,7 +39,7 @@ public class DayCycle : MonoBehaviour
     //When false, it should represent the hours in the day that the player doesn't play
     //i.e: midnight till 9am
     public bool isPlayingGame = true;
-    public bool checkForMidnight = false;
+    public bool daytimeLoop = false;
 
     [Header("UI")]
     public Text Hour;
@@ -72,14 +72,9 @@ public class DayCycle : MonoBehaviour
 
         if (!begunDay) return;
 
-        if (checkForMidnight)
+        if (daytimeLoop)
         {
-            if(Time.time >= finalHour)
-            {
-                beginDay = true;
-            }
-
-            //Check if we should bother playing
+            //Has our day ended?
             if (currentTime >= (timeInDay / dayHours) * workHours)
             {
                 pause = true;
@@ -97,23 +92,20 @@ public class DayCycle : MonoBehaviour
                     EnterHeroes = false;
                     ShowResults = true;
                 }
-                return;
+            }
+
+            if (!pause && isPlayingGame)
+            {
+                currentTime = Time.time - firstHour;
+                CalculateTime(currentTime);
             }
         }
 
-        if (!pause && isPlayingGame)
-        {
-            //What is the time right now? (in floats)
-            currentTime = Time.time - firstHour;
-            //Convert float into something we can use to show the player
-            CalculateTime(currentTime);
 
-        }
         else if (!pause && !isPlayingGame)
         {
-            //What is the time right now? (in floats)
+            //From midnight until morning, we want to simulate sped up time
             currentTime = Time.time * 60 - firstHour;
-            //Convert float into something we can use to show the player
             CalculateTime(currentTime);
         }
     }
@@ -133,10 +125,10 @@ public class DayCycle : MonoBehaviour
 
         pause = false;
         begunDay = true;
-        checkForMidnight = true;
+        daytimeLoop = true;
     }
 
-    //What's the time?
+    //Convert float into something we can use to show the player
     void CalculateTime(float time)
     {
         //Current time * time it takes for an hour

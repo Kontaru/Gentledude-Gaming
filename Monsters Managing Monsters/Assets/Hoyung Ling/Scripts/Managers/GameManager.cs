@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour {
     public int player_Coins;
     public int player_Health;
 
+    [Header("Monster Stats")]
+    [SerializeField] int PL_Succ = 0;
+    [SerializeField] int PL_Ogre = 0;
+    [SerializeField] int PL_Goblin = 0;
+    [SerializeField] int PL_Demon = 0;
+
     bool BL_Pause = false;
 
     void Awake()
@@ -40,6 +46,18 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+    }
+
+    public void PowerBoost(Attribution.Attributes attr)
+    {
+        if (attr == Attribution.Attributes.Succubus)
+            PL_Succ++;
+        if (attr == Attribution.Attributes.Ogre)
+            PL_Ogre++;
+        if (attr == Attribution.Attributes.Goblin)
+            PL_Goblin++;
+        if (attr == Attribution.Attributes.Demon)
+            PL_Demon++;
     }
 
     #region ~ Scene Related ~

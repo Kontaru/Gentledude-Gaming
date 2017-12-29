@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class NPCInteraction : MonoBehaviour
 {
 
+    //Used by controller
+    public bool BL_QuestCompleted = false;
+
     public bool BL_inCombat;            //Am I in combat?
     bool BL_HasQuest;                   //Do I have a quest?
     bool BL_QuestAccepted;              //Did I accept a quest?
@@ -14,7 +17,7 @@ public class NPCInteraction : MonoBehaviour
 
     public string[] flavourText;
 
-    //----- INTERACTINO GOs -----------------------------------------------------
+    //----- INTERACTION GOs -----------------------------------------------------
     public GameObject exclaimationPoint;
     public GameObject questionMark;
     public GameObject interactionObject;
@@ -25,25 +28,16 @@ public class NPCInteraction : MonoBehaviour
     private Monster_Dialogue CC_Dialogue;
     public Task ActiveTask;
 
-    //When something enters the collider
-    //Check if the colliding type is of type "Player"
-    //If so, allow for an interaction
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Entity>() != null)
         {
             Entity e_coll = other.gameObject.GetComponent<Entity>();
             if (e_coll.EntityType == Entity.Entities.Player)
-            {
-                ShowInteraction();
                 BL_WithinSpace = true;
-            }
         }
     }
 
-    //When something exits the collider
-    //Check if the colliding type is of type "Player"
-    //If so, disable the interaction
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.GetComponent<Entity>() != null)
@@ -51,30 +45,8 @@ public class NPCInteraction : MonoBehaviour
             Entity e_coll = other.gameObject.GetComponent<Entity>();
             if (e_coll.EntityType == Entity.Entities.Player)
             {
-                if (!BL_QuestAccepted)
-                {
-                    if (BL_HasQuest) HideInteraction();
-                    else HideAll();
-                }
                 Monster_Dialogue.BL_ShowDialogue = false;
                 BL_WithinSpace = false;
-            }
-        }
-    }
-
-    //When something stays in the collider
-    //Check if the colliding type is of type "Player"
-    //If so, allow interaction of the player with the entity
-    //All code related to interaction with the entity should be here
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.GetComponent<Entity>() != null)
-        {
-            Entity e_coll = other.gameObject.GetComponent<Entity>();
-            if (e_coll.EntityType == Entity.Entities.Player)
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                    ShowDialogue();
             }
         }
     }
@@ -89,7 +61,12 @@ public class NPCInteraction : MonoBehaviour
     void Update()
     {
         //If I'm in combat, don't bother doing things anymore
-        if (BL_inCombat == true) return;
+        if (BL_inCombat == true)
+        {
+            HideAll();
+            BL_HasQuest = false;
+            return;
+        }
 
         //Check all of my quests, if any of them are obtainable, then I have a quest
         foreach (Task quest in Quests.Tasks)
@@ -105,40 +82,61 @@ public class NPCInteraction : MonoBehaviour
             }
         }
 
-        //If I've accepted a quest, don't bother with anything else below
+        UIState();
+
+        if(BL_WithinSpace)
+            if (Input.GetKeyDown(KeyCode.E))
+                Converse();
+
         if (BL_QuestAccepted)
+            if (!ActiveTask.QuestComplete) ActiveTask.isAccepted = true;
+        else
+            ActiveTask.isAccepted = false;
+    }
+
+    void UIState()
+    {
+        if (!BL_WithinSpace)
         {
-            //Logic for showing ? or !
-            if (ActiveTask.QuestComplete)
+            if (BL_QuestAccepted)
             {
-                exclaimationPoint.SetActive(true);
-                questionMark.SetActive(false);
+                if (!ActiveTask.QuestComplete) AcceptedQuest();
+                else HasQuest();
             }
             else
             {
-                ActiveTask.isAccepted = true;
-                exclaimationPoint.SetActive(false);
-                questionMark.SetActive(true);
+                if (BL_HasQuest) HasQuest();
+                else HideAll();
+            }
+        }else
+            ShowInteraction();
+    }
+
+    void Converse()
+    {
+        Monster_Dialogue.BL_ShowDialogue = true;
+        if(BL_QuestAccepted)
+        {
+            if(!ActiveTask.QuestComplete) CC_Dialogue.SetText(ActiveTask.waitingDialogue);
+            else if (ActiveTask.QuestComplete)
+            {
+                CC_Dialogue.SetText(ActiveTask.finishDialogue);
+                QuestCompleted();
+            }
+        }
+        else if (BL_HasQuest)
+        {
+            CC_Dialogue.SetText(ActiveTask.descriptionDialogue);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                CC_Dialogue.SetText(ActiveTask.acceptedDialogue);
+                BL_QuestAccepted = true;
+                HideAll();
+                if (Input.GetKeyDown(KeyCode.E))
+                    HideAll();
             }
         }
         else
-        {
-            ActiveTask.isAccepted = false;
-            if (BL_HasQuest && !BL_WithinSpace) HasQuest();
-            else if (!BL_HasQuest && !BL_WithinSpace) HideAll();
-        }
-    }
-
-    private void ShowDialogue()
-    {
-        Monster_Dialogue.BL_ShowDialogue = true;
-        if (BL_HasQuest)
-        {
-            CC_Dialogue.SetText(ActiveTask.description);
-            if (ActiveTask.QuestComplete)
-                QuestCompleted();
-            else QuestAccepted();
-        }else
         {
             int rand = Random.Range(0, flavourText.Length - 1);
 
@@ -146,27 +144,41 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 
+    #region Interaction States
+
     private void ShowInteraction()
     {
         exclaimationPoint.SetActive(false);
-        interactionObject.SetActive(true);
         questionMark.SetActive(false);
+
+        interactionObject.SetActive(true);
     }
 
     private void HideInteraction()
     {
-        interactionObject.SetActive(false);
         exclaimationPoint.SetActive(true);
         questionMark.SetActive(false);
+
+        interactionObject.SetActive(false);
+    }
+
+    private void AcceptedQuest()
+    {
+        exclaimationPoint.SetActive(false);
+        questionMark.SetActive(true);
+
+        interactionObject.SetActive(false);
     }
 
     private void HasQuest()
     {
         exclaimationPoint.SetActive(true);
-        interactionObject.SetActive(false);
         questionMark.SetActive(false);
+
+        interactionObject.SetActive(false);
     }
 
+    //Hide all
     private void HideAll()
     {
         exclaimationPoint.SetActive(false);
@@ -174,10 +186,11 @@ public class NPCInteraction : MonoBehaviour
         questionMark.SetActive(false);
     }
 
+    #endregion
+
     private void QuestAccepted()
     {
-        BL_QuestAccepted = true;
-        HideAll();
+
     }
 
     private void QuestCompleted()
@@ -185,7 +198,8 @@ public class NPCInteraction : MonoBehaviour
         HideAll();
         ActiveTask.QuestFinish = true;
         BL_QuestAccepted = false;
+        BL_QuestCompleted = true;
         BL_HasQuest = false;
-        CC_Dialogue.SetText(ActiveTask.finishDialogue);
         Debug.Log("Quest Completed");
-    }}
+    }
+}

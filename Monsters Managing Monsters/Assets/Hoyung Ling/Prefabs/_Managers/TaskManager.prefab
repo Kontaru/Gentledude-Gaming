@@ -54,8 +54,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTask:
   - name: 
-    description: 
+    descriptionDialogue: 
+    acceptedDialogue: 
     finishDialogue: 
+    waitingDialogue: 
     QuestID: 0
     QuestComplete: 0
     QuestFinish: 0
@@ -65,8 +67,10 @@ MonoBehaviour:
     isAccepted: 0
     Steps: []
   - name: 
-    description: 
+    descriptionDialogue: 
+    acceptedDialogue: 
     finishDialogue: 
+    waitingDialogue: 
     QuestID: 0
     QuestComplete: 0
     QuestFinish: 0
@@ -76,8 +80,10 @@ MonoBehaviour:
     isAccepted: 0
     Steps: []
   - name: 
-    description: 
+    descriptionDialogue: 
+    acceptedDialogue: 
     finishDialogue: 
+    waitingDialogue: 
     QuestID: 0
     QuestComplete: 0
     QuestFinish: 0
@@ -87,8 +93,10 @@ MonoBehaviour:
     isAccepted: 0
     Steps: []
   - name: 
-    description: 
+    descriptionDialogue: 
+    acceptedDialogue: 
     finishDialogue: 
+    waitingDialogue: 
     QuestID: 0
     QuestComplete: 0
     QuestFinish: 0
@@ -98,8 +106,10 @@ MonoBehaviour:
     isAccepted: 0
     Steps: []
   - name: 
-    description: 
+    descriptionDialogue: 
+    acceptedDialogue: 
     finishDialogue: 
+    waitingDialogue: 
     QuestID: 0
     QuestComplete: 0
     QuestFinish: 0
@@ -121,10 +131,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tasks:
   - name: Fix Stacey's Printer
-    description: Hey, you~! Like, I hate to ask this of you, because frankly I don't
-      like talking to you, buuuut the printer's broken, soooo go fix it for me~!
-    finishDialogue: OMG, you did it~! (I didn't think you had it in you) [Suddenly,
-      heroes bust in!] [END TECH DEMO]
+    descriptionDialogue: Hey there -you, the imp! I need my printer fixed, stat! Could
+      you do that for me?
+    acceptedDialogue: Great! I expect great things from you, lackey!
+    finishDialogue: Well... You did it. I honestly didn't expect much--- Hey, time
+      to get back to work!
+    waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
     QuestID: 1
     QuestComplete: 0
     QuestFinish: 0

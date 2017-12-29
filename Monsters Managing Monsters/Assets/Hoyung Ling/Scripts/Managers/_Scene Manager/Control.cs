@@ -28,7 +28,10 @@ public class Control : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (DayCycle.instance.ShowResults)
+            EndDayEvaluation();
+        if (DayCycle.instance.EnterHeroes)
+            HeroEntry.instance.SpawnHeroes = true;
 	}
 
     public void BeginDay()
@@ -36,8 +39,8 @@ public class Control : MonoBehaviour {
 
     }
 
-    public void EndDay()
+    public void EndDayEvaluation()
     {
-
+        
     }
 }
