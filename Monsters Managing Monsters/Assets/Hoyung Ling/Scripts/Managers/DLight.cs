@@ -70,9 +70,9 @@ public class DLight : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        currentTime = DayCycle.instance.DLightCurrentTime();
+        currentTime = DayCycle.instance.FL_CurrentTime();
         timeInDay = DayCycle.instance.timeInDay;
-        currentHour = DayCycle.instance.DLightHour();
+        currentHour = DayCycle.instance.FL_CurrentHour();
 
         UpdateLightCycle(timeInDay);
 	}

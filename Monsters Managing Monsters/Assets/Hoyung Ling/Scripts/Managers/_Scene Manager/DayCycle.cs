@@ -8,8 +8,11 @@ public class DayCycle : MonoBehaviour
 
     public static DayCycle instance;
 
+    public bool GameStart = false;
     public bool ShowResults = false;
     public bool EnterHeroes = false;
+
+    bool Initialise = true;
 
     [Header("Day Parameters")]
 
@@ -30,16 +33,20 @@ public class DayCycle : MonoBehaviour
     //Checkpoints in the day
     [Header("Begin day?")]
     public bool beginDay = false;
-    bool begunDay = false;
-    bool pause = false;
+    public bool pause = false;
+    [SerializeField]
     float firstHour;
+    [SerializeField]
     float finalHour;
 
-    //Hours of the day that the player is actually playing
-    //When false, it should represent the hours in the day that the player doesn't play
-    //i.e: midnight till 9am
-    public bool isPlayingGame = true;
-    public bool daytimeLoop = false;
+    //i.e: 9am till midnight, player plays the game
+    //other hours, simulate time progressing from midnight till 9am at a much faster rate
+    [SerializeField]
+    bool playerControlledEvent = true;
+    [SerializeField]
+    bool Daytime = false;
+    [SerializeField]
+    bool Nighttime = false;
 
     [Header("UI")]
     public Text Hour;
@@ -64,57 +71,91 @@ public class DayCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameStart) return;
+
+        if(GameStart && Initialise)
+        {
+            Initialise = false;
+            currentDay++;
+            ResetTimer();
+        }
+
         if (beginDay)
         {
-            NewDay();
+            currentDay++;
             beginDay = false;
         }
 
-        if (!begunDay) return;
-
-        if (daytimeLoop)
+        if (Daytime)
         {
-            //Has our day ended?
-            if (currentTime >= (timeInDay / dayHours) * workHours)
-            {
-                pause = true;
-                isPlayingGame = false;
+            Nighttime = false;
 
-                if (currentDay > 3)
-                {
-                    //SpawnHero
-                    EnterHeroes = true;
-                    ShowResults = false;
-                }
-                else
-                {
-                    //Do calculations screen
-                    EnterHeroes = false;
-                    ShowResults = true;
-                }
-            }
-
-            if (!pause && isPlayingGame)
+            if (!pause && playerControlledEvent)
             {
+                Time.timeScale = 1.0f;
                 currentTime = Time.time - firstHour;
                 CalculateTime(currentTime);
             }
+
+            //Has our day ended?
+            if (currentTime + firstHour >= firstHour + (timeInDay / 24) * 16)
+            {
+                pause = true;
+                playerControlledEvent = false;
+
+                Daytime = false;
+                Nighttime = true;
+            }
         }
 
-
-        else if (!pause && !isPlayingGame)
+        if (Nighttime)
         {
-            //From midnight until morning, we want to simulate sped up time
-            currentTime = Time.time * 60 - firstHour;
-            CalculateTime(currentTime);
+            PC_Move.canMove = false;
+            Daytime = false;
+
+            if (!pause && !playerControlledEvent)
+            {
+                //From midnight until morning, we want to simulate sped up time
+                Time.timeScale = 10.0f;
+                currentTime = Time.time - firstHour;
+                CalculateTime(currentTime);
+            }
+
+            if (currentTime + firstHour >= finalHour)
+            {
+                Daytime = true;
+                Nighttime = false;
+
+                ResetTimer();
+            }
+        }
+
+        if(pause)
+        {
+            Paused();
+
+            if (currentDay > 3)
+            {
+                //SpawnHero
+                EnterHeroes = true;
+                ShowResults = false;
+            }
+            else
+            {
+                //Do calculations screen
+                EnterHeroes = false;
+                ShowResults = true;
+            }
         }
     }
 
-    //Begin a new day!
-    void NewDay()
+    void Paused()
     {
-        currentDay++;
+        Time.timeScale = 0;
+    }
 
+    void ResetTimer()
+    {
         if (currentDay < 10)
             Days.text = string.Format("0" + currentDay);
         else
@@ -122,10 +163,11 @@ public class DayCycle : MonoBehaviour
 
         firstHour = Time.time;
         finalHour = Time.time + timeInDay;
+        currentTime = 0;
 
         pause = false;
-        begunDay = true;
-        daytimeLoop = true;
+        Daytime = true;
+        playerControlledEvent = true;
     }
 
     //Convert float into something we can use to show the player
@@ -153,13 +195,37 @@ public class DayCycle : MonoBehaviour
 
     //Some return values for DLight
 
-    public float DLightCurrentTime()
+    public float FL_CurrentTime()
     {
         return currentTime;
     }
 
-    public float DLightHour()
+    public float FL_CurrentHour()
     {
         return (24 - workHours) + (currentTime * dayHours / timeInDay);
+    }
+
+    public float[] FL_TheTime()
+    {
+        float[] thyme = new float[2];
+        thyme[0] = displayHour;
+        thyme[1] = displayMinute;
+
+        return thyme;
+    }
+
+    public bool BL_Paused()
+    {
+        return pause;
+    }
+
+    public bool BL_Daytime()
+    {
+        return Daytime;
+    }
+
+    public void NewDay()
+    {
+        beginDay = true;
     }
 }
