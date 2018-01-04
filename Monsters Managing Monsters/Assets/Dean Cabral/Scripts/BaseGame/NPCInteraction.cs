@@ -60,6 +60,8 @@ public class NPCInteraction : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.PixelMode) return;
+
         //If I'm in combat, don't bother doing things anymore
         if (BL_inCombat == true)
         {

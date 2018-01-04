@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
+    public bool PixelMode = false;
+
     [Header("Controls")]
 
     public KeyCode KC_CameraLock;

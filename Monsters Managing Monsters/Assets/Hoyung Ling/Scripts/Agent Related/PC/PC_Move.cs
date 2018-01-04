@@ -25,6 +25,8 @@ public class PC_Move : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.PixelMode) return;
+
         FL_moveSpeed = FL_defaultSpeed;
         PlayerMove();
         //LookInput();

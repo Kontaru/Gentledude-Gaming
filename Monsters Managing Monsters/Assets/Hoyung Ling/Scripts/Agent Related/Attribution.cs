@@ -14,4 +14,9 @@ public class Attribution : Entity {
     }
 
     public Attributes myAttribute;
+
+    virtual public void Update()
+    {
+        if (GameManager.instance.PixelMode) return;
+    }
 }

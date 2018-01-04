@@ -8,11 +8,8 @@ public class DayCycle : MonoBehaviour
 
     public static DayCycle instance;
 
-    public bool GameStart = false;
     public bool ShowResults = false;
     public bool EnterHeroes = false;
-
-    bool Initialise = true;
 
     [Header("Day Parameters")]
 
@@ -68,17 +65,15 @@ public class DayCycle : MonoBehaviour
 
     #endregion
 
+    void Start()
+    {
+        ResetTimer();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (!GameStart) return;
-
-        if(GameStart && Initialise)
-        {
-            Initialise = false;
-            currentDay++;
-            ResetTimer();
-        }
+        if (GameManager.instance.PixelMode) return;
 
         if (beginDay)
         {

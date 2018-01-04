@@ -25,6 +25,6 @@ public class HeroEntry : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (GameManager.instance.PixelMode) return;
+    }
 }

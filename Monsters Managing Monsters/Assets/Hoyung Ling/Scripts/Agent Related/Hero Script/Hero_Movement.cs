@@ -27,6 +27,8 @@ public class Hero_Movement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.PixelMode) return;
+
         if (Target == null) return;
 
         if (!BL_Alerted && Vector3.Distance(Target.transform.position, transform.position) < 4000.0f)

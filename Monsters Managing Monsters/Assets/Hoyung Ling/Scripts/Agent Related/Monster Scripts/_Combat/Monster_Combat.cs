@@ -49,6 +49,8 @@ public class Monster_Combat : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.PixelMode) return;
+
         if (Target == null) return;
 
         if (BL_InitiateCombat && Vector3.Distance(Target.transform.position, transform.position) < aggroRange)

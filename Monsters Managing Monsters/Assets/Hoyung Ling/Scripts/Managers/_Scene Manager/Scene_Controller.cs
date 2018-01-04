@@ -34,6 +34,8 @@ public class Scene_Controller : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.PixelMode) return;
+
         if (DayCycle.instance.ShowResults)
         {
             DayOverStats.SetActive(true);

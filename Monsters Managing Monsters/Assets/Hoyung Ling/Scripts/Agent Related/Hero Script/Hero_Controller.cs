@@ -20,8 +20,9 @@ public class Hero_Controller : Attribution
     }
 
     // Update is called once per frame
-    void Update()
+    override public void Update()
     {
+        base.Update();
         //If I don't have an enemy, find one
         if (Target == null)
         {

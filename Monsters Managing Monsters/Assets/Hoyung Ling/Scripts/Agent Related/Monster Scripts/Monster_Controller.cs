@@ -22,8 +22,10 @@ public class Monster_Controller : Attribution {
     }
 
     // Update is called once per frame
-    void Update()
+    override public void Update()
     {
+        base.Update();
+
         //Combat begins if heroes are in the scene
         //Otherwise, do normal stuff
         if (TargetHandler.instance.heroCount > 0)

@@ -18,6 +18,7 @@ public class PC_Audio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.PixelMode) return;
 
         if (CC_Controller)
 

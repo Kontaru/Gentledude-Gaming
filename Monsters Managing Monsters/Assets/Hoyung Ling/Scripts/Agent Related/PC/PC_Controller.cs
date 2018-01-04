@@ -25,6 +25,8 @@ public class PC_Controller : Entity {
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameManager.instance.PixelMode) return;
+
         BL_IsMoving = CC_Move.isMoving;
     }
 

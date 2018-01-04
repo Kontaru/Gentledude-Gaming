@@ -40,6 +40,8 @@ public class Hero_Attack : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.PixelMode) return;
+
         //The moment we have a target, tell myself that I've spotted the target, and set some delays
         //This is so the NPC doesn't attack straight after spotting a target
         if (BL_Target && !BL_Spotted)

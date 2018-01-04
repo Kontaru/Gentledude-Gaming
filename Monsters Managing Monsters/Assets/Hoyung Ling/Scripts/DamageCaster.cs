@@ -40,6 +40,8 @@ public class DamageCaster : Attribution {
     //If they are in favour of the weapon, deal double damage. Otherwise deal 1
     void AttributeCheck(Collider coll)
     {
+        if (GameManager.instance.PixelMode) return;
+
         if (myAttribute == Attributes.Succubus)
         {
             if (coll.GetComponent<Attribution>().myAttribute == Attribution.Attributes.Goblin) DealDamage(coll, 2);
