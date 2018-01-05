@@ -9,39 +9,52 @@ public class PDAHandler : MonoBehaviour {
     public GameObject mapScreen;
     public GameObject statsScreen;
     public GameObject tasksScreen;
+    private Animator animator;
 
     public bool BL_PDAactive;
+    public bool BL_PDAlandscape;
 
     private void Start()
     {
         GetComponent<RectTransform>().localPosition = new Vector3(249, -380, 0);
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update () {
 
         CheckInput();
-        TogglePDA();
-
 	}
 
     private void CheckInput()
     {
+        if (Input.GetKeyDown(KeyCode.P)) TogglePDA();
+        if (Input.GetKeyDown(KeyCode.L)) ToggleLandscape();
         if (Input.GetKeyDown(KeyCode.M)) ShowMap();
         if (Input.GetKeyDown(KeyCode.N)) ShowTasks();
-        if (Input.GetKeyDown(KeyCode.B)) ShowStats();
+        if (Input.GetKeyDown(KeyCode.B)) ShowStats();        
     }
     
     private void TogglePDA()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (BL_PDAactive) StartCoroutine(HidePDA());
-            else StartCoroutine(ShowPDA());
+        if (BL_PDAlandscape) return;
 
-            BL_PDAactive = !BL_PDAactive;
-        }
+        if (BL_PDAactive) animator.SetBool("BL_ShowPDA", false);
+        else animator.SetBool("BL_ShowPDA", true);
+
+        BL_PDAactive = !BL_PDAactive;
     }
+
+    private void ToggleLandscape()
+    {
+        if (!BL_PDAactive) return;
+
+        if (BL_PDAlandscape) animator.SetBool("BL_Landscape", false);
+        else animator.SetBool("BL_Landscape", true);
+
+        BL_PDAlandscape = !BL_PDAlandscape;
+    }
+
     public void OnClickHome()
     {
         ShowHome();
@@ -64,7 +77,7 @@ public class PDAHandler : MonoBehaviour {
 
     public void OnClickClose()
     {
-        StartCoroutine(HidePDA());
+        animator.SetBool("BL_ShowPDA", false);
         BL_PDAactive = false;
     }
 
@@ -85,7 +98,7 @@ public class PDAHandler : MonoBehaviour {
     {
         HideAllScreens();
         mapScreen.SetActive(true);
-        if (!BL_PDAactive) StartCoroutine(ShowPDA());
+        if (!BL_PDAactive) animator.SetBool("BL_ShowPDA", true);
 
         BL_PDAactive = true;
     }
@@ -94,7 +107,7 @@ public class PDAHandler : MonoBehaviour {
     {
         HideAllScreens();
         statsScreen.SetActive(true);
-        if (!BL_PDAactive) StartCoroutine(ShowPDA());
+        if (!BL_PDAactive) animator.SetBool("BL_ShowPDA", true);
 
         BL_PDAactive = true;
     }
@@ -103,34 +116,8 @@ public class PDAHandler : MonoBehaviour {
     {
         HideAllScreens();
         tasksScreen.SetActive(true);
-        if (!BL_PDAactive) StartCoroutine(ShowPDA());
+        if (!BL_PDAactive) animator.SetBool("BL_ShowPDA", true);
 
         BL_PDAactive = true;
-    }
-
-    IEnumerator ShowPDA()
-    {
-        float lerpTime = 0;
-        while (lerpTime < 1)
-        {
-            lerpTime += Time.deltaTime * 3;
-            GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(249, -380, 0), new Vector3(249, -50, 0), lerpTime);
-
-            yield return null;
-        }
-    }
-
-    IEnumerator HidePDA()
-    {
-        HideAllScreens();
-
-        float lerpTime = 0;
-        while (lerpTime < 1)
-        {
-            lerpTime += Time.deltaTime * 3;
-            GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(249, -50, 0), new Vector3(249, -380, 0), lerpTime);
-
-            yield return null;
-        }
-    }
+    }    
 }
