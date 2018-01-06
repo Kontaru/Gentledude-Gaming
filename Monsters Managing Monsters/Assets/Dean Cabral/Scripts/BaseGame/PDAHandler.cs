@@ -9,6 +9,7 @@ public class PDAHandler : MonoBehaviour {
     public GameObject mapScreen;
     public GameObject statsScreen;
     public GameObject tasksScreen;
+    public GameObject renderCam;
     private Animator animator;
 
     public bool BL_PDAactive;
@@ -49,9 +50,19 @@ public class PDAHandler : MonoBehaviour {
     {
         if (!BL_PDAactive) return;
 
-        if (BL_PDAlandscape) animator.SetBool("BL_Landscape", false);
-        else animator.SetBool("BL_Landscape", true);
-
+        if (BL_PDAlandscape)
+        {            
+            GameManager.instance.PixelMode = false;
+            animator.SetBool("BL_Landscape", false);
+            renderCam.SetActive(false);
+        }
+        else
+        {
+            GameManager.instance.PixelMode = true;
+            animator.SetBool("BL_Landscape", true);
+            StartCoroutine(WaitAndDisplay(1.5f, true));
+        }
+        
         BL_PDAlandscape = !BL_PDAlandscape;
     }
 
@@ -119,5 +130,13 @@ public class PDAHandler : MonoBehaviour {
         if (!BL_PDAactive) animator.SetBool("BL_ShowPDA", true);
 
         BL_PDAactive = true;
-    }    
+    }
+
+    IEnumerator WaitAndDisplay(float seconds, bool flag)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        if (flag) renderCam.SetActive(true);
+        else renderCam.SetActive(false);
+    }
 }
