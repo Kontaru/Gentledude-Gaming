@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 114310666288641246}
   m_Layer: 0
   m_Name: Orc
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,8 +516,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 4.461075, y: 7.0738883, z: 1}
+  m_Center: {x: -0.23322296, y: 3.5369442, z: 0}
 --- !u!114 &114018249239789704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityType: 1
-  Attribute: 2
+  myAttribute: 0
   Target: {fileID: 0}
 --- !u!114 &114631224785622146
 MonoBehaviour:
@@ -750,6 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5973b4846ef5f1841be197c927c792b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BL_QuestCompleted: 0
   BL_inCombat: 0
   IN_NPCQuestID: 2
   flavourText:
@@ -762,8 +763,10 @@ MonoBehaviour:
   interactionObject: {fileID: 1498220751250482}
   ActiveTask:
     name: 
-    description: 
+    descriptionDialogue: 
+    acceptedDialogue: 
     finishDialogue: 
+    waitingDialogue: 
     QuestID: 0
     QuestComplete: 0
     QuestFinish: 0
@@ -1001,7 +1004,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507880389976334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.185431, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.94667, y: 1.00514, z: 1}
   m_Children:
   - {fileID: 224401937113176922}
@@ -1020,7 +1023,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1023283539071300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: -0.18, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224261364136153154}
@@ -1038,7 +1041,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1570148668447306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4752752844195872}
