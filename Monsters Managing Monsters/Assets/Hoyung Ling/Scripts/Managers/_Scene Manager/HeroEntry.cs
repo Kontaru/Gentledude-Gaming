@@ -11,6 +11,7 @@ public class HeroEntry : MonoBehaviour {
     private bool BL_Confirmed;
 
     private GameObject monster;
+    private Vector3 delta;
 
     #region Typical Singleton Format
 
@@ -34,27 +35,33 @@ public class HeroEntry : MonoBehaviour {
     }
 
     private void MonsterPlacement()
-    {        
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.tag != "Monster") return;
+
+            if (Input.GetMouseButtonDown(0))
             {
-                monster = hit.transform.gameObject;                
+                monster = hit.transform.gameObject;
+                monster.transform.position = new Vector3(monster.transform.position.x, monster.transform.position.y + 5, monster.transform.position.z);
+                delta = monster.transform.position - hit.point;
             }
-        }
-        else if(Input.GetMouseButtonUp(0))
-        {
-            monster = null;
-        }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                monster = null;
+            }
 
-        if (monster != null)
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            monster.transform.position = new Vector3(mousePos.x, monster.transform.position.y + 5, mousePos.z);
-        } 
+            if (Input.GetMouseButton(0))
+            {
+                if (monster != null)
+                {
+                    monster.transform.position = hit.point + delta;                    
+                }
+            }
+        }        
     }
 
     private void ConfirmationScreen()
