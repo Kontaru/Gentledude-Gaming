@@ -36,6 +36,8 @@ public class HeroEntry : MonoBehaviour {
 
     private void MonsterPlacement()
     {
+        if (BL_Confirmed) return;
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -45,12 +47,13 @@ public class HeroEntry : MonoBehaviour {
 
             if (Input.GetMouseButtonDown(0))
             {
-                monster = hit.transform.gameObject;
-                monster.transform.position = new Vector3(monster.transform.position.x, monster.transform.position.y + 5, monster.transform.position.z);
+                monster = hit.transform.gameObject;                
                 delta = monster.transform.position - hit.point;
+                DropHighlight(true);
             }
             else if (Input.GetMouseButtonUp(0))
             {
+                DropHighlight(false);
                 monster = null;
             }
 
@@ -58,14 +61,29 @@ public class HeroEntry : MonoBehaviour {
             {
                 if (monster != null)
                 {
-                    monster.transform.position = hit.point + delta;                    
+                    monster.transform.position = new Vector3(hit.point.x + delta.x, monster.transform.position.y + 5, hit.point.z + delta.z);
                 }
             }
-        }        
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            ConfirmationScreen();
+        }
+    }
+
+    private void DropHighlight(bool flag)
+    {
+        GameObject parent = monster.transform.Find("Graphic").gameObject;
+        GameObject highlight = parent.transform.GetChild(1).gameObject;
+
+        if (flag) highlight.SetActive(true);
+        else highlight.SetActive(false);
     }
 
     private void ConfirmationScreen()
     {
-
+        Debug.Log("Confirm monster positions?");
+        //BL_Confirmed = true;
     }
 }
