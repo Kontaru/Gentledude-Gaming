@@ -44,6 +44,7 @@ public class PDAHandler : MonoBehaviour {
         if (BL_PDAactive) animator.SetBool("BL_ShowPDA", false);
         else animator.SetBool("BL_ShowPDA", true);
 
+        ShowHome();
         BL_PDAactive = !BL_PDAactive;
     }
 

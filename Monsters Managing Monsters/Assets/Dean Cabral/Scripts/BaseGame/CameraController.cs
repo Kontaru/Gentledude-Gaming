@@ -15,7 +15,6 @@ public class CameraController : MonoBehaviour {
     public float panRestriction;
     public float scrollSpeed;
 
-    private PC_Controller PM;
     private PDAHandler PDAH;
     private bool camLock;
     private bool camInMotion;
@@ -38,7 +37,6 @@ public class CameraController : MonoBehaviour {
     private void Initialise()
     {
         // Variables to be initilaised on start
-        PM = FindObjectOfType<PC_Controller>();
         PDAH = FindObjectOfType<PDAHandler>();
         orthographicSize = Camera.main.orthographicSize;
 
@@ -73,7 +71,7 @@ public class CameraController : MonoBehaviour {
 
     private void CameraMovement()
     {
-        //PanCamera();
+        PanCamera();
         ZoomCamera();        
     }
 
