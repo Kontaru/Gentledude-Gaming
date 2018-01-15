@@ -171,11 +171,27 @@ GameObject:
   - component: {fileID: 195939959157351202}
   - component: {fileID: 65966068691876514}
   - component: {fileID: 23384858863414036}
+  - component: {fileID: 114002363388945776}
   - component: {fileID: 114355671352303582}
   - component: {fileID: 114930541263928232}
   - component: {fileID: 114403516021150902}
   m_Layer: 0
   m_Name: SUCC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1447857820688370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4840548307256376}
+  m_Layer: 0
+  m_Name: IdleWaypoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,6 +309,7 @@ Transform:
   - {fileID: 4955441264577364}
   - {fileID: 224664453052534014}
   - {fileID: 4541842945237890}
+  - {fileID: 4840548307256376}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -376,6 +393,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4219051748931284}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4840548307256376
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447857820688370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4219051748931284}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4887485034763748
 Transform:
@@ -518,6 +548,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &114002363388945776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431076140563802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2ca1eba7c3cf047b8d17aa6bf6ac55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isIdle: 1
+  Bounds:
+  - Vertices:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
 --- !u!114 &114026029713167162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -747,7 +795,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5973b4846ef5f1841be197c927c792b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BL_QuestCompleted: 0
   BL_inCombat: 0
+  BL_HasQuest: 0
   IN_NPCQuestID: 2
   flavourText:
   - Heeey~!
@@ -759,8 +809,10 @@ MonoBehaviour:
   interactionObject: {fileID: 1405766608260064}
   ActiveTask:
     name: 
-    description: 
+    descriptionDialogue: 
+    acceptedDialogue: 
     finishDialogue: 
+    waitingDialogue: 
     QuestID: 0
     QuestComplete: 0
     QuestFinish: 0
@@ -807,7 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityType: 1
-  Attribute: 2
+  myAttribute: 0
   Target: {fileID: 0}
 --- !u!195 &195939959157351202
 NavMeshAgent:
@@ -1001,7 +1053,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1574980119361364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: -0.18, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224585083342329274}
@@ -1019,7 +1071,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1296393486614320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.185431, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.94667, y: 1.00514, z: 1}
   m_Children:
   - {fileID: 224025708027208990}
@@ -1038,7 +1090,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1119024023327808}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.0699997, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4073869913663084}

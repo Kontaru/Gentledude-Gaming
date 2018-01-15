@@ -10,7 +10,7 @@ public class NPCInteraction : MonoBehaviour
     public bool BL_QuestCompleted = false;
 
     public bool BL_inCombat;            //Am I in combat?
-    bool BL_HasQuest;                   //Do I have a quest?
+    public bool BL_HasQuest;                   //Do I have a quest?
     bool BL_QuestAccepted;              //Did I accept a quest?
     public int IN_NPCQuestID = 0;       //Probably not needed
     private bool BL_WithinSpace = false;//Am I inside the trigger box?

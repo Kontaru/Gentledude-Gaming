@@ -10,6 +10,7 @@ public class Monster_Controller : Attribution {
     // -------- MONSTER COMPONENTS ------------ ------------ ------------ ------------ ------------
     Monster_Combat CC_Combat;
     NPCInteraction CC_Interaction;
+    Idle CC_Idle;
 
     void Start()
     {
@@ -17,6 +18,8 @@ public class Monster_Controller : Attribution {
 
         CC_Combat = GetComponent<Monster_Combat>();
         CC_Interaction = transform.GetChild(0).GetComponent<NPCInteraction>();
+        CC_Idle = GetComponent<Idle>();
+
         Target = NearestEnemy();
         CC_Combat.Target = Target;
     }
@@ -39,6 +42,7 @@ public class Monster_Controller : Attribution {
         {
             CC_Combat.BL_InitiateCombat = false;
             CC_Interaction.BL_inCombat = false;
+            CC_Idle.isIdle = !CC_Interaction.BL_HasQuest;
 
             if(CC_Interaction.BL_QuestCompleted)
             {
