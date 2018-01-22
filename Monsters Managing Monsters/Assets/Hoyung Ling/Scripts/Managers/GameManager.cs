@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour {
     public KeyCode KC_Down;
     public KeyCode KC_Right;
 
-    public int player_Coins;
-    public int player_Health;
+    public int day;
+    public int score;
 
     [Header("Monster Stats")]
     [SerializeField] int PL_Succ = 0;
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        
     }
 
     public void PowerBoost(Attribution.Attributes attr)
@@ -61,6 +61,20 @@ public class GameManager : MonoBehaviour {
         if (attr == Attribution.Attributes.Demon)
             PL_Demon++;
     }
+
+    #region ~ Save Related ~
+
+    public void SaveGame()
+    {
+        SaveLoadHandler.instance.SaveData();
+    }
+
+    public void LoadGame()
+    {
+        SaveLoadHandler.instance.LoadData();
+    }
+
+    #endregion
 
     #region ~ Scene Related ~
 

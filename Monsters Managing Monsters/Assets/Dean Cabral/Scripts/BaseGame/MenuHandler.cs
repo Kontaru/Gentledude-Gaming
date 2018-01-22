@@ -11,18 +11,55 @@ public class MenuHandler : MonoBehaviour {
     public GameObject minigameScreen;
     public GameObject helpScreen;
     public GameObject settingsScreen;
+    public GameObject[] saveSlots;
 
     private bool BL_helpVisible = false;
     private bool BL_loadVisible = false;
     private bool BL_minigamesVisible = false;
     private bool BL_settingsVisible = false;
 
+    private void Start()
+    {
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        if (SaveLoadHandler.instance.LoadData())
+        {
+            int day = GameManager.instance.day;
+            int score = GameManager.instance.score;
+
+            saveSlots[0].transform.Find("SaveTitle").GetComponent<Text>().text = "[0] Save Game";
+            saveSlots[0].transform.Find("SaveInfo").GetComponent<Text>().text = "Day " + day + ": Score " + score;
+        }
+        else
+        {
+            foreach (GameObject g in saveSlots)
+            {
+                g.transform.Find("SaveTitle").GetComponent<Text>().text = "[0] Empty Save Slot";
+                g.transform.Find("SaveInfo").GetComponent<Text>().text = "Day 0: Score 0000";
+            }
+        }
+    }
+
+    public void ClearSaves()
+    {
+        if (SaveLoadHandler.instance.DeleteData()) LoadData();
+    }
+
     public void NewGame()
     {
+        ClearSaves();
         StartCoroutine(LoadAsync(1));
     }
 
     public void LoadGame()
+    {
+        if (saveSlots[0].transform.Find("SaveTitle").GetComponent<Text>().text == "[0] Save Game") StartCoroutine(LoadAsync(1));
+    }
+
+    public void LoadGamePanel()
     {
         if (BL_helpVisible)
         {
@@ -46,7 +83,7 @@ public class MenuHandler : MonoBehaviour {
         BL_loadVisible = !BL_loadVisible;
     }
 
-    public void LoadMinigames()
+    public void LoadMinigamesPanel()
     {
         if (BL_helpVisible)
         {
@@ -70,7 +107,7 @@ public class MenuHandler : MonoBehaviour {
         BL_minigamesVisible = !BL_minigamesVisible;
 
     }
-    public void LoadSettings()
+    public void LoadSettingsPanel()
     {
         if (BL_helpVisible)
         {
@@ -94,7 +131,7 @@ public class MenuHandler : MonoBehaviour {
         BL_settingsVisible = !BL_settingsVisible;
     }
 
-    public void LoadInstructions()
+    public void LoadInstructionsPanel()
     {
         if (BL_settingsVisible)
         {
