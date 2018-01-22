@@ -10877,12 +10877,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0b35f04f5eb07540a001d2c7b3b30f5, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1397013642 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114956827700919134, guid: a0b35f04f5eb07540a001d2c7b3b30f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1397013641}
-  m_Script: {fileID: 11500000, guid: fb60ddcaddae57040a2981b820c9fc50, type: 3}
 --- !u!1 &1399519279
 GameObject:
   m_ObjectHideFlags: 0
@@ -13338,22 +13332,6 @@ Transform:
   m_Father: {fileID: 2128524278}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
---- !u!1 &1701321694 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1431251792716466, guid: a0b35f04f5eb07540a001d2c7b3b30f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1397013641}
---- !u!114 &1701321695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1701321694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c4633563704eae49a744a84dafcf393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1706833366
 GameObject:
   m_ObjectHideFlags: 0
@@ -15513,23 +15491,12 @@ Prefab:
       propertyPath: Days
       value: 
       objectReference: {fileID: 1033465518}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: timeInDay
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: beginDay
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114839365720268744, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
       propertyPath: DayOverStats
       value: 
       objectReference: {fileID: 8145154}
-    m_RemovedComponents:
-    - {fileID: 114360697987049300, guid: 3bf980da153ea1b42a443525b716ab45, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf980da153ea1b42a443525b716ab45, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1980046018
@@ -15970,6 +15937,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2022646674}
   m_Mesh: {fileID: 4300016, guid: 6a371045b7adefa429b00a2dd5e986f8, type: 3}
+--- !u!1 &2040707105 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1431251792716466, guid: a0b35f04f5eb07540a001d2c7b3b30f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1397013641}
+--- !u!114 &2040707106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040707105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4633563704eae49a744a84dafcf393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2041141207
 Prefab:
   m_ObjectHideFlags: 0
@@ -16832,8 +16815,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1397013642}
-        m_MethodName: SaveGame
+      - m_Target: {fileID: 1478278899}
+        m_MethodName: OnClickSave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17301,8 +17284,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1397013642}
-        m_MethodName: LoadGame
+      - m_Target: {fileID: 1478278899}
+        m_MethodName: OnClickLoad
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

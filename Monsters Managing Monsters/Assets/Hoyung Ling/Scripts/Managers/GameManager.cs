@@ -62,20 +62,6 @@ public class GameManager : MonoBehaviour {
             PL_Demon++;
     }
 
-    #region ~ Save Related ~
-
-    public void SaveGame()
-    {
-        SaveLoadHandler.instance.SaveData();
-    }
-
-    public void LoadGame()
-    {
-        SaveLoadHandler.instance.LoadData();
-    }
-
-    #endregion
-
     #region ~ Scene Related ~
 
     public void NextScene()

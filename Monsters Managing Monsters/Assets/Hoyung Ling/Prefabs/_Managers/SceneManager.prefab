@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4645610427668490}
   - component: {fileID: 114839365720268744}
-  - component: {fileID: 114360697987049300}
   - component: {fileID: 114065963460816598}
   - component: {fileID: 114298160908449022}
   - component: {fileID: 114255361010624350}
@@ -73,14 +72,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6762026c3ebb87458a46627f8b9dbb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowResults: 0
+  EnterHeroes: 0
   workHours: 16
-  timeInDay: 100
+  timeInDay: 60
   currentTime: 0
   currentDay: 0
-  displayHour: 0
-  displayMinute: 0
-  beginDay: 0
-  playDay: 0
+  beginDay: 1
+  pause: 0
+  firstHour: 0
+  finalHour: 0
+  playerControlledEvent: 1
+  Daytime: 0
+  Nighttime: 0
   Hour: {fileID: 0}
   Minute: {fileID: 0}
   Days: {fileID: 0}
@@ -96,17 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnHeroes: 0
---- !u!114 &114360697987049300
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1371425909073192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d7222d34ccb4943b21e744b02c8da8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  BL_HeroArrival: 0
 --- !u!114 &114839365720268744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,3 +112,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2a29ad2bf04b744a40643f0f72068c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DayOverStats: {fileID: 0}

@@ -89,6 +89,16 @@ public class PDAHandler : MonoBehaviour {
         ShowTasks();
     }
 
+    public void OnClickSave()
+    {
+        SaveLoadHandler.instance.SaveData();
+    }
+
+    public void OnClickLoad()
+    {
+        SaveLoadHandler.instance.LoadData();
+    }
+
     public void OnClickClose()
     {
         animator.SetBool("BL_ShowPDA", false);
