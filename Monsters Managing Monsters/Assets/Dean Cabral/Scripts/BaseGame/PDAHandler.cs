@@ -150,6 +150,6 @@ public class PDAHandler : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
 
         renderCam.SetActive(true);
-        minigames[0].SetActive(true);
+        minigames[1].SetActive(true);
     }
 }
