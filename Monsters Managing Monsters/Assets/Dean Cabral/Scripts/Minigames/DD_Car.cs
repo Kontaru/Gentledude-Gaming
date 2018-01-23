@@ -8,10 +8,11 @@ public class DD_Car : MonoBehaviour {
     private bool leftSpawner;
     private Vector3 _startPosition;
 
-    void Start()
+    private void OnEnable()
     {
         StartCoroutine(DestroyCar());
     }
+
     void Update()
     {
         MoveCar();

@@ -39,8 +39,8 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-
+    private void OnEnable ()
+    {
         playerSpawn = transform.position;
         lives = 3;
         timer = 30;

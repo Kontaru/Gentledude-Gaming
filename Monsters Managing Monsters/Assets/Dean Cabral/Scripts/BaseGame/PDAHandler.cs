@@ -9,10 +9,13 @@ public class PDAHandler : MonoBehaviour {
     public GameObject mapScreen;
     public GameObject statsScreen;
     public GameObject tasksScreen;
+    public GameObject gamesScreen;
+    public GameObject loadingScreen;
     public GameObject renderCam;
     public GameObject[] minigames;
     private Animator animator;
 
+    public int minigameIndex;
     public bool BL_PDAactive;
     public bool BL_PDAlandscape;
 
@@ -20,6 +23,7 @@ public class PDAHandler : MonoBehaviour {
     {
         GetComponent<RectTransform>().localPosition = new Vector3(249, -380, 0);
         animator = GetComponentInChildren<Animator>();
+        minigameIndex = 0;
     }
 
     // Update is called once per frame
@@ -31,7 +35,6 @@ public class PDAHandler : MonoBehaviour {
     private void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.P)) TogglePDA();
-        if (Input.GetKeyDown(KeyCode.L)) ToggleLandscape();
         if (Input.GetKeyDown(KeyCode.M)) ShowMap();
         if (Input.GetKeyDown(KeyCode.N)) ShowTasks();
         if (Input.GetKeyDown(KeyCode.B)) ShowStats();        
@@ -57,7 +60,7 @@ public class PDAHandler : MonoBehaviour {
             GameManager.instance.PixelMode = false;
             animator.SetBool("BL_Landscape", false);
             renderCam.SetActive(false);
-            minigames[0].SetActive(false);
+            minigames[minigameIndex].SetActive(false);
         }
         else
         {
@@ -89,6 +92,11 @@ public class PDAHandler : MonoBehaviour {
         ShowTasks();
     }
 
+    public void OnClickGames()
+    {
+        ShowMinigames();
+    }
+
     public void OnClickSave()
     {
         SaveLoadHandler.instance.SaveData();
@@ -105,17 +113,33 @@ public class PDAHandler : MonoBehaviour {
         BL_PDAactive = false;
     }
 
+    public void StartDD()
+    {
+        minigameIndex = 0;
+        ToggleLandscape();
+    }
+
+    public void StartPS()
+    {
+        minigameIndex = 1;
+        ToggleLandscape();
+    }
+
     private void HideAllScreens()
     {
         mapScreen.SetActive(false);
         statsScreen.SetActive(false);
         tasksScreen.SetActive(false);
+        gamesScreen.SetActive(false);
+        loadingScreen.SetActive(false);
     }
 
     private void ShowHome()
     {
         HideAllScreens();
         homeScreen.SetActive(true);
+
+        if (BL_PDAlandscape) ToggleLandscape();
     }
 
     private void ShowMap()
@@ -145,11 +169,23 @@ public class PDAHandler : MonoBehaviour {
         BL_PDAactive = true;
     }
 
+    private void ShowMinigames()
+    {
+        HideAllScreens();
+        gamesScreen.SetActive(true);
+    }
+
+    private void ShowLoading()
+    {
+        HideAllScreens();
+        loadingScreen.SetActive(true);
+    }
+
     IEnumerator WaitAndDisplay(float seconds)
     {
+        ShowLoading();
         yield return new WaitForSeconds(seconds);
-
         renderCam.SetActive(true);
-        minigames[1].SetActive(true);
+        minigames[minigameIndex].SetActive(true);
     }
 }

@@ -10,11 +10,15 @@ public class PS_PixieSpawner : MonoBehaviour {
 
     private int previousValue = 0;
 
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
         PB = FindObjectOfType<PS_PlayerBehaviour>();
+        StartCoroutine(RandomSpawn());
+    }
 
+    private void OnEnable()
+    {
+        PB = FindObjectOfType<PS_PlayerBehaviour>();
         StartCoroutine(RandomSpawn());
     }
 

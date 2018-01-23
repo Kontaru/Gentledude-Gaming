@@ -27,12 +27,11 @@ public class PS_PlayerBehaviour : MonoBehaviour
             else collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 300f);
 
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400f);
-
         }
     }
 
     // Use this for initialization
-    void Awake()
+    private void OnEnable()
     {
         pixieCount = 30;
         gremlinCount = 6;

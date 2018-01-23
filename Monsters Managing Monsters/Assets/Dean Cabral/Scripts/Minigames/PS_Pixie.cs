@@ -14,14 +14,15 @@ public class PS_Pixie : MonoBehaviour {
         {
             PB.DestroyGremlin();
         }
-
     }
-    void Start()
+
+    private void OnEnable()
     {
         PB = FindObjectOfType<PS_PlayerBehaviour>();
         _startPosition = transform.position;
         StartCoroutine(DestroyPixie());
     }
+
     void Update()
     {
         MovePixie();

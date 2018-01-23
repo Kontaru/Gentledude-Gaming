@@ -8,8 +8,7 @@ public class DD_Spawner : MonoBehaviour {
     private int previousValue = 0;
     private int speed;
 
-    // Use this for initialization
-    void Start()
+    private void OnEnable()
     {
         StartCoroutine(RandomSpawn());
     }
