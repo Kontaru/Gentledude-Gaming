@@ -8400,7 +8400,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 942281773}
-  - component: {fileID: 942281774}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -8424,19 +8423,6 @@ Transform:
   m_Father: {fileID: 1434750257}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &942281774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 942281772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241f17730e196b84db8c049d3eb9acde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pixie: {fileID: 1330038297014844, guid: 5af1d4a30e49f7d4eba8f3f26e6a8348, type: 2}
-  spawns: []
 --- !u!1 &952940200
 GameObject:
   m_ObjectHideFlags: 0
