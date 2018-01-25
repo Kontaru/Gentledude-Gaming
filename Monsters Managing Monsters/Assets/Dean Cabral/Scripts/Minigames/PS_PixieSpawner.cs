@@ -46,7 +46,7 @@ public class PS_PixieSpawner : MonoBehaviour {
     {
         if (PB.pixieCount > 0)
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1);
             SpawnPixie();
             StartCoroutine(RandomSpawn());
         }        

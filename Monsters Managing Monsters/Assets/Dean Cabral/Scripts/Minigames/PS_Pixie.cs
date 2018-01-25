@@ -5,6 +5,7 @@ using UnityEngine;
 public class PS_Pixie : MonoBehaviour {
 
     private float speed;
+    private int randomFactor;
     private Vector3 _startPosition;
     private PS_PlayerBehaviour PB;
 
@@ -20,6 +21,7 @@ public class PS_Pixie : MonoBehaviour {
     {
         PB = FindObjectOfType<PS_PlayerBehaviour>();
         _startPosition = transform.position;
+        randomFactor = Random.Range(1, 4);        
         StartCoroutine(DestroyPixie());
     }
 
@@ -31,7 +33,7 @@ public class PS_Pixie : MonoBehaviour {
     void MovePixie()
     {
         transform.position += Vector3.down * (speed + 2) * Time.deltaTime;
-        transform.position = new Vector3(_startPosition.x + Mathf.Sin(Time.time) * 2f, transform.position.y, transform.position.z);
+        transform.position = new Vector3(_startPosition.x + Mathf.Sin(Time.time) * randomFactor, transform.position.y, transform.position.z);
     }    
 
     public void SpeedType(int _type)
@@ -41,7 +43,7 @@ public class PS_Pixie : MonoBehaviour {
 
     IEnumerator DestroyPixie()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(5);
         Destroy(this.gameObject);
     }
 }

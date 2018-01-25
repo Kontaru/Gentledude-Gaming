@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BC_ComputerBehaviour : QuestPart {
+public class IS_ComputerBehaviour : QuestPart {
 
     public bool BL_IsPlaying;
     public GameObject labelObject;
@@ -37,7 +37,7 @@ public class BC_ComputerBehaviour : QuestPart {
     }
 
     // Use this for initialization
-    void Start () {
+    void OnEnable () {
 
         InitialiseGame(true);
     }

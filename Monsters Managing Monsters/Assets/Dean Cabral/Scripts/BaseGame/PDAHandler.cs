@@ -125,6 +125,12 @@ public class PDAHandler : MonoBehaviour {
         ToggleLandscape();
     }
 
+    public void StartLT()
+    {
+        minigameIndex = 2;
+        ToggleLandscape();
+    }
+
     private void HideAllScreens()
     {
         mapScreen.SetActive(false);

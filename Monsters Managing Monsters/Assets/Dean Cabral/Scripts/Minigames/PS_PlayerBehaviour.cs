@@ -17,14 +17,14 @@ public class PS_PlayerBehaviour : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Pixie(Clone)")
+        if (collision.gameObject.name == "Pixie(Clone)" && Input.GetKey(KeyCode.W))
         {
             int rand = Random.Range(1, 3);
 
             collision.gameObject.GetComponent<PS_Pixie>().enabled = false;
 
-            if (rand == 1) collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 300f);
-            else collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 300f);
+            if (rand == 1) collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 600f);
+            else collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 600f);
 
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400f);
         }
@@ -34,7 +34,7 @@ public class PS_PlayerBehaviour : MonoBehaviour
     private void OnEnable()
     {
         pixieCount = 30;
-        gremlinCount = 6;
+        gremlinCount = 10;
         playerSpawn = transform.position;
     }
 
