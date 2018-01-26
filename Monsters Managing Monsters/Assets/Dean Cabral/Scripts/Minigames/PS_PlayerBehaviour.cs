@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class PS_PlayerBehaviour : MonoBehaviour
@@ -7,7 +8,7 @@ public class PS_PlayerBehaviour : MonoBehaviour
     public bool BL_MinigameFailed;
     public GameObject winScreen;
     public GameObject failScreen;
-    public GameObject[] gremlins;
+    public List<GameObject> gremlins;
     public Text pixieText;
     public Text gremlinText;
 
@@ -20,13 +21,17 @@ public class PS_PlayerBehaviour : MonoBehaviour
         if (collision.gameObject.name == "Pixie(Clone)" && Input.GetKey(KeyCode.W))
         {
             int rand = Random.Range(1, 3);
+            Rigidbody2D RB = collision.gameObject.GetComponent<Rigidbody2D>();            
 
-            collision.gameObject.GetComponent<PS_Pixie>().enabled = false;
+            if (RB != null)
+            {
+                collision.gameObject.GetComponent<PS_Pixie>().enabled = false;
 
-            if (rand == 1) collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 600f);
-            else collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 600f);
+                if (rand == 1) RB.AddForce(Vector2.right * 600f);
+                else RB.AddForce(Vector2.left * 600f);
 
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400f);
+                RB.AddForce(Vector2.up * 400f);
+            }            
         }
     }
 
@@ -78,16 +83,17 @@ public class PS_PlayerBehaviour : MonoBehaviour
 
     public void DestroyGremlin()
     {
-        for (int i = 0; i < gremlins.Length; i++)
+        for (int i = 0; i < gremlins.Count; i++)
         {
             if (gremlins[i] != null)
             {
                 Destroy(gremlins[i]);
+                gremlins.RemoveAt(i);
                 break;
             }
         }
 
-        gremlinCount--;
+        if (gremlinCount > 0) gremlinCount--;
     }
 
     IEnumerator ShowScreen(GameObject screen)

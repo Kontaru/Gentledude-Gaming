@@ -2014,6 +2014,10 @@ MonoBehaviour:
   - {fileID: 1257764090}
   - {fileID: 1126788159}
   - {fileID: 37172930}
+  - {fileID: 1242620653}
+  - {fileID: 680471079}
+  - {fileID: 873942370}
+  - {fileID: 8543176}
   pixieText: {fileID: 662221321}
   gremlinText: {fileID: 38598454}
   pixieCount: 0
@@ -7100,7 +7104,7 @@ Prefab:
     - target: {fileID: 20851421462044918, guid: 9a9d6b4eca66acb4e96eed55eb88496f,
         type: 2}
       propertyPath: near clip plane
-      value: -25
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 20851421462044918, guid: 9a9d6b4eca66acb4e96eed55eb88496f,
         type: 2}
@@ -7125,6 +7129,11 @@ Prefab:
         type: 2}
       propertyPath: m_BackGroundColor.b
       value: 0.14705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 20851421462044918, guid: 9a9d6b4eca66acb4e96eed55eb88496f,
+        type: 2}
+      propertyPath: orthographic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a9d6b4eca66acb4e96eed55eb88496f, type: 2}

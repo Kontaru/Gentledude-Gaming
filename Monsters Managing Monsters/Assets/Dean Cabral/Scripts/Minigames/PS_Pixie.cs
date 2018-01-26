@@ -6,20 +6,24 @@ public class PS_Pixie : MonoBehaviour {
 
     private float speed;
     private int randomFactor;
+    private bool BL_escaping;
     private Vector3 _startPosition;
     private PS_PlayerBehaviour PB;
+    private GameObject carriedGremlin;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.name == "PS_Base")
         {
             PB.DestroyGremlin();
+            Escape();
         }
     }
 
     private void OnEnable()
     {
         PB = FindObjectOfType<PS_PlayerBehaviour>();
+        carriedGremlin = transform.GetChild(0).gameObject;
         _startPosition = transform.position;
         randomFactor = Random.Range(1, 4);        
         StartCoroutine(DestroyPixie());
@@ -32,9 +36,23 @@ public class PS_Pixie : MonoBehaviour {
 
     void MovePixie()
     {
-        transform.position += Vector3.down * (speed + 2) * Time.deltaTime;
-        transform.position = new Vector3(_startPosition.x + Mathf.Sin(Time.time) * randomFactor, transform.position.y, transform.position.z);
+        if (BL_escaping)
+        {
+            transform.position += Vector3.up * (speed + 2) * Time.deltaTime;
+        }
+        else
+        {
+            transform.position += Vector3.down * (speed + 2) * Time.deltaTime;
+            transform.position = new Vector3(_startPosition.x + Mathf.Sin(Time.time) * randomFactor, transform.position.y, transform.position.z);
+        }        
     }    
+
+    private void Escape()
+    {
+        Destroy(GetComponent<Rigidbody2D>());
+        BL_escaping = true;
+        carriedGremlin.SetActive(true);
+    }
 
     public void SpeedType(int _type)
     {
@@ -43,7 +61,7 @@ public class PS_Pixie : MonoBehaviour {
 
     IEnumerator DestroyPixie()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(8);
         Destroy(this.gameObject);
     }
 }
