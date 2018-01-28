@@ -5964,8 +5964,6 @@ MonoBehaviour:
   settingsScreen: {fileID: 536187029}
   saveSlots:
   - {fileID: 1369344516}
-  - {fileID: 883628849}
-  - {fileID: 585136314}
 --- !u!4 &2073164110
 Transform:
   m_ObjectHideFlags: 0

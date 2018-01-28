@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
-public class IS_ComputerBehaviour : QuestPart {
-
+public class IS_BrokenPrinter : QuestPart
+{
     public bool BL_IsPlaying;
     public GameObject labelObject;
     public GameObject repairObject;
@@ -37,19 +36,21 @@ public class IS_ComputerBehaviour : QuestPart {
     }
 
     // Use this for initialization
-    void OnEnable () {
+    void Start()
+    {
 
         InitialiseGame(true);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (!BL_IsPlaying) return;
 
         CheckEndCondition();
         CheckInput();
-        DamageComputer();
+        DamagePrinter();
         UpdateUI();
     }
 
@@ -64,7 +65,7 @@ public class IS_ComputerBehaviour : QuestPart {
 
     private void CheckInput()
     {
-        if (Input.GetKeyDown(KeyCode.E)) RepairComputer();
+        if (Input.GetKeyDown(KeyCode.E)) RepairPrinter();
     }
 
     private void UpdateUI()
@@ -78,10 +79,10 @@ public class IS_ComputerBehaviour : QuestPart {
         repairBar.fillAmount = 0;
         StopAllCoroutines();
         if (!firstFlag) StartCoroutine(RunTimer());
-    }    
+    }
 
-    private void RepairComputer()
-    {        
+    private void RepairPrinter()
+    {
         if (repairBar.fillAmount < 1f) repairBar.fillAmount += 0.1f;
         if (repairBar.fillAmount >= 1f)
         {
@@ -90,7 +91,7 @@ public class IS_ComputerBehaviour : QuestPart {
         }
     }
 
-    private void DamageComputer()
+    private void DamagePrinter()
     {
         if (repairBar.fillAmount > 0f) repairBar.fillAmount -= 0.3f * Time.deltaTime;
     }

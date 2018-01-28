@@ -34,7 +34,19 @@ public class Billboard : MonoBehaviour
             BL_LookAtPC = false;
         }
 
-        if(BL_LookAtPC)
+        if(Vector3.Distance(gameObject.transform.position, player.transform.position) < 10)
+        {
+            lookPos = transform.position - Camera.main.transform.position;
+            lookPos.y = 0;
+            rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, originalRot, playerfollowSmoothSpeed * Time.deltaTime);
+        }
+
+        /*if(BL_LookAtPC)
         {            
             if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 10)
             {
@@ -61,6 +73,6 @@ public class Billboard : MonoBehaviour
             lookPos.y = 0;
             rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
-        }
+        }*/
     }
 }

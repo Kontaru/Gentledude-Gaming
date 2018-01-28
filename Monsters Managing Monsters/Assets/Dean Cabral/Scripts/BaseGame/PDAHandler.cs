@@ -13,6 +13,7 @@ public class PDAHandler : MonoBehaviour {
     public GameObject loadingScreen;
     public GameObject renderCam;
     public GameObject[] minigames;
+    public GameObject[] activeTasks;
     private Animator animator;
 
     public int minigameIndex;
@@ -24,20 +25,48 @@ public class PDAHandler : MonoBehaviour {
         GetComponent<RectTransform>().localPosition = new Vector3(249, -380, 0);
         animator = GetComponentInChildren<Animator>();
         minigameIndex = 0;
+        UpdateActiveTasks();
     }
 
     // Update is called once per frame
     void Update () {
 
         CheckInput();
-	}
+    }
 
     private void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.P)) TogglePDA();
         if (Input.GetKeyDown(KeyCode.M)) ShowMap();
         if (Input.GetKeyDown(KeyCode.N)) ShowTasks();
-        if (Input.GetKeyDown(KeyCode.B)) ShowStats();        
+        if (Input.GetKeyDown(KeyCode.B)) ShowStats();
+        if (Input.GetKeyDown(KeyCode.U)) UpdateActiveTasks();
+    }
+
+    public void UpdateActiveTasks()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Text title = activeTasks[i].transform.GetChild(0).GetComponent<Text>();
+            Text id = activeTasks[i].transform.GetChild(1).GetComponent<Text>();
+
+            for (int j = 0; j < TaskManager.instance.Tasks.Length; j++)
+            {
+                if (TaskManager.instance.Tasks[j].QuestComplete)
+                {
+                    title.text = "No Task Found";
+                    id.text = "Task ID: None";
+                }
+
+                if (title.text == "No Task Found" && !TaskManager.instance.Tasks[j].QuestComplete)
+                {
+                    title.text = TaskManager.instance.Tasks[j].name;
+                    id.text = "Task ID: " + TaskManager.instance.Tasks[j].QuestID.ToString();
+                    break;
+                }
+            }
+            break;
+        }
     }
     
     private void TogglePDA()
@@ -109,6 +138,7 @@ public class PDAHandler : MonoBehaviour {
 
     public void OnClickClose()
     {
+        ShowHome();
         animator.SetBool("BL_ShowPDA", false);
         BL_PDAactive = false;
     }
