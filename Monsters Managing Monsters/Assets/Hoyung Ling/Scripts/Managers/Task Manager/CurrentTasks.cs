@@ -11,7 +11,7 @@ public class CurrentTasks : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-        currentTask[0] = TaskManager.instance.Tasks[0];
+        //currentTask[0] = TaskManager.instance.Tasks[0];
 	}
 	
 	// Update is called once per frame
@@ -20,11 +20,11 @@ public class CurrentTasks : MonoBehaviour {
         {
             if (currentTask[i] == null)
             {
-                GrabQuest(currentTask[i]);
+                currentTask[i] = GrabRandomQuest();
             }
             else if (currentTask[i].QuestComplete == true)
             {
-                GrabQuest(currentTask[i]);
+                currentTask[i] = GrabRandomQuest();
             }
             else
             {
@@ -33,17 +33,11 @@ public class CurrentTasks : MonoBehaviour {
         }
 	}
 
-    void GrabQuest(Task current)
+    Task GrabRandomQuest()
     {
-        for (int i = 0; i < TaskManager.instance.Tasks.Length; i++)
-        {
-            if(TaskManager.instance.Tasks[i].QuestComplete)
-            {
-                break;
-            }else
-            {
-                current = TaskManager.instance.Tasks[i];
-            }
-        }
+        Task vTask = TaskManager.instance.Tasks[0];
+        vTask = TaskManager.instance.Tasks[Random.Range(0, TaskManager.instance.Tasks.Length)];
+
+        return vTask;
     }
 }

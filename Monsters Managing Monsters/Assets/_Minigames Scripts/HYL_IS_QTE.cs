@@ -75,14 +75,6 @@ public class HYL_IS_QTE : QuestPart {
 
     }
 
-    private void CheckEndCondition()
-    {
-        if (BL_MinigameComplete)
-        {
-            BL_IsInteractable = false;
-        }
-    }
-
     private void UpdateUI()
     {
         timerText.text = timer.ToString();

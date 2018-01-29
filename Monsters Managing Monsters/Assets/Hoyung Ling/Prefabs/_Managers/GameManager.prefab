@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4620507357226568}
   - component: {fileID: 114956827700919134}
+  - component: {fileID: 114636548193774568}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -40,6 +41,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114636548193774568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431251792716466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4633563704eae49a744a84dafcf393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114956827700919134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,12 +63,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb60ddcaddae57040a2981b820c9fc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PixelMode: 0
   KC_CameraLock: 122
   KC_Flashlight: 102
   KC_Up: 119
   KC_Left: 97
   KC_Down: 115
   KC_Right: 100
-  player_Coins: 0
-  player_Health: 0
-  mainText: {fileID: 0}
+  day: 0
+  score: 0
+  PL_Succ: 0
+  PL_Ogre: 0
+  PL_Goblin: 0
+  PL_Demon: 0
