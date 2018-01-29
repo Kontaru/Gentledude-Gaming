@@ -16,4 +16,12 @@ public class QuestPart : MonoBehaviour {
 	void Update () {
         if (GameManager.instance.PixelMode) return;
     }
+
+    protected void CheckEndCondition()
+    {
+        if (BL_MinigameComplete)
+        {
+            BL_IsInteractable = false;
+        }
+    }
 }

@@ -16000,8 +16000,8 @@ MonoBehaviour:
   mapScreen: {fileID: 1229940036}
   statsScreen: {fileID: 1048073241}
   tasksScreen: {fileID: 1706833366}
-  gamesScreen: {fileID: 1788898964}
-  loadingScreen: {fileID: 1447572852}
+  gamesScreen: {fileID: 0}
+  loadingScreen: {fileID: 0}
   renderCam: {fileID: 1687906351}
   minigames:
   - {fileID: 1434750256}
@@ -16815,6 +16815,61 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].Steps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].Steps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].Steps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].Steps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[0].reward.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4438948802543868, guid: 08fa9aa8a186ad648ae0e0ded2efed85, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.2231145
@@ -16872,6 +16927,474 @@ Prefab:
       propertyPath: Tasks.Array.data[0].isAccepted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].descriptionDialogue
+      value: Hey there -you, the imp! I need my printer fixed, stat! Could you do
+        that for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].acceptedDialogue
+      value: Great! I expect great things from you, lackey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].finishDialogue
+      value: Well... You did it. I honestly didn't expect much--- Hey, time to get
+        back to work!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].waitingDialogue
+      value: Don't keep me waiting. I've got a busy schedule to keep to!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].QuestID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].isAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].Steps.Array.data[0].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].Steps.Array.data[0].description
+      value: The player should do a thing which does another thing.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1094570674}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].descriptionDialogue
+      value: Hey there -you, the imp! I need my printer fixed, stat! Could you do
+        that for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].acceptedDialogue
+      value: Great! I expect great things from you, lackey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].finishDialogue
+      value: Well... You did it. I honestly didn't expect much--- Hey, time to get
+        back to work!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].waitingDialogue
+      value: Don't keep me waiting. I've got a busy schedule to keep to!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].QuestID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].isAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].Steps.Array.data[0].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].Steps.Array.data[0].description
+      value: The player should do a thing which does another thing.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1094570674}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].descriptionDialogue
+      value: Hey there -you, the imp! I need my printer fixed, stat! Could you do
+        that for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].acceptedDialogue
+      value: Great! I expect great things from you, lackey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].finishDialogue
+      value: Well... You did it. I honestly didn't expect much--- Hey, time to get
+        back to work!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].waitingDialogue
+      value: Don't keep me waiting. I've got a busy schedule to keep to!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].QuestID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].isAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].Steps.Array.data[0].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].Steps.Array.data[0].description
+      value: The player should do a thing which does another thing.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1094570674}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].descriptionDialogue
+      value: Hey there -you, the imp! I need my printer fixed, stat! Could you do
+        that for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].acceptedDialogue
+      value: Great! I expect great things from you, lackey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].finishDialogue
+      value: Well... You did it. I honestly didn't expect much--- Hey, time to get
+        back to work!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].waitingDialogue
+      value: Don't keep me waiting. I've got a busy schedule to keep to!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].QuestID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].isAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].Steps.Array.data[0].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].Steps.Array.data[0].description
+      value: The player should do a thing which does another thing.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1094570674}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].descriptionDialogue
+      value: Hey there -you, the imp! I need my printer fixed, stat! Could you do
+        that for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].acceptedDialogue
+      value: Great! I expect great things from you, lackey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].finishDialogue
+      value: Well... You did it. I honestly didn't expect much--- Hey, time to get
+        back to work!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].waitingDialogue
+      value: Don't keep me waiting. I've got a busy schedule to keep to!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].QuestID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].isAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.data[0].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.data[0].description
+      value: The player should do a thing which does another thing.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1094570674}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].descriptionDialogue
+      value: Hey there -you, the imp! I need my printer fixed, stat! Could you do
+        that for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].acceptedDialogue
+      value: Great! I expect great things from you, lackey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].finishDialogue
+      value: Well... You did it. I honestly didn't expect much--- Hey, time to get
+        back to work!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].waitingDialogue
+      value: Don't keep me waiting. I've got a busy schedule to keep to!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].QuestID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].isAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.data[0].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.data[0].description
+      value: The player should do a thing which does another thing.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1094570674}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].descriptionDialogue
+      value: Hey there -you, the imp! I need my printer fixed, stat! Could you do
+        that for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].acceptedDialogue
+      value: Great! I expect great things from you, lackey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].finishDialogue
+      value: Well... You did it. I honestly didn't expect much--- Hey, time to get
+        back to work!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].waitingDialogue
+      value: Don't keep me waiting. I've got a busy schedule to keep to!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].QuestID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].isAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.data[0].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.data[0].description
+      value: The player should do a thing which does another thing.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1094570674}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].descriptionDialogue
+      value: Hey there -you, the imp! I need my printer fixed, stat! Could you do
+        that for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].acceptedDialogue
+      value: Great! I expect great things from you, lackey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].finishDialogue
+      value: Well... You did it. I honestly didn't expect much--- Hey, time to get
+        back to work!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].waitingDialogue
+      value: Don't keep me waiting. I've got a busy schedule to keep to!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].QuestID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].isAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.data[0].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.data[0].description
+      value: The player should do a thing which does another thing.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1094570674}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].descriptionDialogue
+      value: Hey there -you, the imp! I need my printer fixed, stat! Could you do
+        that for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].acceptedDialogue
+      value: Great! I expect great things from you, lackey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].finishDialogue
+      value: Well... You did it. I honestly didn't expect much--- Hey, time to get
+        back to work!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].waitingDialogue
+      value: Don't keep me waiting. I've got a busy schedule to keep to!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].QuestID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].isAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.data[0].name
+      value: Fix Stacey's Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.data[0].description
+      value: The player should do a thing which does another thing.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1094570674}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08fa9aa8a186ad648ae0e0ded2efed85, type: 2}
   m_IsPrefabParent: 0
