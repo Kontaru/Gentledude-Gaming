@@ -100,6 +100,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4429948081298470}
+  - component: {fileID: 114569422041802566}
   - component: {fileID: 114804620932082872}
   m_Layer: 0
   m_Name: IS_DistributionQuestExample
@@ -377,6 +378,27 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114569422041802566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1452317527243298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76966022d559574cb546795d17a1d05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BL_IsInteractable: 0
+  BL_MinigameComplete: 0
+  items:
+  - target: {fileID: 1881984920970000}
+    interactDistance: 10
+    text: 
+    acquired: 0
+    exclaimationPoint: {fileID: 1287322779723612}
+    interactionObject: {fileID: 1044297468990956}
+  BL_QuestComplete: 0
 --- !u!114 &114617471285554450
 MonoBehaviour:
   m_ObjectHideFlags: 1
