@@ -27,6 +27,7 @@ public class Task
     public string waitingDialogue;
 
     public int QuestID;
+    public bool inActiveList = false;
 
     public bool QuestComplete = false;     //Is our quest complete?
     public bool QuestFinish = false;       //Trigger for NPC hand in
@@ -41,47 +42,50 @@ public class Task
     //Checks if all our steps are complete
     public void StepChecker()
     {
-        //For each step
-        foreach (Step step in Steps)
+        if (isAccepted)
         {
-            //If any of these steps are false, just stop everything and quit the function.
-            if (step.complete == false)
+            //For each step
+            foreach (Step step in Steps)
             {
-                if (isAccepted)
+                step.requires.gameObject.SetActive(true);
+                //If any of these steps are false, just stop everything and quit the function.
+                if (step.complete == false)
                 {
                     if (step.requires.GetComponent<QuestPart>().BL_MinigameComplete)
                         step.complete = true;
-
-                    step.requires.GetComponent<QuestPart>().BL_IsInteractable = true;
                 }
-                return;
+            }
+        }else
+        {
+            //For each step
+            foreach (Step step in Steps)
+            {
+                step.requires.gameObject.SetActive(false);
             }
         }
-        //If return is never called, then we can safetly set this to true.
-
-        QuestComplete = true;
 
         if (QuestFinish)
         {
             foreach (GameObject produce in reward)
             {
-                produce.SetActive(true);
+                if(produce != null)
+                    produce.SetActive(true);
             }
         }
     }
 
-    public void Obtained()
-    {
-        if(isAccepted)
-        {
-            foreach (Step step in Steps)
-            {
-                //If any of these steps are false, just stop everything and quit the function.
-                if (step.complete == false)
-                {
+    //public void Obtained()
+    //{
+    //    if(isAccepted)
+    //    {
+    //        foreach (Step step in Steps)
+    //        {
+    //            //If any of these steps are false, just stop everything and quit the function.
+    //            if (step.complete == false)
+    //            {
 
-                }
-            }
-        }
-    }
+    //            }
+    //        }
+    //    }
+    //}
 }

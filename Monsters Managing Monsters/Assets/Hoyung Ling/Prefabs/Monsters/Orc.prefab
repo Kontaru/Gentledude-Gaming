@@ -568,7 +568,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1386780132230932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 137.1, y: 0, z: 25.9}
+  m_LocalPosition: {x: 137.23, y: 0, z: 35.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4401393675922056}
@@ -900,13 +900,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2ca1eba7c3cf047b8d17aa6bf6ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMovement: 0
   isIdle: 1
+  home: {fileID: 0}
   Bounds:
   - Vertices:
-    - {fileID: 1567269054375166}
-    - {fileID: 1257350331303892}
-    - {fileID: 1944641747647386}
-    - {fileID: 1528171961835568}
+    - idleDuration: 0
+      Corner: {fileID: 0}
+    - idleDuration: 0
+      Corner: {fileID: 0}
+    - idleDuration: 0
+      Corner: {fileID: 0}
+    - idleDuration: 0
+      Corner: {fileID: 0}
 --- !u!114 &114431976517130494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -962,7 +968,7 @@ MonoBehaviour:
   BL_QuestCompleted: 0
   BL_inCombat: 0
   BL_HasQuest: 0
-  IN_NPCQuestID: 2
+  IN_NPCQuestID: 3
   flavourText:
   - Want... Smash...
   - Must... Work... No... Smashing...

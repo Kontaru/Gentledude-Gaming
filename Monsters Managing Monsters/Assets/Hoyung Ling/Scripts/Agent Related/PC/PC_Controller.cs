@@ -10,8 +10,9 @@ public class PC_Controller : Entity {
     //Controllers
     PC_Move CC_Move;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        GameManager.instance.Player = gameObject;
         AudioManager.instance.Stop("Theme");
         AudioManager.instance.Play("Dungeon Music");
         CC_Move = GetComponent<PC_Move>();

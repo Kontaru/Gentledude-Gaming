@@ -59,6 +59,7 @@ MonoBehaviour:
     finishDialogue: 
     waitingDialogue: 
     QuestID: 0
+    inActiveList: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -72,6 +73,7 @@ MonoBehaviour:
     finishDialogue: 
     waitingDialogue: 
     QuestID: 0
+    inActiveList: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -85,32 +87,7 @@ MonoBehaviour:
     finishDialogue: 
     waitingDialogue: 
     QuestID: 0
-    QuestComplete: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
-    Steps: []
-  - name: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    waitingDialogue: 
-    QuestID: 0
-    QuestComplete: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
-    Steps: []
-  - name: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    waitingDialogue: 
-    QuestID: 0
+    inActiveList: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -138,6 +115,7 @@ MonoBehaviour:
       to get back to work!
     waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
     QuestID: 1
+    inActiveList: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -159,6 +137,7 @@ MonoBehaviour:
       the HELL back to work.
     waitingDialogue: Hurry... I need it... I need my next fix...
     QuestID: 2
+    inActiveList: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -176,163 +155,42 @@ MonoBehaviour:
       requires: {fileID: 0}
       nextStep: {fileID: 0}
       complete: 0
-  - name: Fix Stacey's Printer
-    descriptionDialogue: Hey there -you, the imp! I need my printer fixed, stat! Could
-      you do that for me?
-    acceptedDialogue: Great! I expect great things from you, lackey!
-    finishDialogue: Well... You did it. I honestly didn't expect much--- Hey, time
-      to get back to work!
-    waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
-    QuestID: 1
+  - name: Find [Name]'s Contact Lens
+    descriptionDialogue: Hey... Imp... Is that you man? Hey look... I can't see very
+      well, I've lost my contact lens, could you help me find it?
+    acceptedDialogue: Haha! Great! I knew I could rely on you, friend.
+    finishDialogue: You did it! I can see again! Thanks a lot, friend.
+    waitingDialogue: Hey uh, no rush, right?
+    QuestID: 3
+    inActiveList: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
     reward: []
     isObtainable: 0
-    isAccepted: 1
+    isAccepted: 0
     Steps:
-    - name: Fix Stacey's Printer
-      description: The player should do a thing which does another thing.
+    - name: Find the contact lens
+      description: Find the contact lens for our cyclops
       requires: {fileID: 0}
       nextStep: {fileID: 0}
       complete: 0
-  - name: Fix Stacey's Printer
-    descriptionDialogue: Hey there -you, the imp! I need my printer fixed, stat! Could
-      you do that for me?
-    acceptedDialogue: Great! I expect great things from you, lackey!
-    finishDialogue: Well... You did it. I honestly didn't expect much--- Hey, time
-      to get back to work!
-    waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
-    QuestID: 1
+  - name: EMPTY (Don't touch)
+    descriptionDialogue: --
+    acceptedDialogue: --
+    finishDialogue: --
+    waitingDialogue: --
+    QuestID: -1
+    inActiveList: 0
     QuestComplete: 0
-    QuestFinish: 0
+    QuestFinish: 1
     belongsTo: {fileID: 0}
     reward: []
     isObtainable: 0
-    isAccepted: 1
+    isAccepted: 0
     Steps:
-    - name: Fix Stacey's Printer
-      description: The player should do a thing which does another thing.
-      requires: {fileID: 0}
-      nextStep: {fileID: 0}
-      complete: 0
-  - name: Fix Stacey's Printer
-    descriptionDialogue: Hey there -you, the imp! I need my printer fixed, stat! Could
-      you do that for me?
-    acceptedDialogue: Great! I expect great things from you, lackey!
-    finishDialogue: Well... You did it. I honestly didn't expect much--- Hey, time
-      to get back to work!
-    waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
-    QuestID: 1
-    QuestComplete: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    reward: []
-    isObtainable: 0
-    isAccepted: 1
-    Steps:
-    - name: Fix Stacey's Printer
-      description: The player should do a thing which does another thing.
-      requires: {fileID: 0}
-      nextStep: {fileID: 0}
-      complete: 0
-  - name: Fix Stacey's Printer
-    descriptionDialogue: Hey there -you, the imp! I need my printer fixed, stat! Could
-      you do that for me?
-    acceptedDialogue: Great! I expect great things from you, lackey!
-    finishDialogue: Well... You did it. I honestly didn't expect much--- Hey, time
-      to get back to work!
-    waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
-    QuestID: 1
-    QuestComplete: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    reward: []
-    isObtainable: 0
-    isAccepted: 1
-    Steps:
-    - name: Fix Stacey's Printer
-      description: The player should do a thing which does another thing.
-      requires: {fileID: 0}
-      nextStep: {fileID: 0}
-      complete: 0
-  - name: Fix Stacey's Printer
-    descriptionDialogue: Hey there -you, the imp! I need my printer fixed, stat! Could
-      you do that for me?
-    acceptedDialogue: Great! I expect great things from you, lackey!
-    finishDialogue: Well... You did it. I honestly didn't expect much--- Hey, time
-      to get back to work!
-    waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
-    QuestID: 1
-    QuestComplete: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    reward: []
-    isObtainable: 0
-    isAccepted: 1
-    Steps:
-    - name: Fix Stacey's Printer
-      description: The player should do a thing which does another thing.
-      requires: {fileID: 0}
-      nextStep: {fileID: 0}
-      complete: 0
-  - name: Fix Stacey's Printer
-    descriptionDialogue: Hey there -you, the imp! I need my printer fixed, stat! Could
-      you do that for me?
-    acceptedDialogue: Great! I expect great things from you, lackey!
-    finishDialogue: Well... You did it. I honestly didn't expect much--- Hey, time
-      to get back to work!
-    waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
-    QuestID: 1
-    QuestComplete: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    reward: []
-    isObtainable: 0
-    isAccepted: 1
-    Steps:
-    - name: Fix Stacey's Printer
-      description: The player should do a thing which does another thing.
-      requires: {fileID: 0}
-      nextStep: {fileID: 0}
-      complete: 0
-  - name: Fix Stacey's Printer
-    descriptionDialogue: Hey there -you, the imp! I need my printer fixed, stat! Could
-      you do that for me?
-    acceptedDialogue: Great! I expect great things from you, lackey!
-    finishDialogue: Well... You did it. I honestly didn't expect much--- Hey, time
-      to get back to work!
-    waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
-    QuestID: 1
-    QuestComplete: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    reward: []
-    isObtainable: 0
-    isAccepted: 1
-    Steps:
-    - name: Fix Stacey's Printer
-      description: The player should do a thing which does another thing.
-      requires: {fileID: 0}
-      nextStep: {fileID: 0}
-      complete: 0
-  - name: Fix Stacey's Printer
-    descriptionDialogue: Hey there -you, the imp! I need my printer fixed, stat! Could
-      you do that for me?
-    acceptedDialogue: Great! I expect great things from you, lackey!
-    finishDialogue: Well... You did it. I honestly didn't expect much--- Hey, time
-      to get back to work!
-    waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
-    QuestID: 1
-    QuestComplete: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    reward: []
-    isObtainable: 0
-    isAccepted: 1
-    Steps:
-    - name: Fix Stacey's Printer
-      description: The player should do a thing which does another thing.
+    - name: Find the contact lens
+      description: Find the contact lens for our cyclops
       requires: {fileID: 0}
       nextStep: {fileID: 0}
       complete: 0

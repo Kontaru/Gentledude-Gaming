@@ -763,7 +763,7 @@ MonoBehaviour:
   BL_QuestCompleted: 0
   BL_inCombat: 0
   BL_HasQuest: 0
-  IN_NPCQuestID: 2
+  IN_NPCQuestID: 1
   flavourText:
   - Heeey~!
   - Oh my gosh~! I- like- got a new dress todaaay~! W-What do you mean I look the
@@ -852,6 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2ca1eba7c3cf047b8d17aa6bf6ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMovement: 0
   isIdle: 1
   home: {fileID: 1223014888602084}
   Bounds:

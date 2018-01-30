@@ -11,8 +11,7 @@ public class NPCInteraction : MonoBehaviour
 
     public bool BL_inCombat;            //Am I in combat?
     public bool BL_HasQuest;                   //Do I have a quest?
-    bool BL_QuestAccepted;              //Did I accept a quest?
-    public int IN_NPCQuestID = 0;       //Probably not needed
+    bool BL_QuestAccepted = false;              //Did I accept a quest?
     private bool BL_WithinSpace = false;//Am I inside the trigger box?
 
     public string[] flavourText;
@@ -25,8 +24,11 @@ public class NPCInteraction : MonoBehaviour
     //----- COMPONENTS ----------------------------------------------------------
     private TaskManager TM;
     private myQuests Quests;
+    private Idle myIdle;
     private Monster_Dialogue CC_Dialogue;
     public Task ActiveTask;
+
+    #region Triggers
 
     private void OnTriggerEnter(Collider other)
     {
@@ -34,7 +36,10 @@ public class NPCInteraction : MonoBehaviour
         {
             Entity e_coll = other.gameObject.GetComponent<Entity>();
             if (e_coll.EntityType == Entity.Entities.Player)
+            {
                 BL_WithinSpace = true;
+                myIdle.pauseMovement = true;
+            }
         }
     }
 
@@ -47,14 +52,18 @@ public class NPCInteraction : MonoBehaviour
             {
                 Monster_Dialogue.BL_ShowDialogue = false;
                 BL_WithinSpace = false;
+                myIdle.pauseMovement = false;
             }
         }
     }
+
+    #endregion
 
     void Start()
     {
         TM = TaskManager.instance;
         Quests = GetComponent<myQuests>();
+        myIdle = GetComponentInParent<Idle>();
         CC_Dialogue = GetComponent<Monster_Dialogue>();
     }
 
@@ -189,11 +198,6 @@ public class NPCInteraction : MonoBehaviour
     }
 
     #endregion
-
-    private void QuestAccepted()
-    {
-
-    }
 
     private void QuestCompleted()
     {

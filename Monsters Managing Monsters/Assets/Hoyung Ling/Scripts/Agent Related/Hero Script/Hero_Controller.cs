@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Hero_Controller : Attribution
 {
-
     //The hero unit's target
     GameObject Target;
 

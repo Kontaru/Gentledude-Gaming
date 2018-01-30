@@ -20,8 +20,6 @@ public class QuestPart : MonoBehaviour {
     protected void CheckEndCondition()
     {
         if (BL_MinigameComplete)
-        {
             BL_IsInteractable = false;
-        }
     }
 }

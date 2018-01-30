@@ -16805,6 +16805,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114219410057243416, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: currentTask.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4438948802543868, guid: 08fa9aa8a186ad648ae0e0ded2efed85, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.2231145
@@ -16842,38 +16847,6 @@ Prefab:
       propertyPath: Tasks.Array.data[0].Steps.Array.data[0].requires
       value: 
       objectReference: {fileID: 1469537930}
-    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
-        type: 2}
-      propertyPath: Tasks.Array.data[1].name
-      value: We Need Donuts!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
-        type: 2}
-      propertyPath: Tasks.Array.data[1].descriptionDialogue
-      value: Not good... Not good... Not good! We're all out of donuts! ... You, imp,
-        you're not busy right? You're never busy - go get some from out the office!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
-        type: 2}
-      propertyPath: Tasks.Array.data[1].acceptedDialogue
-      value: Perfect! I'll be waiting...
-      objectReference: {fileID: 0}
-    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
-        type: 2}
-      propertyPath: Tasks.Array.data[1].finishDialogue
-      value: You survived... Well stop staring, you're not getting any. Get the HELL
-        back to work.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
-        type: 2}
-      propertyPath: Tasks.Array.data[1].waitingDialogue
-      value: Hurry... I need it... I need my next fix...
-      objectReference: {fileID: 0}
-    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
-        type: 2}
-      propertyPath: Tasks.Array.data[1].QuestID
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08fa9aa8a186ad648ae0e0ded2efed85, type: 2}
   m_IsPrefabParent: 0

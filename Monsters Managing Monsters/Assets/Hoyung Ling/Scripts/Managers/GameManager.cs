@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
+    public GameObject Player;
 
     public bool PixelMode = false;
 
     [Header("Controls")]
 
     public KeyCode KC_CameraLock;
-    public KeyCode KC_Flashlight;
+    public KeyCode KC_Interact;
 
     [Header("Movement")]
     public KeyCode KC_Up;

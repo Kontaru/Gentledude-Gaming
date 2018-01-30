@@ -473,7 +473,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842570519706818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 137.1, y: 0, z: 25.9}
+  m_LocalPosition: {x: 148.23851, y: -0.28, z: 24.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4979044630146824}
@@ -786,7 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec97a042335624444878e3d59b2ae823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestIDs: 
+  QuestIDs: 03000000
   Tasks: []
 --- !u!114 &114173052558939378
 MonoBehaviour:
@@ -932,6 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2ca1eba7c3cf047b8d17aa6bf6ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMovement: 0
   isIdle: 1
   home: {fileID: 1292923376922462}
   Bounds:
