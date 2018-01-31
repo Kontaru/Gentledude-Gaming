@@ -101,7 +101,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4429948081298470}
   - component: {fileID: 114569422041802566}
-  - component: {fileID: 114804620932082872}
   m_Layer: 0
   m_Name: IS_DistributionQuestExample
   m_TagString: Untagged
@@ -399,6 +398,7 @@ MonoBehaviour:
     exclaimationPoint: {fileID: 1287322779723612}
     interactionObject: {fileID: 1044297468990956}
   BL_QuestComplete: 0
+  IN_ItemCount: 0
 --- !u!114 &114617471285554450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -432,27 +432,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Give Newspaper
---- !u!114 &114804620932082872
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1452317527243298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16ecab2236ebf464c8c3e3e7c3e4f2bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BL_IsInteractable: 0
-  BL_MinigameComplete: 0
-  items:
-  - target: {fileID: 1881984920970000}
-    interactDistance: 10
-    text: It's [Name]'s contact lens.
-    acquired: 0
-    exclaimationPoint: {fileID: 1287322779723612}
-    interactionObject: {fileID: 1044297468990956}
-  BL_QuestComplete: 0
 --- !u!114 &114884749489325354
 MonoBehaviour:
   m_ObjectHideFlags: 1

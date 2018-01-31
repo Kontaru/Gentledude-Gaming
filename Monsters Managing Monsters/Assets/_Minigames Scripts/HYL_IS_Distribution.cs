@@ -7,10 +7,14 @@ public class HYL_IS_Distribution : QuestPart {
     public InteractableObject[] items;
     public bool BL_QuestComplete;
 
+    public int IN_ItemCount;
+
+    bool BL_FirstLoad = true;
+
     // Update is called once per frame
     void Update()
     {
-
+        Fluff();
         if (BL_IsInteractable)
         {
             foreach (InteractableObject obj in items)
@@ -26,6 +30,13 @@ public class HYL_IS_Distribution : QuestPart {
                 if (obj.target != null)
                     obj.target.SetActive(false);
             }
+            return;
+        }
+
+        if(IN_ItemCount < items.Length)
+        {
+            //Fail
+            return;
         }
 
         CheckEndCondition();
@@ -37,7 +48,10 @@ public class HYL_IS_Distribution : QuestPart {
             obj.CheckInteractState(GameManager.instance.Player);
 
             if (obj.acquired)
+            {
                 Destroy(obj.target);
+                IN_ItemCount -= 1;
+            }
 
             if (obj.target != null)
                 BL_QuestComplete = false;
@@ -46,5 +60,10 @@ public class HYL_IS_Distribution : QuestPart {
 
         if (BL_QuestComplete)
             BL_MinigameComplete = true;
+    }
+
+    virtual public void Fluff()
+    {
+
     }
 }
