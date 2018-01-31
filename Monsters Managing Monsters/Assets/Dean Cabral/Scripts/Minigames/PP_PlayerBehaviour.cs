@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class PS_PlayerBehaviour : MonoBehaviour
+public class PP_PlayerBehaviour : MonoBehaviour
 {
     public bool BL_MinigameFailed;
     public GameObject winScreen;
@@ -25,7 +25,7 @@ public class PS_PlayerBehaviour : MonoBehaviour
 
             if (RB != null)
             {
-                collision.gameObject.GetComponent<PS_Pixie>().enabled = false;
+                collision.gameObject.GetComponent<PP_Pixie>().enabled = false;
 
                 if (rand == 1) RB.AddForce(Vector2.right * 600f);
                 else RB.AddForce(Vector2.left * 600f);

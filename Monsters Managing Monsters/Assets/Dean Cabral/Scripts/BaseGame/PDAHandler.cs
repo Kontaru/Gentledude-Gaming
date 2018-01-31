@@ -12,6 +12,7 @@ public class PDAHandler : MonoBehaviour {
     public GameObject gamesScreen;
     public GameObject loadingScreen;
     public GameObject renderCam;
+    public GameObject timeObject;
     public GameObject[] minigames;
     public GameObject[] activeTasks;
     private Animator animator;
@@ -87,6 +88,7 @@ public class PDAHandler : MonoBehaviour {
         if (BL_PDAlandscape)
         {            
             GameManager.instance.PixelMode = false;
+            timeObject.SetActive(true);
             animator.SetBool("BL_Landscape", false);
             renderCam.SetActive(false);
             minigames[minigameIndex].SetActive(false);
@@ -94,6 +96,7 @@ public class PDAHandler : MonoBehaviour {
         else
         {
             GameManager.instance.PixelMode = true;
+            timeObject.SetActive(false);
             animator.SetBool("BL_Landscape", true);
             StartCoroutine(WaitAndDisplay(1.5f));            
         }
@@ -149,13 +152,13 @@ public class PDAHandler : MonoBehaviour {
         ToggleLandscape();
     }
 
-    public void StartPS()
+    public void StartPP()
     {
         minigameIndex = 1;
         ToggleLandscape();
     }
 
-    public void StartLT()
+    public void StartCI()
     {
         minigameIndex = 2;
         ToggleLandscape();

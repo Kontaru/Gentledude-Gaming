@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PS_PixieSpawner : MonoBehaviour {
+public class PP_PixieSpawner : MonoBehaviour {
 
     public GameObject pixie;
     public GameObject[] spawns;
-    private PS_PlayerBehaviour PB;
+    private PP_PlayerBehaviour PB;
 
     private int previousValue = 0;
 
     private void Start()
     {
-        PB = FindObjectOfType<PS_PlayerBehaviour>();
+        PB = FindObjectOfType<PP_PlayerBehaviour>();
         StartCoroutine(RandomSpawn());
     }
 
     private void OnEnable()
     {
-        PB = FindObjectOfType<PS_PlayerBehaviour>();
+        PB = FindObjectOfType<PP_PlayerBehaviour>();
         StartCoroutine(RandomSpawn());
     }
 

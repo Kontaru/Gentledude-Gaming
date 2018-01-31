@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PS_Pixie : MonoBehaviour {
+public class PP_Pixie : MonoBehaviour {
 
     private float speed;
     private int randomFactor;
     private bool BL_escaping;
     private Vector3 _startPosition;
-    private PS_PlayerBehaviour PB;
+    private PP_PlayerBehaviour PB;
     private GameObject carriedGremlin;
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -22,7 +22,7 @@ public class PS_Pixie : MonoBehaviour {
 
     private void OnEnable()
     {
-        PB = FindObjectOfType<PS_PlayerBehaviour>();
+        PB = FindObjectOfType<PP_PlayerBehaviour>();
         carriedGremlin = transform.GetChild(0).gameObject;
         _startPosition = transform.position;
         randomFactor = Random.Range(1, 4);        
