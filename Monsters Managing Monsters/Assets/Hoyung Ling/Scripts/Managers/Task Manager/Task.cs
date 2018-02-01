@@ -34,6 +34,7 @@ public class Task
 
     public GameObject belongsTo;
     public GameObject[] reward;
+    public int motivationAmount;
     public bool isObtainable = false;
     public bool isAccepted = false;
 
@@ -68,8 +69,7 @@ public class Task
         {
             foreach (GameObject produce in reward)
             {
-                if(produce != null)
-                    produce.SetActive(true);
+                if(produce != null) produce.SetActive(true);                
             }
         }
     }
