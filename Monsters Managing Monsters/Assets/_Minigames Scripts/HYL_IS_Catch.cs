@@ -4,47 +4,26 @@ using UnityEngine;
 
 public class HYL_IS_Catch : QuestPart {
 
-    public InteractableObject[] items;
-    public bool BL_QuestComplete;
+    public GameObject GO_NPC;
 
+    void Start()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
 
         if (BL_IsInteractable)
         {
-            foreach (InteractableObject obj in items)
-            {
-                if (obj.target != null)
-                    obj.target.SetActive(true);
-            }
+            GO_NPC.SetActive(true);
         }
         else
         {
-            foreach (InteractableObject obj in items)
-            {
-                if (obj.target != null)
-                    obj.target.SetActive(false);
-            }
+            GO_NPC.SetActive(false);
         }
 
-        CheckEndCondition();
-
-        BL_QuestComplete = true;
-
-        foreach (InteractableObject obj in items)
-        {
-            obj.CheckInteractState(GameManager.instance.Player);
-
-            if (obj.acquired)
-                Destroy(obj.target);
-
-            if (obj.target != null)
-                BL_QuestComplete = false;
-
-        }
-
-        if (BL_QuestComplete)
+        if (GO_NPC.GetComponent<HYL_IS_CatchObject>().BL_Captured)
             BL_MinigameComplete = true;
     }
 }
