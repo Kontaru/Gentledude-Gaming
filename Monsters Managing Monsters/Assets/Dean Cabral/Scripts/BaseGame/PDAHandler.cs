@@ -11,6 +11,7 @@ public class PDAHandler : MonoBehaviour {
     public GameObject tasksScreen;
     public GameObject gamesScreen;
     public GameObject loadingScreen;
+    public GameObject pauseScreen;
     public GameObject renderCam;
     public GameObject timeObject;
     public GameObject[] minigames;
@@ -20,6 +21,7 @@ public class PDAHandler : MonoBehaviour {
     public int minigameIndex;
     public bool BL_PDAactive;
     public bool BL_PDAlandscape;
+    public bool BL_Pause;
 
     private void Start()
     {
@@ -37,6 +39,7 @@ public class PDAHandler : MonoBehaviour {
 
     private void CheckInput()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) PauseGame();
         if (Input.GetKeyDown(KeyCode.P)) TogglePDA();
         if (Input.GetKeyDown(KeyCode.M)) ShowMap();
         if (Input.GetKeyDown(KeyCode.N)) ShowTasks();
@@ -81,12 +84,12 @@ public class PDAHandler : MonoBehaviour {
         BL_PDAactive = !BL_PDAactive;
     }
 
-    private void ToggleLandscape()
+    private void ToggleMinigames()
     {
         if (!BL_PDAactive) return;
 
         if (BL_PDAlandscape)
-        {            
+        {
             GameManager.instance.PixelMode = false;
             timeObject.SetActive(true);
             animator.SetBool("BL_Landscape", false);
@@ -98,10 +101,36 @@ public class PDAHandler : MonoBehaviour {
             GameManager.instance.PixelMode = true;
             timeObject.SetActive(false);
             animator.SetBool("BL_Landscape", true);
-            StartCoroutine(WaitAndDisplay(1.5f));            
+            StartCoroutine(WaitAndDisplay(1.5f, false));
+        }        
+    }
+
+    public void PauseGame()
+    {
+        BL_Pause = !BL_Pause;
+        GameManager.instance.PauseGame();
+
+        if (BL_Pause)
+        {
+            animator.speed = 3;
+            timeObject.SetActive(false);
+            if (!BL_PDAactive) animator.SetBool("BL_ShowPDA", true);
+            animator.SetBool("BL_Landscape", true);
+            StartCoroutine(WaitAndDisplay(1f, true));
+            BL_PDAactive = true;
+            BL_PDAlandscape = true;            
         }
-        
-        BL_PDAlandscape = !BL_PDAlandscape;
+        else
+        {
+            animator.speed = 1;
+            timeObject.SetActive(true);
+            animator.SetBool("BL_Landscape", false);
+            animator.SetBool("BL_ShowPDA", false);
+            pauseScreen.SetActive(false);
+            BL_PDAactive = false;
+            BL_PDAlandscape = false;
+            ShowHome();
+        }          
     }
 
     public void OnClickHome()
@@ -149,19 +178,22 @@ public class PDAHandler : MonoBehaviour {
     public void StartDD()
     {
         minigameIndex = 0;
-        ToggleLandscape();
+        ToggleMinigames();
+        BL_PDAlandscape = !BL_PDAlandscape;
     }
 
     public void StartPP()
     {
         minigameIndex = 1;
-        ToggleLandscape();
+        ToggleMinigames();
+        BL_PDAlandscape = !BL_PDAlandscape;
     }
 
     public void StartCI()
     {
         minigameIndex = 2;
-        ToggleLandscape();
+        ToggleMinigames();
+        BL_PDAlandscape = !BL_PDAlandscape;
     }
 
     private void HideAllScreens()
@@ -178,7 +210,10 @@ public class PDAHandler : MonoBehaviour {
         HideAllScreens();
         homeScreen.SetActive(true);
 
-        if (BL_PDAlandscape) ToggleLandscape();
+        if (BL_PDAlandscape) animator.SetBool("BL_Landscape", false);
+        if (BL_Pause) PauseGame();
+
+        BL_PDAlandscape = false;
     }
 
     private void ShowMap()
@@ -220,11 +255,19 @@ public class PDAHandler : MonoBehaviour {
         loadingScreen.SetActive(true);
     }
 
-    IEnumerator WaitAndDisplay(float seconds)
+    IEnumerator WaitAndDisplay(float seconds, bool isPause)
     {
         ShowLoading();
         yield return new WaitForSeconds(seconds);
-        renderCam.SetActive(true);
-        minigames[minigameIndex].SetActive(true);
+        if (isPause)
+        {
+            pauseScreen.SetActive(true);
+        }
+        else
+        {
+            renderCam.SetActive(true);
+            minigames[minigameIndex].SetActive(true);
+        }
+        
     }
 }

@@ -8,13 +8,13 @@ public class EndDaySummary : MonoBehaviour {
     public static EndDaySummary instance;
 
     private int tasksCount;
-    private int dept1Motivation = 0;
-    private int dept2Motivation = 0;
-    private int dept3Motivation = 0;
-    private int penalties = 0;
-    private int penalty1 = 100;
-    private int penalty2 = 100;
-    private int penalty3 = 100;
+    private int dept1Motivation;
+    private int dept2Motivation;
+    private int dept3Motivation;
+    private int penalties;
+    private int penalty1;
+    private int penalty2;
+    private int penalty3;
 
     public Text tasksComplete, dept1Text, dept2Text, dept3Text, pen1Text, pen2Text, pen3Text, scoreText;
 
@@ -42,27 +42,18 @@ public class EndDaySummary : MonoBehaviour {
         pen3Text.text = "-" + penalty3;
         penalties = penalty1 + penalty2 + penalty3;
         scoreText.text = dept1Motivation + dept2Motivation + dept3Motivation - penalties + "";
-    }
 
-    public void IncreaseTaskCount()
-    {
-        tasksCount++;
+        if (Input.GetKeyDown(KeyCode.X)) IncreaseMotivation(100, 1);
+        if (Input.GetKeyDown(KeyCode.C)) IncreaseMotivation(100, 2);
+        if (Input.GetKeyDown(KeyCode.V)) IncreaseMotivation(100, 3);
     }
 
     public void IncreaseMotivation(int amount, int dept)
     {
-        switch (dept)
-        {
-            case 1:
-                dept1Motivation += amount;
-                break;
-            case 2:
-                dept2Motivation += amount;
-                break;
-            case 3:
-                dept3Motivation += amount;
-                break;
-        }
+        tasksCount++;
+        if (dept == 1) dept1Motivation += amount;
+        else if (dept == 2) dept2Motivation += amount;
+        else if (dept == 3) dept3Motivation += amount;
     }
 
     public void DecreaseMotivation(int amount)
