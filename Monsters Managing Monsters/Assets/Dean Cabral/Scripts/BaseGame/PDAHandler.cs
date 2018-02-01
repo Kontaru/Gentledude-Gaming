@@ -16,6 +16,10 @@ public class PDAHandler : MonoBehaviour {
     public GameObject timeObject;
     public GameObject[] minigames;
     public GameObject[] activeTasks;
+
+    public Slider volSlider;
+    public Text tasksText, volText;
+
     private Animator animator;
 
     public int minigameIndex;
@@ -35,6 +39,7 @@ public class PDAHandler : MonoBehaviour {
     void Update () {
 
         CheckInput();
+        UpdateUI();
     }
 
     private void CheckInput()
@@ -45,6 +50,11 @@ public class PDAHandler : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.N)) ShowTasks();
         if (Input.GetKeyDown(KeyCode.B)) ShowStats();
         if (Input.GetKeyDown(KeyCode.U)) UpdateActiveTasks();
+    }
+
+    private void UpdateUI()
+    {
+        volText.text = "Volume " + volSlider.value + "%";
     }
 
     public void UpdateActiveTasks()
@@ -257,7 +267,7 @@ public class PDAHandler : MonoBehaviour {
 
     IEnumerator WaitAndDisplay(float seconds, bool isPause)
     {
-        ShowLoading();
+        if (!isPause) ShowLoading();
         yield return new WaitForSeconds(seconds);
         if (isPause)
         {
