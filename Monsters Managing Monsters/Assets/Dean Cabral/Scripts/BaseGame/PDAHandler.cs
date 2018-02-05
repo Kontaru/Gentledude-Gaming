@@ -22,6 +22,7 @@ public class PDAHandler : MonoBehaviour {
 
     private Animator animator;
 
+    private string tasks;
     public int minigameIndex;
     public bool BL_PDAactive;
     public bool BL_PDAlandscape;
@@ -55,6 +56,19 @@ public class PDAHandler : MonoBehaviour {
     private void UpdateUI()
     {
         volText.text = "Volume " + volSlider.value + "%";
+        tasksText.text = tasks;
+    }
+
+    public void RefreshTasksList()
+    {
+        Task[] tasksArr = TaskManager.instance.Tasks;
+        tasks = "";
+
+        for (int i = 0; i < tasksArr.Length; i++)
+        {
+            if (i > 0) tasks += "\n" + "[" + tasksArr[i].QuestID + "]" + " " + tasksArr[i].name;
+            else tasks += "[" + tasksArr[i].QuestID + "]" + " " + tasksArr[i].name;
+        }
     }
 
     public void UpdateActiveTasks()
@@ -119,6 +133,7 @@ public class PDAHandler : MonoBehaviour {
     {
         BL_Pause = !BL_Pause;
         GameManager.instance.PauseGame();
+        RefreshTasksList();
 
         if (BL_Pause)
         {
