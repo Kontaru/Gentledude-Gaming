@@ -26,13 +26,13 @@ public class GameManager : MonoBehaviour {
     public int score;
 
     [Header("Monster Stats")]
-    [SerializeField] int PL_Finance = 0;
-    [SerializeField] int PL_HR = 0;
-    [SerializeField] int PL_IT = 0;
-    [SerializeField] int PL_Janitorial = 0;
-    [SerializeField] int PL_Marketing = 0;
-    [SerializeField] int PL_Overseas = 0;
-    [SerializeField] int PL_Security = 0;
+    public int PL_Finance = 0;
+    public int PL_HR = 0;
+    public int PL_IT = 0;
+    public int PL_Janitorial = 0;
+    public int PL_Marketing = 0;
+    public int PL_Overseas = 0;
+    public int PL_Security = 0;
 
     bool BL_Pause = false;
 
