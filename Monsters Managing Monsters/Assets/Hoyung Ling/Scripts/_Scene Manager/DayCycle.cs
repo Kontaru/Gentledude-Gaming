@@ -11,39 +11,41 @@ public class DayCycle : MonoBehaviour
     public bool ShowResults = false;
     public bool EnterHeroes = false;
 
-    [Header("Day Parameters")]
-
-    //Variables we use to calculate ALL the things
-    [Tooltip("Hours in a day")]
-    public float workHours;
+    //Variables we use to calculate the current state in the day
+    float workHours = 16;
     float dayHours = 24;
-    [Tooltip("How long a day takes irl (minutes)")]
-    public float timeInDay;
-
-    //Current time/day for the player
-    [Header("Current time/day for the player")]
-    public float currentTime;
-    public float currentDay;
     float displayHour;
     float displayMinute;
+
+    //Night hours (in action points)
+    float FL_time;
+    float FL_morning;
+
+    [Tooltip("Action Points")]
+    public float actionPointsAvailable;
+    public float actionPointsUsed;
+    public float currentDay;
+
 
     //Checkpoints in the day
     [Header("Begin day?")]
     public bool beginDay = false;
     public bool pause = false;
-    [SerializeField]
-    float firstHour;
-    [SerializeField]
-    float finalHour;
 
     //i.e: 9am till midnight, player plays the game
     //other hours, simulate time progressing from midnight till 9am at a much faster rate
     [SerializeField]
     bool playerControlledEvent = true;
-    [SerializeField]
-    bool Daytime = false;
-    [SerializeField]
-    bool Nighttime = false;
+
+    public enum TimeState
+    {
+        None,
+        Daytime,
+        Nighttime,
+        Paused
+    }
+
+    public TimeState State;
 
     [Header("UI")]
     public Text Hour;
@@ -81,73 +83,82 @@ public class DayCycle : MonoBehaviour
             beginDay = false;
         }
 
-        if (Daytime)
-        {
-            Nighttime = false;
-
-            if (!pause && playerControlledEvent)
-            {
-                Time.timeScale = 1.0f;
-                currentTime = Time.time - firstHour;
-                CalculateTime(currentTime);
-            }
-
-            //Has our day ended?
-            if (currentTime + firstHour >= firstHour + (timeInDay / 24) * 16)
-            {
-                pause = true;
-                playerControlledEvent = false;
-
-                Daytime = false;
-                Nighttime = true;
-            }
-        }
-
-        if (Nighttime)
-        {
-            PC_Move.canMove = false;
-            Daytime = false;
-
-            if (!pause && !playerControlledEvent)
-            {
-                //From midnight until morning, we want to simulate sped up time
-                Time.timeScale = 10.0f;
-                currentTime = Time.time - firstHour;
-                CalculateTime(currentTime);
-            }
-
-            if (currentTime + firstHour >= finalHour)
-            {
-                Daytime = true;
-                Nighttime = false;
-
-                ResetTimer();
-            }
-        }
-
+        if (State == TimeState.Daytime) DayTimeIterationCycle();
+        else if (State == TimeState.Nighttime) NightTimeIteractionCycle();
+        
         if(pause)
         {
             Paused();
-
-            if (currentDay > 3)
-            {
-                //SpawnHero
-                EnterHeroes = true;
-                ShowResults = false;
-            }
-            else
-            {
-                //Do calculations screen
-                EnterHeroes = false;
-                ShowResults = true;
-            }
         }
     }
 
     void Paused()
     {
         Time.timeScale = 0;
+
+        if (currentDay > 5)
+        {
+            //SpawnHero
+            EnterHeroes = true;
+            ShowResults = false;
+        }
+        else
+        {
+            //Do calculations screen
+            EnterHeroes = false;
+            ShowResults = true;
+        }
     }
+
+    #region --- Day Cycles ---
+
+    void DayTimeIterationCycle()
+    {
+        if (!pause && playerControlledEvent)
+        {
+            Time.timeScale = 1.0f;
+            CalculateTime(actionPointsUsed);
+        }
+
+        CheckForNightTime();
+    }
+
+    void CheckForNightTime()
+    {
+        //Has our day ended?
+        if (actionPointsUsed >= actionPointsAvailable)
+        {
+            FL_morning = actionPointsAvailable * dayHours / workHours;
+            FL_time = actionPointsAvailable;
+
+            pause = true;
+            playerControlledEvent = false;
+
+            State = TimeState.Nighttime;
+        }
+    }
+
+    void NightTimeIteractionCycle()
+    {
+
+        if (!pause && !playerControlledEvent)
+        {
+            //From midnight until morning, we want to simulate sped up time
+            Time.timeScale = 10.0f;
+            FL_time++;
+            CalculateTime(FL_time);
+        }
+
+        CheckForDayTime();
+    }
+
+    void CheckForDayTime()
+    {
+        if (FL_time >= FL_morning)
+            ResetTimer();
+    }
+
+    #endregion
 
     void ResetTimer()
     {
@@ -156,12 +167,10 @@ public class DayCycle : MonoBehaviour
         else
             Days.text = string.Format("" + currentDay);
 
-        firstHour = Time.time;
-        finalHour = Time.time + timeInDay;
-        currentTime = 0;
+        actionPointsUsed = 0;
 
         pause = false;
-        Daytime = true;
+        State = TimeState.Daytime;
         playerControlledEvent = true;
     }
 
@@ -169,7 +178,10 @@ public class DayCycle : MonoBehaviour
     void CalculateTime(float time)
     {
         //Current time * time it takes for an hour
-        displayHour = (24 - workHours) + Mathf.Floor(time * dayHours / timeInDay);  //What is the time right now? (in hours)
+        displayHour = (24 - workHours) + 
+            Mathf.Floor(time * 
+            (workHours /  actionPointsAvailable)
+            );  //What is the time right now? (in hours)
 
         if(displayHour > 23)
             Hour.text = string.Format("0" + (displayHour - 24));
@@ -180,7 +192,9 @@ public class DayCycle : MonoBehaviour
 
 
         //Current time * time it takes for a minute - (the hour that we're at * 60)
-        displayMinute = Mathf.Floor(time * 60 * dayHours / timeInDay - (60 * (displayHour - (24 - workHours))));
+        displayMinute = Mathf.Floor(time * 60 *
+            (workHours / actionPointsAvailable)
+            - (60 * (displayHour - (24 - workHours))));
 
         if (displayMinute < 10)
             Minute.text = string.Format("0" + displayMinute);
@@ -188,16 +202,16 @@ public class DayCycle : MonoBehaviour
             Minute.text = string.Format("" + displayMinute);
     }
 
-    //Some return values for DLight
+    #region --- Some return values for DLight ---
 
     public float FL_CurrentTime()
     {
-        return currentTime;
+        return actionPointsUsed;
     }
 
     public float FL_CurrentHour()
     {
-        return (24 - workHours) + (currentTime * dayHours / timeInDay);
+        return (24 - workHours) + (actionPointsUsed * dayHours / actionPointsAvailable);
     }
 
     public float[] FL_TheTime()
@@ -214,10 +228,7 @@ public class DayCycle : MonoBehaviour
         return pause;
     }
 
-    public bool BL_Daytime()
-    {
-        return Daytime;
-    }
+    #endregion
 
     public void NewDay()
     {

@@ -64,6 +64,7 @@ MonoBehaviour:
     QuestFinish: 0
     belongsTo: {fileID: 0}
     reward: []
+    motivationAmount: 0
     isObtainable: 0
     isAccepted: 0
     Steps: []
@@ -78,6 +79,7 @@ MonoBehaviour:
     QuestFinish: 0
     belongsTo: {fileID: 0}
     reward: []
+    motivationAmount: 0
     isObtainable: 0
     isAccepted: 0
     Steps: []
@@ -92,6 +94,37 @@ MonoBehaviour:
     QuestFinish: 0
     belongsTo: {fileID: 0}
     reward: []
+    motivationAmount: 0
+    isObtainable: 0
+    isAccepted: 0
+    Steps: []
+  - name: 
+    descriptionDialogue: 
+    acceptedDialogue: 
+    finishDialogue: 
+    waitingDialogue: 
+    QuestID: 0
+    inActiveList: 0
+    QuestComplete: 0
+    QuestFinish: 0
+    belongsTo: {fileID: 0}
+    reward: []
+    motivationAmount: 0
+    isObtainable: 0
+    isAccepted: 0
+    Steps: []
+  - name: 
+    descriptionDialogue: 
+    acceptedDialogue: 
+    finishDialogue: 
+    waitingDialogue: 
+    QuestID: 0
+    inActiveList: 0
+    QuestComplete: 0
+    QuestFinish: 0
+    belongsTo: {fileID: 0}
+    reward: []
+    motivationAmount: 0
     isObtainable: 0
     isAccepted: 0
     Steps: []
@@ -120,6 +153,7 @@ MonoBehaviour:
     QuestFinish: 0
     belongsTo: {fileID: 0}
     reward: []
+    motivationAmount: 100
     isObtainable: 0
     isAccepted: 0
     Steps:
@@ -142,6 +176,7 @@ MonoBehaviour:
     QuestFinish: 0
     belongsTo: {fileID: 0}
     reward: []
+    motivationAmount: 0
     isObtainable: 0
     isAccepted: 1
     Steps:
@@ -167,6 +202,7 @@ MonoBehaviour:
     QuestFinish: 0
     belongsTo: {fileID: 0}
     reward: []
+    motivationAmount: 0
     isObtainable: 0
     isAccepted: 0
     Steps:
@@ -186,6 +222,7 @@ MonoBehaviour:
     QuestFinish: 1
     belongsTo: {fileID: 0}
     reward: []
+    motivationAmount: 0
     isObtainable: 0
     isAccepted: 0
     Steps:

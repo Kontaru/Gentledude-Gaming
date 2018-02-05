@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114065963460816598}
   - component: {fileID: 114298160908449022}
   - component: {fileID: 114255361010624350}
+  - component: {fileID: 114372307447742686}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -74,17 +75,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowResults: 0
   EnterHeroes: 0
-  workHours: 16
-  timeInDay: 60
-  currentTime: 0
+  actionPointsAvailable: 60
+  actionPointsUsed: 0
   currentDay: 0
   beginDay: 1
   pause: 0
-  firstHour: 0
-  finalHour: 0
   playerControlledEvent: 1
-  Daytime: 0
-  Nighttime: 0
+  State: 0
   Hour: {fileID: 0}
   Minute: {fileID: 0}
   Days: {fileID: 0}
@@ -101,6 +98,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnHeroes: 0
   BL_HeroArrival: 0
+--- !u!114 &114372307447742686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371425909073192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14513c06ebafea49ae30bdd3c882916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasksComplete: {fileID: 0}
+  dept1Text: {fileID: 0}
+  dept2Text: {fileID: 0}
+  dept3Text: {fileID: 0}
+  pen1Text: {fileID: 0}
+  pen2Text: {fileID: 0}
+  pen3Text: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!114 &114839365720268744
 MonoBehaviour:
   m_ObjectHideFlags: 1

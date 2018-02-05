@@ -71,7 +71,7 @@ public class DLight : MonoBehaviour {
 	void Update () {
 
         currentTime = DayCycle.instance.FL_CurrentTime();
-        timeInDay = DayCycle.instance.timeInDay;
+        timeInDay = DayCycle.instance.actionPointsAvailable;
         currentHour = DayCycle.instance.FL_CurrentHour();
 
         UpdateLightCycle(timeInDay);
@@ -88,7 +88,7 @@ public class DLight : MonoBehaviour {
         else until = skyColour[currentStep + 1].when;
 
         duration = until - skyColour[currentStep].when;
-        rate = 24 / realTime;
+        rate = 24 / (24 / 16) / realTime;
         duration = rate * duration;
 
         mainLight.intensity = Mathf.Lerp(mainLight.intensity, skyColour[currentStep].brightness, Time.deltaTime / duration);
