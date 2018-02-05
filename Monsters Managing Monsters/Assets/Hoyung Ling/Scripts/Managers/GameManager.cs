@@ -26,10 +26,13 @@ public class GameManager : MonoBehaviour {
     public int score;
 
     [Header("Monster Stats")]
-    [SerializeField] int PL_Succ = 0;
-    [SerializeField] int PL_Ogre = 0;
-    [SerializeField] int PL_Goblin = 0;
-    [SerializeField] int PL_Demon = 0;
+    [SerializeField] int PL_Finance = 0;
+    [SerializeField] int PL_HR = 0;
+    [SerializeField] int PL_IT = 0;
+    [SerializeField] int PL_Janitorial = 0;
+    [SerializeField] int PL_Marketing = 0;
+    [SerializeField] int PL_Overseas = 0;
+    [SerializeField] int PL_Security = 0;
 
     bool BL_Pause = false;
 
@@ -51,16 +54,23 @@ public class GameManager : MonoBehaviour {
         
     }
 
-    public void PowerBoost(Attribution.Attributes attr)
+    public void PowerBoost(Attribution.Attributes attr, int amount)
     {
-        if (attr == Attribution.Attributes.Succubus)
-            PL_Succ++;
-        if (attr == Attribution.Attributes.Ogre)
-            PL_Ogre++;
-        if (attr == Attribution.Attributes.Goblin)
-            PL_Goblin++;
-        if (attr == Attribution.Attributes.Demon)
-            PL_Demon++;
+        if (attr == Attribution.Attributes.Finance)
+            PL_Finance += amount;
+        if (attr == Attribution.Attributes.HR)
+            PL_HR += amount;
+        if (attr == Attribution.Attributes.IT)
+            PL_IT += amount;
+        if (attr == Attribution.Attributes.Janitorial)
+            PL_Janitorial += amount;
+        if (attr == Attribution.Attributes.Marketing)
+            PL_Marketing += amount;
+        if (attr == Attribution.Attributes.Overseas)
+            PL_Overseas += amount;
+        if (attr == Attribution.Attributes.Security)
+            PL_Security += amount;
+
     }
 
     #region ~ Scene Related ~

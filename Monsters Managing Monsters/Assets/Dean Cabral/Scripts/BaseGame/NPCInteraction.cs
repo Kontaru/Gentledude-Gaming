@@ -9,10 +9,10 @@ public class NPCInteraction : MonoBehaviour
     //Used by controller
     public bool BL_QuestCompleted = false;
 
-    public bool BL_inCombat;            //Am I in combat?
-    public bool BL_HasQuest;                   //Do I have a quest?
+    public bool BL_inCombat;                    //Am I in combat?
+    public bool BL_HasQuest;                    //Do I have a quest?
     bool BL_QuestAccepted = false;              //Did I accept a quest?
-    private bool BL_WithinSpace = false;//Am I inside the trigger box?
+    private bool BL_WithinSpace = false;        //Am I inside the trigger box?
 
     public string[] flavourText;
 
@@ -79,18 +79,27 @@ public class NPCInteraction : MonoBehaviour
             return;
         }
 
-        //Check all of my quests, if any of them are obtainable, then I have a quest
-        foreach (Task quest in Quests.Tasks)
+        if (Quests != null)
         {
-            if (quest == null)
-                break;
-
-            if (quest.isObtainable)
+            //Check all of my quests, if any of them are obtainable, then I have a quest
+            foreach (Task quest in Quests.Tasks)
             {
-                BL_HasQuest = true;
-                ActiveTask = quest;
-                break;
+                if (quest == null)
+                    break;
+
+                quest.belongsTo = transform.parent.gameObject;
+
+                if (quest.isObtainable)
+                {
+                    BL_HasQuest = true;
+                    ActiveTask = quest;
+                    break;
+                }
             }
+        }else
+        {
+            BL_HasQuest = false;
+            BL_QuestAccepted = false;
         }
 
         UIState();
@@ -204,7 +213,6 @@ public class NPCInteraction : MonoBehaviour
         HideAll();
         ActiveTask.QuestFinish = true;
         BL_QuestAccepted = false;
-        BL_QuestCompleted = true;
         BL_HasQuest = false;
         Debug.Log("Quest Completed");
     }

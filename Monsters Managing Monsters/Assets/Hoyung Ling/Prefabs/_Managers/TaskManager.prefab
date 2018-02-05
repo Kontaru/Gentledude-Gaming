@@ -60,6 +60,7 @@ MonoBehaviour:
     waitingDialogue: 
     QuestID: 0
     inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -75,6 +76,7 @@ MonoBehaviour:
     waitingDialogue: 
     QuestID: 0
     inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -90,6 +92,7 @@ MonoBehaviour:
     waitingDialogue: 
     QuestID: 0
     inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -105,6 +108,7 @@ MonoBehaviour:
     waitingDialogue: 
     QuestID: 0
     inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -120,6 +124,7 @@ MonoBehaviour:
     waitingDialogue: 
     QuestID: 0
     inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -141,14 +146,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tasks:
   - name: Fix Stacey's Printer
-    descriptionDialogue: Hey there -you, the imp! I need my printer fixed, stat! Could
-      you do that for me?
-    acceptedDialogue: Great! I expect great things from you, lackey!
-    finishDialogue: Well... You did it. I honestly didn't expect much--- Hey, time
-      to get back to work!
-    waitingDialogue: Don't keep me waiting. I've got a busy schedule to keep to!
+    descriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but I
+      uh \u2013 I got a virus. I don\u2019t know how but I need you to fix it for
+      me fast. Don\u2019t go telling Jim, the technician. This isn\u2019t the first
+      time\u2026 "
+    acceptedDialogue: 'Hurry it up then, before someone sees! '
+    finishDialogue: "Phew\u2026 Thanks uh\u2026 Yeah\u2026 Don\u2019t you have work
+      to be getting on with? "
+    waitingDialogue: "You\u2019d better know what you\u2019re doing. "
     QuestID: 1
     inActiveList: 0
+    Repeatable: 1
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -157,21 +165,25 @@ MonoBehaviour:
     isObtainable: 0
     isAccepted: 0
     Steps:
-    - name: Fix Stacey's Printer
+    - name: Fix Computer
       description: The player should do a thing which does another thing.
       requires: {fileID: 0}
       nextStep: {fileID: 0}
       complete: 0
   - name: We Need Donuts!
-    descriptionDialogue: Not good... Not good... Not good! We're all out of donuts!
-      ... You, imp, you're not busy right? You're never busy - go get some from out
-      the office!
-    acceptedDialogue: Perfect! I'll be waiting...
-    finishDialogue: You survived... Well stop staring, you're not getting any. Get
-      the HELL back to work.
-    waitingDialogue: Hurry... I need it... I need my next fix...
+    descriptionDialogue: "Hey you! Yeah you, the wimpy looking one. We ordered some
+      doughnuts for the department, but have to go fetch them. I\u2019m uh, busy.
+      Right now. How about you go grab them? They\u2019re just across the street.
+      I\u2019ll make it worth your while.  "
+    acceptedDialogue: "Thanks man, I\u2019ve already paid. Just make sure you look
+      both ways and up\u2026 Damn dragons\u2026 .."
+    finishDialogue: "Wow, nice one. What? Isn\u2019t doing a good deed for your coworker
+      a good enough reward? "
+    waitingDialogue: "Don\u2019t dally, we\u2019ve got a hungry department waiting
+      on you, uh\u2026 John, right? "
     QuestID: 2
     inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -198,6 +210,7 @@ MonoBehaviour:
     waitingDialogue: Hey uh, no rush, right?
     QuestID: 3
     inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
@@ -218,6 +231,7 @@ MonoBehaviour:
     waitingDialogue: --
     QuestID: -1
     inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
     QuestFinish: 1
     belongsTo: {fileID: 0}

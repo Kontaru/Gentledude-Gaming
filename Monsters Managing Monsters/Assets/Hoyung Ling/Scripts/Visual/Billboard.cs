@@ -36,6 +36,7 @@ public class Billboard : MonoBehaviour
 
         if(Vector3.Distance(gameObject.transform.position, player.transform.position) < 10)
         {
+            originalRot = transform.rotation;
             lookPos = transform.position - Camera.main.transform.position;
             lookPos.y = 0;
             rotation = Quaternion.LookRotation(lookPos);

@@ -40,23 +40,23 @@ public class DamageCaster : Attribution {
     //If they are in favour of the weapon, deal double damage. Otherwise deal 1
     void AttributeCheck(Collider coll)
     {
-        if (GameManager.instance.PixelMode) return;
+        //if (GameManager.instance.PixelMode) return;
 
-        if (myAttribute == Attributes.Succubus)
-        {
-            if (coll.GetComponent<Attribution>().myAttribute == Attribution.Attributes.Goblin) DealDamage(coll, 2);
-            else DealDamage(coll, 1);
-        }
-        else if (myAttribute == Attributes.Ogre)
-        {
-            if (coll.GetComponent<Attribution>().myAttribute == Attribution.Attributes.Succubus) DealDamage(coll, 2);
-            else DealDamage(coll, 1);
-        }
-        else if (myAttribute == Attributes.Goblin)
-        {
-            if (coll.GetComponent<Attribution>().myAttribute == Attribution.Attributes.Ogre) DealDamage(coll, 2);
-            else DealDamage(coll, 1);
-        }
+        //if (myAttribute == Attributes.HR)
+        //{
+        //    if (coll.GetComponent<Attribution>().myAttribute == Attribution.Attributes.D3) DealDamage(coll, 2);
+        //    else DealDamage(coll, 1);
+        //}
+        //else if (myAttribute == Attributes.D2)
+        //{
+        //    if (coll.GetComponent<Attribution>().myAttribute == Attribution.Attributes.HR) DealDamage(coll, 2);
+        //    else DealDamage(coll, 1);
+        //}
+        //else if (myAttribute == Attributes.D3)
+        //{
+        //    if (coll.GetComponent<Attribution>().myAttribute == Attribution.Attributes.D2) DealDamage(coll, 2);
+        //    else DealDamage(coll, 1);
+        //}
     }
 
     //Send message "TakeDamage" to the collider

@@ -28,15 +28,24 @@ public class Task
 
     public int QuestID;
     public bool inActiveList = false;
+    public bool Repeatable = false;
 
-    public bool QuestComplete = false;     //Is our quest complete?
-    public bool QuestFinish = false;       //Trigger for NPC hand in
+    [HideInInspector] public bool QuestComplete = false;     //Is our quest complete?
+    [HideInInspector] public bool QuestFinish = false;       //Trigger for NPC hand in
 
-    public GameObject belongsTo;
-    public GameObject[] reward;
+    [HideInInspector] public GameObject belongsTo;
+
+    [Header("Action Points + Motivation")]
+    public int actionPointWeight;
     public int motivationAmount;
-    public bool isObtainable = false;
-    public bool isAccepted = false;
+
+    [Header("Reward?")]
+    public GameObject[] reward;
+
+    [HideInInspector] public bool isObtainable = false;
+    [HideInInspector] public bool isAccepted = false;
+
+    private bool BL_Boost = true;
 
     [Header("Steps")]
     public Step[] Steps;                    //Our steps to completing the quest
@@ -45,15 +54,19 @@ public class Task
     {
         if (isAccepted)
         {
+            QuestComplete = true;
             //For each step
             foreach (Step step in Steps)
             {
                 step.requires.gameObject.SetActive(true);
+
+                if (step.requires.GetComponent<QuestPart>().BL_MinigameComplete)
+                    step.complete = true;
+
                 //If any of these steps are false, just stop everything and quit the function.
                 if (step.complete == false)
                 {
-                    if (step.requires.GetComponent<QuestPart>().BL_MinigameComplete)
-                        step.complete = true;
+                    QuestComplete = false;
                 }
             }
         }else
@@ -67,9 +80,24 @@ public class Task
 
         if (QuestFinish)
         {
-            foreach (GameObject produce in reward)
+            QuestComplete = false;
+
+            if (BL_Boost)
             {
-                if(produce != null) produce.SetActive(true);                
+                foreach (GameObject produce in reward)
+                {
+                    if (produce != null) produce.SetActive(true);
+                }
+
+                Attribution.Attributes Type = belongsTo.GetComponent<Attribution>().myAttribute;
+                GameManager.instance.PowerBoost(Type, motivationAmount);
+                BL_Boost = false;
+            }
+
+            if (Repeatable)
+            {
+                QuestFinish = false;
+                BL_Boost = false;
             }
         }
     }

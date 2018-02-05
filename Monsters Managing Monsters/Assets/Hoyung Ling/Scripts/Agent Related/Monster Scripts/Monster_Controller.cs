@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Monster_Controller : Attribution {
 
-    //The hero unit's target
-    public GameObject Target;
-
     // -------- MONSTER COMPONENTS ------------ ------------ ------------ ------------ ------------
-    Monster_Combat CC_Combat;
     NPCInteraction CC_Interaction;
     Idle CC_Idle;
 
@@ -16,12 +12,8 @@ public class Monster_Controller : Attribution {
     {
         AddMonster();
 
-        CC_Combat = GetComponent<Monster_Combat>();
         CC_Interaction = transform.GetChild(0).GetComponent<NPCInteraction>();
         CC_Idle = GetComponent<Idle>();
-
-        Target = NearestEnemy();
-        CC_Combat.Target = Target;
     }
 
     // Update is called once per frame
@@ -33,40 +25,18 @@ public class Monster_Controller : Attribution {
         //Otherwise, do normal stuff
         if (TargetHandler.instance.heroCount > 0)
         {
-            CC_Combat.BL_InitiateCombat = true;
             CC_Interaction.BL_inCombat = true;
-            CombatLoop();
             return;
         }
         else
         {
-            CC_Combat.BL_InitiateCombat = false;
             CC_Interaction.BL_inCombat = false;
             CC_Idle.isIdle = !CC_Interaction.BL_HasQuest;
 
             if(CC_Interaction.BL_QuestCompleted)
             {
                 CC_Interaction.BL_QuestCompleted = false;
-                GameManager.instance.PowerBoost(myAttribute);
             }
-        }
-    }
-
-    void CombatLoop()
-    {
-        //If I don't have an enemy, find one
-        if (Target == null)
-        {
-            Target = NearestEnemy();
-            CC_Combat.Target = Target;
-        }
-
-        //If I still don't have an enemy, that means all enemies are dead
-        if (Target == null)
-        {
-            Debug.Log("All targets down");
-            //You lose
-            return;
         }
     }
 
@@ -94,28 +64,5 @@ public class Monster_Controller : Attribution {
                 yield break;
             }
         }
-    }
-
-    //Target finder
-    GameObject NearestEnemy()
-    {
-        float nearestEnemy = 100;
-        GameObject currentTarget = null;
-
-        foreach (GameObject enemy in TargetHandler.instance.heroes)
-        {
-            if (enemy != null)
-            {
-                float comparisonEnemy = Vector3.Distance(enemy.transform.position, transform.position);
-
-                if (comparisonEnemy < nearestEnemy)
-                {
-                    nearestEnemy = comparisonEnemy;
-                    currentTarget = enemy;
-                }
-            }
-        }
-
-        return currentTarget;
     }
 }

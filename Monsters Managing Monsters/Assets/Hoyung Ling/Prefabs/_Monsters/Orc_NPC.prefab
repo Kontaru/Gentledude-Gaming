@@ -78,7 +78,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1292923376922462
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 4387756594207340}
   - component: {fileID: 65163291150519504}
   - component: {fileID: 114081125939297054}
-  - component: {fileID: 114171462637106716}
   - component: {fileID: 114196210235429452}
   m_Layer: 0
   m_Name: Quest Handler
@@ -209,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1706432976479666
 GameObject:
   m_ObjectHideFlags: 1
@@ -240,7 +239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1726729521476482
 GameObject:
   m_ObjectHideFlags: 1
@@ -281,6 +280,7 @@ GameObject:
   - component: {fileID: 4306418494722754}
   - component: {fileID: 33164486213069150}
   - component: {fileID: 23695310515393034}
+  - component: {fileID: 114591858855314220}
   m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
@@ -301,9 +301,7 @@ GameObject:
   - component: {fileID: 65200614839148632}
   - component: {fileID: 23893586502910714}
   - component: {fileID: 114520715346622824}
-  - component: {fileID: 114591635809385640}
   - component: {fileID: 114123218233990212}
-  - component: {fileID: 114304516812008876}
   m_Layer: 0
   m_Name: Orc
   m_TagString: Monster
@@ -473,7 +471,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842570519706818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 148.23851, y: -0.28, z: 24.28}
+  m_LocalPosition: {x: 137.1, y: 0, z: 25.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4979044630146824}
@@ -738,7 +736,6 @@ MonoBehaviour:
   BL_QuestCompleted: 0
   BL_inCombat: 0
   BL_HasQuest: 0
-  IN_NPCQuestID: 2
   flavourText:
   - Want... Smash...
   - Must... Work... No... Smashing...
@@ -754,9 +751,13 @@ MonoBehaviour:
     finishDialogue: 
     waitingDialogue: 
     QuestID: 0
+    inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
+    actionPointWeight: 0
+    motivationAmount: 0
     reward: []
     isObtainable: 0
     isAccepted: 0
@@ -773,21 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityType: 1
-  myAttribute: 0
-  Target: {fileID: 0}
---- !u!114 &114171462637106716
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1439006378981654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec97a042335624444878e3d59b2ae823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QuestIDs: 03000000
-  Tasks: []
+  myAttribute: 6
 --- !u!114 &114173052558939378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -868,31 +855,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1000
---- !u!114 &114304516812008876
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1812186632049308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c00535d84b22f04a972d8b80c8f1041, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  BL_InitiateCombat: 0
-  moveSpeed: 5
-  rangeAttack: {fileID: 0}
-  meleeAttack: {fileID: 1677287589502380, guid: 018b659c78fa4de409136818b791eb18,
-    type: 2}
-  GO_EjectionPoint: {fileID: 1746973018231920}
-  aggroRange: 40
-  meleeRange: 5
-  rangedRange: 10
-  BL_Attack: 0
-  rangeCooldown: 2
-  meleeCooldown: 1
-  FL_meleeInterval: 0
 --- !u!114 &114420924896693872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -945,19 +907,23 @@ MonoBehaviour:
       Corner: {fileID: 1726729521476482}
     - idleDuration: 3
       Corner: {fileID: 1350765865531994}
---- !u!114 &114591635809385640
+--- !u!114 &114591858855314220
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1812186632049308}
+  m_GameObject: {fileID: 1753814502051582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae4dc6dd550d8b42a34c0dec95372b3, type: 3}
+  m_Script: {fileID: 11500000, guid: d62de5296994eeb47b66edf41cc2d91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagedAudio: Zombie Pain
-  health: 2
+  scale: 1.2
+  rate: 0.1
+  bl_scale_x: 1
+  bl_scale_y: 1
+  bl_scale_z: 0
+  BL_Pulse: 1
 --- !u!114 &114600961930754740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -998,6 +964,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 1.2
   rate: 0.5
+  bl_scale_x: 0
+  bl_scale_y: 0
+  bl_scale_z: 0
   BL_Pulse: 1
 --- !u!114 &114739144867388154
 MonoBehaviour:
@@ -1028,6 +997,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 1.2
   rate: 0.5
+  bl_scale_x: 0
+  bl_scale_y: 0
+  bl_scale_z: 0
   BL_Pulse: 1
 --- !u!114 &114953975932583442
 MonoBehaviour:

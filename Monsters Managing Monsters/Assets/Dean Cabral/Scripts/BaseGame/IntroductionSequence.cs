@@ -63,7 +63,6 @@ public class IntroductionSequence : MonoBehaviour {
         mainMenu.SetActive(true);
         skipText.gameObject.SetActive(false);
         StartCoroutine(FadeImageToFullAlpha(6, menuBG));
-
     }
 
     public IEnumerator FadeTextToFullAlpha(float t, Text i, GameObject o)

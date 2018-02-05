@@ -105,9 +105,7 @@ GameObject:
   - component: {fileID: 65309012035787066}
   - component: {fileID: 23332133238655768}
   - component: {fileID: 114581338070382430}
-  - component: {fileID: 114302081757153072}
   - component: {fileID: 114001411010608964}
-  - component: {fileID: 114584479430084678}
   m_Layer: 0
   m_Name: SUCC
   m_TagString: Untagged
@@ -162,7 +160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1483986121334840
 GameObject:
   m_ObjectHideFlags: 1
@@ -257,7 +255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1743227634528118
 GameObject:
   m_ObjectHideFlags: 1
@@ -283,6 +281,7 @@ GameObject:
   - component: {fileID: 4914858433828764}
   - component: {fileID: 33991987699396212}
   - component: {fileID: 23770143447325508}
+  - component: {fileID: 114037564540334526}
   m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
@@ -300,7 +299,6 @@ GameObject:
   - component: {fileID: 4018351730017512}
   - component: {fileID: 65611075082342374}
   - component: {fileID: 114239470982455028}
-  - component: {fileID: 114803603456702974}
   - component: {fileID: 114077734128260760}
   m_Layer: 0
   m_Name: Quest Handler
@@ -571,7 +569,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1005542927515032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 151.53, y: 0, z: 54.7}
+  m_LocalPosition: {x: 140.28, y: 0, z: 54.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4428906744738004}
@@ -705,8 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityType: 1
-  myAttribute: 0
-  Target: {fileID: 0}
+  myAttribute: 1
 --- !u!114 &114013286856042236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -721,6 +718,24 @@ MonoBehaviour:
   BL_LookAtCam: 1
   BL_LookAtPC: 0
   Forward: {fileID: 0}
+--- !u!114 &114037564540334526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1810958867604674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c2ad9262510d24ca001b3114d56fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset_x: 0
+  offset_y: 1
+  offset_z: 0
+  rate: 1.5
+  degree_x: 0
+  degree_y: 1
+  degree_z: 0
 --- !u!114 &114077734128260760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -763,7 +778,6 @@ MonoBehaviour:
   BL_QuestCompleted: 0
   BL_inCombat: 0
   BL_HasQuest: 0
-  IN_NPCQuestID: 1
   flavourText:
   - Heeey~!
   - Oh my gosh~! I- like- got a new dress todaaay~! W-What do you mean I look the
@@ -779,26 +793,17 @@ MonoBehaviour:
     finishDialogue: 
     waitingDialogue: 
     QuestID: 0
+    inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
+    actionPointWeight: 0
+    motivationAmount: 0
     reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
---- !u!114 &114302081757153072
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1262457488670076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae4dc6dd550d8b42a34c0dec95372b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagedAudio: Zombie Pain
-  health: 2
 --- !u!114 &114457785728976580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -840,6 +845,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 1.2
   rate: 0.5
+  bl_scale_x: 0
+  bl_scale_y: 0
+  bl_scale_z: 0
   BL_Pulse: 1
 --- !u!114 &114581338070382430
 MonoBehaviour:
@@ -865,31 +873,6 @@ MonoBehaviour:
       Corner: {fileID: 1361030154928064}
     - idleDuration: 0
       Corner: {fileID: 1743227634528118}
---- !u!114 &114584479430084678
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1262457488670076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c00535d84b22f04a972d8b80c8f1041, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  BL_InitiateCombat: 0
-  moveSpeed: 5
-  rangeAttack: {fileID: 0}
-  meleeAttack: {fileID: 1677287589502380, guid: 018b659c78fa4de409136818b791eb18,
-    type: 2}
-  GO_EjectionPoint: {fileID: 1942565298226692}
-  aggroRange: 40
-  meleeRange: 5
-  rangedRange: 10
-  BL_Attack: 0
-  rangeCooldown: 2
-  meleeCooldown: 1
-  FL_meleeInterval: 0
 --- !u!114 &114796434512393486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -917,19 +900,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114803603456702974
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867604876577300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec97a042335624444878e3d59b2ae823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QuestIDs: 01000000
-  Tasks: []
 --- !u!114 &114885507572468248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1011,6 +981,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 1.2
   rate: 0.5
+  bl_scale_x: 0
+  bl_scale_y: 0
+  bl_scale_z: 0
   BL_Pulse: 1
 --- !u!195 &195569400562546352
 NavMeshAgent:

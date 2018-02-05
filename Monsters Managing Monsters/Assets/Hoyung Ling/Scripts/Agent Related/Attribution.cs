@@ -7,10 +7,13 @@ public class Attribution : Entity {
 	public enum Attributes
     {
         None,
-        Succubus,
-        Ogre,
-        Goblin,
-        Demon
+        HR,
+        IT,
+        Janitorial,
+        Finance,
+        Overseas,
+        Marketing,
+        Security
     }
 
     public Attributes myAttribute;

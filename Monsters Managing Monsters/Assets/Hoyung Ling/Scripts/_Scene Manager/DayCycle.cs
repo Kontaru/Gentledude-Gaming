@@ -23,7 +23,7 @@ public class DayCycle : MonoBehaviour
 
     [Tooltip("Action Points")]
     public float actionPointsAvailable;
-    public float actionPointsUsed;
+    public static float actionPointsUsed;
     public float currentDay;
 
 
@@ -128,6 +128,7 @@ public class DayCycle : MonoBehaviour
         //Has our day ended?
         if (actionPointsUsed >= actionPointsAvailable)
         {
+            actionPointsUsed = actionPointsAvailable;
             FL_morning = actionPointsAvailable * dayHours / workHours;
             FL_time = actionPointsAvailable;
 
