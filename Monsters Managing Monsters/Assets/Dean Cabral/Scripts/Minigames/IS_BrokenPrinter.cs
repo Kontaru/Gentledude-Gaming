@@ -14,7 +14,7 @@ public class IS_BrokenPrinter : QuestPart
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!BL_IsInteractable) return;
+        //if (!BL_IsInteractable) return;
 
         if (other.gameObject.name == "PC")
         {
@@ -26,7 +26,7 @@ public class IS_BrokenPrinter : QuestPart
 
     private void OnTriggerExit(Collider other)
     {
-        if (!BL_IsInteractable) return;
+        //if (!BL_IsInteractable) return;
 
         if (other.gameObject.name == "PC")
         {
@@ -54,7 +54,7 @@ public class IS_BrokenPrinter : QuestPart
         UpdateUI();
     }
 
-    private void CheckEndCondition()
+    override public void CheckEndCondition()
     {
         if (BL_MinigameComplete)
         {

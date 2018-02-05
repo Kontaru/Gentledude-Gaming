@@ -508,7 +508,7 @@ MonoBehaviour:
     exclaimationPoint: {fileID: 1711805245468546}
     interactionObject: {fileID: 1444436640567926}
   BL_QuestComplete: 0
-  IN_ItemCount: 1
+  IN_ItemCount: 3
   PigmanJim: {fileID: 1372952423127774}
 --- !u!114 &114303283646348378
 MonoBehaviour:

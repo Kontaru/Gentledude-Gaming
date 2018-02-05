@@ -6,18 +6,13 @@ public class QuestPart : MonoBehaviour {
 
     public bool BL_IsInteractable;
     public bool BL_MinigameComplete;
-
-    // Use this for initialization
-    void Start () {
-		
-	}
 	
 	// Update is called once per frame
-	void Update () {
+	virtual public void Update () {
         if (GameManager.instance.PixelMode) return;
     }
 
-    protected void CheckEndCondition()
+    public virtual void CheckEndCondition()
     {
         if (BL_MinigameComplete)
             BL_IsInteractable = false;

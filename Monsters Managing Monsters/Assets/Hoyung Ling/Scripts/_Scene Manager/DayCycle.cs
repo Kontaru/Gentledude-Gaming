@@ -23,7 +23,7 @@ public class DayCycle : MonoBehaviour
 
     [Tooltip("Action Points")]
     public float actionPointsAvailable;
-    public static float actionPointsUsed;
+    public float actionPointsUsed;
     public float currentDay;
 
 

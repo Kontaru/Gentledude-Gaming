@@ -66,14 +66,17 @@ MonoBehaviour:
   Player: {fileID: 0}
   PixelMode: 0
   KC_CameraLock: 122
-  KC_Interact: 0
+  KC_Interact: 101
   KC_Up: 119
   KC_Left: 97
   KC_Down: 115
   KC_Right: 100
   day: 0
   score: 0
-  PL_Succ: 0
-  PL_Ogre: 0
-  PL_Goblin: 0
-  PL_Demon: 0
+  PL_Finance: 0
+  PL_HR: 0
+  PL_IT: 0
+  PL_Janitorial: 0
+  PL_Marketing: 0
+  PL_Overseas: 0
+  PL_Security: 0

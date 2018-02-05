@@ -28,6 +28,25 @@ public class PDAHandler : MonoBehaviour {
     public bool BL_PDAlandscape;
     public bool BL_Pause;
 
+    public static PDAHandler instance;
+
+    #region Typical Singleton Format
+
+    void Awake()
+    {
+
+        //Singleton stuff
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    #endregion
+
     private void Start()
     {
         GetComponent<RectTransform>().localPosition = new Vector3(249, -380, 0);
@@ -217,6 +236,13 @@ public class PDAHandler : MonoBehaviour {
     public void StartCI()
     {
         minigameIndex = 2;
+        ToggleMinigames();
+        BL_PDAlandscape = !BL_PDAlandscape;
+    }
+
+    public void StartMinigame(int index)
+    {
+        minigameIndex = index;
         ToggleMinigames();
         BL_PDAlandscape = !BL_PDAlandscape;
     }

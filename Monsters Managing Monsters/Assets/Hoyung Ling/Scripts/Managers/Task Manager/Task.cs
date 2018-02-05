@@ -31,6 +31,7 @@ public class Task
     public bool Repeatable = false;
 
     [HideInInspector] public bool QuestComplete = false;     //Is our quest complete?
+    [HideInInspector] public bool QuestFail = false;     //Is our quest complete?
     [HideInInspector] public bool QuestFinish = false;       //Trigger for NPC hand in
 
     [HideInInspector] public GameObject belongsTo;
@@ -43,26 +44,36 @@ public class Task
     public GameObject[] reward;
 
     [HideInInspector] public bool isObtainable = false;
-    [HideInInspector] public bool isAccepted = false;
+    public bool isAccepted = false;
 
     private bool BL_Boost = true;
 
     [Header("Steps")]
     public Step[] Steps;                    //Our steps to completing the quest
+    public int step_tracker = 0;
     //Checks if all our steps are complete
     public void StepChecker()
     {
+        if (QuestID == -1) return;
+
         if (isAccepted)
         {
             QuestComplete = true;
             //For each step
+            if (step_tracker < Steps.Length)
+            {
+                Steps[step_tracker].requires.gameObject.SetActive(true);
+                Steps[step_tracker].requires.GetComponent<QuestPart>().BL_IsInteractable = true;
+
+                if (Steps[step_tracker].requires.GetComponent<QuestPart>().BL_MinigameComplete)
+                {
+                    Steps[step_tracker].complete = true;
+                    step_tracker++;
+                }
+            }
+
             foreach (Step step in Steps)
             {
-                step.requires.gameObject.SetActive(true);
-
-                if (step.requires.GetComponent<QuestPart>().BL_MinigameComplete)
-                    step.complete = true;
-
                 //If any of these steps are false, just stop everything and quit the function.
                 if (step.complete == false)
                 {
@@ -91,6 +102,8 @@ public class Task
 
                 Attribution.Attributes Type = belongsTo.GetComponent<Attribution>().myAttribute;
                 GameManager.instance.PowerBoost(Type, motivationAmount);
+
+                DayCycle.instance.actionPointsUsed += actionPointWeight;
                 BL_Boost = false;
             }
 

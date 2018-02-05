@@ -62,13 +62,16 @@ MonoBehaviour:
     inActiveList: 0
     Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
-    reward: []
+    actionPointWeight: 0
     motivationAmount: 0
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
+    step_tracker: 0
   - name: 
     descriptionDialogue: 
     acceptedDialogue: 
@@ -78,13 +81,16 @@ MonoBehaviour:
     inActiveList: 0
     Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
-    reward: []
+    actionPointWeight: 0
     motivationAmount: 0
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
+    step_tracker: 0
   - name: 
     descriptionDialogue: 
     acceptedDialogue: 
@@ -94,13 +100,16 @@ MonoBehaviour:
     inActiveList: 0
     Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
-    reward: []
+    actionPointWeight: 0
     motivationAmount: 0
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
+    step_tracker: 0
   - name: 
     descriptionDialogue: 
     acceptedDialogue: 
@@ -110,13 +119,16 @@ MonoBehaviour:
     inActiveList: 0
     Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
-    reward: []
+    actionPointWeight: 0
     motivationAmount: 0
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
+    step_tracker: 0
   - name: 
     descriptionDialogue: 
     acceptedDialogue: 
@@ -126,13 +138,16 @@ MonoBehaviour:
     inActiveList: 0
     Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
-    reward: []
+    actionPointWeight: 0
     motivationAmount: 0
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
+    step_tracker: 0
 --- !u!114 &114460942788931260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tasks:
-  - name: Fix Stacey's Printer
+  - name: Technical Trouble
     descriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but I
       uh \u2013 I got a virus. I don\u2019t know how but I need you to fix it for
       me fast. Don\u2019t go telling Jim, the technician. This isn\u2019t the first
@@ -156,12 +171,14 @@ MonoBehaviour:
     waitingDialogue: "You\u2019d better know what you\u2019re doing. "
     QuestID: 1
     inActiveList: 0
-    Repeatable: 1
+    Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
-    reward: []
+    actionPointWeight: 3
     motivationAmount: 100
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps:
@@ -170,60 +187,66 @@ MonoBehaviour:
       requires: {fileID: 0}
       nextStep: {fileID: 0}
       complete: 0
-  - name: We Need Donuts!
-    descriptionDialogue: "Hey you! Yeah you, the wimpy looking one. We ordered some
-      doughnuts for the department, but have to go fetch them. I\u2019m uh, busy.
-      Right now. How about you go grab them? They\u2019re just across the street.
-      I\u2019ll make it worth your while.  "
-    acceptedDialogue: "Thanks man, I\u2019ve already paid. Just make sure you look
-      both ways and up\u2026 Damn dragons\u2026 .."
-    finishDialogue: "Wow, nice one. What? Isn\u2019t doing a good deed for your coworker
-      a good enough reward? "
-    waitingDialogue: "Don\u2019t dally, we\u2019ve got a hungry department waiting
-      on you, uh\u2026 John, right? "
+    step_tracker: 0
+  - name: Dangerous Deliveries!
+    descriptionDialogue: "Hey, you \u2013 yeah, you. We got some doughnuts in that
+      I gotta go dish around, but frankly Pigman Jim is roaming about and he can\u2019t
+      hold back when food is about. I\u2019m not in the mood for running today. But
+      hey, you look weedy and fast. What do you say? "
+    acceptedDialogue: "Thanks. I can\u2019t tell if you\u2019re brave or stupid, but
+      watch out\u2026 He loves them doughnuts\u2026 "
+    finishDialogue: "And you made it back without a bite taken out of you, yourself.
+      Thanks, uh\u2026 Guy. "
+    waitingDialogue: 'Gotta hurry! I think I can see him coming down the hall! '
     QuestID: 2
     inActiveList: 0
     Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
+    actionPointWeight: 6
+    motivationAmount: 220
     reward: []
-    motivationAmount: 0
     isObtainable: 0
-    isAccepted: 1
+    isAccepted: 0
     Steps:
-    - name: Get to the exit
-      description: Exit the office
+    - name: Deliver Donuts
+      description: Deliver them!
       requires: {fileID: 0}
       nextStep: {fileID: 0}
       complete: 0
-    - name: Donut dash
-      description: Do donut dash
-      requires: {fileID: 0}
-      nextStep: {fileID: 0}
-      complete: 0
-  - name: Find [Name]'s Contact Lens
-    descriptionDialogue: Hey... Imp... Is that you man? Hey look... I can't see very
-      well, I've lost my contact lens, could you help me find it?
-    acceptedDialogue: Haha! Great! I knew I could rely on you, friend.
-    finishDialogue: You did it! I can see again! Thanks a lot, friend.
-    waitingDialogue: Hey uh, no rush, right?
+    step_tracker: 0
+  - name: Doughnut Dash
+    descriptionDialogue: "Hey you! Yeah you, the wimpy looking one. We ordered some
+      doughnuts for the department, but have to go fetch them. I\u2019m uh, busy.
+      Right now. How about you go grab them? They\u2019re just across the street.
+      I\u2019ll make it worth your while.  "
+    acceptedDialogue: "Thanks! I\u2019ve already paid. Just make sure you look both
+      ways... and up\u2026 Tch, damn dragons\u2026 "
+    finishDialogue: "Wow, nice one. What? Isn\u2019t doing a good deed for your coworker
+      a good enough reward? "
+    waitingDialogue: "Don\u2019t dally! We\u2019ve got a hungry department waiting
+      on you!"
     QuestID: 3
     inActiveList: 0
     Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
+    actionPointWeight: 10
+    motivationAmount: 400
     reward: []
-    motivationAmount: 0
     isObtainable: 0
     isAccepted: 0
     Steps:
-    - name: Find the contact lens
-      description: Find the contact lens for our cyclops
+    - name: Grab the donuts
+      description: Minigame
       requires: {fileID: 0}
       nextStep: {fileID: 0}
       complete: 0
+    step_tracker: 0
   - name: EMPTY (Don't touch)
     descriptionDialogue: --
     acceptedDialogue: --
@@ -233,10 +256,12 @@ MonoBehaviour:
     inActiveList: 0
     Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 1
     belongsTo: {fileID: 0}
-    reward: []
+    actionPointWeight: 0
     motivationAmount: 0
+    reward: []
     isObtainable: 0
     isAccepted: 0
     Steps:
@@ -245,3 +270,4 @@ MonoBehaviour:
       requires: {fileID: 0}
       nextStep: {fileID: 0}
       complete: 0
+    step_tracker: 0

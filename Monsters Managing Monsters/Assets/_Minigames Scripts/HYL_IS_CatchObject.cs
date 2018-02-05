@@ -14,6 +14,7 @@ public class HYL_IS_CatchObject : MonoBehaviour {
     public int IN_currentDestination = 0;
 
     bool BL_Capturable = true;
+    bool BL_Found = true;
     public bool BL_Captured = false;
     public enum StateMachine
     {
@@ -56,6 +57,7 @@ public class HYL_IS_CatchObject : MonoBehaviour {
 
         if (Vector3.Distance(transform.position, PC.transform.position) < 15f)
         {
+            BL_Found = true;
             if (BL_Capturable == true)
             {
                 if (IN_currentDestination >= destination.Length)    State = StateMachine.Captured;
@@ -73,7 +75,11 @@ public class HYL_IS_CatchObject : MonoBehaviour {
     {
         nav_agent.speed = 0;
 
-        IN_currentDestination++;
+        if (BL_Found)
+        {
+            IN_currentDestination++;
+            BL_Found = false;
+        }
         BL_Capturable = false;
 
         StartCoroutine(SafetyCooldown(6.0f));
