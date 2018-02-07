@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Fungus;
 
 public class NPCInteraction : MonoBehaviour
 {
@@ -137,7 +138,13 @@ public class NPCInteraction : MonoBehaviour
         Monster_Dialogue.BL_ShowDialogue = true;
         if(BL_QuestAccepted)
         {
-            if(!ActiveTask.QuestComplete) CC_Dialogue.SetText(ActiveTask.waitingDialogue);
+            if (!ActiveTask.QuestComplete)
+            {
+                // A message is sent to the Fungus Flowchart in the scene, depending on the message different parts of the flowchart can be triggered.
+                Fungus.Flowchart.BroadcastFungusMessage(Your_Message);
+
+                CC_Dialogue.SetText(ActiveTask.waitingDialogue);
+            }
             else if (ActiveTask.QuestComplete)
             {
                 CC_Dialogue.SetText(ActiveTask.finishDialogue);
