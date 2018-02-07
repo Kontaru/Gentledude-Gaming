@@ -29,6 +29,7 @@ public class DayCycle : MonoBehaviour
 
     //Checkpoints in the day
     [Header("Begin day?")]
+    public int DaysInWeek = 6;
     public bool beginDay = false;
     public bool pause = false;
 
@@ -96,7 +97,7 @@ public class DayCycle : MonoBehaviour
     {
         Time.timeScale = 0;
 
-        if (currentDay > 5)
+        if (currentDay > DaysInWeek)
         {
             //SpawnHero
             EnterHeroes = true;
