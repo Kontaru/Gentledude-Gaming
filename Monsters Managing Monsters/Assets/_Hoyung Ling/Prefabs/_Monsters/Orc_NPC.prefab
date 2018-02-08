@@ -746,6 +746,7 @@ MonoBehaviour:
   interactionObject: {fileID: 1139464238616886}
   ActiveTask:
     name: 
+    taskBrief: 
     descriptionDialogue: 
     acceptedDialogue: 
     finishDialogue: 
@@ -754,6 +755,7 @@ MonoBehaviour:
     inActiveList: 0
     Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
     actionPointWeight: 0
@@ -762,6 +764,7 @@ MonoBehaviour:
     isObtainable: 0
     isAccepted: 0
     Steps: []
+    step_tracker: 0
 --- !u!114 &114123218233990212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -786,8 +789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 1
+  BL_LookAtCam: 0
   Forward: {fileID: 0}
 --- !u!114 &114196210235429452
 MonoBehaviour:
@@ -866,8 +869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
+  BL_LookAtCam: 1
   Forward: {fileID: 0}
 --- !u!114 &114478387719818128
 MonoBehaviour:
@@ -880,8 +883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
+  BL_LookAtCam: 0
   Forward: {fileID: 0}
 --- !u!114 &114520715346622824
 MonoBehaviour:
@@ -1012,8 +1015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
+  BL_LookAtCam: 0
   Forward: {fileID: 0}
 --- !u!114 &114980244497435928
 MonoBehaviour:
@@ -1026,8 +1029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 1
+  BL_LookAtCam: 0
   Forward: {fileID: 0}
 --- !u!195 &195920257414080828
 NavMeshAgent:

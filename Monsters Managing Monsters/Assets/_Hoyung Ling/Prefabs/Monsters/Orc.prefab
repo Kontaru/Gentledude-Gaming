@@ -567,7 +567,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1386780132230932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 146.13, y: 0, z: 71.1}
+  m_LocalPosition: {x: 146.13, y: 0, z: 65.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4401393675922056}
@@ -706,6 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BL_LookAtPC: 0
+  BL_LookAtCam: 1
   Forward: {fileID: 0}
 --- !u!114 &114058241032568992
 MonoBehaviour:
@@ -809,6 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BL_LookAtPC: 1
+  BL_LookAtCam: 0
   Forward: {fileID: 0}
 --- !u!114 &114310666288641246
 MonoBehaviour:
@@ -864,6 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BL_LookAtPC: 1
+  BL_LookAtCam: 0
   Forward: {fileID: 0}
 --- !u!114 &114411874208720960
 MonoBehaviour:
@@ -877,6 +880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BL_LookAtPC: 0
+  BL_LookAtCam: 0
   Forward: {fileID: 0}
 --- !u!114 &114430459477311870
 MonoBehaviour:
@@ -931,6 +935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BL_LookAtPC: 0
+  BL_LookAtCam: 0
   Forward: {fileID: 0}
 --- !u!114 &114687143597042396
 MonoBehaviour:
