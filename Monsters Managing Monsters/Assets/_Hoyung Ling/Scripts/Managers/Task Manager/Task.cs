@@ -26,6 +26,8 @@ public class Task
     [TextArea(2, 10)]
     public string finishDialogue;
     [TextArea(2, 10)]
+    public string failDialogue;
+    [TextArea(2, 10)]
     public string waitingDialogue;
 
     public int QuestID;
@@ -91,7 +93,7 @@ public class Task
             }
         }
 
-        if (QuestFinish)
+        if (QuestFinish || QuestFail)
         {
             QuestComplete = false;
 

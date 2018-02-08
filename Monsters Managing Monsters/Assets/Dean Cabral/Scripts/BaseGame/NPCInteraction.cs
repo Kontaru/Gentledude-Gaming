@@ -15,6 +15,8 @@ public class NPCInteraction : MonoBehaviour
     bool BL_QuestAccepted = false;              //Did I accept a quest?
     private bool BL_WithinSpace = false;        //Am I inside the trigger box?
 
+    public static bool BL_InConversation = false;
+
     public string[] flavourText;
 
     //----- INTERACTION GOs -----------------------------------------------------
@@ -104,7 +106,7 @@ public class NPCInteraction : MonoBehaviour
         UIState();
 
         if(BL_WithinSpace)
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !BL_InConversation)
                 Converse();
 
         if (BL_QuestAccepted)
@@ -133,6 +135,8 @@ public class NPCInteraction : MonoBehaviour
 
     void Converse()
     {
+        BL_InConversation = true;
+        PC_Move.BL_canMove = false;
         if(BL_QuestAccepted)
         {
             if (!ActiveTask.QuestComplete)

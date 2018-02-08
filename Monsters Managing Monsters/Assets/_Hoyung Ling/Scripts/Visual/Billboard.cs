@@ -39,7 +39,7 @@ public class Billboard : MonoBehaviour
             if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 15f)
             {
                 //originalRot = transform.rotation;
-                lookPos = player.transform.position - transform.position;
+                lookPos = transform.position - player.transform.position;
                 lookPos.y = 0;
                 rotation = Quaternion.LookRotation(lookPos);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
