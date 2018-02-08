@@ -63,7 +63,7 @@ public class Scene_Controller : MonoBehaviour {
             DayCycle.instance.pause = false;
             DayCycle.instance.ShowResults = false;
 
-            PC_Move.canMove = true;
+            PC_Move.BL_canMove = true;
         }
     }
 
@@ -78,7 +78,7 @@ public class Scene_Controller : MonoBehaviour {
             DayCycle.instance.pause = false;
             DayCycle.instance.EnterHeroes = false;
 
-            PC_Move.canMove = true;
+            PC_Move.BL_canMove = true;
         }
     }
 
