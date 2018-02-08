@@ -18,7 +18,7 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     private int lives;
     private int timer;
     private string inventory;
-    private bool BL_DoughnutsVisible = true;
+    public bool BL_DoughnutsVisible = true;
 
     private void OnCollisionStay2D(Collision2D collision)
     {

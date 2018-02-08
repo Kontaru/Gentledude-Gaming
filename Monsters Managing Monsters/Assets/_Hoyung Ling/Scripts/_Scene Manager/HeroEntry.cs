@@ -1,17 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class HeroEntry : MonoBehaviour {
 
     public static HeroEntry instance;
+    public GameObject hero;
 
     public bool SpawnHeroes;
     public bool BL_HeroArrival;
+    public string ST_heroArrival;
+    public string ST_heroDeparture;
+
     private bool BL_Confirmed;
 
     private GameObject monster;
     private Vector3 delta;
+
+    public Flowchart flowchart;
 
     #region Typical Singleton Format
 
@@ -27,14 +34,36 @@ public class HeroEntry : MonoBehaviour {
     }
 
     #endregion
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
+
         if (GameManager.instance.PixelMode) return;
-        if (BL_HeroArrival) MonsterPlacement();       
+        if (Input.GetKeyDown(KeyCode.Q)) HeroArrival();
     }
 
-    private void MonsterPlacement()
+    private void HeroArrival()
+    {
+        hero.SetActive(true);
+        CameraFollow.otherLook = hero;
+
+        StartCoroutine(StartDialogue(ST_heroArrival));        
+    }
+
+    private void HeroDeparture()
+    {
+        CameraFollow.otherLook = null;
+        CameraFollow.otherLook = hero;
+    }
+
+    IEnumerator StartDialogue(string text)
+    {
+        yield return new WaitForSeconds(2);
+        flowchart.SetStringVariable("hero_entry", ST_heroArrival);
+        Fungus.Flowchart.BroadcastFungusMessage("Entry");
+    }
+
+    /*private void MonsterPlacement()
     {
         if (BL_Confirmed) return;
 
@@ -85,5 +114,5 @@ public class HeroEntry : MonoBehaviour {
     {
         Debug.Log("Confirm monster positions?");
         //BL_Confirmed = true;
-    }
+    }*/
 }

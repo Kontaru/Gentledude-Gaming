@@ -78,6 +78,7 @@ MonoBehaviour:
   actionPointsAvailable: 60
   actionPointsUsed: 0
   currentDay: 0
+  DaysInWeek: 6
   beginDay: 1
   pause: 0
   playerControlledEvent: 1
@@ -96,8 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ab1d5154169d443b586d155abf308e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hero: {fileID: 0}
   SpawnHeroes: 0
   BL_HeroArrival: 0
+  ST_heroArrival: I have arrived!
+  ST_heroDeparture: 
+  flowchart: {fileID: 0}
 --- !u!114 &114372307447742686
 MonoBehaviour:
   m_ObjectHideFlags: 1

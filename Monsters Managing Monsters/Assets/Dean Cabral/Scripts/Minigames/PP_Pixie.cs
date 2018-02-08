@@ -16,6 +16,7 @@ public class PP_Pixie : MonoBehaviour {
         if (collision.gameObject.name == "PS_Base")
         {
             PB.DestroyGremlin();
+            if (PB.pixieCount > 0) PB.pixieCount--;
             Escape();
         }
     }

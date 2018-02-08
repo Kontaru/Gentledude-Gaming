@@ -31,6 +31,7 @@ public class PP_PlayerBehaviour : MonoBehaviour
                 else RB.AddForce(Vector2.left * 600f);
 
                 RB.AddForce(Vector2.up * 400f);
+                if (pixieCount > 0) pixieCount--;
             }            
         }
     }

@@ -5,7 +5,7 @@ using Fungus;
 
 public class MainTextBox : MonoBehaviour {
 
-	void Start () {
+	void Awake() {
         NPCInteraction.CC_Dialogue = GetComponent<Flowchart>();
-	}
+    }
 }

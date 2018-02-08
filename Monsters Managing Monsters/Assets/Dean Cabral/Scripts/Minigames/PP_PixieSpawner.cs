@@ -27,7 +27,6 @@ public class PP_PixieSpawner : MonoBehaviour {
         GameObject spawn = spawns[GetRandomIndex()];
         GameObject GO = Instantiate(pixie, new Vector3(spawn.transform.position.x, spawn.transform.position.y, spawn.transform.position.z), Quaternion.identity);
         GO.SendMessage("SpeedType", GetRandomSpeed());
-        PB.pixieCount--;
     }
 
     private int GetRandomIndex()

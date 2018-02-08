@@ -51,7 +51,7 @@ public class Billboard : MonoBehaviour
         }else if (BL_LookAtCam)
         {
             //originalRot = transform.rotation;
-            lookPos = Camera.main.transform.position - transform.position;
+            lookPos = transform.position - Camera.main.transform.position;
             rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
         }
