@@ -35,7 +35,7 @@ public class HYL_IS_Distribution : QuestPart {
 
         if(IN_ItemCount < items.Length)
         {
-            //Fail
+            
             return;
         }
 
