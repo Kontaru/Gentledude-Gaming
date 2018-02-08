@@ -15152,17 +15152,17 @@ GameObject:
   m_PrefabInternal: {fileID: 991043782}
 --- !u!114 &991043786
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 991043785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 991043784}
-  message: QuestAccepted
+  waitForFrames: 1
 --- !u!114 &991043787
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -15214,7 +15214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 1
   key: QuestAccepted
-  value: 0
+  value: 1
 --- !u!114 &991043790
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -15228,7 +15228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 1
   key: waiting
-  value: 
+  value: penis
 --- !u!114 &991043791
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -22241,6 +22241,7 @@ MonoBehaviour:
   mapScreen: {fileID: 1229940036}
   statsScreen: {fileID: 1048073241}
   tasksScreen: {fileID: 1706833366}
+  taskBriefScreen: {fileID: 0}
   gamesScreen: {fileID: 1788898964}
   loadingScreen: {fileID: 1447572852}
   pauseScreen: {fileID: 802994400}
@@ -22259,6 +22260,8 @@ MonoBehaviour:
   volSlider: {fileID: 1630772476}
   tasksText: {fileID: 1259303197}
   volText: {fileID: 1231266434}
+  taskBriefTitleText: {fileID: 0}
+  taskBriefText: {fileID: 0}
   minigameIndex: 0
   BL_PDAactive: 0
   BL_PDAlandscape: 0
