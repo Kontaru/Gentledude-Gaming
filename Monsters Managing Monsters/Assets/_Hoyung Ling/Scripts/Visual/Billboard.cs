@@ -6,13 +6,12 @@ public class Billboard : MonoBehaviour
 {
 
     //Should we look at the camera?
-    public bool BL_LookAtCam = false;
     public bool BL_LookAtPC = false;
 
     private GameObject player;
     private Quaternion originalRot;
 
-    float playerfollowSmoothSpeed = 2f;
+    float playerfollowSmoothSpeed = 5f;
     Vector3 lookPos;
     Quaternion rotation;
 
@@ -34,10 +33,10 @@ public class Billboard : MonoBehaviour
             BL_LookAtPC = false;
         }
 
-        if(Vector3.Distance(gameObject.transform.position, player.transform.position) < 10)
+        if(Vector3.Distance(gameObject.transform.position, player.transform.position) < 15f)
         {
-            originalRot = transform.rotation;
-            lookPos = transform.position - Camera.main.transform.position;
+            //originalRot = transform.rotation;
+            lookPos = transform.position - player.transform.position;
             lookPos.y = 0;
             rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
@@ -46,34 +45,5 @@ public class Billboard : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, originalRot, playerfollowSmoothSpeed * Time.deltaTime);
         }
-
-        /*if(BL_LookAtPC)
-        {            
-            if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 10)
-            {
-                lookPos = transform.position - player.transform.position;
-                lookPos.y = 0;
-                rotation = Quaternion.LookRotation(lookPos);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
-            }  
-            else
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, originalRot, playerfollowSmoothSpeed * Time.deltaTime);
-            }
-        }
-        else if (BL_LookAtCam)
-        {
-            lookPos = transform.position - Camera.main.transform.position;
-            lookPos.y = 0;
-            rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
-        }
-        else
-        {
-            lookPos = transform.position - Forward.position;
-            lookPos.y = 0;
-            rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
-        }*/
     }
 }

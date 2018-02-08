@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tasks:
   - name: Technical Trouble
-    taskBrief: 
+    taskBrief: My computer's been acting up... I, uh... Just come help?
     descriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but I
       uh \u2013 I got a virus. I don\u2019t know how but I need you to fix it for
       me fast. Don\u2019t go telling Jim, the technician. This isn\u2019t the first
@@ -195,7 +195,7 @@ MonoBehaviour:
       complete: 0
     step_tracker: 0
   - name: Dangerous Deliveries!
-    taskBrief: 
+    taskBrief: 'Doughnuts need to be delivered, but Pigman Jim is '
     descriptionDialogue: "Hey, you \u2013 yeah, you. We got some doughnuts in that
       I gotta go dish around, but frankly Pigman Jim is roaming about and he can\u2019t
       hold back when food is about. I\u2019m not in the mood for running today. But
