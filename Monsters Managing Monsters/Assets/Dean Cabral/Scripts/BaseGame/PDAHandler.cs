@@ -9,6 +9,7 @@ public class PDAHandler : MonoBehaviour {
     public GameObject mapScreen;
     public GameObject statsScreen;
     public GameObject tasksScreen;
+    public GameObject taskBriefScreen;
     public GameObject gamesScreen;
     public GameObject loadingScreen;
     public GameObject pauseScreen;
@@ -18,7 +19,7 @@ public class PDAHandler : MonoBehaviour {
     public GameObject[] activeTasks;
 
     public Slider volSlider;
-    public Text tasksText, volText;
+    public Text tasksText, volText, taskBriefTitleText, taskBriefText;
 
     private Animator animator;
 
@@ -52,7 +53,6 @@ public class PDAHandler : MonoBehaviour {
         GetComponent<RectTransform>().localPosition = new Vector3(249, -380, 0);
         animator = GetComponentInChildren<Animator>();
         minigameIndex = 0;
-        UpdateActiveTasks();
     }
 
     // Update is called once per frame
@@ -78,7 +78,7 @@ public class PDAHandler : MonoBehaviour {
         tasksText.text = tasks;
     }
 
-    public void RefreshTasksList()
+    private void RefreshTasksList()
     {
         Task[] tasksArr = TaskManager.instance.Tasks;
         tasks = "";
@@ -90,29 +90,18 @@ public class PDAHandler : MonoBehaviour {
         }
     }
 
-    public void UpdateActiveTasks()
+    private void UpdateActiveTasks()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < activeTasks.Length; i++)
         {
             Text title = activeTasks[i].transform.GetChild(0).GetComponent<Text>();
             Text id = activeTasks[i].transform.GetChild(1).GetComponent<Text>();
 
-            for (int j = 0; j < TaskManager.instance.Tasks.Length; j++)
-            {
-                if (TaskManager.instance.Tasks[j].QuestComplete)
-                {
-                    title.text = "No Task Found";
-                    id.text = "Task ID: None";
-                }
+            string taskName = CurrentTasks.currentTask[i].name;
+            int taskID = CurrentTasks.currentTask[i].QuestID;
 
-                if (title.text == "No Task Found" && !TaskManager.instance.Tasks[j].QuestComplete)
-                {
-                    title.text = TaskManager.instance.Tasks[j].name;
-                    id.text = "Task ID: " + TaskManager.instance.Tasks[j].QuestID.ToString();
-                    break;
-                }
-            }
-            break;
+            title.text = taskName;
+            id.text = taskID.ToString();
         }
     }
     
@@ -197,6 +186,11 @@ public class PDAHandler : MonoBehaviour {
         ShowTasks();
     }
 
+    public void OnClickTask(int index)
+    {
+        ShowTaskBrief(index);
+    }
+
     public void OnClickGames()
     {
         ShowMinigames();
@@ -214,6 +208,8 @@ public class PDAHandler : MonoBehaviour {
 
     public void OnClickClose()
     {
+        if (BL_PDAlandscape && !BL_Pause) return;
+
         ShowHome();
         animator.SetBool("BL_ShowPDA", false);
         BL_PDAactive = false;
@@ -221,23 +217,17 @@ public class PDAHandler : MonoBehaviour {
 
     public void StartDD()
     {
-        minigameIndex = 0;
-        ToggleMinigames();
-        BL_PDAlandscape = !BL_PDAlandscape;
+        StartMinigame(0);
     }
 
     public void StartPP()
     {
-        minigameIndex = 1;
-        ToggleMinigames();
-        BL_PDAlandscape = !BL_PDAlandscape;
+        StartMinigame(1);
     }
 
     public void StartCI()
     {
-        minigameIndex = 2;
-        ToggleMinigames();
-        BL_PDAlandscape = !BL_PDAlandscape;
+        StartMinigame(2);
     }
 
     public void StartMinigame(int index)
@@ -252,13 +242,16 @@ public class PDAHandler : MonoBehaviour {
         mapScreen.SetActive(false);
         statsScreen.SetActive(false);
         tasksScreen.SetActive(false);
+        taskBriefScreen.SetActive(false);
         gamesScreen.SetActive(false);
         loadingScreen.SetActive(false);
     }
 
     private void ShowHome()
     {
-        HideAllScreens();
+        if (BL_PDAlandscape && !BL_Pause) return;
+
+        HideAllScreens();        
         homeScreen.SetActive(true);
 
         if (BL_PDAlandscape) animator.SetBool("BL_Landscape", false);
@@ -288,10 +281,18 @@ public class PDAHandler : MonoBehaviour {
     private void ShowTasks()
     {
         HideAllScreens();
+        UpdateActiveTasks();
         tasksScreen.SetActive(true);
         if (!BL_PDAactive) animator.SetBool("BL_ShowPDA", true);
 
         BL_PDAactive = true;
+    }
+
+    private void ShowTaskBrief(int index)
+    {
+        HideAllScreens();
+        SetBrief(index);
+        taskBriefScreen.SetActive(true);
     }
 
     private void ShowMinigames()
@@ -304,6 +305,12 @@ public class PDAHandler : MonoBehaviour {
     {
         HideAllScreens();
         loadingScreen.SetActive(true);
+    }
+
+    private void SetBrief(int index)
+    {
+        taskBriefTitleText.text = CurrentTasks.currentTask[index].name;
+        taskBriefText.text = CurrentTasks.currentTask[index].taskBrief;
     }
 
     IEnumerator WaitAndDisplay(float seconds, bool isPause)
