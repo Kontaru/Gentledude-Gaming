@@ -26,7 +26,7 @@ public class NPCInteraction : MonoBehaviour
     private TaskManager TM;
     private myQuests Quests;
     private Idle myIdle;
-    private Monster_Dialogue CC_Dialogue;
+    public static Flowchart CC_Dialogue;
     public Task ActiveTask;
 
     #region Triggers
@@ -51,7 +51,6 @@ public class NPCInteraction : MonoBehaviour
             Entity e_coll = other.gameObject.GetComponent<Entity>();
             if (e_coll.EntityType == Entity.Entities.Player)
             {
-                Monster_Dialogue.BL_ShowDialogue = false;
                 BL_WithinSpace = false;
                 myIdle.pauseMovement = false;
             }
@@ -65,7 +64,6 @@ public class NPCInteraction : MonoBehaviour
         TM = TaskManager.instance;
         Quests = GetComponent<myQuests>();
         myIdle = GetComponentInParent<Idle>();
-        CC_Dialogue = GetComponent<Monster_Dialogue>();
     }
 
     void Update()
@@ -135,39 +133,37 @@ public class NPCInteraction : MonoBehaviour
 
     void Converse()
     {
-        Monster_Dialogue.BL_ShowDialogue = true;
         if(BL_QuestAccepted)
         {
             if (!ActiveTask.QuestComplete)
-            {
-                // A message is sent to the Fungus Flowchart in the scene, depending on the message different parts of the flowchart can be triggered.
-                Fungus.Flowchart.BroadcastFungusMessage("QuestAccepted");
-                CC_Dialogue.SetText(ActiveTask.waitingDialogue);
-            }
+                CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.waitingDialogue);
             else if (ActiveTask.QuestComplete)
             {
-                Fungus.Flowchart.BroadcastFungusMessage("QuestAccepted");
-                CC_Dialogue.SetText(ActiveTask.finishDialogue);
+                CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.finishDialogue);
                 QuestCompleted();
             }
+
+            Fungus.Flowchart.BroadcastFungusMessage("QuestAccepted");
         }
         else if (BL_HasQuest)
         {
-            CC_Dialogue.SetText(ActiveTask.descriptionDialogue);
+            CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.descriptionDialogue);
+            CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.acceptedDialogue);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                CC_Dialogue.SetText(ActiveTask.acceptedDialogue);
                 BL_QuestAccepted = true;
                 HideAll();
                 if (Input.GetKeyDown(KeyCode.E))
                     HideAll();
             }
+
+            Fungus.Flowchart.BroadcastFungusMessage("HasQuest");
         }
         else
         {
             int rand = Random.Range(0, flavourText.Length - 1);
-
-            CC_Dialogue.SetText(flavourText[rand]);
+            CC_Dialogue.SetStringVariable("Idle", flavourText[rand]);
+            Fungus.Flowchart.BroadcastFungusMessage("Idle");
         }
     }
 

@@ -288,7 +288,6 @@ GameObject:
   - component: {fileID: 65005422975051636}
   - component: {fileID: 114687143597042396}
   - component: {fileID: 114431976517130494}
-  - component: {fileID: 114106566810349248}
   m_Layer: 0
   m_Name: Quest Handler
   m_TagString: Untagged
@@ -568,7 +567,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1386780132230932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 137.23, y: 0, z: 35.08}
+  m_LocalPosition: {x: 146.13, y: 0, z: 71.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4401393675922056}
@@ -706,7 +705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
   Forward: {fileID: 0}
 --- !u!114 &114058241032568992
@@ -735,19 +733,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 1.2
   rate: 0.5
+  bl_scale_x: 0
+  bl_scale_y: 0
+  bl_scale_z: 0
   BL_Pulse: 1
---- !u!114 &114106566810349248
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1886963847922780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5864724a6d9fb479de94c3fda29dcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BL_SetText: 0
 --- !u!114 &114118133045365322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -819,7 +808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 1
   Forward: {fileID: 0}
 --- !u!114 &114310666288641246
@@ -860,6 +848,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 1.2
   rate: 0.5
+  bl_scale_x: 0
+  bl_scale_y: 0
+  bl_scale_z: 0
   BL_Pulse: 1
 --- !u!114 &114356190899723904
 MonoBehaviour:
@@ -872,7 +863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 1
   Forward: {fileID: 0}
 --- !u!114 &114411874208720960
@@ -886,7 +876,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
   Forward: {fileID: 0}
 --- !u!114 &114430459477311870
@@ -903,16 +892,7 @@ MonoBehaviour:
   pauseMovement: 0
   isIdle: 1
   home: {fileID: 0}
-  Bounds:
-  - Vertices:
-    - idleDuration: 0
-      Corner: {fileID: 0}
-    - idleDuration: 0
-      Corner: {fileID: 0}
-    - idleDuration: 0
-      Corner: {fileID: 0}
-    - idleDuration: 0
-      Corner: {fileID: 0}
+  Bounds: []
 --- !u!114 &114431976517130494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -939,7 +919,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityType: 1
   myAttribute: 0
-  Target: {fileID: 0}
 --- !u!114 &114631224785622146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -951,7 +930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
   Forward: {fileID: 0}
 --- !u!114 &114687143597042396
@@ -968,7 +946,6 @@ MonoBehaviour:
   BL_QuestCompleted: 0
   BL_inCombat: 0
   BL_HasQuest: 0
-  IN_NPCQuestID: 3
   flavourText:
   - Want... Smash...
   - Must... Work... No... Smashing...
@@ -979,18 +956,25 @@ MonoBehaviour:
   interactionObject: {fileID: 1498220751250482}
   ActiveTask:
     name: 
+    taskBrief: 
     descriptionDialogue: 
     acceptedDialogue: 
     finishDialogue: 
     waitingDialogue: 
     QuestID: 0
+    inActiveList: 0
+    Repeatable: 0
     QuestComplete: 0
+    QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
+    actionPointWeight: 0
+    motivationAmount: 0
     reward: []
     isObtainable: 0
     isAccepted: 0
     Steps: []
+    step_tracker: 0
 --- !u!114 &114941630639337362
 MonoBehaviour:
   m_ObjectHideFlags: 1
