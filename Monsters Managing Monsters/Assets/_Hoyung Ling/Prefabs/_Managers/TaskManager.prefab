@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTask:
   - name: 
+    taskBrief: 
     descriptionDialogue: 
     acceptedDialogue: 
     finishDialogue: 
@@ -73,6 +74,7 @@ MonoBehaviour:
     Steps: []
     step_tracker: 0
   - name: 
+    taskBrief: 
     descriptionDialogue: 
     acceptedDialogue: 
     finishDialogue: 
@@ -92,6 +94,7 @@ MonoBehaviour:
     Steps: []
     step_tracker: 0
   - name: 
+    taskBrief: 
     descriptionDialogue: 
     acceptedDialogue: 
     finishDialogue: 
@@ -111,6 +114,7 @@ MonoBehaviour:
     Steps: []
     step_tracker: 0
   - name: 
+    taskBrief: 
     descriptionDialogue: 
     acceptedDialogue: 
     finishDialogue: 
@@ -130,6 +134,7 @@ MonoBehaviour:
     Steps: []
     step_tracker: 0
   - name: 
+    taskBrief: 
     descriptionDialogue: 
     acceptedDialogue: 
     finishDialogue: 
@@ -161,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tasks:
   - name: Technical Trouble
+    taskBrief: 
     descriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but I
       uh \u2013 I got a virus. I don\u2019t know how but I need you to fix it for
       me fast. Don\u2019t go telling Jim, the technician. This isn\u2019t the first
@@ -189,6 +195,7 @@ MonoBehaviour:
       complete: 0
     step_tracker: 0
   - name: Dangerous Deliveries!
+    taskBrief: 
     descriptionDialogue: "Hey, you \u2013 yeah, you. We got some doughnuts in that
       I gotta go dish around, but frankly Pigman Jim is roaming about and he can\u2019t
       hold back when food is about. I\u2019m not in the mood for running today. But
@@ -218,6 +225,7 @@ MonoBehaviour:
       complete: 0
     step_tracker: 0
   - name: Doughnut Dash
+    taskBrief: 
     descriptionDialogue: "Hey you! Yeah you, the wimpy looking one. We ordered some
       doughnuts for the department, but have to go fetch them. I\u2019m uh, busy.
       Right now. How about you go grab them? They\u2019re just across the street.
@@ -247,7 +255,8 @@ MonoBehaviour:
       nextStep: {fileID: 0}
       complete: 0
     step_tracker: 0
-  - name: EMPTY (Don't touch)
+  - name: No Quest
+    taskBrief: 
     descriptionDialogue: --
     acceptedDialogue: --
     finishDialogue: --

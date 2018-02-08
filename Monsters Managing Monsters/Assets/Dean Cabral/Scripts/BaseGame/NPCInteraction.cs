@@ -141,7 +141,7 @@ public class NPCInteraction : MonoBehaviour
             if (!ActiveTask.QuestComplete)
             {
                 // A message is sent to the Fungus Flowchart in the scene, depending on the message different parts of the flowchart can be triggered.
-                //Fungus.Flowchart.BroadcastFungusMessage(Your_Message);
+                Fungus.Flowchart.BroadcastFungusMessage(ActiveTask.waitingDialogue);
 
                 CC_Dialogue.SetText(ActiveTask.waitingDialogue);
             }
