@@ -56,6 +56,11 @@ public class HeroEntry : MonoBehaviour {
         CameraFollow.otherLook = hero;
     }
 
+    public void StartMinigame()
+    {
+       //Fade
+    }
+
     IEnumerator StartDialogue(string text)
     {
         yield return new WaitForSeconds(2);
