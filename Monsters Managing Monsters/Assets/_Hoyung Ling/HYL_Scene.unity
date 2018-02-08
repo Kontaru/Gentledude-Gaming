@@ -8902,6 +8902,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114059597354230404, guid: a23924f119dcf2543bab95d66d71f619,
+        type: 2}
+      propertyPath: BL_LookAtCam
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059597354230404, guid: a23924f119dcf2543bab95d66d71f619,
+        type: 2}
+      propertyPath: BL_LookAtPC
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a23924f119dcf2543bab95d66d71f619, type: 2}
   m_IsPrefabParent: 0
@@ -14670,9 +14680,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 991043792}
-  selectedCommands:
-  - {fileID: 991043794}
+  - {fileID: 991043788}
+  selectedCommands: []
   variables:
   - {fileID: 991043787}
   - {fileID: 991043805}
@@ -14745,7 +14754,6 @@ GameObject:
   - component: {fileID: 991043805}
   - component: {fileID: 991043806}
   - component: {fileID: 991043789}
-  - component: {fileID: 991043794}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -14806,7 +14814,7 @@ MonoBehaviour:
   commandList: []
 --- !u!114 &991043789
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 991043785}
@@ -14870,7 +14878,6 @@ MonoBehaviour:
   eventHandler: {fileID: 991043789}
   commandList:
   - {fileID: 991043795}
-  - {fileID: 991043794}
 --- !u!114 &991043793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14882,32 +14889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741db42b3f6240d40961708ee5754276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &991043794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 991043785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 19
-  indentLevel: 0
-  storyText: 
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &991043795
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -21907,6 +21888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BL_LookAtPC: 0
+  BL_LookAtCam: 0
   Forward: {fileID: 0}
 --- !u!212 &1502369917
 SpriteRenderer:
