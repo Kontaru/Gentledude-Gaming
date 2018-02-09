@@ -52,107 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a74c7c17e239d498570ce8f7068f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTask:
-  - name: 
-    taskBrief: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    waitingDialogue: 
-    QuestID: 0
-    inActiveList: 0
-    Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 0
-    motivationAmount: 0
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
-    Steps: []
-    step_tracker: 0
-  - name: 
-    taskBrief: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    waitingDialogue: 
-    QuestID: 0
-    inActiveList: 0
-    Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 0
-    motivationAmount: 0
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
-    Steps: []
-    step_tracker: 0
-  - name: 
-    taskBrief: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    waitingDialogue: 
-    QuestID: 0
-    inActiveList: 0
-    Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 0
-    motivationAmount: 0
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
-    Steps: []
-    step_tracker: 0
-  - name: 
-    taskBrief: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    waitingDialogue: 
-    QuestID: 0
-    inActiveList: 0
-    Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 0
-    motivationAmount: 0
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
-    Steps: []
-    step_tracker: 0
-  - name: 
-    taskBrief: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    waitingDialogue: 
-    QuestID: 0
-    inActiveList: 0
-    Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 0
-    motivationAmount: 0
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
-    Steps: []
-    step_tracker: 0
 --- !u!114 &114460942788931260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,6 +73,7 @@ MonoBehaviour:
     acceptedDialogue: 'Hurry it up then, before someone sees! '
     finishDialogue: "Phew\u2026 Thanks uh\u2026 Yeah\u2026 Don\u2019t you have work
       to be getting on with? "
+    failDialogue: 
     waitingDialogue: "You\u2019d better know what you\u2019re doing. "
     QuestID: 1
     inActiveList: 0
@@ -182,7 +82,7 @@ MonoBehaviour:
     QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
-    actionPointWeight: 3
+    actionPointWeight: 30
     motivationAmount: 100
     reward: []
     isObtainable: 0
@@ -204,6 +104,7 @@ MonoBehaviour:
       watch out\u2026 He loves them doughnuts\u2026 "
     finishDialogue: "And you made it back without a bite taken out of you, yourself.
       Thanks, uh\u2026 Guy. "
+    failDialogue: 
     waitingDialogue: 'Gotta hurry! I think I can see him coming down the hall! '
     QuestID: 2
     inActiveList: 0
@@ -212,7 +113,7 @@ MonoBehaviour:
     QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
-    actionPointWeight: 6
+    actionPointWeight: 60
     motivationAmount: 220
     reward: []
     isObtainable: 0
@@ -234,6 +135,7 @@ MonoBehaviour:
       ways... and up\u2026 Tch, damn dragons\u2026 "
     finishDialogue: "Wow, nice one. What? Isn\u2019t doing a good deed for your coworker
       a good enough reward? "
+    failDialogue: 
     waitingDialogue: "Don\u2019t dally! We\u2019ve got a hungry department waiting
       on you!"
     QuestID: 3
@@ -243,7 +145,7 @@ MonoBehaviour:
     QuestFail: 0
     QuestFinish: 0
     belongsTo: {fileID: 0}
-    actionPointWeight: 10
+    actionPointWeight: 170
     motivationAmount: 400
     reward: []
     isObtainable: 0
@@ -260,6 +162,7 @@ MonoBehaviour:
     descriptionDialogue: --
     acceptedDialogue: --
     finishDialogue: --
+    failDialogue: 
     waitingDialogue: --
     QuestID: -1
     inActiveList: 0

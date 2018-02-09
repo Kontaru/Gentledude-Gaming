@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 65856961290627692}
   - component: {fileID: 114298250661909606}
   - component: {fileID: 114237365275622386}
-  - component: {fileID: 114461781840740558}
   m_Layer: 0
   m_Name: Quest Handler
   m_TagString: Untagged
@@ -361,7 +360,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971179778054022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 151.85, y: 0, z: 53.68}
+  m_LocalPosition: {x: 14.80188, y: -10.54234, z: 28.478771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4820370054083188}
@@ -509,7 +508,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1551514089066798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4111528917804764}
@@ -744,9 +743,11 @@ MonoBehaviour:
   interactionObject: {fileID: 1265812757821412}
   ActiveTask:
     name: 
+    taskBrief: 
     descriptionDialogue: 
     acceptedDialogue: 
     finishDialogue: 
+    failDialogue: 
     waitingDialogue: 
     QuestID: 0
     inActiveList: 0
@@ -802,21 +803,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
+  BL_LookAtCam: 1
   Forward: {fileID: 0}
---- !u!114 &114461781840740558
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1116245393756846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5864724a6d9fb479de94c3fda29dcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BL_SetText: 0
 --- !u!114 &114538673555236948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -828,8 +817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
+  BL_LookAtCam: 1
   Forward: {fileID: 0}
 --- !u!114 &114554482756501122
 MonoBehaviour:
@@ -880,8 +869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 1
+  BL_LookAtCam: 1
   Forward: {fileID: 0}
 --- !u!114 &114632541633584508
 MonoBehaviour:
@@ -927,8 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
+  BL_LookAtCam: 1
   Forward: {fileID: 0}
 --- !u!114 &114748477307103070
 MonoBehaviour:
@@ -1232,6 +1221,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5.0699997}
+  m_AnchoredPosition: {x: 0, y: 5.988899}
   m_SizeDelta: {x: 5, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}

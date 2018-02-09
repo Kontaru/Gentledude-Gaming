@@ -14668,11 +14668,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 168.46068, y: 225.09952}
+  scrollPos: {x: 421.24216, y: 249.43127}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.9100001
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -14718,7 +14718,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 67
     y: 70
-    width: 144.5055
+    width: 139
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14757,7 +14757,6 @@ GameObject:
   - component: {fileID: 991043789}
   - component: {fileID: 991043794}
   - component: {fileID: 991043796}
-  - component: {fileID: 991043797}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -14817,7 +14816,6 @@ MonoBehaviour:
   eventHandler: {fileID: 991043804}
   commandList:
   - {fileID: 991043796}
-  - {fileID: 991043797}
 --- !u!114 &991043789
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -14961,33 +14959,6 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
---- !u!114 &991043797
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 991043785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 20
-  indentLevel: 0
-  compareOperator: 0
-  variable: {fileID: 0}
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  stringData:
-    stringRef: {fileID: 0}
-    stringVal: 
 --- !u!114 &991043798
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -20872,7 +20843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5864724a6d9fb479de94c3fda29dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_SetText: 0
 --- !u!1 &1438672151
 GameObject:
   m_ObjectHideFlags: 0
@@ -29649,26 +29619,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: Hour
-      value: 
-      objectReference: {fileID: 770548882}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: Minute
-      value: 
-      objectReference: {fileID: 1004828765}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: Days
-      value: 
-      objectReference: {fileID: 1033465518}
-    - target: {fileID: 114839365720268744, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: DayOverStats
-      value: 
-      objectReference: {fileID: 1679678626}
     - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
       propertyPath: tasksComplete
@@ -29709,6 +29659,26 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1245232806}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: Hour
+      value: 
+      objectReference: {fileID: 770548882}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: Minute
+      value: 
+      objectReference: {fileID: 1004828765}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: Days
+      value: 
+      objectReference: {fileID: 1033465518}
+    - target: {fileID: 114839365720268744, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: DayOverStats
+      value: 
+      objectReference: {fileID: 1679678626}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf980da153ea1b42a443525b716ab45, type: 2}
   m_IsPrefabParent: 0

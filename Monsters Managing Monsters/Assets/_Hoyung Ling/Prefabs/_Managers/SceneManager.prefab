@@ -75,9 +75,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowResults: 0
   EnterHeroes: 0
-  actionPointsAvailable: 60
+  actionPointsAvailable: 130
   actionPointsUsed: 0
-  currentDay: 0
+  currentDay: 1
   DaysInWeek: 6
   beginDay: 1
   pause: 0
