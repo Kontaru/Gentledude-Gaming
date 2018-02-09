@@ -34022,7 +34022,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2051676261}
+  - {fileID: 2051676270}
   selectedCommands: []
   variables:
   - {fileID: 2051676251}
@@ -34705,7 +34705,7 @@ MonoBehaviour:
   value: 0
 --- !u!114 &2051676279
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2051676244}
@@ -34732,7 +34732,7 @@ MonoBehaviour:
     stringVal: 
 --- !u!114 &2051676280
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2051676244}
@@ -34759,7 +34759,7 @@ MonoBehaviour:
     stringVal: 
 --- !u!114 &2051676281
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2051676244}
@@ -34786,7 +34786,7 @@ MonoBehaviour:
     stringVal: 
 --- !u!114 &2051676282
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2051676244}
@@ -34813,7 +34813,7 @@ MonoBehaviour:
     stringVal: 
 --- !u!114 &2051676283
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2051676244}
@@ -34840,7 +34840,7 @@ MonoBehaviour:
     stringVal: 
 --- !u!114 &2051676284
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2051676244}
@@ -34867,7 +34867,7 @@ MonoBehaviour:
     stringVal: 
 --- !u!114 &2051676285
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2051676244}
