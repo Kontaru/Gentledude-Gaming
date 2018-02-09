@@ -19,7 +19,7 @@ public class PDAHandler : MonoBehaviour {
     public GameObject[] activeTasks;
 
     public Slider volSlider;
-    public Text tasksText, volText, taskBriefTitleText, taskBriefText;
+    public Text tasksText, volText, tbTitleText, tbText, tbInfoText;
 
     private Animator animator;
 
@@ -309,8 +309,10 @@ public class PDAHandler : MonoBehaviour {
 
     private void SetBrief(int index)
     {
-        taskBriefTitleText.text = CurrentTasks.currentTask[index].name;
-        taskBriefText.text = CurrentTasks.currentTask[index].ST_taskBrief;
+        Task task = CurrentTasks.currentTask[index];
+        tbTitleText.text = task.name;
+        tbText.text = task.ST_taskBrief;
+        tbInfoText.text = "From: " + task.GO_belongsTo.GetComponent<Attribution>().myAttribute.ToString() + "\nAction Points: " + task.IN_actionPointWeight + ", Motivation: +" + task.IN_motivationAmount;
     }
 
     IEnumerator WaitAndDisplay(float seconds, bool isPause)
