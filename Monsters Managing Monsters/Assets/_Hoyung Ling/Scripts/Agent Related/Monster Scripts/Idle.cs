@@ -43,7 +43,13 @@ public class Idle : MonoBehaviour
             return;
 
         if (BL_pauseMovement == true)
+        {
+            NMA_agent.isStopped = true;
             return;
+        }else
+        {
+            NMA_agent.isStopped = false;
+        }
 
         if (BL_isIdle)
         {

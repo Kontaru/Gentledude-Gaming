@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 65309012035787066}
   - component: {fileID: 23332133238655768}
   - component: {fileID: 114581338070382430}
-  - component: {fileID: 114001411010608964}
+  - component: {fileID: 114021024923828088}
   m_Layer: 0
   m_Name: Machico
   m_TagString: Untagged
@@ -690,19 +690,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 1, z: 5}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &114001411010608964
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1262457488670076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b515883eb9cca8e43a88d3a213e784dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityType: 1
-  myAttribute: 1
 --- !u!114 &114013286856042236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -717,6 +704,19 @@ MonoBehaviour:
   BL_LookAtPC: 0
   BL_LookAtCam: 1
   Forward: {fileID: 0}
+--- !u!114 &114021024923828088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262457488670076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0645146afdd1b84f99bebf882a14a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityType: 1
+  myAttribute: 1
 --- !u!114 &114037564540334526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -775,24 +775,25 @@ MonoBehaviour:
   interactionObject: {fileID: 1566344265209484}
   ActiveTask:
     name: 
-    taskBrief: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    failDialogue: 
-    waitingDialogue: 
-    QuestID: 0
+    ST_taskBrief: 
+    ST_descriptionDialogue: 
+    ST_acceptedDialogue: 
+    ST_declinedDialogue: 
+    ST_finishDialogue: 
+    ST_failDialogue: 
+    ST_waitingDialogue: 
+    Quest_ID: 0
     inActiveList: 0
     Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 0
-    motivationAmount: 0
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    GO_reward: []
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     Steps: []
     step_tracker: 0
 --- !u!114 &114457785728976580
@@ -851,9 +852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2ca1eba7c3cf047b8d17aa6bf6ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMovement: 0
-  isIdle: 1
-  home: {fileID: 1223014888602084}
+  BL_pauseMovement: 0
+  BL_isIdle: 1
+  GO_home: {fileID: 0}
   Bounds: []
 --- !u!114 &114796434512393486
 MonoBehaviour:

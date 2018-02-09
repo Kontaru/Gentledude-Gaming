@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 65395093781854798}
   - component: {fileID: 23804767428918946}
   - component: {fileID: 114921476553842994}
-  - component: {fileID: 114150924776530184}
+  - component: {fileID: 114244160385714366}
   m_Layer: 0
   m_Name: Finn
   m_TagString: Monster
@@ -690,19 +690,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.461075, y: 7.0738883, z: 1}
   m_Center: {x: -0.23322296, y: 3.5369442, z: 0}
---- !u!114 &114150924776530184
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1937291735877956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b515883eb9cca8e43a88d3a213e784dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityType: 1
-  myAttribute: 5
 --- !u!114 &114164260383246616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -800,6 +787,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Press 'E' to Interact
+--- !u!114 &114244160385714366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1937291735877956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0645146afdd1b84f99bebf882a14a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityType: 1
+  myAttribute: 5
 --- !u!114 &114414724356015878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -910,24 +910,25 @@ MonoBehaviour:
   interactionObject: {fileID: 1681783564930768}
   ActiveTask:
     name: 
-    taskBrief: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    failDialogue: 
-    waitingDialogue: 
-    QuestID: 0
+    ST_taskBrief: 
+    ST_descriptionDialogue: 
+    ST_acceptedDialogue: 
+    ST_declinedDialogue: 
+    ST_finishDialogue: 
+    ST_failDialogue: 
+    ST_waitingDialogue: 
+    Quest_ID: 0
     inActiveList: 0
     Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 0
-    motivationAmount: 0
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    GO_reward: []
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     Steps: []
     step_tracker: 0
 --- !u!114 &114860219511787410
@@ -962,9 +963,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2ca1eba7c3cf047b8d17aa6bf6ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMovement: 0
-  isIdle: 1
-  home: {fileID: 1364243522248974}
+  BL_pauseMovement: 0
+  BL_isIdle: 1
+  GO_home: {fileID: 0}
   Bounds: []
 --- !u!195 &195873180580308370
 NavMeshAgent:

@@ -280,8 +280,8 @@ GameObject:
   - component: {fileID: 195398191117687038}
   - component: {fileID: 65132930777527988}
   - component: {fileID: 23610255738862524}
+  - component: {fileID: 114928722855668566}
   - component: {fileID: 114779656848872400}
-  - component: {fileID: 114945265392291900}
   m_Layer: 0
   m_Name: Harpie
   m_TagString: Monster
@@ -873,24 +873,25 @@ MonoBehaviour:
   interactionObject: {fileID: 1476320392032768}
   ActiveTask:
     name: 
-    taskBrief: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    failDialogue: 
-    waitingDialogue: 
-    QuestID: 0
+    ST_taskBrief: 
+    ST_descriptionDialogue: 
+    ST_acceptedDialogue: 
+    ST_declinedDialogue: 
+    ST_finishDialogue: 
+    ST_failDialogue: 
+    ST_waitingDialogue: 
+    Quest_ID: 0
     inActiveList: 0
     Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 0
-    motivationAmount: 0
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    GO_reward: []
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     Steps: []
     step_tracker: 0
 --- !u!114 &114779656848872400
@@ -904,9 +905,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2ca1eba7c3cf047b8d17aa6bf6ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMovement: 0
-  isIdle: 1
-  home: {fileID: 1314219744455096}
+  BL_pauseMovement: 0
+  BL_isIdle: 1
+  GO_home: {fileID: 0}
   Bounds: []
 --- !u!114 &114784219497047882
 MonoBehaviour:
@@ -953,7 +954,7 @@ MonoBehaviour:
   bl_scale_y: 0
   bl_scale_z: 0
   BL_Pulse: 1
---- !u!114 &114945265392291900
+--- !u!114 &114928722855668566
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -961,7 +962,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1914265704919080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b515883eb9cca8e43a88d3a213e784dd, type: 3}
+  m_Script: {fileID: 11500000, guid: b0645146afdd1b84f99bebf882a14a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EntityType: 1

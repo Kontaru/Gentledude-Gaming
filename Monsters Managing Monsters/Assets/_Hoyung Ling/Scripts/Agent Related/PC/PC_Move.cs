@@ -38,7 +38,7 @@ public class PC_Move : MonoBehaviour {
     {
         if (!BL_canMove)
         {
-            BL_isMoving = false;
+            V_direction = new Vector3(0, 0, 0);
             return;
         }
 

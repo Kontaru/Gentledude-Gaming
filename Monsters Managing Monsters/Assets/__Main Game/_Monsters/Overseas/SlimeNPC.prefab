@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 65857175850174270}
   - component: {fileID: 23368010403473122}
   - component: {fileID: 114736294936031390}
-  - component: {fileID: 114011713917162330}
+  - component: {fileID: 114505721572607180}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Monster
@@ -690,19 +690,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.461075, y: 7.0738883, z: 1}
   m_Center: {x: -0.23322296, y: 3.5369442, z: 0}
---- !u!114 &114011713917162330
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1558107089850116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b515883eb9cca8e43a88d3a213e784dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityType: 1
-  myAttribute: 5
 --- !u!114 &114089522070200044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -727,24 +714,25 @@ MonoBehaviour:
   interactionObject: {fileID: 1807115876089274}
   ActiveTask:
     name: 
-    taskBrief: 
-    descriptionDialogue: 
-    acceptedDialogue: 
-    finishDialogue: 
-    failDialogue: 
-    waitingDialogue: 
-    QuestID: 0
+    ST_taskBrief: 
+    ST_descriptionDialogue: 
+    ST_acceptedDialogue: 
+    ST_declinedDialogue: 
+    ST_finishDialogue: 
+    ST_failDialogue: 
+    ST_waitingDialogue: 
+    Quest_ID: 0
     inActiveList: 0
     Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 0
-    motivationAmount: 0
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    GO_reward: []
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     Steps: []
     step_tracker: 0
 --- !u!114 &114191686332598630
@@ -805,6 +793,19 @@ MonoBehaviour:
   bl_scale_y: 1
   bl_scale_z: 0
   BL_Pulse: 1
+--- !u!114 &114505721572607180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1558107089850116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0645146afdd1b84f99bebf882a14a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityType: 1
+  myAttribute: 5
 --- !u!114 &114573785829022354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -833,9 +834,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2ca1eba7c3cf047b8d17aa6bf6ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMovement: 0
-  isIdle: 1
-  home: {fileID: 1276562745172836}
+  BL_pauseMovement: 0
+  BL_isIdle: 1
+  GO_home: {fileID: 0}
   Bounds: []
 --- !u!114 &114838754570290730
 MonoBehaviour:
