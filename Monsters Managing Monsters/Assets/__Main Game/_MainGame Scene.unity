@@ -25061,12 +25061,6 @@ Prefab:
       propertyPath: Tasks.Array.data[2].Steps.Array.data[0].requires
       value: 
       objectReference: {fileID: 757706742}
-    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
-        type: 2}
-      propertyPath: Tasks.Array.data[0].failDialogue
-      value: Uh oh. Uuuuuh. Jim's not gonna be happy... Hey uh, no hard feelings though.
-        Heh.
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08fa9aa8a186ad648ae0e0ded2efed85, type: 2}
   m_IsPrefabParent: 0
@@ -32862,7 +32856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 58.61591, y: 124.86158}
+  scrollPos: {x: 90.57472, y: 174.34619}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -33351,8 +33345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 553.75507
-    y: 200.91153
+    x: 566.1264
+    y: 199.8806
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -33400,8 +33394,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 773.34283
-    y: 186.47864
+    x: 781.5911
+    y: 68.95273
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
