@@ -3379,7 +3379,7 @@ Transform:
   - {fileID: 761126023}
   - {fileID: 757706741}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &206770742
 GameObject:
@@ -3622,7 +3622,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &243123315
 GameObject:
@@ -3800,7 +3800,7 @@ Transform:
   - {fileID: 308513830}
   - {fileID: 1356209332}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &259155213
 GameObject:
@@ -4066,7 +4066,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &276490031
 GameObject:
@@ -8284,6 +8284,7 @@ MonoBehaviour:
     taskBrief: 
     descriptionDialogue: 
     acceptedDialogue: 
+    declinedDialogue: 
     finishDialogue: 
     failDialogue: 
     waitingDialogue: 
@@ -9261,7 +9262,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4344281487090920, guid: 03cea8516a12790408b24bce977ee5e7, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03cea8516a12790408b24bce977ee5e7, type: 2}
@@ -11034,7 +11035,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4405857529991640, guid: 9a9d6b4eca66acb4e96eed55eb88496f, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114677210180827836, guid: 9a9d6b4eca66acb4e96eed55eb88496f,
         type: 2}
@@ -12904,7 +12905,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &868827142
 GameObject:
@@ -17103,7 +17104,7 @@ Transform:
   - {fileID: 910170996}
   - {fileID: 923636370}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1084945835
 GameObject:
@@ -17575,7 +17576,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124634233
 GameObject:
@@ -18562,7 +18563,7 @@ Transform:
   m_Children:
   - {fileID: 704351242}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1199834217
 GameObject:
@@ -21934,7 +21935,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1397013641
 Prefab:
@@ -25043,7 +25044,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4438948802543868, guid: 08fa9aa8a186ad648ae0e0ded2efed85, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
         type: 2}
@@ -25060,6 +25061,12 @@ Prefab:
       propertyPath: Tasks.Array.data[2].Steps.Array.data[0].requires
       value: 
       objectReference: {fileID: 757706742}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[0].failDialogue
+      value: Uh oh. Uuuuuh. Jim's not gonna be happy... Hey uh, no hard feelings though.
+        Heh.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08fa9aa8a186ad648ae0e0ded2efed85, type: 2}
   m_IsPrefabParent: 0
@@ -25955,7 +25962,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614161490
 GameObject:
@@ -30771,7 +30778,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4241477228648184, guid: 392b9936fc029424ba1ecd4b831dfe07, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 392b9936fc029424ba1ecd4b831dfe07, type: 2}
@@ -31634,7 +31641,7 @@ Transform:
   m_Children:
   - {fileID: 173107768}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1962004132
 GameObject:
@@ -32135,7 +32142,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4645610427668490, guid: 3bf980da153ea1b42a443525b716ab45, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
@@ -32381,6 +32388,48 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &1985259646
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4306151095825870, guid: eae2db940d4ea034685bc6ba3d65c951, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 143.55135
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306151095825870, guid: eae2db940d4ea034685bc6ba3d65c951, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.07078409
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306151095825870, guid: eae2db940d4ea034685bc6ba3d65c951, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 15.732077
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306151095825870, guid: eae2db940d4ea034685bc6ba3d65c951, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306151095825870, guid: eae2db940d4ea034685bc6ba3d65c951, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306151095825870, guid: eae2db940d4ea034685bc6ba3d65c951, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306151095825870, guid: eae2db940d4ea034685bc6ba3d65c951, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306151095825870, guid: eae2db940d4ea034685bc6ba3d65c951, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: eae2db940d4ea034685bc6ba3d65c951, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1994283905
 GameObject:
   m_ObjectHideFlags: 0
@@ -32769,7 +32818,6 @@ GameObject:
   - component: {fileID: 2051676264}
   - component: {fileID: 2051676263}
   - component: {fileID: 2051676262}
-  - component: {fileID: 2051676253}
   - component: {fileID: 2051676261}
   - component: {fileID: 2051676251}
   - component: {fileID: 2051676250}
@@ -32784,10 +32832,16 @@ GameObject:
   - component: {fileID: 2051676252}
   - component: {fileID: 2051676258}
   - component: {fileID: 2051676257}
-  - component: {fileID: 2051676254}
   - component: {fileID: 2051676267}
   - component: {fileID: 2051676266}
   - component: {fileID: 2051676268}
+  - component: {fileID: 2051676269}
+  - component: {fileID: 2051676253}
+  - component: {fileID: 2051676271}
+  - component: {fileID: 2051676270}
+  - component: {fileID: 2051676254}
+  - component: {fileID: 2051676272}
+  - component: {fileID: 2051676273}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -32820,10 +32874,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2051676267}
+  - {fileID: 2051676270}
   selectedCommands: []
   variables:
-  - {fileID: 2051676253}
   - {fileID: 2051676252}
   - {fileID: 2051676251}
   - {fileID: 2051676250}
@@ -32947,12 +33000,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2051676244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scope: 1
-  key: HasQuest
-  value: 0
+  parentBlock: {fileID: 2051676260}
+  message: 
 --- !u!114 &2051676254
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -32964,9 +33016,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 19
+  itemId: 26
   indentLevel: 0
-  storyText: 
+  storyText: '{$accepted}'
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -32992,8 +33044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 794
-    y: 66
+    x: 243.4847
+    y: 69.09278
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -33004,7 +33056,6 @@ MonoBehaviour:
   eventHandler: {fileID: 2051676257}
   commandList:
   - {fileID: 2051676256}
-  - {fileID: 2051676254}
 --- !u!114 &2051676256
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -33096,16 +33147,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 70
-    y: 188
+    x: 254.53616
+    y: 301.40228
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 11
-  blockName: New Block
+  blockName: Hero Exit
   description: 
-  eventHandler: {fileID: 0}
+  eventHandler: {fileID: 2051676253}
   commandList: []
 --- !u!114 &2051676261
 MonoBehaviour:
@@ -33120,8 +33171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 291
-    y: 65
+    x: 567.28796
+    y: 69.12378
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -33130,7 +33181,10 @@ MonoBehaviour:
   blockName: Has Quest
   description: 
   eventHandler: {fileID: 2051676259}
-  commandList: []
+  commandList:
+  - {fileID: 2051676269}
+  - {fileID: 2051676271}
+  - {fileID: 2051676273}
 --- !u!114 &2051676262
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -33158,8 +33212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 67
-    y: 70
+    x: 62.87628
+    y: 68.96907
     width: 141.75256
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -33192,7 +33246,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2051676266
 MonoBehaviour:
@@ -33233,14 +33287,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 237.26038
-    y: 178.23117
-    width: 138.65979
+    x: 90.86844
+    y: 301.94244
+    width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 20
-  blockName: On Game Start
+  blockName: Hero Entry
   description: 
   eventHandler: {fileID: 2051676268}
   commandList:
@@ -33258,6 +33312,129 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 2051676267}
   message: Entry
+--- !u!114 &2051676269
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051676244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 22
+  indentLevel: 0
+  storyText: '{$description}'
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &2051676270
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051676244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 553.75507
+    y: 200.91153
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 25
+  blockName: Accepted
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 2051676254}
+--- !u!114 &2051676271
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051676244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 24
+  indentLevel: 0
+  text: Accept
+  description: 
+  targetBlock: {fileID: 2051676270}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+--- !u!114 &2051676272
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051676244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 773.34283
+    y: 186.47864
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 27
+  blockName: Decline
+  description: 
+  eventHandler: {fileID: 0}
+  commandList: []
+--- !u!114 &2051676273
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051676244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 28
+  indentLevel: 0
+  text: Decline
+  description: 
+  targetBlock: {fileID: 2051676272}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!1 &2053651339
 GameObject:
   m_ObjectHideFlags: 0

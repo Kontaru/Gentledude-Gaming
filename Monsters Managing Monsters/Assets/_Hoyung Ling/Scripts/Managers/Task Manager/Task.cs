@@ -17,12 +17,17 @@ public class Task
     [Header("Details")]
     public string name;                     //The name of our task. This should be something easy to distinguish. "Jeff's Quest 1" or "Diana's Bracelet".
 
+    [Header("Accepting a quest")]
     [TextArea(2, 10)]
     public string taskBrief;
     [TextArea(2, 10)]
     public string descriptionDialogue;              //A description of the quest. Please fill this in so everyone else knows what the quest is and what the steps are to completing a quest.
     [TextArea(2, 10)]
     public string acceptedDialogue;
+    [TextArea(2, 10)]
+    public string declinedDialogue;
+
+    [Header("Finishing a quest")]
     [TextArea(2, 10)]
     public string finishDialogue;
     [TextArea(2, 10)]

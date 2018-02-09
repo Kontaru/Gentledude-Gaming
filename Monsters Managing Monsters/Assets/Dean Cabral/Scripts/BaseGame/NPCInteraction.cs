@@ -151,15 +151,16 @@ public class NPCInteraction : MonoBehaviour
         }
         else if (BL_HasQuest)
         {
-            CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.descriptionDialogue);
-            CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.acceptedDialogue);
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                BL_QuestAccepted = true;
-                HideAll();
-                if (Input.GetKeyDown(KeyCode.E))
-                    HideAll();
-            }
+            CC_Dialogue.SetStringVariable("description", ActiveTask.descriptionDialogue);
+            CC_Dialogue.SetStringVariable("accepted", ActiveTask.acceptedDialogue);
+            CC_Dialogue.SetStringVariable("declined", ActiveTask.declinedDialogue);
+            //if (Input.GetKeyDown(KeyCode.E))
+            //{
+            //    BL_QuestAccepted = true;
+            //    HideAll();
+            //    if (Input.GetKeyDown(KeyCode.E))
+            //        HideAll();
+            //}
 
             Fungus.Flowchart.BroadcastFungusMessage("HasQuest");
         }
