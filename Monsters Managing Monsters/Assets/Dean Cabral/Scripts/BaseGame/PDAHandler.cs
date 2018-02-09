@@ -69,7 +69,6 @@ public class PDAHandler : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.M)) ShowMap();
         if (Input.GetKeyDown(KeyCode.N)) ShowTasks();
         if (Input.GetKeyDown(KeyCode.B)) ShowStats();
-        if (Input.GetKeyDown(KeyCode.U)) UpdateActiveTasks();
     }
 
     private void UpdateUI()
@@ -96,9 +95,10 @@ public class PDAHandler : MonoBehaviour {
         {
             Text title = activeTasks[i].transform.GetChild(0).GetComponent<Text>();
             Text id = activeTasks[i].transform.GetChild(1).GetComponent<Text>();
+            Task task = CurrentTasks.currentTask[i];
 
-            string taskName = CurrentTasks.currentTask[i].name;
-            int taskID = CurrentTasks.currentTask[i].Quest_ID;
+            string taskName = task.name;
+            int taskID = task.Quest_ID;
 
             title.text = taskName;
             id.text = taskID.ToString();
@@ -312,7 +312,7 @@ public class PDAHandler : MonoBehaviour {
         Task task = CurrentTasks.currentTask[index];
         tbTitleText.text = task.name;
         tbText.text = task.ST_taskBrief;
-        tbInfoText.text = "From: " + task.GO_belongsTo.GetComponent<Attribution>().myAttribute.ToString() + "\nAction Points: " + task.IN_actionPointWeight + ", Motivation: +" + task.IN_motivationAmount;
+        tbInfoText.text = "From: " + /*task.GO_belongsTo.GetComponent<Attribution>().myAttribute.ToString() +*/ "\nAction Points: " + task.IN_actionPointWeight + "\nMotivation: +" + task.IN_motivationAmount;
     }
 
     IEnumerator WaitAndDisplay(float seconds, bool isPause)

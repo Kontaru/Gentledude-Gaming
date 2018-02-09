@@ -55,6 +55,6 @@ public class CurrentTasks : MonoBehaviour {
             return vTask;
         }
         else
-            return TaskManager.instance.Tasks[3];
+            return GrabRandomQuest();
     }
 }
