@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 4018351730017512}
   - component: {fileID: 65611075082342374}
   - component: {fileID: 114239470982455028}
+  - component: {fileID: 114041001285762532}
   m_Layer: 0
   m_Name: Quest Handler
   m_TagString: Untagged
@@ -568,7 +569,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1005542927515032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.72, y: -0.61, z: 46.949123}
+  m_LocalPosition: {x: 139.77634, y: -0.53, z: 7.4343686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4428906744738004}
@@ -735,6 +736,19 @@ MonoBehaviour:
   degree_x: 0
   degree_y: 1
   degree_z: 0
+--- !u!114 &114041001285762532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1867604876577300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec97a042335624444878e3d59b2ae823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestIDs: 03000000
+  Tasks: []
 --- !u!114 &114207306754573756
 MonoBehaviour:
   m_ObjectHideFlags: 1

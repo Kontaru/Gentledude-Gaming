@@ -15,7 +15,7 @@ public class NPCInteraction : MonoBehaviour
     bool BL_QuestAccepted = false;              //Did I accept a quest?
     private bool BL_WithinSpace = false;        //Am I inside the trigger box?
 
-    public static bool BL_InConversation = false;
+    public bool BL_InConversation = false;
 
     public string[] flavourText;
 
@@ -80,6 +80,19 @@ public class NPCInteraction : MonoBehaviour
             return;
         }
 
+        QuestChecker();
+
+        UIState();
+        ConversationChecker();
+
+        if (BL_QuestAccepted)
+            if (!ActiveTask.Quest_Complete) ActiveTask.BL_isAccepted = true;
+        else
+            ActiveTask.BL_isAccepted = false;
+    }
+
+    void QuestChecker()
+    {
         if (Quests != null)
         {
             //Check all of my quests, if any of them are obtainable, then I have a quest
@@ -97,28 +110,12 @@ public class NPCInteraction : MonoBehaviour
                     break;
                 }
             }
-        }else
+        }
+        else
         {
             BL_HasQuest = false;
             BL_QuestAccepted = false;
         }
-
-        UIState();
-
-        if(BL_WithinSpace)
-            if (Input.GetKeyDown(KeyCode.E))
-                Converse();
-
-        if (CC_Dialogue.GetBooleanVariable("bl_textCycleOver"))
-        {
-            CC_Dialogue.SetBooleanVariable("bl_textCycleOver", false);
-            PC_Move.BL_canMove = true;
-        }
-
-        if (BL_QuestAccepted)
-            if (!ActiveTask.Quest_Complete) ActiveTask.BL_isAccepted = true;
-        else
-            ActiveTask.BL_isAccepted = false;
     }
 
     void UIState()
@@ -139,9 +136,30 @@ public class NPCInteraction : MonoBehaviour
             ShowInteraction();
     }
 
+    void ConversationChecker()
+    {
+        if (BL_WithinSpace)
+            if (Input.GetKeyDown(KeyCode.E))
+                Converse();
+
+        if (CC_Dialogue.GetBooleanVariable("bl_accepted") && BL_InConversation == true)
+        {
+            BL_QuestAccepted = true;
+            HideAll();
+        }
+
+        if (CC_Dialogue.GetBooleanVariable("bl_textCycleOver"))
+        {
+            CC_Dialogue.SetBooleanVariable("bl_textCycleOver", false);
+            BL_InConversation = false;
+            PC_Move.BL_canMove = true;
+        }
+    }
+
     void Converse()
     {
         PC_Move.BL_canMove = false;
+        BL_InConversation = true;
 
         if (BL_QuestAccepted)
         {
@@ -160,12 +178,6 @@ public class NPCInteraction : MonoBehaviour
             CC_Dialogue.SetStringVariable("description", ActiveTask.ST_descriptionDialogue);
             CC_Dialogue.SetStringVariable("accepted", ActiveTask.ST_acceptedDialogue);
             CC_Dialogue.SetStringVariable("declined", ActiveTask.ST_declinedDialogue);
-
-            if(CC_Dialogue.GetBooleanVariable("bl_accepted"))
-            {
-                BL_QuestAccepted = true;
-                HideAll();
-            }
 
             Fungus.Flowchart.BroadcastFungusMessage("HasQuest");
         }

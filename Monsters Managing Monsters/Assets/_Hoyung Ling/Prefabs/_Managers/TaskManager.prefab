@@ -65,30 +65,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tasks:
   - name: Technical Trouble
-    taskBrief: My computer's been acting up... I, uh... Just come help?
-    descriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but I
-      uh \u2013 I got a virus. I don\u2019t know how but I need you to fix it for
+    ST_taskBrief: There's... something up with my computer. I can't let Pigman Jim
+      know. Come take a look?
+    ST_descriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but
+      I uh \u2013 I got a virus. I don\u2019t know how but I need you to fix it for
       me fast. Don\u2019t go telling Jim, the technician. This isn\u2019t the first
       time\u2026 "
-    acceptedDialogue: 'Hurry it up then, before someone sees! '
-    declinedDialogue: Aaaah... That puts me in a bind... Maybe later? I'll wait...
-    finishDialogue: "Phew\u2026 Thanks uh\u2026 Yeah\u2026 Don\u2019t you have work
-      to be getting on with? "
-    failDialogue: Uh oh. Uuuuuh. Jim's not gonna be happy... Hey uh, no hard feelings
-      though. Heh.
-    waitingDialogue: "You\u2019d better know what you\u2019re doing. "
-    QuestID: 1
+    ST_acceptedDialogue: 'Hurry it up then, before someone sees! '
+    ST_declinedDialogue: Uh oh. Uuuuuh... I mean, you're gonna come back, right? I'll
+      wait.
+    ST_finishDialogue: "Phew\u2026 Thanks uh\u2026 Yeah\u2026 Don\u2019t you have
+      work to be getting on with? "
+    ST_failDialogue: "You\u2019ve got to be kidding me. How am I going to explain
+      it this time\u2026 Hey uh, no hard feelings though... ..."
+    ST_waitingDialogue: "You\u2019d better know what you\u2019re doing. "
+    Quest_ID: 1
     inActiveList: 0
-    Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 30
-    motivationAmount: 100
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
+    Repeatable: 1
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 30
+    IN_motivationAmount: 100
+    GO_reward: []
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     Steps:
     - name: Fix Computer
       description: The player should do a thing which does another thing.
@@ -97,31 +99,31 @@ MonoBehaviour:
       complete: 0
     step_tracker: 0
   - name: Dangerous Deliveries!
-    taskBrief: Doughnuts need to be delivered. Easy, right?
-    descriptionDialogue: "Hey, you \u2013 yeah, you. We got some doughnuts in that
+    ST_taskBrief: Doughnuts need to be delivered around the office!
+    ST_descriptionDialogue: "Hey, you \u2013 yeah, you. We got some doughnuts in that
       I gotta go dish around, but frankly Pigman Jim is roaming about and he can\u2019t
       hold back when food is about. I\u2019m not in the mood for running today. But
       hey, you look weedy and fast. What do you say? "
-    acceptedDialogue: "Thanks. I can\u2019t tell if you\u2019re brave or stupid, but
-      watch out\u2026 He loves them doughnuts\u2026 "
-    declinedDialogue: Uuuuh, sure. Well, you gotta do this eventually, so I'll wait.
-    finishDialogue: "And you made it back without a bite taken out of you, yourself.
+    ST_acceptedDialogue: "Thanks. I can\u2019t tell if you\u2019re brave or stupid,
+      but watch out\u2026 He loves them doughnuts\u2026 "
+    ST_declinedDialogue: Not now? I can wait.
+    ST_finishDialogue: "And you made it back without a bite taken out of you, yourself.
       Thanks, uh\u2026 Guy. "
-    failDialogue: Really now. *sigh* This isn't good. I'm putting a bad reference
-      for you. Now scurry off!
-    waitingDialogue: 'Gotta hurry! I think I can see him coming down the hall! '
-    QuestID: 2
+    ST_failDialogue: "He caught you didn\u2019t he? Bad luck there. Least he didn\u2019t
+      take a bite outta you too. "
+    ST_waitingDialogue: 'Gotta hurry! I think I can see him coming down the hall! '
+    Quest_ID: 2
     inActiveList: 0
     Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 60
-    motivationAmount: 220
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 60
+    IN_motivationAmount: 220
+    GO_reward: []
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     Steps:
     - name: Deliver Donuts
       description: Deliver them!
@@ -130,32 +132,32 @@ MonoBehaviour:
       complete: 0
     step_tracker: 0
   - name: Doughnut Dash
-    taskBrief: A fresh order of doughnuts are in, but I need someone to collect them.
-    descriptionDialogue: "Hey you! Yeah you, the wimpy looking one. We ordered some
-      doughnuts for the department, but have to go fetch them. I\u2019m uh, busy.
+    ST_taskBrief: 
+    ST_descriptionDialogue: "Hey you! Yeah you, the wimpy looking one. We ordered
+      some doughnuts for the department, but have to go fetch them. I\u2019m uh, busy.
       Right now. How about you go grab them? They\u2019re just across the street.
       I\u2019ll make it worth your while.  "
-    acceptedDialogue: "Thanks! I\u2019ve already paid. Just make sure you look both
-      ways... and up\u2026 Tch, damn dragons\u2026 "
-    declinedDialogue: Ha, right, but you're the only one who can do this! I'll wait,
-      don't worry.
-    finishDialogue: "Wow, nice one. What? Isn\u2019t doing a good deed for your coworker
-      a good enough reward? "
-    failDialogue: 
-    waitingDialogue: "Don\u2019t dally! We\u2019ve got a hungry department waiting
-      on you!"
-    QuestID: 3
+    ST_acceptedDialogue: "Thanks man, I\u2019ve already paid. Just make sure you look
+      both ways and up\u2026 Damn dragons\u2026 "
+    ST_declinedDialogue: 
+    ST_finishDialogue: "Wow, nice one. What? Isn\u2019t doing a good deed for your
+      coworker a good enough reward? "
+    ST_failDialogue: "I don\u2019t care if you got hit by something, the doughnuts
+      are gone! Damn it\u2026 "
+    ST_waitingDialogue: "Don\u2019t dally, we\u2019ve got a hungry department waiting
+      on you, uh\u2026 John, right? "
+    Quest_ID: 3
     inActiveList: 0
     Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 0
-    belongsTo: {fileID: 0}
-    actionPointWeight: 170
-    motivationAmount: 400
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 1000
+    IN_motivationAmount: 500
+    GO_reward: []
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     Steps:
     - name: Grab the donuts
       description: Minigame
@@ -164,28 +166,59 @@ MonoBehaviour:
       complete: 0
     step_tracker: 0
   - name: No Quest
-    taskBrief: 
-    descriptionDialogue: --
-    acceptedDialogue: --
-    declinedDialogue: 
-    finishDialogue: --
-    failDialogue: 
-    waitingDialogue: --
-    QuestID: -1
+    ST_taskBrief: 
+    ST_descriptionDialogue: 
+    ST_acceptedDialogue: 
+    ST_declinedDialogue: 
+    ST_finishDialogue: 
+    ST_failDialogue: 
+    ST_waitingDialogue: 
+    Quest_ID: 0
     inActiveList: 0
     Repeatable: 0
-    QuestComplete: 0
-    QuestFail: 0
-    QuestFinish: 1
-    belongsTo: {fileID: 0}
-    actionPointWeight: 0
-    motivationAmount: 0
-    reward: []
-    isObtainable: 0
-    isAccepted: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    GO_reward: []
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     Steps:
     - name: Find the contact lens
       description: Find the contact lens for our cyclops
+      requires: {fileID: 0}
+      nextStep: {fileID: 0}
+      complete: 0
+    step_tracker: 0
+  - name: Stray Pixies
+    ST_taskBrief: The pixies got in again. Get here, asap!
+    ST_descriptionDialogue: "Looks like the pixies got in again. Stubborn little gremlins
+      aren\u2019t they? I\u2019m not cleaning up this mess. Hold on\u2026 Look! One\u2019s
+      getting away now! Go on! I\u2019m not going after it\u2026 "
+    ST_acceptedDialogue: 'Well get to it then! Those pests are fast. '
+    ST_declinedDialogue: 
+    ST_finishDialogue: "Looks like you\u2019re agile as well as weedy. You\u2019re
+      getting blamed for the mess though. "
+    ST_failDialogue: "Damn. If that thing gets anywhere near the boss, it\u2019s your
+      fault\u2026 "
+    ST_waitingDialogue: 'What are you looking at me for? Go get it! '
+    Quest_ID: 0
+    inActiveList: 0
+    Repeatable: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 60
+    IN_motivationAmount: 220
+    GO_reward: []
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    Steps:
+    - name: Hunt down the pixies
+      description: Hunt down the pixies
       requires: {fileID: 0}
       nextStep: {fileID: 0}
       complete: 0
