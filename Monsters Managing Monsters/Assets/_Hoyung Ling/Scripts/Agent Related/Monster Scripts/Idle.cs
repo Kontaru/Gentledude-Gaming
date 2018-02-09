@@ -20,21 +20,21 @@ public class Idle : MonoBehaviour
 {
 
     // -- For User Adjustment --
-    public bool pauseMovement = false;
-    public bool isIdle = true;                        //Should I idle?
+    public bool BL_pauseMovement = false;
+    public bool BL_isIdle = true;                        //Should I idle?
     [Tooltip("Should the entity return to home when idle is off?")]
 
-    public GameObject home;
+    public GameObject GO_home;
     public Square[] Bounds;
-    GameObject destination;
+    GameObject GO_destination;
 
-    float delay = 0;
+    float FL_delay = 0;
 
-    NavMeshAgent agent;
+    NavMeshAgent NMA_agent;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        NMA_agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
@@ -42,28 +42,28 @@ public class Idle : MonoBehaviour
         if (Bounds.Length == 0)
             return;
 
-        if (pauseMovement == true)
+        if (BL_pauseMovement == true)
             return;
 
-        if (isIdle)
+        if (BL_isIdle)
         {
-            if (Time.time > delay)
+            if (Time.time > FL_delay)
             {
-                if (destination == null || Vector3.Distance(transform.position, destination.transform.position) < 0.1f)
+                if (GO_destination == null || Vector3.Distance(transform.position, GO_destination.transform.position) < 0.1f)
                     NewPosition();
             }
         }
         else
-            destination = home;
+            GO_destination = GO_home;
 
-        if(destination != null)
-            agent.destination = destination.transform.position;
+        if(GO_destination != null)
+            NMA_agent.destination = GO_destination.transform.position;
     }
 
     void NewPosition()
     {
         Square square = Bounds[Random.Range(0, Bounds.Length - 1)];
-        destination = square.Vertices[Random.Range(0, square.Vertices.Length)].Corner;
-        delay = Time.time + square.Vertices[Random.Range(0, square.Vertices.Length)].idleDuration;
+        GO_destination = square.Vertices[Random.Range(0, square.Vertices.Length)].Corner;
+        FL_delay = Time.time + square.Vertices[Random.Range(0, square.Vertices.Length)].idleDuration;
     }
 }

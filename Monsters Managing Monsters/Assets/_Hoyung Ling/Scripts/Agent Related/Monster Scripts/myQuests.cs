@@ -17,7 +17,7 @@ public class myQuests : MonoBehaviour {
         {
             foreach (Task task in TaskManager.instance.Tasks)
             {
-                if (task.QuestID == QuestIDs[i])
+                if (task.Quest_ID == QuestIDs[i])
                 {
                     Tasks[i] = task;
                 }

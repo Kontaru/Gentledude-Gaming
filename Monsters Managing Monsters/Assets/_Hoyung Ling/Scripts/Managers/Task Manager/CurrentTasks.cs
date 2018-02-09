@@ -9,7 +9,7 @@ public class CurrentTasks : MonoBehaviour {
     //Do another thing which only displays the recent tasks
     //Do a final thing where if a task is complete, do a delay on the delivering the next task (deliver after x minutes: y seconds)
 
-    bool allLimit = true;
+    bool BL_allQuestsComplete = true;
 
 	// Use this for initialization
 	void Start () {
@@ -22,25 +22,25 @@ public class CurrentTasks : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        allLimit = true;
+        BL_allQuestsComplete = true;
 
         foreach (Task task in TaskManager.instance.Tasks)
         {
-            if (task.inActiveList == true || !task.QuestFinish)
-                allLimit = false;
+            if (task.inActiveList == true || !task.Quest_Finish)
+                BL_allQuestsComplete = false;
         }
 
-        if (allLimit) return;
+        if (BL_allQuestsComplete) return;
 
         for (int i = 0; i < currentTask.Length; i++)
         {
-            if (currentTask[i].QuestFinish == true)
+            if (currentTask[i].Quest_Finish == true)
             {
                 currentTask[i] = GrabRandomQuest();
             }
             else
             {
-                currentTask[i].isObtainable = true;
+                currentTask[i].BL_isObtainable = true;
             }
         }
 	}

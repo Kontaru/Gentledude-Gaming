@@ -8,7 +8,7 @@ public class Scene_Controller : MonoBehaviour {
 
     public GameObject DayOverStats;
 
-    bool EventOver = false;
+    bool BL_EventOver = false;
 
     #region Typical Singleton Format
 
@@ -36,13 +36,13 @@ public class Scene_Controller : MonoBehaviour {
     {
         if (GameManager.instance.PixelMode) return;
 
-        if (DayCycle.instance.ShowResults)
+        if (DayCycle.instance.BL_ShowResults)
         {
             DayOverStats.SetActive(true);
             EndDayEvaluation();
         }else
             DayOverStats.SetActive(false);
-        if (DayCycle.instance.EnterHeroes)
+        if (DayCycle.instance.BL_EnterHeroes)
         {
             ThirdDay();
         }
@@ -57,11 +57,11 @@ public class Scene_Controller : MonoBehaviour {
     {
         Debug.Log("Event.Player Evaluation");
 
-        if (EventOver)
+        if (BL_EventOver)
         {
             DayCycle.instance.NewDay();
-            DayCycle.instance.pause = false;
-            DayCycle.instance.ShowResults = false;
+            DayCycle.instance.BL_pause = false;
+            DayCycle.instance.BL_ShowResults = false;
 
             PC_Move.BL_canMove = true;
         }
@@ -72,11 +72,11 @@ public class Scene_Controller : MonoBehaviour {
         Debug.Log("Event.Hero Entry Event");
         HeroEntry.instance.SpawnHeroes = true;
 
-        if (EventOver)
+        if (BL_EventOver)
         {
             DayCycle.instance.NewDay();
-            DayCycle.instance.pause = false;
-            DayCycle.instance.EnterHeroes = false;
+            DayCycle.instance.BL_pause = false;
+            DayCycle.instance.BL_EnterHeroes = false;
 
             PC_Move.BL_canMove = true;
         }
@@ -84,6 +84,6 @@ public class Scene_Controller : MonoBehaviour {
 
     public void ExitPrompt()
     {
-        EventOver = true;
+        BL_EventOver = true;
     }
 }

@@ -41,7 +41,7 @@ public class NPCInteraction : MonoBehaviour
             if (e_coll.EntityType == Entity.Entities.Player)
             {
                 BL_WithinSpace = true;
-                myIdle.pauseMovement = true;
+                myIdle.BL_pauseMovement = true;
             }
         }
     }
@@ -54,7 +54,7 @@ public class NPCInteraction : MonoBehaviour
             if (e_coll.EntityType == Entity.Entities.Player)
             {
                 BL_WithinSpace = false;
-                myIdle.pauseMovement = false;
+                myIdle.BL_pauseMovement = false;
             }
         }
     }
@@ -88,9 +88,9 @@ public class NPCInteraction : MonoBehaviour
                 if (quest == null)
                     break;
 
-                quest.belongsTo = transform.parent.gameObject;
+                quest.GO_belongsTo = transform.parent.gameObject;
 
-                if (quest.isObtainable)
+                if (quest.BL_isObtainable)
                 {
                     BL_HasQuest = true;
                     ActiveTask = quest;
@@ -110,9 +110,9 @@ public class NPCInteraction : MonoBehaviour
                 Converse();
 
         if (BL_QuestAccepted)
-            if (!ActiveTask.QuestComplete) ActiveTask.isAccepted = true;
+            if (!ActiveTask.Quest_Complete) ActiveTask.BL_isAccepted = true;
         else
-            ActiveTask.isAccepted = false;
+            ActiveTask.BL_isAccepted = false;
     }
 
     void UIState()
@@ -121,7 +121,7 @@ public class NPCInteraction : MonoBehaviour
         {
             if (BL_QuestAccepted)
             {
-                if (!ActiveTask.QuestComplete) AcceptedQuest();
+                if (!ActiveTask.Quest_Complete) AcceptedQuest();
                 else HasQuest();
             }
             else
@@ -139,11 +139,11 @@ public class NPCInteraction : MonoBehaviour
         PC_Move.BL_canMove = false;
         if(BL_QuestAccepted)
         {
-            if (!ActiveTask.QuestComplete)
-                CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.waitingDialogue);
-            else if (ActiveTask.QuestComplete)
+            if (!ActiveTask.Quest_Complete)
+                CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.ST_waitingDialogue);
+            else if (ActiveTask.Quest_Complete)
             {
-                CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.finishDialogue);
+                CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.ST_finishDialogue);
                 QuestCompleted();
             }
 
@@ -151,9 +151,9 @@ public class NPCInteraction : MonoBehaviour
         }
         else if (BL_HasQuest)
         {
-            CC_Dialogue.SetStringVariable("description", ActiveTask.descriptionDialogue);
-            CC_Dialogue.SetStringVariable("accepted", ActiveTask.acceptedDialogue);
-            CC_Dialogue.SetStringVariable("declined", ActiveTask.declinedDialogue);
+            CC_Dialogue.SetStringVariable("description", ActiveTask.ST_descriptionDialogue);
+            CC_Dialogue.SetStringVariable("accepted", ActiveTask.ST_acceptedDialogue);
+            CC_Dialogue.SetStringVariable("declined", ActiveTask.ST_declinedDialogue);
             //if (Input.GetKeyDown(KeyCode.E))
             //{
             //    BL_QuestAccepted = true;
@@ -219,7 +219,7 @@ public class NPCInteraction : MonoBehaviour
     private void QuestCompleted()
     {
         HideAll();
-        ActiveTask.QuestFinish = true;
+        ActiveTask.Quest_Finish = true;
         BL_QuestAccepted = false;
         BL_HasQuest = false;
         Debug.Log("Quest Completed");

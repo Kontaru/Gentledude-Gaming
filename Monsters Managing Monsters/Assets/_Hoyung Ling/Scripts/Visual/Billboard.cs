@@ -29,11 +29,6 @@ public class Billboard : MonoBehaviour
     // Update is called once per frame
     virtual public void Update()
     {
-        if(TargetHandler.instance.heroCount > 0)
-        {
-            BL_LookAtPC = false;
-        }
-
         if (BL_LookAtPC)
         {
             if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 15f)

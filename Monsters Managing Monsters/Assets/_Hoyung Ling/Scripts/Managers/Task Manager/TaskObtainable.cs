@@ -10,8 +10,8 @@ public class TaskObtainable : MonoBehaviour {
     {
         foreach (Task task in TaskManager.instance.Tasks)
         {
-            if (task.QuestID == QuestID)
-                task.isObtainable = true;
+            if (task.Quest_ID == QuestID)
+                task.BL_isObtainable = true;
         }
     }
 }

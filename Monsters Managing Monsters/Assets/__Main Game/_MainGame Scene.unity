@@ -2028,9 +2028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2ca1eba7c3cf047b8d17aa6bf6ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMovement: 0
-  isIdle: 1
-  home: {fileID: 409411876}
+  BL_pauseMovement: 0
+  BL_isIdle: 1
+  GO_home: {fileID: 0}
   Bounds:
   - Vertices:
     - idleDuration: 0
@@ -32138,6 +32138,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: Hour
+      value: 
+      objectReference: {fileID: 770548882}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: Minute
+      value: 
+      objectReference: {fileID: 1004828765}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: Days
+      value: 
+      objectReference: {fileID: 1033465518}
+    - target: {fileID: 114298160908449022, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: hero
+      value: 
+      objectReference: {fileID: 1250489146}
+    - target: {fileID: 114298160908449022, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: flowchart
+      value: 
+      objectReference: {fileID: 2051676245}
     - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
       propertyPath: tasksComplete
@@ -32178,36 +32203,11 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1245232806}
-    - target: {fileID: 114298160908449022, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: flowchart
-      value: 
-      objectReference: {fileID: 2051676245}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: Hour
-      value: 
-      objectReference: {fileID: 770548882}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: Minute
-      value: 
-      objectReference: {fileID: 1004828765}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: Days
-      value: 
-      objectReference: {fileID: 1033465518}
     - target: {fileID: 114839365720268744, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
       propertyPath: DayOverStats
       value: 
       objectReference: {fileID: 1679678626}
-    - target: {fileID: 114298160908449022, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: hero
-      value: 
-      objectReference: {fileID: 1250489146}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf980da153ea1b42a443525b716ab45, type: 2}
   m_IsPrefabParent: 0

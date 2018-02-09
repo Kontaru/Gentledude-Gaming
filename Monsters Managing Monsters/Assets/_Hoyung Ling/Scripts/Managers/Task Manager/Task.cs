@@ -19,41 +19,41 @@ public class Task
 
     [Header("Accepting a quest")]
     [TextArea(2, 10)]
-    public string taskBrief;
+    public string ST_taskBrief;
     [TextArea(2, 10)]
-    public string descriptionDialogue;              //A description of the quest. Please fill this in so everyone else knows what the quest is and what the steps are to completing a quest.
+    public string ST_descriptionDialogue;              //A description of the quest. Please fill this in so everyone else knows what the quest is and what the steps are to completing a quest.
     [TextArea(2, 10)]
-    public string acceptedDialogue;
+    public string ST_acceptedDialogue;
     [TextArea(2, 10)]
-    public string declinedDialogue;
+    public string ST_declinedDialogue;
 
     [Header("Finishing a quest")]
     [TextArea(2, 10)]
-    public string finishDialogue;
+    public string ST_finishDialogue;
     [TextArea(2, 10)]
-    public string failDialogue;
+    public string ST_failDialogue;
     [TextArea(2, 10)]
-    public string waitingDialogue;
+    public string ST_waitingDialogue;
 
-    public int QuestID;
+    public int Quest_ID;
     public bool inActiveList = false;
     public bool Repeatable = false;
 
-    [HideInInspector] public bool QuestComplete = false;     //Is our quest complete?
-    [HideInInspector] public bool QuestFail = false;     //Is our quest complete?
-    [HideInInspector] public bool QuestFinish = false;       //Trigger for NPC hand in
+    [HideInInspector] public bool Quest_Complete = false;     //Is our quest complete?
+    [HideInInspector] public bool Quest_Fail = false;     //Is our quest complete?
+    [HideInInspector] public bool Quest_Finish = false;       //Trigger for NPC hand in
 
-    [HideInInspector] public GameObject belongsTo;
+    [HideInInspector] public GameObject GO_belongsTo;
 
     [Header("Action Points + Motivation")]
-    public int actionPointWeight;
-    public int motivationAmount;
+    public int IN_actionPointWeight;
+    public int IN_motivationAmount;
 
     [Header("Reward?")]
-    public GameObject[] reward;
+    public GameObject[] GO_reward;
 
-    [HideInInspector] public bool isObtainable = false;
-    public bool isAccepted = false;
+    [HideInInspector] public bool BL_isObtainable = false;
+    [HideInInspector] public bool BL_isAccepted = false;
 
     private bool BL_Boost = true;
 
@@ -63,11 +63,11 @@ public class Task
     //Checks if all our steps are complete
     public void StepChecker()
     {
-        if (QuestID == -1) return;
+        if (Quest_ID == -1) return;
 
-        if (isAccepted)
+        if (BL_isAccepted)
         {
-            QuestComplete = true;
+            Quest_Complete = true;
             //For each step
             if (step_tracker < Steps.Length)
             {
@@ -86,7 +86,7 @@ public class Task
                 //If any of these steps are false, just stop everything and quit the function.
                 if (step.complete == false)
                 {
-                    QuestComplete = false;
+                    Quest_Complete = false;
                 }
             }
         }else
@@ -98,27 +98,27 @@ public class Task
             }
         }
 
-        if (QuestFinish || QuestFail)
+        if (Quest_Finish || Quest_Fail)
         {
-            QuestComplete = false;
+            Quest_Complete = false;
 
             if (BL_Boost)
             {
-                foreach (GameObject produce in reward)
+                foreach (GameObject produce in GO_reward)
                 {
                     if (produce != null) produce.SetActive(true);
                 }
 
-                Attribution.Attributes Type = belongsTo.GetComponent<Attribution>().myAttribute;
-                GameManager.instance.PowerBoost(Type, motivationAmount);
+                Attribution.Attributes Type = GO_belongsTo.GetComponent<Attribution>().myAttribute;
+                GameManager.instance.PowerBoost(Type, IN_motivationAmount);
 
-                DayCycle.instance.actionPointsUsed += actionPointWeight;
+                DayCycle.instance.FL_actionPointsUsed += IN_actionPointWeight;
                 BL_Boost = false;
             }
 
             if (Repeatable)
             {
-                QuestFinish = false;
+                Quest_Finish = false;
                 BL_Boost = false;
             }
         }

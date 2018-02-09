@@ -85,8 +85,8 @@ public class PDAHandler : MonoBehaviour {
 
         for (int i = 0; i < tasksArr.Length; i++)
         {
-            if (i > 0) tasks += "\n" + "[" + tasksArr[i].QuestID + "]" + " " + tasksArr[i].name;
-            else tasks += "[" + tasksArr[i].QuestID + "]" + " " + tasksArr[i].name;
+            if (i > 0) tasks += "\n" + "[" + tasksArr[i].Quest_ID + "]" + " " + tasksArr[i].name;
+            else tasks += "[" + tasksArr[i].Quest_ID + "]" + " " + tasksArr[i].name;
         }
     }
 
@@ -98,7 +98,7 @@ public class PDAHandler : MonoBehaviour {
             Text id = activeTasks[i].transform.GetChild(1).GetComponent<Text>();
 
             string taskName = CurrentTasks.currentTask[i].name;
-            int taskID = CurrentTasks.currentTask[i].QuestID;
+            int taskID = CurrentTasks.currentTask[i].Quest_ID;
 
             title.text = taskName;
             id.text = taskID.ToString();
@@ -310,7 +310,7 @@ public class PDAHandler : MonoBehaviour {
     private void SetBrief(int index)
     {
         taskBriefTitleText.text = CurrentTasks.currentTask[index].name;
-        taskBriefText.text = CurrentTasks.currentTask[index].taskBrief;
+        taskBriefText.text = CurrentTasks.currentTask[index].ST_taskBrief;
     }
 
     IEnumerator WaitAndDisplay(float seconds, bool isPause)

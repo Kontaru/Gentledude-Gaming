@@ -71,7 +71,7 @@ public class DLight : MonoBehaviour {
 	void Update () {
 
         currentTime = DayCycle.instance.FL_CurrentTime();
-        timeInDay = DayCycle.instance.actionPointsAvailable;
+        timeInDay = DayCycle.instance.FL_actionPointsAvailable;
         currentHour = DayCycle.instance.FL_CurrentHour();
 
         UpdateLightCycle(timeInDay);

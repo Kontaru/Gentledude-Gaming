@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PC_Move : MonoBehaviour {
 
-    [TextArea(2, 10)]
-    public string Description;
-
     Rigidbody RB_PC;
-    Vector3 direction;
+    Vector3 V_direction;
 
     [Header("Movement")]
     public float FL_moveSpeed;
-    public bool isMoving = false;
+    public bool BL_isMoving = false;
     public static bool BL_canMove = true;
     float FL_defaultSpeed;
 
@@ -34,25 +31,25 @@ public class PC_Move : MonoBehaviour {
 
     void FixedUpdate()
     {
-        RB_PC.MovePosition(transform.position + direction * Time.fixedDeltaTime);
+        RB_PC.MovePosition(transform.position + V_direction * Time.fixedDeltaTime);
     }
 
     void PlayerMove()
     {
         if (!BL_canMove)
         {
-            isMoving = false;
+            BL_isMoving = false;
             return;
         }
 
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
         if (moveInput == new Vector3(0, 0, 0))
-            isMoving = false;
+            BL_isMoving = false;
         else
-            isMoving = true;
+            BL_isMoving = true;
 
-        direction = moveInput.normalized * FL_moveSpeed;
+        V_direction = moveInput.normalized * FL_moveSpeed;
     }
 
     void LookInput()

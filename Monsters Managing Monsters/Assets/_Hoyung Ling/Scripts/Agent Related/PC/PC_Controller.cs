@@ -22,6 +22,6 @@ public class PC_Controller : Entity {
 	void Update () {
         if (GameManager.instance.PixelMode) return;
 
-        BL_IsMoving = CC_Move.isMoving;
+        BL_IsMoving = CC_Move.BL_isMoving;
     }
 }
