@@ -16,6 +16,7 @@ public class IntroductionSequence : MonoBehaviour {
 
     void Start()
     {
+        Time.timeScale = 1;
         SequenceOrder();
     }
 

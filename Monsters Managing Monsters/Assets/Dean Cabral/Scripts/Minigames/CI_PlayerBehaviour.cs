@@ -214,6 +214,11 @@ public class CI_PlayerBehaviour : MonoBehaviour
         StartCoroutine(ShowScreen(winScreen));
     }
 
+    public void ReturnToMenu()
+    {
+        GameManager.instance.LoadScene(0);
+    }
+
     IEnumerator ShowScreen(GameObject screen)
     {
         float lerpTime = 0;

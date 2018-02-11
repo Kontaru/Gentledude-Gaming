@@ -162,12 +162,12 @@ public class MenuHandler : MonoBehaviour {
 
     public void StartMiniGameTwo()
     {
-
+        GameManager.instance.LoadScene(3);
     }
 
     public void StartMiniGameThree()
     {
-
+        GameManager.instance.LoadScene(4);
     }
 
 

@@ -97,6 +97,11 @@ public class PP_PlayerBehaviour : MonoBehaviour
         if (gremlinCount > 0) gremlinCount--;
     }
 
+    public void ReturnToMenu()
+    {
+        GameManager.instance.LoadScene(0);
+    }
+
     IEnumerator ShowScreen(GameObject screen)
     {
         float lerpTime = 0;
