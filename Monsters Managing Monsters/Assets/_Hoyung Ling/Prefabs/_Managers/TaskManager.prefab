@@ -132,7 +132,8 @@ MonoBehaviour:
       complete: 0
     step_tracker: 0
   - name: Doughnut Dash
-    ST_taskBrief: 
+    ST_taskBrief: Don't text me ever again. Just get those doughnuts across the street
+      for us, alright?
     ST_descriptionDialogue: "Hey you! Yeah you, the wimpy looking one. We ordered
       some doughnuts for the department, but have to go fetch them. I\u2019m uh, busy.
       Right now. How about you go grab them? They\u2019re just across the street.
@@ -166,14 +167,14 @@ MonoBehaviour:
       complete: 0
     step_tracker: 0
   - name: No Quest
-    ST_taskBrief: 
+    ST_taskBrief: Why would you open this message? It obviously says "No Quest".
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
     ST_declinedDialogue: 
     ST_finishDialogue: 
     ST_failDialogue: 
     ST_waitingDialogue: 
-    Quest_ID: 0
+    Quest_ID: -1
     inActiveList: 0
     Repeatable: 0
     Quest_Complete: 0
@@ -204,7 +205,7 @@ MonoBehaviour:
     ST_failDialogue: "Damn. If that thing gets anywhere near the boss, it\u2019s your
       fault\u2026 "
     ST_waitingDialogue: 'What are you looking at me for? Go get it! '
-    Quest_ID: 0
+    Quest_ID: 4
     inActiveList: 0
     Repeatable: 0
     Quest_Complete: 0
