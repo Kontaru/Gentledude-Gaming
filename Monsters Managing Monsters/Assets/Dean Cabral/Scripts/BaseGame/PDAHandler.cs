@@ -18,6 +18,7 @@ public class PDAHandler : MonoBehaviour {
     public GameObject[] minigames;
     public GameObject[] activeTasks;
 
+    public Button homeBtn, closeBtn;
     public Slider volSlider;
     public Text tasksText, volText, tbTitleText, tbText, tbInfoText;
 
@@ -126,6 +127,8 @@ public class PDAHandler : MonoBehaviour {
             timeObject.SetActive(true);
             animator.SetBool("BL_Landscape", false);
             renderCam.SetActive(false);
+            homeBtn.enabled = true;
+            closeBtn.enabled = true;
             minigames[minigameIndex].SetActive(false);
         }
         else
@@ -133,6 +136,8 @@ public class PDAHandler : MonoBehaviour {
             GameManager.instance.PixelMode = true;
             timeObject.SetActive(false);
             animator.SetBool("BL_Landscape", true);
+            homeBtn.enabled = false;
+            closeBtn.enabled = false;
             StartCoroutine(WaitAndDisplay(1.5f, false));
         }        
     }
@@ -237,6 +242,13 @@ public class PDAHandler : MonoBehaviour {
         BL_PDAlandscape = !BL_PDAlandscape;
     }
 
+    public void MinigameComplete()
+    {
+        BL_Pause = false;
+        ToggleMinigames();
+        ShowHome();
+    }
+
     private void HideAllScreens()
     {
         mapScreen.SetActive(false);
@@ -248,9 +260,7 @@ public class PDAHandler : MonoBehaviour {
     }
 
     private void ShowHome()
-    {
-        if (BL_PDAlandscape && !BL_Pause) return;
-
+    {     
         HideAllScreens();        
         homeScreen.SetActive(true);
 
