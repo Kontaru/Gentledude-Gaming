@@ -13,7 +13,7 @@ public class CI_PlayerBehaviour : MonoBehaviour
     public bool item1, item2, item3, item4;
     public bool repair1, repair2, repair3, repair4;
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         HandleCollision(collision);
     }
@@ -21,7 +21,7 @@ public class CI_PlayerBehaviour : MonoBehaviour
     // Use this for initialization
     private void OnEnable()
     {
-        remainingOrders = 10;
+        remainingOrders = 5;
         missedOrders = 0;
     }
 
@@ -59,52 +59,60 @@ public class CI_PlayerBehaviour : MonoBehaviour
     {
         if (coll.gameObject.name == "Station1")
         {
-            if (coll.gameObject.GetComponent<CI_Station>().BL_Damaged && repair1)
+            CI_Station station = coll.gameObject.GetComponent<CI_Station>();
+            if (station.BL_Damaged && repair1)
             {
-                coll.gameObject.GetComponent<CI_Station>().BL_Damaged = false;
+                station.BL_Damaged = false;
                 ResetRepairs();
             }
             else
             {
+                if (station.BL_Damaged) return;
                 if (!item1) inventory += "\nItem 1";
                 item1 = true;
             }
         }
         else if (coll.gameObject.name == "Station2")
         {
-            if (coll.gameObject.GetComponent<CI_Station>().BL_Damaged && repair2)
+            CI_Station station = coll.gameObject.GetComponent<CI_Station>();
+            if (station.BL_Damaged && repair2)
             {
-                coll.gameObject.GetComponent<CI_Station>().BL_Damaged = false;
+                station.BL_Damaged = false;
                 ResetRepairs();
             }
             else
             {
+                if (station.BL_Damaged) return;
                 if (!item2) inventory += "\nItem 2";
                 item2 = true;
             }
         }
         else if (coll.gameObject.name == "Station3")
         {
-            if (coll.gameObject.GetComponent<CI_Station>().BL_Damaged && repair3)
+            CI_Station station = coll.gameObject.GetComponent<CI_Station>();
+            if (station.BL_Damaged && repair3)
             {
-                coll.gameObject.GetComponent<CI_Station>().BL_Damaged = false;
+                station.BL_Damaged = false;
                 ResetRepairs();
             }
             else
             {
+                if (station.BL_Damaged) return;
                 if (!item3) inventory += "\nItem 3";
-                item3 = true;                
+                item3 = true;
             }
         }
         else if (coll.gameObject.name == "Station4")
         {
-            if (coll.gameObject.GetComponent<CI_Station>().BL_Damaged && repair4)
+            CI_Station station = coll.gameObject.GetComponent<CI_Station>();
+            if (station.BL_Damaged && repair4)
             {
-                coll.gameObject.GetComponent<CI_Station>().BL_Damaged = false;
+                station.BL_Damaged = false;
                 ResetRepairs();
             }
             else
             {
+                if (station.BL_Damaged) return;
                 if (!item4) inventory += "\nItem 4";
                 item4 = true;
             }
@@ -129,6 +137,48 @@ public class CI_PlayerBehaviour : MonoBehaviour
             ResetRepairs();
             repair4 = true;
         }
+        else if (coll.gameObject.name == "CI_Table1")
+        {
+            CI_Table table = coll.gameObject.GetComponent<CI_Table>();
+            bool[] array = table.items;
+            if (CheckItems(array))
+            {
+                table.ClearItems(true);
+                table.BL_tableCleared = true;
+                remainingOrders--;
+            }
+            ResetItems();
+        }
+        else if (coll.gameObject.name == "CI_Table2")
+        {
+            CI_Table table = coll.gameObject.GetComponent<CI_Table>();
+            bool[] array = table.items;
+            if (CheckItems(array))
+            {
+                table.ClearItems(true);
+                table.BL_tableCleared = true;
+                remainingOrders--;
+            }
+            ResetItems();
+        }
+        else if (coll.gameObject.name == "CI_Table3")
+        {
+            CI_Table table = coll.gameObject.GetComponent<CI_Table>();
+            bool[] array = table.items;
+            if (CheckItems(array))
+            {
+                table.ClearItems(true);
+                table.BL_tableCleared = true;
+                remainingOrders--;
+            }
+            ResetItems();
+        }
+    }
+
+    private bool CheckItems(bool[] items)
+    {
+        if (items[0] == item1 && items[1] == item2 && items[2] == item3 && items[3] == item4) return true;
+        else return false;
     }
 
     private void ResetItems()
@@ -137,6 +187,7 @@ public class CI_PlayerBehaviour : MonoBehaviour
         item2 = false;
         item3 = false;
         item4 = false;
+        inventory = "";
     }
 
     private void ResetRepairs()
@@ -149,17 +200,19 @@ public class CI_PlayerBehaviour : MonoBehaviour
 
     private void CheckFailure()
     {
-        if (missedOrders >= 3)
+        if (missedOrders >= 8) BL_MinigameFailed = true;
+        if (remainingOrders <= 0) WinScreen();
+
+        if (BL_MinigameFailed)
         {
-            BL_MinigameFailed = true;
-            ShowScreen(failScreen);
+            StartCoroutine(ShowScreen(failScreen));
         }
     }
 
     private void WinScreen()
     {
         StartCoroutine(ShowScreen(winScreen));
-    }    
+    }
 
     IEnumerator ShowScreen(GameObject screen)
     {
@@ -172,5 +225,5 @@ public class CI_PlayerBehaviour : MonoBehaviour
             yield return null;
         }
         Time.timeScale = 0;
-    }    
+    }
 }
