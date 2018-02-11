@@ -39,6 +39,9 @@ public class PP_PlayerBehaviour : MonoBehaviour
     // Use this for initialization
     private void OnEnable()
     {
+        BL_MinigameFailed = false;
+        winScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
+        failScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
         pixieCount = 30;
         gremlinCount = 10;
         playerSpawn = transform.position;

@@ -42,6 +42,9 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     // Use this for initialization
     private void OnEnable ()
     {
+        BL_MinigameFailed = false;
+        winScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
+        failScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
         playerSpawn = transform.position;
         lives = 3;
         timer = 30;
