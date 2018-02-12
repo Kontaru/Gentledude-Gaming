@@ -116,6 +116,7 @@ public class Task
                 BL_Boost = false;
             }
 
+            BL_isAccepted = false;
             Quest_Complete = false;
             Quest_Fail = false;
         }

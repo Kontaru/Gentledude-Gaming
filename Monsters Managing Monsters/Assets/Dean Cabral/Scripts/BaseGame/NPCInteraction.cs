@@ -12,8 +12,8 @@ public class NPCInteraction : MonoBehaviour
 
     public bool BL_inCombat;                    //Am I in combat?
     public bool BL_HasQuest;                    //Do I have a quest?
-    bool BL_QuestAccepted = false;              //Did I accept a quest?
-    private bool BL_WithinSpace = false;        //Am I inside the trigger box?
+    [SerializeField] private bool BL_QuestAccepted = false;      //Did I accept a quest?
+    [SerializeField] private bool BL_WithinSpace = false;        //Am I inside the trigger box?
 
     public bool BL_InConversation = false;
 
@@ -72,6 +72,11 @@ public class NPCInteraction : MonoBehaviour
     {
         if (GameManager.instance.PixelMode) return;
 
+        if (BL_InConversation == true)
+            Debug.Log("true");
+        else
+            Debug.Log("false");
+
         //If I'm in combat, don't bother doing things anymore
         if (BL_inCombat == true)
         {
@@ -85,10 +90,15 @@ public class NPCInteraction : MonoBehaviour
         UIState();
         ConversationChecker();
 
+        UpdateFlags();
+    }
+
+    void UpdateFlags()
+    {
         if (BL_QuestAccepted)
             if (!ActiveTask.Quest_Complete) ActiveTask.BL_isAccepted = true;
-        else
-            ActiveTask.BL_isAccepted = false;
+            else
+                ActiveTask.BL_isAccepted = false;
     }
 
     void QuestChecker()
@@ -124,7 +134,7 @@ public class NPCInteraction : MonoBehaviour
         {
             if (BL_QuestAccepted)
             {
-                if (!ActiveTask.Quest_Complete) AcceptedQuest();
+                if (!ActiveTask.Quest_Complete && !ActiveTask.Quest_Fail) AcceptedQuest();
                 else HasQuest();
             }
             else
@@ -139,41 +149,54 @@ public class NPCInteraction : MonoBehaviour
     void ConversationChecker()
     {
         if (BL_WithinSpace)
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && BL_InConversation == false)
                 Converse();
 
         if (CC_Dialogue.GetBooleanVariable("bl_accepted") && BL_InConversation == true)
         {
             BL_QuestAccepted = true;
-            HideAll();
+            CC_Dialogue.SetBooleanVariable("bl_accepted", false);
         }
 
         if (CC_Dialogue.GetBooleanVariable("bl_textCycleOver"))
         {
-            CC_Dialogue.SetBooleanVariable("bl_textCycleOver", false);
+            if (ActiveTask.Quest_Complete || ActiveTask.Quest_Fail)
+            {
+                QuestCompleted();
+            }
+
             BL_InConversation = false;
+            Invoke("ConvoOff", 1.0f);
+            Debug.Log("Set to false");
             PC_Move.BL_canMove = true;
+
         }
+    }
+
+    void ConvoOff()
+    {
+        CC_Dialogue.SetBooleanVariable("bl_textCycleOver", false);
     }
 
     void Converse()
     {
         PC_Move.BL_canMove = false;
         BL_InConversation = true;
+        Debug.Log("Set to true");
 
         if (BL_QuestAccepted)
         {
-            if (!ActiveTask.Quest_Complete && !!ActiveTask.Quest_Fail)
+            if (!ActiveTask.Quest_Complete && !ActiveTask.Quest_Fail)
+            {
                 CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.ST_waitingDialogue);
+            }
             else if (ActiveTask.Quest_Complete)
             {
                 CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.ST_finishDialogue);
-                QuestCompleted();
             }
             else if (ActiveTask.Quest_Fail)
             {
                 CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.ST_failDialogue);
-                QuestCompleted();
             }
 
             Fungus.Flowchart.BroadcastFungusMessage("QuestAccepted");
@@ -242,6 +265,7 @@ public class NPCInteraction : MonoBehaviour
     {
         HideAll();
         ActiveTask.Quest_Finish = true;
+        BL_QuestCompleted = false;
         BL_QuestAccepted = false;
         BL_HasQuest = false;
         Debug.Log("Quest Completed");

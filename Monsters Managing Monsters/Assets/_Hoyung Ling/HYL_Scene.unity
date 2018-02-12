@@ -21864,7 +21864,6 @@ GameObject:
   - component: {fileID: 1244542558}
   - component: {fileID: 1244542557}
   - component: {fileID: 1244542556}
-  - component: {fileID: 1244542555}
   m_Layer: 0
   m_Name: Quest Handler
   m_TagString: Untagged
@@ -21886,18 +21885,6 @@ Transform:
   m_Father: {fileID: 906604937}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1244542555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114896674530440186, guid: a23924f119dcf2543bab95d66d71f619,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1244542553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1244542556
 MonoBehaviour:
   m_ObjectHideFlags: 0
