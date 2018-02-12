@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Fungus;
 
 public class HeroEntry : MonoBehaviour {
 
     public static HeroEntry instance;
     public HeroMinigame CurrentHero;
+
+    public Camera minigameCam;
+    public Image fadeImage;
 
     #region    //----- Hero Variables (Initialised by code) (No touchy)
 
@@ -72,6 +76,8 @@ public class HeroEntry : MonoBehaviour {
 
             UpdateFlags();
         }
+
+        if (Input.GetKeyDown(KeyCode.K)) StartMinigame();
     }
 
     #region Interaction Loop (Initialise Data, Do Loop, Update Flag to HeroMinigameManager)
@@ -129,8 +135,8 @@ public class HeroEntry : MonoBehaviour {
     public void StartMinigame()
     {
         bool BL_MinigameEnd = false;
-        //Fade
-
+        
+        StartCoroutine(FadeEffect(2, fadeImage));        
 
         if(BL_MinigameEnd)
             CurrentState = InteractionState.Exit;
@@ -171,6 +177,27 @@ public class HeroEntry : MonoBehaviour {
             CameraFollow.instance.otherLook = null;
             flowchart.SetBooleanVariable("bl_textCycleOver", false);
         }
+    }
+
+    IEnumerator FadeEffect(float t, Image i)
+    {        
+        i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
+        while (i.color.a < 1.0f)
+        {
+            i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(2);
+
+        i.color = new Color(i.color.r, i.color.g, i.color.b, 1);
+        while (i.color.a > 0f)
+        {
+            i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
+            yield return null;
+        }
+
+        minigameCam.tag = "MainCamera";
     }
 
     #endregion

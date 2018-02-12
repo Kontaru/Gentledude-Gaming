@@ -10965,7 +10965,7 @@ RectTransform:
   m_Children:
   - {fileID: 1061519072}
   m_Father: {fileID: 1054466193}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -11270,6 +11270,74 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &691045385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 691045386}
+  - component: {fileID: 691045388}
+  - component: {fileID: 691045387}
+  m_Layer: 5
+  m_Name: FadeVFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &691045386
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 691045385}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1054466193}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.46971}
+  m_SizeDelta: {x: 800, y: 448.94}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &691045387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 691045385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: dbbf91347f034314385d36a2369018dd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &691045388
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 691045385}
 --- !u!1 &692119956
 GameObject:
   m_ObjectHideFlags: 0
@@ -13700,7 +13768,7 @@ RectTransform:
   - {fileID: 1503716168}
   - {fileID: 716851236}
   m_Father: {fileID: 1054466193}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18306,6 +18374,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 691045386}
   - {fileID: 1193658901}
   - {fileID: 680022686}
   - {fileID: 1459683280}
@@ -19384,8 +19453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 114216806004659494, guid: 2527d1873456efd4ba140d7eace035e5,
-    type: 2}
+  selectedFlowchart: {fileID: 2051676245}
 --- !u!4 &1122166669
 Transform:
   m_ObjectHideFlags: 1
@@ -20108,7 +20176,7 @@ RectTransform:
   m_Children:
   - {fileID: 1516424216}
   m_Father: {fileID: 1054466193}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21891,8 +21959,7 @@ MonoBehaviour:
     ST_heroDefeat: Nani?!
     ST_heroWin: Heh, didn't even break a sweat.
     rating: 1
-    Quest_Complete: 0
-    Quest_Fail: 0
+    Quest_playerWin: 0
     Quest_Finish: 0
     BL_isAccepted: 0
   - name: 
@@ -21902,8 +21969,7 @@ MonoBehaviour:
     ST_heroDefeat: 
     ST_heroWin: 
     rating: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
+    Quest_playerWin: 0
     Quest_Finish: 0
     BL_isAccepted: 0
   Upcoming:
@@ -21914,8 +21980,7 @@ MonoBehaviour:
     ST_heroDefeat: 
     ST_heroWin: 
     rating: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
+    Quest_playerWin: 0
     Quest_Finish: 0
     BL_isAccepted: 0
 --- !u!4 &1254651040
@@ -21950,15 +22015,14 @@ MonoBehaviour:
     ST_heroDefeat: 
     ST_heroWin: 
     rating: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
+    Quest_playerWin: 0
     Quest_Finish: 0
     BL_isAccepted: 0
+  minigameCam: {fileID: 1887266922}
+  fadeImage: {fileID: 691045387}
   CurrentState: 0
-  BL_BeginMinigame: 0
   BL_EndInteraction: 0
-  BL_Win: 0
-  BL_Fail: 0
+  BL_playerWin: 0
   flowchart: {fileID: 2051676245}
 --- !u!1 &1259303195
 GameObject:
@@ -24500,7 +24564,7 @@ RectTransform:
   - {fileID: 1920461678}
   - {fileID: 1491138208}
   m_Father: {fileID: 1054466193}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26155,7 +26219,7 @@ RectTransform:
   - {fileID: 1252299919}
   - {fileID: 423107005}
   m_Father: {fileID: 1054466193}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -26858,7 +26922,7 @@ RectTransform:
   m_Children:
   - {fileID: 616079784}
   m_Father: {fileID: 1054466193}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28975,7 +29039,7 @@ RectTransform:
   - {fileID: 1943062428}
   - {fileID: 8145155}
   m_Father: {fileID: 1054466193}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -29165,7 +29229,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1054466193}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -32652,7 +32716,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 71f241916a5135647a5f0ab3a294f234, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
