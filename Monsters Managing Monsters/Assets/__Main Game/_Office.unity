@@ -34830,6 +34830,11 @@ Prefab:
       propertyPath: SEC
       value: 
       objectReference: {fileID: 659347018}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: FL_actionPointsUsed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114298160908449022, guid: 3bf980da153ea1b42a443525b716ab45, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3bf980da153ea1b42a443525b716ab45, type: 2}

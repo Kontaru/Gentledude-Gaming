@@ -12,9 +12,10 @@ public class HYL_IS_Distribution : QuestPart {
     bool BL_FirstLoad = true;
 
     // Update is called once per frame
-    void Update()
+    override public void Update()
     {
         Fluff();
+
         if (BL_IsInteractable)
         {
             foreach (InteractableObject obj in items)

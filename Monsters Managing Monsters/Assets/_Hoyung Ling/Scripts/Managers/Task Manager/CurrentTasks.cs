@@ -16,6 +16,7 @@ public class CurrentTasks : MonoBehaviour {
         for (int i = 0; i < currentTask.Length; i++)
         {
             currentTask[i] = GrabRandomQuest();
+            currentTask[i].BL_isObtainable = true;
         }
     }
 	
@@ -26,7 +27,10 @@ public class CurrentTasks : MonoBehaviour {
 
         foreach (Task task in TaskManager.instance.Tasks)
         {
-            if (task.inActiveList == true || !task.Quest_Finish)
+            if(task.Quest_ID == -1)
+            {
+            }
+            else if (task.inActiveList == false && !task.Quest_Finish)
                 BL_allQuestsComplete = false;
         }
 
@@ -37,9 +41,6 @@ public class CurrentTasks : MonoBehaviour {
             if (currentTask[i].Quest_Finish == true)
             {
                 currentTask[i] = GrabRandomQuest();
-            }
-            else
-            {
                 currentTask[i].BL_isObtainable = true;
             }
         }
