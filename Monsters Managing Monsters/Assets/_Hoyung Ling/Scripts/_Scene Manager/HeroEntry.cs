@@ -8,18 +8,33 @@ public class HeroEntry : MonoBehaviour {
     public static HeroEntry instance;
     public HeroMinigame CurrentHero;
 
-    //----- Some important variables
+    #region    //----- Hero Variables (Initialised by code) (No touchy)
 
-    public bool SpawnHeroes;
-    public bool BL_HeroArrival;
-    public string ST_heroArrival;
-    public string ST_heroDeparture;
+    private GameObject hero;
+    private string ST_entryText;
+    private string ST_playerWin;
+    private string ST_playerDefeat;
 
-    private bool BL_Confirmed;
+    #endregion
 
-    private GameObject monster;
-    private Vector3 delta;
+    public enum InteractionState
+    {
+        Enter,
+        Minigame,
+        Exit,
+        End
+    }
 
+    public InteractionState CurrentState;
+
+    //Auto handled
+    public bool BL_BeginMinigame = false;    //Dean SET THIS FLAGS APPROPRIATELY
+    public bool BL_EndInteraction = false;
+    public bool BL_Win = false;     //Dean SET THIS FLAGS APPROPRIATELY
+    public bool BL_Fail = false;    //Dean SET THIS FLAGS APPROPRIATELY
+    private bool BL_Converse = true;
+
+    [HideInInspector]
     public Flowchart flowchart;
 
     #region Typical Singleton Format
@@ -38,49 +53,144 @@ public class HeroEntry : MonoBehaviour {
     #endregion
 
     // Update is called once per frame
-    void Update () {
+    void Update() {
 
         if (GameManager.instance.PixelMode) return;
 
         if (Input.GetKeyDown(KeyCode.Q) || DayCycle.instance.IN_currentDay == DayCycle.instance.IN_DaysInWeek)
         {
-            InitialiseData();
-            HeroArrival();
-            StartMinigame();
-            HeroDeparture();
+            if (CurrentState != InteractionState.End)
+            {
+                InitialiseData();
+                InteractionLoop();
+            }
+            else
+            {
+                //Will then assign motivation boosts appropriately
+                BL_EndInteraction = true;
+                //EndDaySummary card
+            }
+
+            UpdateFlags();
         }
+    }
+
+    #region Interaction Loop (Initialise Data, Do Loop, Update Flag to HeroMinigameManager)
+
+    //Interaction loop for hero
+    private void InteractionLoop()
+    {
+        if (CurrentState == InteractionState.Enter) HeroArrival();
+        else if (CurrentState == InteractionState.Minigame) StartMinigame();
+        else if (CurrentState == InteractionState.Exit) HeroDeparture();
     }
 
     private void InitialiseData()
     {
         CurrentHero = HeroMinigameManager.instance.Upcoming;
 
+        hero = CurrentHero.hero;
+        ST_entryText = CurrentHero.ST_heroEntry;
+        ST_playerWin = CurrentHero.ST_heroDefeat;
+        ST_playerDefeat = CurrentHero.ST_heroWin;
     }
 
+    private void UpdateFlags()
+    {
+        CurrentHero.Quest_Complete = BL_Win;
+        CurrentHero.Quest_Fail = BL_Fail;
+        CurrentHero.Quest_Finish = BL_EndInteraction;
+    }
+
+    #endregion
+
+    #region States (Arrival, Minigame, Departure)
+
+    //When the hero arrives
     private void HeroArrival()
     {
-        CurrentHero.hero.SetActive(true);
-        CameraFollow.otherLook = CurrentHero.hero;
-
-        StartCoroutine(StartDialogue(ST_heroArrival));        
+        hero.SetActive(true);
+        if (BL_Converse)
+        {
+            StartCoroutine(Entry());
+            BL_Converse = false;
+        }
     }
 
     private void HeroDeparture()
     {
-        CameraFollow.otherLook = null;
+        if (BL_Converse)
+        {
+            StartCoroutine(Conclusion());
+            BL_Converse = false;
+        }
     }
 
+    //Dean MINIGAME STUFF HERE
     public void StartMinigame()
     {
        //Fade
     }
 
-    IEnumerator StartDialogue(string text)
+    #endregion
+
+    #region Coroutines
+
+    IEnumerator Entry()
+    {
+        CameraFollow.instance.otherLook = hero;
+        yield return new WaitForSeconds(2);
+        flowchart.SetStringVariable("hero_entry", ST_entryText);
+        Fungus.Flowchart.BroadcastFungusMessage("Entry");
+        if(flowchart.GetBooleanVariable("bl_textCycleOver") == true)
+        {
+            CurrentState = InteractionState.Minigame;
+            BL_Converse = true;
+            flowchart.SetBooleanVariable("bl_textCycleOver", false);
+        }
+    }
+
+    IEnumerator Conclusion()
     {
         yield return new WaitForSeconds(2);
-        flowchart.SetStringVariable("hero_entry", ST_heroArrival);
-        Fungus.Flowchart.BroadcastFungusMessage("Entry");
+        if(BL_Win)
+            flowchart.SetStringVariable("hero_defeat", ST_playerWin);
+        if (BL_Fail)
+            flowchart.SetStringVariable("hero_defeat", ST_playerDefeat);
+
+        Fungus.Flowchart.BroadcastFungusMessage("Exit");
+
+        if (flowchart.GetBooleanVariable("bl_textCycleOver") == true)
+        {
+            CurrentState = InteractionState.End;
+            BL_Converse = true;
+            CameraFollow.instance.otherLook = null;
+            flowchart.SetBooleanVariable("bl_textCycleOver", false);
+        }
     }
+
+    #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*private void MonsterPlacement()
     {

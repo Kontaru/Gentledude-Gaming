@@ -7,5 +7,6 @@ public class MainTextBox : MonoBehaviour {
 
 	void Awake() {
         NPCInteraction.CC_Dialogue = GetComponent<Flowchart>();
+        HeroEntry.instance.flowchart = GetComponent<Flowchart>();
     }
 }
