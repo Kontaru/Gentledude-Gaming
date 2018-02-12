@@ -120,6 +120,13 @@ public class HeroEntry : MonoBehaviour {
             StartCoroutine(Entry());
             BL_Converse = false;
         }
+
+        if (flowchart.GetBooleanVariable("bl_heroDialogue") == true)
+        {
+            CurrentState = InteractionState.Minigame;
+            BL_Converse = true;
+            flowchart.SetBooleanVariable("bl_heroDialogue", false);
+        }
     }
 
     private void HeroDeparture()
@@ -128,6 +135,14 @@ public class HeroEntry : MonoBehaviour {
         {
             StartCoroutine(Conclusion());
             BL_Converse = false;
+        }
+
+        if (flowchart.GetBooleanVariable("bl_heroDialogue") == true)
+        {
+            CurrentState = InteractionState.End;
+            BL_Converse = true;
+            CameraFollow.instance.otherLook = null;
+            flowchart.SetBooleanVariable("bl_heroDialogue", false);
         }
     }
 
@@ -152,12 +167,6 @@ public class HeroEntry : MonoBehaviour {
         yield return new WaitForSeconds(2);
         flowchart.SetStringVariable("hero_entry", ST_entryText);
         Fungus.Flowchart.BroadcastFungusMessage("Entry");
-        if(flowchart.GetBooleanVariable("bl_textCycleOver") == true)
-        {
-            CurrentState = InteractionState.Minigame;
-            BL_Converse = true;
-            flowchart.SetBooleanVariable("bl_textCycleOver", false);
-        }
     }
 
     IEnumerator Conclusion()
@@ -169,14 +178,6 @@ public class HeroEntry : MonoBehaviour {
             flowchart.SetStringVariable("hero_defeat", ST_playerDefeat);
 
         Fungus.Flowchart.BroadcastFungusMessage("Exit");
-
-        if (flowchart.GetBooleanVariable("bl_textCycleOver") == true)
-        {
-            CurrentState = InteractionState.End;
-            BL_Converse = true;
-            CameraFollow.instance.otherLook = null;
-            flowchart.SetBooleanVariable("bl_textCycleOver", false);
-        }
     }
 
     IEnumerator FadeEffect(float t, Image i)
