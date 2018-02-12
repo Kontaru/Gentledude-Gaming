@@ -11,6 +11,7 @@ public class HeroEntry : MonoBehaviour {
     #region    //----- Hero Variables (Initialised by code) (No touchy)
 
     private GameObject hero;
+    private GameObject minigame;
     private string ST_entryText;
     private string ST_playerWin;
     private string ST_playerDefeat;
@@ -90,6 +91,7 @@ public class HeroEntry : MonoBehaviour {
         CurrentHero = HeroMinigameManager.instance.Upcoming;
 
         hero = CurrentHero.hero;
+        minigame = CurrentHero.minigame;
         ST_entryText = CurrentHero.ST_heroEntry;
         ST_playerWin = CurrentHero.ST_heroDefeat;
         ST_playerDefeat = CurrentHero.ST_heroWin;

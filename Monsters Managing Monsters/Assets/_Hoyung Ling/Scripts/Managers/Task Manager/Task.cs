@@ -40,7 +40,7 @@ public class Task
     public bool Repeatable = false;
 
     [HideInInspector] public bool Quest_Complete = false;     //Is our quest complete?
-    [HideInInspector] public bool Quest_Fail = false;     //Is our quest complete?
+    [HideInInspector] public bool Quest_Fail = false;         //Is our quest complete?
     [HideInInspector] public bool Quest_Finish = false;       //Trigger for NPC hand in
 
     [HideInInspector] public GameObject GO_belongsTo;
@@ -90,10 +90,8 @@ public class Task
             }
         }
 
-        if (Quest_Finish || Quest_Fail)
+        if (Quest_Finish)
         {
-            Quest_Complete = false;
-
             if (BL_Boost)
             {
                 foreach (GameObject produce in GO_reward)
@@ -102,7 +100,11 @@ public class Task
                 }
 
                 Attribution.Attributes Type = GO_belongsTo.GetComponent<Attribution>().myAttribute;
-                GameManager.instance.PowerBoost(Type, IN_motivationAmount);
+
+                if (Quest_Complete)
+                    GameManager.instance.PowerBoost(Type, IN_motivationAmount);
+                else if (Quest_Fail)
+                    GameManager.instance.PowerDeduct(Type, IN_motivationAmount);
 
                 DayCycle.instance.FL_actionPointsUsed += IN_actionPointWeight;
                 BL_Boost = false;
@@ -113,6 +115,9 @@ public class Task
                 Quest_Finish = false;
                 BL_Boost = false;
             }
+
+            Quest_Complete = false;
+            Quest_Fail = false;
         }
     }
 
