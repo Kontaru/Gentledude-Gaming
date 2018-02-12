@@ -128,10 +128,12 @@ public class HeroEntry : MonoBehaviour {
     //Dean MINIGAME STUFF HERE
     public void StartMinigame()
     {
+        bool BL_MinigameEnd = false;
         //Fade
-        //Uncomment below where necessary
-        //If minigame complete
-        //CurrentState = InteractionState.Exit;
+
+
+        if(BL_MinigameEnd)
+            CurrentState = InteractionState.Exit;
     }
 
     #endregion
