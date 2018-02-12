@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BL_LookAtPC: 1
-  BL_LookAtCam: 1
+  BL_LookAtCam: 0
   Forward: {fileID: 0}
 --- !u!114 &114149291975229228
 MonoBehaviour:
@@ -779,6 +779,7 @@ MonoBehaviour:
   BL_QuestCompleted: 0
   BL_inCombat: 0
   BL_HasQuest: 0
+  BL_InConversation: 0
   flavourText:
   - Hmmm...
   - Don't bug me.

@@ -94,7 +94,8 @@ public class Task
             //For each step
             foreach (Step step in Steps)
             {
-                step.requires.gameObject.SetActive(false);
+                if(step.requires != null)
+                    step.requires.gameObject.SetActive(false);
             }
         }
 

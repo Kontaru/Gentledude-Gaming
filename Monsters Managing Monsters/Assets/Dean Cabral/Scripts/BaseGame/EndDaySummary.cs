@@ -43,6 +43,7 @@ public class EndDaySummary : MonoBehaviour {
         pen1Text.text = "-" + penalty1;
         pen2Text.text = "-" + penalty2;
         pen3Text.text = "-" + penalty3;
+<<<<<<< Updated upstream
 
         int morale = GameManager.instance.PL_HR +
             GameManager.instance.PL_IT +
@@ -55,6 +56,27 @@ public class EndDaySummary : MonoBehaviour {
         penalties = penalty1 + penalty2 + penalty3;
 
         scoreText.text = morale - penalties + "";
+=======
+
+        int morale = GameManager.instance.PL_HR +
+            GameManager.instance.PL_IT +
+            GameManager.instance.PL_Janitorial +
+            GameManager.instance.PL_Marketing +
+            GameManager.instance.PL_Finance +
+            GameManager.instance.PL_Overseas +
+            GameManager.instance.PL_Security;
+
+        penalties = penalty1 + penalty2 + penalty3;
+
+        scoreText.text = morale - penalties + "";
+    }
+
+    public void DecreaseMotivation(int amount)
+    {
+        GameManager.instance.PL_HR -= amount;
+        GameManager.instance.PL_HR -= amount;
+        GameManager.instance.PL_Marketing -= amount;
+>>>>>>> Stashed changes
     }
 
 }

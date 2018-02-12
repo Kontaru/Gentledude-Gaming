@@ -21,8 +21,6 @@ public class TaskManager : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     #endregion

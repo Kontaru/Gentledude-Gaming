@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour {
 
     private PDAHandler PDAH;
     private bool camLock;
-    private bool camInMotion;
+    private bool camInMotion = false;
     private float orthographicSize;
 
 	// Use this for initialization

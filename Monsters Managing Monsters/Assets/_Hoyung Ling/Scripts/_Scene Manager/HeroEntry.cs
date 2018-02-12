@@ -6,7 +6,9 @@ using Fungus;
 public class HeroEntry : MonoBehaviour {
 
     public static HeroEntry instance;
-    public GameObject hero;
+    public HeroMinigame CurrentHero;
+
+    //----- Some important variables
 
     public bool SpawnHeroes;
     public bool BL_HeroArrival;
@@ -39,13 +41,26 @@ public class HeroEntry : MonoBehaviour {
     void Update () {
 
         if (GameManager.instance.PixelMode) return;
-        if (Input.GetKeyDown(KeyCode.Q)) HeroArrival();
+
+        if (Input.GetKeyDown(KeyCode.Q) || DayCycle.instance.IN_currentDay == DayCycle.instance.IN_DaysInWeek)
+        {
+            InitialiseData();
+            HeroArrival();
+            StartMinigame();
+            HeroDeparture();
+        }
+    }
+
+    private void InitialiseData()
+    {
+        CurrentHero = HeroMinigameManager.instance.Upcoming;
+
     }
 
     private void HeroArrival()
     {
-        hero.SetActive(true);
-        CameraFollow.otherLook = hero;
+        CurrentHero.hero.SetActive(true);
+        CameraFollow.otherLook = CurrentHero.hero;
 
         StartCoroutine(StartDialogue(ST_heroArrival));        
     }
@@ -53,7 +68,6 @@ public class HeroEntry : MonoBehaviour {
     private void HeroDeparture()
     {
         CameraFollow.otherLook = null;
-        CameraFollow.otherLook = hero;
     }
 
     public void StartMinigame()

@@ -24,7 +24,7 @@ public class DayCycle : MonoBehaviour
     [Tooltip("Action Points")]
     public float FL_actionPointsAvailable;
     public float FL_actionPointsUsed;
-    public float FL_currentDay;
+    public int IN_currentDay;
 
 
     //Checkpoints in the day
@@ -80,7 +80,7 @@ public class DayCycle : MonoBehaviour
 
         if (BL_beginDay)
         {
-            FL_currentDay++;
+            IN_currentDay++;
             BL_beginDay = false;
         }
 
@@ -97,7 +97,7 @@ public class DayCycle : MonoBehaviour
     {
         Time.timeScale = 0;
 
-        if (FL_currentDay > IN_DaysInWeek)
+        if (IN_currentDay > IN_DaysInWeek)
         {
             //SpawnHero
             BL_EnterHeroes = true;
@@ -164,10 +164,10 @@ public class DayCycle : MonoBehaviour
 
     void ResetTimer()
     {
-        if (FL_currentDay < 10)
-            Days.text = string.Format("0" + FL_currentDay);
+        if (IN_currentDay < 10)
+            Days.text = string.Format("0" + IN_currentDay);
         else
-            Days.text = string.Format("" + FL_currentDay);
+            Days.text = string.Format("" + IN_currentDay);
 
         FL_actionPointsUsed = 0;
 
