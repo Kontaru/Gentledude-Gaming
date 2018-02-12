@@ -100,7 +100,6 @@ public class GameManager : MonoBehaviour {
 
     }
 
-
     public void PowerDeduct(Attribution.Attributes attr, int amount)
     {
         if (attr == Attribution.Attributes.Finance)
