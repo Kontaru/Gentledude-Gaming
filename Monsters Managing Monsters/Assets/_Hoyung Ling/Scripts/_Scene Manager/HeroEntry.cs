@@ -9,8 +9,9 @@ public class HeroEntry : MonoBehaviour {
     public static HeroEntry instance;
     public HeroMinigame CurrentHero;
 
-    public Camera minigameCam;
+    public GameObject fadeObject;
     public Image fadeImage;
+    public GameObject renderCam;
 
     #region    //----- Hero Variables (Initialised by code) (No touchy)
 
@@ -36,6 +37,7 @@ public class HeroEntry : MonoBehaviour {
     public bool BL_EndInteraction = false;
     public bool BL_playerWin = false;     //Dean SET THIS FLAGS APPROPRIATELY
     private bool BL_Converse = true;
+    private bool BL_minigameStarted = false;
 
     [HideInInspector]
     public Flowchart flowchart;
@@ -134,6 +136,7 @@ public class HeroEntry : MonoBehaviour {
         if (BL_Converse)
         {
             StartCoroutine(Conclusion());
+            StartCoroutine(FadeEffect(0.5f, fadeImage, false));
             BL_Converse = false;
         }
 
@@ -146,15 +149,19 @@ public class HeroEntry : MonoBehaviour {
         }
     }
 
-    //Dean MINIGAME STUFF HERE
     public void StartMinigame()
     {
         bool BL_MinigameEnd = false;
-        
-        StartCoroutine(FadeEffect(2, fadeImage));        
 
-        if(BL_MinigameEnd)
+        if (!BL_minigameStarted)
+        {
+            StartCoroutine(FadeEffect(1, fadeImage, true));            
+            BL_minigameStarted = true;
+        }
+
+        if (BL_MinigameEnd)
             CurrentState = InteractionState.Exit;
+
     }
 
     #endregion
@@ -180,8 +187,9 @@ public class HeroEntry : MonoBehaviour {
         Fungus.Flowchart.BroadcastFungusMessage("Exit");
     }
 
-    IEnumerator FadeEffect(float t, Image i)
-    {        
+    IEnumerator FadeEffect(float t, Image i, bool startGame)
+    {
+        fadeObject.SetActive(true);
         i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
         while (i.color.a < 1.0f)
         {
@@ -189,7 +197,18 @@ public class HeroEntry : MonoBehaviour {
             yield return null;
         }
 
-        yield return new WaitForSeconds(2);
+        if (startGame)
+        {
+            renderCam.SetActive(true);
+            CurrentHero.minigame.SetActive(true);
+        }
+        else
+        {
+            renderCam.SetActive(false);
+            CurrentHero.minigame.SetActive(false);
+        }        
+
+        yield return new WaitForSeconds(1);
 
         i.color = new Color(i.color.r, i.color.g, i.color.b, 1);
         while (i.color.a > 0f)
@@ -197,8 +216,7 @@ public class HeroEntry : MonoBehaviour {
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
             yield return null;
         }
-
-        minigameCam.tag = "MainCamera";
+        fadeObject.SetActive(false);
     }
 
     #endregion

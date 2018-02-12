@@ -26,7 +26,7 @@ public class KW_Fireball : MonoBehaviour {
         else transform.position += Vector3.left * speed * Time.deltaTime;
 
         if (randomFactor == 1) transform.position += Vector3.up / 2 * speed * Time.deltaTime;
-        else if (randomFactor == 2) transform.position += Vector3.down / 2 * speed * Time.deltaTime;
+        else transform.position += Vector3.down / 2 * speed * Time.deltaTime;
     }
 
     void SpawnerType(string _type)

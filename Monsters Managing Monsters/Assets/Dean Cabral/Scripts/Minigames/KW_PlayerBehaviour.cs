@@ -17,8 +17,9 @@ public class KW_PlayerBehaviour : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        RespawnPlayer();
+        if (collision.gameObject.name != "Wall") RespawnPlayer();        
     }
+
     private void OnEnable()
     {
         playerSpawn = transform.position;
@@ -54,7 +55,6 @@ public class KW_PlayerBehaviour : MonoBehaviour {
         if (BL_MinigameFailed)
         {
             StartCoroutine(ShowScreen(failScreen));
-            BL_MinigameFailed = !BL_MinigameFailed;
         }
     }    
 
@@ -79,7 +79,8 @@ public class KW_PlayerBehaviour : MonoBehaviour {
             timer--;
         }
 
-        BL_MinigameFailed = true;
+        StartCoroutine(ShowScreen(winScreen));
+        HeroEntry.instance.BL_playerWin = true;
     }
 
     IEnumerator ShowScreen(GameObject screen)
@@ -92,6 +93,12 @@ public class KW_PlayerBehaviour : MonoBehaviour {
 
             yield return null;
         }
-        Time.timeScale = 0;
+        StartCoroutine(DelayExit(2));
+    }
+
+    IEnumerator DelayExit(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);        
+        HeroEntry.instance.CurrentState = HeroEntry.InteractionState.Exit;
     }
 }
