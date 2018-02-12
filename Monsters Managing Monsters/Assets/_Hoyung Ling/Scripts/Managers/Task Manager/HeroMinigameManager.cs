@@ -21,8 +21,7 @@ public class HeroMinigame
     [Range(1, 3)]
     public int rating;
 
-    [HideInInspector] public bool Quest_Complete = false;     //Is our quest complete?
-    [HideInInspector] public bool Quest_Fail = false;         //Is our quest complete?
+    [HideInInspector] public bool Quest_playerWin = false;     //Is our quest complete?
     [HideInInspector] public bool Quest_Finish = false;       //Trigger for NPC hand in
     [HideInInspector] public bool BL_isAccepted = false;
 
@@ -36,9 +35,9 @@ public class HeroMinigame
     //Checks if all our steps are complete
     public void CheckFinish()
     {
-        if (Quest_Finish && Quest_Complete)
+        if (Quest_Finish && Quest_playerWin)
         {
-            Quest_Complete = false;
+            Quest_playerWin = false;
 
             if (BL_Boost)
             {
@@ -47,11 +46,8 @@ public class HeroMinigame
                 BL_Boost = false;
             }
         }
-
-        if (Quest_Finish && Quest_Fail)
+        else if (Quest_Finish && !Quest_playerWin)
         {
-            Quest_Fail = false;
-
             if (BL_Boost)
             {
                 IN_motivationAmount = rating * 10;

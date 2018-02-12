@@ -29,10 +29,8 @@ public class HeroEntry : MonoBehaviour {
     public InteractionState CurrentState;
 
     //Auto handled
-    public bool BL_BeginMinigame = false;    //Dean SET THIS FLAGS APPROPRIATELY
     public bool BL_EndInteraction = false;
-    public bool BL_Win = false;     //Dean SET THIS FLAGS APPROPRIATELY
-    public bool BL_Fail = false;    //Dean SET THIS FLAGS APPROPRIATELY
+    public bool BL_playerWin = false;     //Dean SET THIS FLAGS APPROPRIATELY
     private bool BL_Converse = true;
 
     [HideInInspector]
@@ -99,8 +97,7 @@ public class HeroEntry : MonoBehaviour {
 
     private void UpdateFlags()
     {
-        CurrentHero.Quest_Complete = BL_Win;
-        CurrentHero.Quest_Fail = BL_Fail;
+        CurrentHero.Quest_playerWin = BL_playerWin;
         CurrentHero.Quest_Finish = BL_EndInteraction;
     }
 
@@ -155,9 +152,9 @@ public class HeroEntry : MonoBehaviour {
     IEnumerator Conclusion()
     {
         yield return new WaitForSeconds(2);
-        if(BL_Win)
+        if(BL_playerWin)
             flowchart.SetStringVariable("hero_defeat", ST_playerWin);
-        if (BL_Fail)
+        else
             flowchart.SetStringVariable("hero_defeat", ST_playerDefeat);
 
         Fungus.Flowchart.BroadcastFungusMessage("Exit");
