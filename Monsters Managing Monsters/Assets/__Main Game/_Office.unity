@@ -2640,6 +2640,11 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 13.39
       objectReference: {fileID: 0}
+    - target: {fileID: 114231966557556112, guid: 547d189829cb95c478500510d06a64f4,
+        type: 2}
+      propertyPath: BL_IsInteractable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 547d189829cb95c478500510d06a64f4, type: 2}
   m_IsPrefabParent: 0
@@ -27083,21 +27088,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
-        type: 2}
-      propertyPath: Tasks.Array.data[0].Steps.Array.data[0].requires
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
-        type: 2}
-      propertyPath: Tasks.Array.data[1].Steps.Array.data[0].requires
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
-        type: 2}
-      propertyPath: Tasks.Array.data[2].Steps.Array.data[0].requires
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08fa9aa8a186ad648ae0e0ded2efed85, type: 2}
   m_IsPrefabParent: 0
@@ -27213,6 +27203,11 @@ Prefab:
     - target: {fileID: 4029763280814228, guid: dc8639ab36cd5cd4dad41f855ad44b94, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305722538865630, guid: dc8639ab36cd5cd4dad41f855ad44b94,
+        type: 2}
+      propertyPath: BL_IsInteractable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dc8639ab36cd5cd4dad41f855ad44b94, type: 2}

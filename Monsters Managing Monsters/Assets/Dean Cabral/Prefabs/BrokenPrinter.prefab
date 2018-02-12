@@ -197,7 +197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1792736462666884
 GameObject:
   m_ObjectHideFlags: 1
@@ -597,6 +597,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 1.2
   rate: 0.5
+  bl_scale_x: 0
+  bl_scale_y: 0
+  bl_scale_z: 0
   BL_Pulse: 1
 --- !u!114 &114575855330904558
 MonoBehaviour:
@@ -690,8 +693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
+  BL_LookAtCam: 1
   Forward: {fileID: 0}
 --- !u!114 &114804186823440996
 MonoBehaviour:
@@ -731,8 +734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 1
   BL_LookAtPC: 0
+  BL_LookAtCam: 1
   Forward: {fileID: 0}
 --- !u!114 &114866653244278756
 MonoBehaviour:

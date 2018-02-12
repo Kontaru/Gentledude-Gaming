@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4029763280814228
 Transform:
   m_ObjectHideFlags: 1
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2fb92da1c9fe3940974f8636e1fae75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_IsInteractable: 0
+  BL_IsInteractable: 1
   BL_MinigameComplete: 0
   minigameIndex: 0
   PDA: {fileID: 0}
