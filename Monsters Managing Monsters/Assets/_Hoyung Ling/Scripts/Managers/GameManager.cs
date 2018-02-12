@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
-    public GameObject Player;
+    public GameObject Player;    
+    public Text questText;
     private GameObject notification;
-    private Text questText;
 
     public bool PixelMode = false;
 
@@ -59,6 +59,12 @@ public class GameManager : MonoBehaviour {
         animator = notification.GetComponentInChildren<Animator>();
     }
 
+    void Update () {
+
+        if (Input.GetKeyDown(KeyCode.Z)) QuestCompleted("Generic Quest Name", null);
+
+    }
+
     public void PowerBoost(Attribution.Attributes attr, int amount)
     {
         if (attr == Attribution.Attributes.Finance)
@@ -78,18 +84,16 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    public void QuestCompleted(string questName, GameObject plusObject)
+    public void QuestCompleted(string questName, GameObject plus)
     {
         questText.text = questName;
-        StartCoroutine(ShowNotification(plusObject));        
+        StartCoroutine(ShowNotification());
     }
 
-    IEnumerator ShowNotification(GameObject GO)
+    IEnumerator ShowNotification()
     {
-        GO.SetActive(true);
         animator.SetBool("BL_ShowNotification", true);
-        yield return new WaitForSeconds(4);
-        GO.SetActive(false);
+        yield return new WaitForSeconds(2);
         animator.SetBool("BL_ShowNotification", false);
     }
 
