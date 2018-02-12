@@ -94,7 +94,8 @@ MonoBehaviour:
     Steps:
     - name: Fix Computer
       description: The player should do a thing which does another thing.
-      requires: {fileID: 0}
+      requires: {fileID: 114924387471057538, guid: 254c3377af4e71c4583c8b210fea8d2e,
+        type: 2}
       nextStep: {fileID: 0}
       complete: 0
     step_tracker: 0
@@ -127,7 +128,8 @@ MonoBehaviour:
     Steps:
     - name: Deliver Donuts
       description: Deliver them!
-      requires: {fileID: 0}
+      requires: {fileID: 114231966557556112, guid: 547d189829cb95c478500510d06a64f4,
+        type: 2}
       nextStep: {fileID: 0}
       complete: 0
     step_tracker: 0
@@ -162,7 +164,8 @@ MonoBehaviour:
     Steps:
     - name: Grab the donuts
       description: Minigame
-      requires: {fileID: 0}
+      requires: {fileID: 114305722538865630, guid: dc8639ab36cd5cd4dad41f855ad44b94,
+        type: 2}
       nextStep: {fileID: 0}
       complete: 0
     step_tracker: 0

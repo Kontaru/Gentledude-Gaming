@@ -33,13 +33,15 @@ public class Billboard : MonoBehaviour
             //originalRot = transform.rotation;
             lookPos = transform.position - player.transform.position;
             lookPos.y = 0;
-            rotation = Quaternion.LookRotation(lookPos);
+            if (lookPos != Vector3.zero)
+                rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
         }
         else
         {
             lookPos = transform.position - Camera.main.transform.position;
-            rotation = Quaternion.LookRotation(lookPos);
+            if (lookPos != Vector3.zero)
+                rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
         }
 
