@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
     public GameObject Player;
+    private GameObject notification;
+    private Text questText;
 
     public bool PixelMode = false;
 
@@ -34,6 +36,8 @@ public class GameManager : MonoBehaviour {
     public int PL_Overseas = 0;
     public int PL_Security = 0;
 
+    private Animator animator;
+
     bool BL_Pause = false;
 
     void Awake()
@@ -48,10 +52,11 @@ public class GameManager : MonoBehaviour {
 
         DontDestroyOnLoad(transform.gameObject);
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
+
+    void Start()
+    {
+        notification = GameObject.Find("QuestCompletePanel");
+        animator = notification.GetComponentInChildren<Animator>();
     }
 
     public void PowerBoost(Attribution.Attributes attr, int amount)
@@ -71,6 +76,21 @@ public class GameManager : MonoBehaviour {
         if (attr == Attribution.Attributes.Security)
             PL_Security += amount;
 
+    }
+
+    public void QuestCompleted(string questName, GameObject plusObject)
+    {
+        questText.text = questName;
+        StartCoroutine(ShowNotification(plusObject));        
+    }
+
+    IEnumerator ShowNotification(GameObject GO)
+    {
+        GO.SetActive(true);
+        animator.SetBool("BL_ShowNotification", true);
+        yield return new WaitForSeconds(4);
+        GO.SetActive(false);
+        animator.SetBool("BL_ShowNotification", false);
     }
 
     #region ~ Scene Related ~
