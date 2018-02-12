@@ -9,11 +9,11 @@ public class EndDaySummary : MonoBehaviour {
 
     private int tasksCount;
     private int penalties;
-    private int penalty1;
-    private int penalty2;
-    private int penalty3;
+    private int penalty1 = 50;
+    private int penalty2 = 50;
+    private int penalty3 = 100;
 
-    public Text tasksComplete, dept1Text, dept2Text, dept3Text, pen1Text, pen2Text, pen3Text, scoreText;
+    public Text tasksComplete, HR, IT, JN, MK, FN, OVR, SEC, pen1Text, pen2Text, pen3Text, scoreText;
 
     void Awake()
     {
@@ -31,32 +31,30 @@ public class EndDaySummary : MonoBehaviour {
     private void Update()
     {
         tasksComplete.text = tasksCount.ToString();
-        dept1Text.text = "+" + GameManager.instance.PL_HR;
-        dept2Text.text = "+" + GameManager.instance.PL_HR;
-        dept3Text.text = "+" + GameManager.instance.PL_Marketing;
+
+        HR.text = "+" + GameManager.instance.PL_HR;
+        IT.text = "+" + GameManager.instance.PL_IT;
+        JN.text = "+" + GameManager.instance.PL_Janitorial;
+        MK.text = "+" + GameManager.instance.PL_Marketing;
+        FN.text = "+" + GameManager.instance.PL_Finance;
+        OVR.text = "+" + GameManager.instance.PL_Overseas;
+        SEC.text = "+" + GameManager.instance.PL_Security;
+
         pen1Text.text = "-" + penalty1;
         pen2Text.text = "-" + penalty2;
         pen3Text.text = "-" + penalty3;
+
+        int morale = GameManager.instance.PL_HR +
+            GameManager.instance.PL_IT +
+            GameManager.instance.PL_Janitorial +
+            GameManager.instance.PL_Marketing +
+            GameManager.instance.PL_Finance +
+            GameManager.instance.PL_Overseas +
+            GameManager.instance.PL_Security;
+
         penalties = penalty1 + penalty2 + penalty3;
-        scoreText.text = GameManager.instance.PL_HR + GameManager.instance.PL_HR + GameManager.instance.PL_HR - penalties + "";
 
-        //if (Input.GetKeyDown(KeyCode.X)) IncreaseMotivation(100, 1);
-        //if (Input.GetKeyDown(KeyCode.C)) IncreaseMotivation(100, 2);
-        //if (Input.GetKeyDown(KeyCode.V)) IncreaseMotivation(100, 3);
+        scoreText.text = morale - penalties + "";
     }
 
-    //public void IncreaseMotivation(int amount, int dept)
-    //{
-    //    tasksCount++;
-    //    if (dept == 1) dept1Motivation += amount;
-    //    else if (dept == 2) dept2Motivation += amount;
-    //    else if (dept == 3) dept3Motivation += amount;
-    //}
-
-    public void DecreaseMotivation(int amount)
-    {
-        GameManager.instance.PL_HR -= amount;
-        GameManager.instance.PL_HR -= amount;
-        GameManager.instance.PL_Marketing -= amount;
-    }
 }

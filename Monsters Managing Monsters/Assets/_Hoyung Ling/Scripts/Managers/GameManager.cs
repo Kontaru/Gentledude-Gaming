@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
-    public GameObject Player;    
+    public GameObject Player;
     public Text questText;
     private GameObject notification;
 
@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour {
     public int PL_Marketing = 0;
     public int PL_Overseas = 0;
     public int PL_Security = 0;
+    public int IN_TasksComplete = 0;
 
     private Animator animator;
 
@@ -53,16 +54,31 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
+
     void Start()
     {
         notification = GameObject.Find("QuestCompletePanel");
         animator = notification.GetComponentInChildren<Animator>();
     }
 
-    void Update () {
+    void Update()
+    {
 
         if (Input.GetKeyDown(KeyCode.Z)) QuestCompleted("Generic Quest Name", null);
 
+    }
+
+    public void QuestCompleted(string questName, GameObject plus)
+    {
+        questText.text = questName;
+        StartCoroutine(ShowNotification());
+    }
+
+    IEnumerator ShowNotification()
+    {
+        animator.SetBool("BL_ShowNotification", true);
+        yield return new WaitForSeconds(2);
+        animator.SetBool("BL_ShowNotification", false);
     }
 
     public void PowerBoost(Attribution.Attributes attr, int amount)
@@ -84,17 +100,46 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    public void QuestCompleted(string questName, GameObject plus)
+
+    public void PowerDeduct(Attribution.Attributes attr, int amount)
     {
-        questText.text = questName;
-        StartCoroutine(ShowNotification());
+        if (attr == Attribution.Attributes.Finance)
+            PL_Finance -= amount;
+        if (attr == Attribution.Attributes.HR)
+            PL_HR -= amount;
+        if (attr == Attribution.Attributes.IT)
+            PL_IT -= amount;
+        if (attr == Attribution.Attributes.Janitorial)
+            PL_Janitorial -= amount;
+        if (attr == Attribution.Attributes.Marketing)
+            PL_Marketing -= amount;
+        if (attr == Attribution.Attributes.Overseas)
+            PL_Overseas -= amount;
+        if (attr == Attribution.Attributes.Security)
+            PL_Security -= amount;
+
     }
 
-    IEnumerator ShowNotification()
+    public void PowerBoostAll(int amount)
     {
-        animator.SetBool("BL_ShowNotification", true);
-        yield return new WaitForSeconds(2);
-        animator.SetBool("BL_ShowNotification", false);
+        PL_Finance += amount;
+        PL_HR += amount;
+        PL_IT += amount;
+        PL_Janitorial += amount;
+        PL_Marketing += amount;
+        PL_Overseas += amount;
+        PL_Security += amount;
+    }
+
+    public void PowerDeductAll(int amount)
+    {
+        PL_Finance -= amount;
+        PL_HR -= amount;
+        PL_IT -= amount;
+        PL_Janitorial -= amount;
+        PL_Marketing -= amount;
+        PL_Overseas -= amount;
+        PL_Security -= amount;
     }
 
     #region ~ Scene Related ~
