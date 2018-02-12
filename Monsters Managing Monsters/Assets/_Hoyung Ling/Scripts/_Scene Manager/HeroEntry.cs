@@ -77,9 +77,7 @@ public class HeroEntry : MonoBehaviour {
             }
 
             UpdateFlags();
-        }
-
-        if (Input.GetKeyDown(KeyCode.K)) StartMinigame();
+        }        
     }
 
     #region Interaction Loop (Initialise Data, Do Loop, Update Flag to HeroMinigameManager)
