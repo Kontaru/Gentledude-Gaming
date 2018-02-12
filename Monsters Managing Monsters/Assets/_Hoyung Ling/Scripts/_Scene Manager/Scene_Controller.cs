@@ -40,12 +40,9 @@ public class Scene_Controller : MonoBehaviour {
         {
             DayOverStats.SetActive(true);
             EndDayEvaluation();
-        }else
-            DayOverStats.SetActive(false);
-        if (DayCycle.instance.BL_EnterHeroes)
-        {
-            ThirdDay();
         }
+        else
+            DayOverStats.SetActive(false);
     }
 
     public void NextDay()
@@ -62,21 +59,6 @@ public class Scene_Controller : MonoBehaviour {
             DayCycle.instance.NewDay();
             DayCycle.instance.BL_pause = false;
             DayCycle.instance.BL_ShowResults = false;
-
-            PC_Move.BL_canMove = true;
-        }
-    }
-
-    public void ThirdDay()
-    {
-        Debug.Log("Event.Hero Entry Event");
-        HeroEntry.instance.SpawnHeroes = true;
-
-        if (BL_EventOver)
-        {
-            DayCycle.instance.NewDay();
-            DayCycle.instance.BL_pause = false;
-            DayCycle.instance.BL_EnterHeroes = false;
 
             PC_Move.BL_canMove = true;
         }
