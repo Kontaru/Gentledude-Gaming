@@ -117,7 +117,7 @@ public class PDAHandler : MonoBehaviour {
         BL_PDAactive = !BL_PDAactive;
     }
 
-    private void ToggleMinigames()
+    private void ToggleMinigames(bool quickStart)
     {
         if (!BL_PDAactive) return;
 
@@ -138,7 +138,8 @@ public class PDAHandler : MonoBehaviour {
             animator.SetBool("BL_Landscape", true);
             homeBtn.enabled = false;
             closeBtn.enabled = false;
-            StartCoroutine(WaitAndDisplay(1.5f, false));
+            if (!quickStart) StartCoroutine(WaitAndDisplay(1.5f, false));
+            else StartCoroutine(WaitAndDisplay(3f, false));
         }        
     }
 
@@ -222,30 +223,35 @@ public class PDAHandler : MonoBehaviour {
 
     public void StartDD()
     {
-        StartMinigame(0);
+        StartMinigame(0, false);
     }
 
     public void StartPP()
     {
-        StartMinigame(1);
+        StartMinigame(1, false);
     }
 
     public void StartCI()
     {
-        StartMinigame(2);
+        StartMinigame(2, false);
     }
 
-    public void StartMinigame(int index)
+    public void StartMinigame(int index, bool quickStart)
     {
         minigameIndex = index;
-        ToggleMinigames();
+
+        if (!BL_PDAactive) animator.SetBool("BL_ShowPDA", true);
+        BL_PDAactive = true;
+
+        ToggleMinigames(quickStart);
+
         BL_PDAlandscape = !BL_PDAlandscape;
     }
 
     public void MinigameComplete()
     {
         BL_Pause = false;
-        ToggleMinigames();
+        ToggleMinigames(false);
         ShowHome();
     }
 
@@ -337,7 +343,6 @@ public class PDAHandler : MonoBehaviour {
         {
             renderCam.SetActive(true);
             minigames[minigameIndex].SetActive(true);
-        }
-        
+        }        
     }
 }

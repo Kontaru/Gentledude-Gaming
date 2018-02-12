@@ -21,7 +21,7 @@ public class HYL_OS_Minigame_Handler : QuestPart {
 
         if (BL_Activatable)
         {
-            PDA.StartMinigame(minigameIndex);
+            PDA.StartMinigame(minigameIndex, true);
             BL_Activatable = false;
         }
 
