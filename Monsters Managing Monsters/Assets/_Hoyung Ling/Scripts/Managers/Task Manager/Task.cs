@@ -71,7 +71,6 @@ public class Task
             //For each step
             if (step_tracker < Steps.Length)
             {
-                Steps[step_tracker].requires.gameObject.SetActive(true);
                 Steps[step_tracker].requires.GetComponent<QuestPart>().BL_IsInteractable = true;
 
                 if (Steps[step_tracker].requires.GetComponent<QuestPart>().BL_MinigameComplete)
@@ -88,14 +87,6 @@ public class Task
                 {
                     Quest_Complete = false;
                 }
-            }
-        }else
-        {
-            //For each step
-            foreach (Step step in Steps)
-            {
-                if(step.requires != null)
-                    step.requires.gameObject.SetActive(false);
             }
         }
 
