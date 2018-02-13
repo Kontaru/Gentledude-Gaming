@@ -7,9 +7,9 @@ public class Step
     [TextArea(2, 10)]
     public string description;              //Description of my step (how to complete it, what I need for it to be complete)
     public QuestPart requires;
-    public GameObject nextStep;
     public bool TurnOff = false;
     public bool complete = false;           //Is this step complete?
+    public bool active = false;
 }
 
 [System.Serializable]
@@ -65,9 +65,15 @@ public class Task
 
         if (BL_isAccepted)
         {
+            Quest_Complete = true;
             //For each step
             if (step_tracker < Steps.Length)
             {
+                if (Steps[step_tracker].TurnOff)
+                    Steps[step_tracker].requires.gameObject.SetActive(true);
+
+                Steps[step_tracker].active = true;
+
                 QuestPart questStep = Steps[step_tracker].requires.GetComponent<QuestPart>();
 
                 questStep.BL_IsInteractable = true;
@@ -77,16 +83,24 @@ public class Task
                     Steps[step_tracker].complete = true;
                     questStep.BL_IsInteractable = false;
                     questStep.BL_MinigameComplete = false;
+
+                    //if (questStep.BL_MinigameFail)
+                    //    Quest_Fail = true;
+
+                    Steps[step_tracker].active = false;
                     step_tracker++;
                 }
-            }
 
-            foreach (Step step in Steps)
-            {
-                //If any of these steps are false, just stop everything and quit the function.
-                if (step.complete == false)
+                foreach (Step step in Steps)
                 {
-                    Quest_Complete = false;
+                    //If any of these steps are false, just stop everything and quit the function.
+                    if (step.complete == false)
+                    {
+                        if (step.TurnOff && step.active == false)
+                            step.requires.gameObject.SetActive(false);
+
+                        Quest_Complete = false;
+                    }
                 }
             }
         }
@@ -98,7 +112,7 @@ public class Task
 
                 Attribution.Attributes Type = GO_belongsTo.GetComponent<Attribution>().myAttribute;
 
-                if (Quest_Complete)
+                if (!Quest_Fail)
                     GameManager.instance.PowerBoost(Type, IN_motivationAmount);
                 else if (Quest_Fail)
                     GameManager.instance.PowerDeduct(Type, IN_motivationAmount);
@@ -107,11 +121,14 @@ public class Task
                 BL_Boost = false;
             }
 
-            if (Repeatable)
+            foreach (Step step in Steps)
             {
-                Quest_Finish = false;
-                BL_Boost = false;
+                step.complete = false;
+                step.active = false;
             }
+
+            if (Repeatable)
+                Quest_Finish = false;
 
             BL_isAccepted = false;
             Quest_Complete = false;

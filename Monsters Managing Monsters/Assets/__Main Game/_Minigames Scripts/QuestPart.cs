@@ -17,7 +17,5 @@ public class QuestPart : MonoBehaviour {
     {
         if (BL_MinigameComplete)
             BL_IsInteractable = false;
-        if (BL_MinigameFail)
-            BL_IsInteractable = false;
     }
 }

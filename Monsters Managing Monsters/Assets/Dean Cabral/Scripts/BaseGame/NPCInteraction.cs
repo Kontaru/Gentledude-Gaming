@@ -186,15 +186,15 @@ public class NPCInteraction : MonoBehaviour
 
         if (BL_QuestAccepted)
         {
-            if (!ActiveTask.Quest_Complete && !ActiveTask.Quest_Fail)
+            if (!ActiveTask.Quest_Complete )
             {
                 CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.ST_waitingDialogue);
             }
-            else if (ActiveTask.Quest_Complete)
+            else if (ActiveTask.Quest_Complete && !ActiveTask.Quest_Fail)
             {
                 CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.ST_finishDialogue);
             }
-            else if (ActiveTask.Quest_Fail)
+            else if (ActiveTask.Quest_Complete && ActiveTask.Quest_Fail)
             {
                 CC_Dialogue.SetStringVariable("QuestStatus", ActiveTask.ST_failDialogue);
             }
