@@ -8,6 +8,7 @@ public class Step
     public string description;              //Description of my step (how to complete it, what I need for it to be complete)
     public QuestPart requires;
     public GameObject nextStep;
+    public bool TurnOff = false;
     public bool complete = false;           //Is this step complete?
 }
 
@@ -49,9 +50,6 @@ public class Task
     public int IN_actionPointWeight;
     public int IN_motivationAmount;
 
-    [Header("Reward?")]
-    public GameObject[] GO_reward;
-
     [HideInInspector] public bool BL_isObtainable = false;
     [HideInInspector] public bool BL_isAccepted = false;
 
@@ -67,15 +65,18 @@ public class Task
 
         if (BL_isAccepted)
         {
-            Quest_Complete = true;
             //For each step
             if (step_tracker < Steps.Length)
             {
-                Steps[step_tracker].requires.GetComponent<QuestPart>().BL_IsInteractable = true;
+                QuestPart questStep = Steps[step_tracker].requires.GetComponent<QuestPart>();
 
-                if (Steps[step_tracker].requires.GetComponent<QuestPart>().BL_MinigameComplete)
+                questStep.BL_IsInteractable = true;
+
+                if (questStep.BL_MinigameComplete)
                 {
                     Steps[step_tracker].complete = true;
+                    questStep.BL_IsInteractable = false;
+                    questStep.BL_MinigameComplete = false;
                     step_tracker++;
                 }
             }
@@ -94,10 +95,6 @@ public class Task
         {
             if (BL_Boost)
             {
-                foreach (GameObject produce in GO_reward)
-                {
-                    if (produce != null) produce.SetActive(true);
-                }
 
                 Attribution.Attributes Type = GO_belongsTo.GetComponent<Attribution>().myAttribute;
 
@@ -121,19 +118,4 @@ public class Task
             Quest_Fail = false;
         }
     }
-
-    //public void Obtained()
-    //{
-    //    if(isAccepted)
-    //    {
-    //        foreach (Step step in Steps)
-    //        {
-    //            //If any of these steps are false, just stop everything and quit the function.
-    //            if (step.complete == false)
-    //            {
-
-    //            }
-    //        }
-    //    }
-    //}
 }
