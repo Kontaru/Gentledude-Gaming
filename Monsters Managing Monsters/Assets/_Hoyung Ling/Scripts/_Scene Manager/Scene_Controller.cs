@@ -37,10 +37,7 @@ public class Scene_Controller : MonoBehaviour {
         if (GameManager.instance.PixelMode) return;
 
         if (DayCycle.instance.BL_ShowResults)
-        {
-            DayOverStats.SetActive(true);
-            EndDayEvaluation();
-        }
+            StartCoroutine(EndDayEvaluation());
         else
             DayOverStats.SetActive(false);
     }
@@ -50,22 +47,24 @@ public class Scene_Controller : MonoBehaviour {
 
     }
 
-    public void EndDayEvaluation()
+    IEnumerator EndDayEvaluation()
     {
+        yield return new WaitForSeconds(0f);
+
+        DayOverStats.SetActive(true);
+
         Debug.Log("Event.Player Evaluation");
 
         if (BL_EventOver)
-        {
-            DayCycle.instance.NewDay();
             DayCycle.instance.BL_pause = false;
-            DayCycle.instance.BL_ShowResults = false;
-
-            PC_Move.BL_canMove = true;
-        }
     }
 
     public void ExitPrompt()
     {
         BL_EventOver = true;
+        DayCycle.instance.NewDay();
+        DayCycle.instance.BL_ShowResults = false;
+
+        PC_Move.BL_canMove = true;
     }
 }

@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4645610427668490}
   - component: {fileID: 114839365720268744}
-  - component: {fileID: 114298160908449022}
   - component: {fileID: 114255361010624350}
   - component: {fileID: 114372307447742686}
   m_Layer: 0
@@ -36,8 +35,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371425909073192}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1643777, y: 8.208023, z: 7.1551}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.1643772, y: 8.208023, z: 7.1551}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,9 +55,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BL_ShowResults: 0
   BL_EnterHeroes: 0
-  FL_actionPointsAvailable: 0
+  FL_actionPointsAvailable: 3
   FL_actionPointsUsed: 0
-  FL_currentDay: 0
+  IN_currentDay: 1
   IN_DaysInWeek: 6
   BL_beginDay: 0
   BL_pause: 0
@@ -67,23 +66,6 @@ MonoBehaviour:
   Hour: {fileID: 0}
   Minute: {fileID: 0}
   Days: {fileID: 0}
---- !u!114 &114298160908449022
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1371425909073192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ab1d5154169d443b586d155abf308e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hero: {fileID: 0}
-  SpawnHeroes: 0
-  BL_HeroArrival: 0
-  ST_heroArrival: I have arrived!
-  ST_heroDeparture: 
-  flowchart: {fileID: 0}
 --- !u!114 &114372307447742686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,9 +78,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tasksComplete: {fileID: 0}
-  dept1Text: {fileID: 0}
-  dept2Text: {fileID: 0}
-  dept3Text: {fileID: 0}
+  HR: {fileID: 0}
+  IT: {fileID: 0}
+  JN: {fileID: 0}
+  MK: {fileID: 0}
+  FN: {fileID: 0}
+  OVR: {fileID: 0}
+  SEC: {fileID: 0}
   pen1Text: {fileID: 0}
   pen2Text: {fileID: 0}
   pen3Text: {fileID: 0}

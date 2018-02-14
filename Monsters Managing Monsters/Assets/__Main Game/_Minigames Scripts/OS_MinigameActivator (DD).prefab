@@ -19,14 +19,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4029763280814228}
-  - component: {fileID: 114305722538865630}
+  - component: {fileID: 114713837369653174}
   m_Layer: 0
   m_Name: OS_MinigameActivator (DD)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4029763280814228
 Transform:
   m_ObjectHideFlags: 1
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114305722538865630
+--- !u!114 &114713837369653174
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,11 +48,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1877662282452266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2fb92da1c9fe3940974f8636e1fae75, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d7856cdb8b9dbe4381fb2619a39be7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_IsInteractable: 1
+  BL_IsInteractable: 0
   BL_MinigameComplete: 0
+  BL_MinigameFail: 0
   minigameIndex: 0
   PDA: {fileID: 0}
   BL_Activatable: 1
+  DDgame: {fileID: 0}

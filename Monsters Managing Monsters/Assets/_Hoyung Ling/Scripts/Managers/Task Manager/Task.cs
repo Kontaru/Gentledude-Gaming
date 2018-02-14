@@ -40,8 +40,8 @@ public class Task
     public bool inActiveList = false;
     public bool Repeatable = false;
 
-    [HideInInspector] public bool Quest_Complete = false;     //Is our quest complete?
-    [HideInInspector] public bool Quest_Fail = false;         //Is our quest complete?
+    public bool Quest_Complete = false;     //Is our quest complete?
+    public bool Quest_Fail = false;         //Is our quest complete?
     [HideInInspector] public bool Quest_Finish = false;       //Trigger for NPC hand in
 
     [HideInInspector] public GameObject GO_belongsTo;
@@ -84,8 +84,8 @@ public class Task
                     questStep.BL_IsInteractable = false;
                     questStep.BL_MinigameComplete = false;
 
-                    //if (questStep.BL_MinigameFail)
-                    //    Quest_Fail = true;
+                    if (questStep.BL_MinigameFail)
+                        Quest_Fail = true;
 
                     Steps[step_tracker].active = false;
                     step_tracker++;

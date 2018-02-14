@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DD_PlayerBehaviour : MonoBehaviour {
 
+    public bool BL_GameComplete = false;
     public bool BL_MinigameFailed;
     public GameObject doughnuts;
     public GameObject winScreen;
@@ -35,6 +36,8 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     {
         if (collision.gameObject.name == "DD_Office" && inventory == "Doughnuts")
         {
+            BL_GameComplete = true;
+            BL_MinigameFailed = false;
             WinScreen();
         }
     }
@@ -99,6 +102,7 @@ public class DD_PlayerBehaviour : MonoBehaviour {
         else
         {
             BL_MinigameFailed = true;
+            BL_GameComplete = true;
         }
 
         if (!BL_DoughnutsVisible)

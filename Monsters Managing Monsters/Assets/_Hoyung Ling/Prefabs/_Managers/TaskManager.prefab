@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4438948802543868}
-  - component: {fileID: 114460942788931260}
   - component: {fileID: 114219410057243416}
+  - component: {fileID: 114460942788931260}
   m_Layer: 0
   m_Name: TaskManager
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1071269350306510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2231145, y: -5.5913687, z: 0.61611414}
+  m_LocalPosition: {x: 2.223114, y: -5.5913687, z: 0.61611414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -86,18 +86,17 @@ MonoBehaviour:
     Quest_Fail: 0
     Quest_Finish: 0
     GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 30
+    IN_actionPointWeight: 3
     IN_motivationAmount: 100
-    GO_reward: []
     BL_isObtainable: 0
     BL_isAccepted: 0
     Steps:
     - name: Fix Computer
       description: The player should do a thing which does another thing.
-      requires: {fileID: 114924387471057538, guid: 254c3377af4e71c4583c8b210fea8d2e,
-        type: 2}
-      nextStep: {fileID: 0}
+      requires: {fileID: 0}
+      TurnOff: 0
       complete: 0
+      active: 0
     step_tracker: 0
   - name: Dangerous Deliveries!
     ST_taskBrief: Doughnuts need to be delivered around the office!
@@ -120,18 +119,17 @@ MonoBehaviour:
     Quest_Fail: 0
     Quest_Finish: 0
     GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 60
+    IN_actionPointWeight: 6
     IN_motivationAmount: 220
-    GO_reward: []
     BL_isObtainable: 0
     BL_isAccepted: 0
     Steps:
     - name: Deliver Donuts
       description: Deliver them!
-      requires: {fileID: 114231966557556112, guid: 547d189829cb95c478500510d06a64f4,
-        type: 2}
-      nextStep: {fileID: 0}
+      requires: {fileID: 0}
+      TurnOff: 0
       complete: 0
+      active: 0
     step_tracker: 0
   - name: Doughnut Dash
     ST_taskBrief: Don't text me ever again. Just get those doughnuts across the street
@@ -140,9 +138,9 @@ MonoBehaviour:
       some doughnuts for the department, but have to go fetch them. I\u2019m uh, busy.
       Right now. How about you go grab them? They\u2019re just across the street.
       I\u2019ll make it worth your while.  "
-    ST_acceptedDialogue: "Thanks man, I\u2019ve already paid. Just make sure you look
+    ST_acceptedDialogue: "Thanks~ I\u2019ve already paid. Just make sure you look
       both ways and up\u2026 Damn dragons\u2026 "
-    ST_declinedDialogue: 
+    ST_declinedDialogue: Later then? Right?
     ST_finishDialogue: "Wow, nice one. What? Isn\u2019t doing a good deed for your
       coworker a good enough reward? "
     ST_failDialogue: "I don\u2019t care if you got hit by something, the doughnuts
@@ -156,18 +154,23 @@ MonoBehaviour:
     Quest_Fail: 0
     Quest_Finish: 0
     GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 1000
+    IN_actionPointWeight: 10
     IN_motivationAmount: 500
-    GO_reward: []
     BL_isObtainable: 0
     BL_isAccepted: 0
     Steps:
+    - name: Leave the office
+      description: Minigame
+      requires: {fileID: 0}
+      TurnOff: 1
+      complete: 0
+      active: 0
     - name: Grab the donuts
       description: Minigame
-      requires: {fileID: 114305722538865630, guid: dc8639ab36cd5cd4dad41f855ad44b94,
-        type: 2}
-      nextStep: {fileID: 0}
+      requires: {fileID: 0}
+      TurnOff: 0
       complete: 0
+      active: 0
     step_tracker: 0
   - name: No Quest
     ST_taskBrief: Why would you open this message? It obviously says "No Quest".
@@ -186,15 +189,15 @@ MonoBehaviour:
     GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
-    GO_reward: []
     BL_isObtainable: 0
     BL_isAccepted: 0
     Steps:
     - name: Find the contact lens
       description: Find the contact lens for our cyclops
       requires: {fileID: 0}
-      nextStep: {fileID: 0}
+      TurnOff: 0
       complete: 0
+      active: 0
     step_tracker: 0
   - name: Stray Pixies
     ST_taskBrief: The pixies got in again. Get here, asap!
@@ -215,15 +218,47 @@ MonoBehaviour:
     Quest_Fail: 0
     Quest_Finish: 0
     GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 60
+    IN_actionPointWeight: 6
     IN_motivationAmount: 220
-    GO_reward: []
     BL_isObtainable: 0
     BL_isAccepted: 0
     Steps:
     - name: Hunt down the pixies
       description: Hunt down the pixies
       requires: {fileID: 0}
-      nextStep: {fileID: 0}
+      TurnOff: 0
       complete: 0
+      active: 0
+    step_tracker: 0
+  - name: Wandering Spirit
+    ST_taskBrief: Hey... Listen. Don't be alarmed, but I'm a pixie. I don't mean any
+      harm. I just want OUT.
+    ST_descriptionDialogue: Hey... Listen. Hey... LISTEN! Are you listening, punk?
+      Look, I somehow got here with my buddies. Don't worry, we're gonna leave, but
+      could you help me find my mates?
+    ST_acceptedDialogue: Good. You're smarter than you look. I'll wait here. Don't
+      take long, punk.
+    ST_declinedDialogue: Look. I know you're coming back, because if you don't, we
+      will cause CHAOS, hear me, punk?
+    ST_finishDialogue: Good, you did it. We can finally leave. See you around, kiddo.
+    ST_failDialogue: What? Seriously? You guys will pay for this... I'll be back.
+    ST_waitingDialogue: Seriously, you're taking too long. Hurry up.
+    Quest_ID: 5
+    inActiveList: 0
+    Repeatable: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 6
+    IN_motivationAmount: 220
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    Steps:
+    - name: Hunt down the pixies
+      description: Find them, fast!
+      requires: {fileID: 0}
+      TurnOff: 0
+      complete: 0
+      active: 0
     step_tracker: 0
