@@ -53,8 +53,6 @@ public class Scene_Controller : MonoBehaviour {
 
         DayOverStats.SetActive(true);
 
-        Debug.Log("Event.Player Evaluation");
-
         if (BL_EventOver)
             DayCycle.instance.BL_pause = false;
     }

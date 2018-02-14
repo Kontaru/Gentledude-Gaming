@@ -235,5 +235,6 @@ public class DayCycle : MonoBehaviour
     public void NewDay()
     {
         BL_beginDay = true;
+        ResetTimer();
     }
 }
