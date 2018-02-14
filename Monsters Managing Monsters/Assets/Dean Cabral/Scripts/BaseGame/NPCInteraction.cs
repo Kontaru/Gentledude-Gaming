@@ -72,11 +72,6 @@ public class NPCInteraction : MonoBehaviour
     {
         if (GameManager.instance.PixelMode) return;
 
-        if (BL_InConversation == true)
-            Debug.Log("true");
-        else
-            Debug.Log("false");
-
         //If I'm in combat, don't bother doing things anymore
         if (BL_inCombat == true)
         {
@@ -167,7 +162,6 @@ public class NPCInteraction : MonoBehaviour
 
             BL_InConversation = false;
             Invoke("ConvoOff", 1.0f);
-            Debug.Log("Set to false");
             PC_Move.BL_canMove = true;
 
         }
@@ -182,7 +176,6 @@ public class NPCInteraction : MonoBehaviour
     {
         PC_Move.BL_canMove = false;
         BL_InConversation = true;
-        Debug.Log("Set to true");
 
         if (BL_QuestAccepted)
         {
