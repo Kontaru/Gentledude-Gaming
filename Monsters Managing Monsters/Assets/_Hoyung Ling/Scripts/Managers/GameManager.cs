@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void QuestGained(string questName)
-    {
+    {        
         notifTitleText.text = "New Quest!";
         notifText.text = questName;
         StartCoroutine(ShowNotification());

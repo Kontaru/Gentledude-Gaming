@@ -44,10 +44,10 @@ public class KW_PlayerBehaviour : MonoBehaviour {
 
     private void CheckMovement()
     {
-        if (Input.GetKey(KeyCode.W)) transform.position += Vector3.up * 8 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.S)) transform.position += Vector3.down * 8 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.A)) transform.position += Vector3.left * 8 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.D)) transform.position += Vector3.right * 8 * Time.deltaTime;
+        if (Input.GetKey(KeyCode.W)) transform.position += Vector3.up * 10 * Time.deltaTime;
+        if (Input.GetKey(KeyCode.S)) transform.position += Vector3.down * 10 * Time.deltaTime;
+        if (Input.GetKey(KeyCode.A)) transform.position += Vector3.left * 10 * Time.deltaTime;
+        if (Input.GetKey(KeyCode.D)) transform.position += Vector3.right * 10 * Time.deltaTime;
     }
 
     private void CheckFailure()

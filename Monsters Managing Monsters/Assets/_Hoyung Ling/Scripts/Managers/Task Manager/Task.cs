@@ -131,16 +131,21 @@ public class Task
             {
                 step.complete = false;
                 step.active = false;
-            }
-
-            if (Repeatable)
-                Quest_Finish = false;
+            }            
 
             BL_isAccepted = false;
             Quest_Complete = false;
             Quest_Fail = false;
 
-            GameManager.instance.QuestCompleted(name);
+            if (Repeatable)
+                Quest_Finish = false;
+
+            if (BL_firstFlag)
+            {
+                EndDaySummary.instance.tasksCount++;
+                GameManager.instance.QuestCompleted(name);
+                BL_firstFlag = false;
+            }            
         }
     }
 }

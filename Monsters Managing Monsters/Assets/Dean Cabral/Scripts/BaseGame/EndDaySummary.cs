@@ -7,7 +7,7 @@ public class EndDaySummary : MonoBehaviour {
 
     public static EndDaySummary instance;
 
-    private int tasksCount;
+    public int tasksCount;
     private int penalties;
     private int penalty1 = 50;
     private int penalty2 = 50;
