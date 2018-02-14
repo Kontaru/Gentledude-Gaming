@@ -27,10 +27,7 @@ public class CurrentTasks : MonoBehaviour {
 
         foreach (Task task in TaskManager.instance.Tasks)
         {
-            if(task.Quest_ID == -1)
-            {
-            }
-            else if (task.inActiveList == false && !task.Quest_Finish)
+            if (task.inActiveList == false && !task.Quest_Finish)
                 BL_allQuestsComplete = false;
         }
 
@@ -50,7 +47,7 @@ public class CurrentTasks : MonoBehaviour {
     {
         Task vTask = TaskManager.instance.Tasks[0];
         vTask = TaskManager.instance.Tasks[Random.Range(0, TaskManager.instance.Tasks.Length)];
-        if (vTask.inActiveList == false)
+        if (vTask.inActiveList == false && vTask.Quest_Finish == false)
         {
             vTask.inActiveList = true;
             return vTask;

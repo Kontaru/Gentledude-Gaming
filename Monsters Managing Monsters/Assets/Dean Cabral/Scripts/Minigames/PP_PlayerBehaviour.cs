@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PP_PlayerBehaviour : MonoBehaviour
 {
+    public bool BL_GameComplete = false;
     public bool BL_MinigameFailed;
     public GameObject winScreen;
     public GameObject failScreen;
@@ -73,10 +74,12 @@ public class PP_PlayerBehaviour : MonoBehaviour
         {
             StartCoroutine(ShowScreen(failScreen));
             BL_MinigameFailed = true;
+            BL_GameComplete = true;
         }
         else if (pixieCount <= 0)
         {
             WinScreen();
+            BL_GameComplete = true;
         }
     }
 

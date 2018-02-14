@@ -172,33 +172,6 @@ MonoBehaviour:
       complete: 0
       active: 0
     step_tracker: 0
-  - name: No Quest
-    ST_taskBrief: Why would you open this message? It obviously says "No Quest".
-    ST_descriptionDialogue: 
-    ST_acceptedDialogue: 
-    ST_declinedDialogue: 
-    ST_finishDialogue: 
-    ST_failDialogue: 
-    ST_waitingDialogue: 
-    Quest_ID: -1
-    inActiveList: 0
-    Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    Steps:
-    - name: Find the contact lens
-      description: Find the contact lens for our cyclops
-      requires: {fileID: 0}
-      TurnOff: 0
-      complete: 0
-      active: 0
-    step_tracker: 0
   - name: Stray Pixies
     ST_taskBrief: The pixies got in again. Get here, asap!
     ST_descriptionDialogue: "Looks like the pixies got in again. Stubborn little gremlins
@@ -250,12 +223,51 @@ MonoBehaviour:
     Quest_Fail: 0
     Quest_Finish: 0
     GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 6
-    IN_motivationAmount: 220
+    IN_actionPointWeight: 3
+    IN_motivationAmount: 100
     BL_isObtainable: 0
     BL_isAccepted: 0
     Steps:
     - name: Hunt down the pixies
+      description: Find them, fast!
+      requires: {fileID: 0}
+      TurnOff: 0
+      complete: 0
+      active: 0
+    step_tracker: 0
+  - name: Pixie Panic
+    ST_taskBrief: Oh no... Oh no no no... My gremlin brothers are gone... Where could
+      they be?!
+    ST_descriptionDialogue: Look, buddy... Jim, was it? Whatever, look. I'm sorry
+      about always making fun of you, but PLEASE, my brothers are gone. Last I saw,
+      boss wanted them to clear all the pixies that were lurking around. This can't
+      be good...
+    ST_acceptedDialogue: Thanks, buddy. You're actually really nice, now that I think
+      about it... Here, I'll mark for you where I think they  might be. Please hurry...
+    ST_declinedDialogue: Please? You'll be doing me a favour man. I'll wait here.
+    ST_finishDialogue: Haha! You did it! Yeah, thanks, but jeez I hate your face.
+      I was lying about everything I said!
+    ST_failDialogue: W-What do you mean my brothers were taken away...?
+    ST_waitingDialogue: Heh, no rush buddy, nooo rush at all.
+    Quest_ID: 6
+    inActiveList: 0
+    Repeatable: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 10
+    IN_motivationAmount: 500
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    Steps:
+    - name: Find the Gremlins
+      description: Find them, fast!
+      requires: {fileID: 0}
+      TurnOff: 0
+      complete: 0
+      active: 0
+    - name: Protect the Gremlins
       description: Find them, fast!
       requires: {fileID: 0}
       TurnOff: 0
