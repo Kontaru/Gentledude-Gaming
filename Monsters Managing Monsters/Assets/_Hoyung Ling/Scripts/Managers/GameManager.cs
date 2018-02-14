@@ -8,9 +8,6 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
     public GameObject Player;
-    public Text notifTitleText;
-    public Text notifText;
-    private GameObject notification;
 
     public bool PixelMode = false;
 
@@ -38,8 +35,6 @@ public class GameManager : MonoBehaviour {
     public int PL_Security = 0;
     public int IN_TasksComplete = 0;
 
-    private Animator animator;
-
     bool BL_Pause = false;
 
     void Awake()
@@ -53,34 +48,6 @@ public class GameManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(transform.gameObject);
-    }
-
-
-    void Start()
-    {
-        notification = GameObject.Find("QuestInfoPanel");
-        animator = notification.GetComponentInChildren<Animator>();
-    }
-
-    public void QuestGained(string questName)
-    {        
-        notifTitleText.text = "New Quest!";
-        notifText.text = questName;
-        StartCoroutine(ShowNotification());
-
-    }
-    public void QuestCompleted(string questName)
-    {
-        notifTitleText.text = "Quest Complete!";
-        notifText.text = questName;
-        StartCoroutine(ShowNotification());
-    }
-
-    IEnumerator ShowNotification()
-    {
-        animator.SetBool("BL_ShowNotification", true);
-        yield return new WaitForSeconds(4);
-        animator.SetBool("BL_ShowNotification", false);
     }
 
     public void PowerBoost(Attribution.Attributes attr, int amount)

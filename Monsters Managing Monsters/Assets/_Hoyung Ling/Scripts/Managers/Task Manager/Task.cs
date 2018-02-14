@@ -68,7 +68,7 @@ public class Task
         {
             if (!BL_firstFlag)
             {
-                GameManager.instance.QuestGained(name);
+                EndDaySummary.instance.QuestGained(name);
                 BL_firstFlag = true;
             }
 
@@ -143,7 +143,7 @@ public class Task
             if (BL_firstFlag)
             {
                 EndDaySummary.instance.tasksCount++;
-                GameManager.instance.QuestCompleted(name);
+                EndDaySummary.instance.QuestCompleted(name);
                 BL_firstFlag = false;
             }            
         }
