@@ -13,8 +13,14 @@ public class InteractableObject
     public bool acquired = false;
     public static bool BL_ShowDialogue = false;
 
-    public GameObject exclaimationPoint;
-    public GameObject interactionObject;
+    GameObject exclaimationPoint;
+    GameObject interactionObject;
+
+    public void SetCanvasElements()
+    {
+        exclaimationPoint = target.transform.GetChild(1).transform.GetChild(1).gameObject;
+        interactionObject = target.transform.GetChild(1).transform.GetChild(0).gameObject;
+    }
 
     public void CheckInteractState(GameObject PC)
     {

@@ -55,10 +55,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BL_ShowResults: 0
   BL_EnterHeroes: 0
-  FL_actionPointsAvailable: 3
+  FL_actionPointsAvailable: 10
   FL_actionPointsUsed: 0
   IN_currentDay: 1
-  IN_DaysInWeek: 6
+  IN_DaysInWeek: 3
   BL_beginDay: 0
   BL_pause: 0
   BL_playerControlledEvent: 1

@@ -6,16 +6,25 @@ public class HYL_IS_Fetch : QuestPart {
 
     public InteractableObject[] items;
     public bool BL_QuestComplete;
+
+    bool BL_FirstLoad = true;
 	
 	// Update is called once per frame
 	override public void Update () {
 
         if (BL_IsInteractable)
         {
-            foreach (InteractableObject obj in items)
+            if (BL_FirstLoad)
             {
-                if (obj.target != null)
-                    obj.target.SetActive(true);
+                foreach (InteractableObject obj in items)
+                {
+                    if (obj.target != null)
+                    {
+                        obj.target.SetActive(true);
+                        obj.SetCanvasElements();
+                    }
+                }
+                BL_FirstLoad = false;
             }
         }else
         {
@@ -25,6 +34,8 @@ public class HYL_IS_Fetch : QuestPart {
                     obj.target.SetActive(false);
             }
         }
+
+        if (!BL_IsInteractable) return;
 
         CheckEndCondition();
 
@@ -43,6 +54,9 @@ public class HYL_IS_Fetch : QuestPart {
         }
 
         if (BL_QuestComplete)
+        {
             BL_MinigameComplete = true;
+            BL_FirstLoad = true;
+        }
 	}
 }

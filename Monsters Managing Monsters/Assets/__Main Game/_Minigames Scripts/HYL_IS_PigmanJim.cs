@@ -61,7 +61,7 @@ public class HYL_IS_PigmanJim : MonoBehaviour {
 
         if (BL_StealOnce)
         {
-            quest.IN_ItemCount--;
+            quest.IN_stolenCount++;
             BL_StealOnce = false;
         }
 

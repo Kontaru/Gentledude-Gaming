@@ -146,7 +146,7 @@ public class DayCycle : MonoBehaviour
         if (!BL_pause && !BL_playerControlledEvent)
         {
             //From midnight until morning, we want to simulate sped up time
-            Time.timeScale = 10.0f;
+            Time.timeScale = 2.0f;
             FL_time++;
             CalculateTime(FL_time);
         }

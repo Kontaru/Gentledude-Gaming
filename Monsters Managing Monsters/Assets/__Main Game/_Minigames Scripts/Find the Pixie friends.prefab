@@ -347,7 +347,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1933751609009804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.28, y: 0.56, z: 42.84}
+  m_LocalPosition: {x: -7.82, y: 0.56, z: -17.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4013939247091664}
@@ -417,7 +417,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1963164511443628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -102.5, y: 0.56, z: 53.44}
+  m_LocalPosition: {x: -16.420008, y: 0.56, z: -14.889999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4170236894470940}
@@ -587,17 +587,13 @@ MonoBehaviour:
   BL_MinigameFail: 0
   items:
   - target: {fileID: 1933751609009804}
-    interactDistance: 10
-    text: It's [Name]'s contact lens.
+    interactDistance: 7
+    text: Pixie 1
     acquired: 0
-    exclaimationPoint: {fileID: 1911674321579500}
-    interactionObject: {fileID: 1986947782216360}
   - target: {fileID: 1963164511443628}
-    interactDistance: 10
-    text: It's [Name]'s contact lens.
+    interactDistance: 7
+    text: Pixie 2
     acquired: 0
-    exclaimationPoint: {fileID: 1689785233182760}
-    interactionObject: {fileID: 1399729365565180}
   BL_QuestComplete: 0
 --- !u!114 &114555290766752172
 MonoBehaviour:
