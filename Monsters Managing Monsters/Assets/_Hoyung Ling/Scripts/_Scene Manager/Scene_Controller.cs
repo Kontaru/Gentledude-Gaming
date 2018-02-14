@@ -8,8 +8,6 @@ public class Scene_Controller : MonoBehaviour {
 
     public GameObject DayOverStats;
 
-    bool BL_EventOver = false;
-
     #region Typical Singleton Format
 
     void Awake()
@@ -49,17 +47,15 @@ public class Scene_Controller : MonoBehaviour {
 
     IEnumerator EndDayEvaluation()
     {
-        yield return new WaitForSeconds(0f);
+        DayCycle.instance.BL_pause = false;
 
-        DayOverStats.SetActive(true);
+        yield return new WaitForSeconds(1);       
 
-        if (BL_EventOver)
-            DayCycle.instance.BL_pause = false;
+        DayOverStats.SetActive(true);        
     }
 
     public void ExitPrompt()
     {
-        BL_EventOver = true;
         DayCycle.instance.NewDay();
         DayCycle.instance.BL_ShowResults = false;
 
