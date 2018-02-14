@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__Main Game/_MainMenu.unity
     guid: 2b57934483d3e3a478bad30bf111dc4c
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/__Main Game/_Office.unity
+    guid: bbcc3f5faba5142468d00b10d2901c49
   - enabled: 1
     path: Assets/__Main Game/Minigame Scenes/_DoughnutDash.unity
     guid: 97fd22ee1d1693c488880bd4e0caaabe

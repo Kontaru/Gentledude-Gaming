@@ -45,6 +45,9 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     // Use this for initialization
     private void OnEnable ()
     {
+        AudioManager.instance.Play("BGM Minigame");
+        AudioManager.instance.Stop("Dungeon Music");
+        AudioManager.instance.Stop("Theme");
         BL_MinigameFailed = false;
         winScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
         failScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
@@ -82,12 +85,16 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     {
         if (BL_MinigameFailed)
         {
+            AudioManager.instance.Stop("BGM Minigame");
+            AudioManager.instance.Play("Dungeon Music");
             StartCoroutine(ShowScreen(failScreen));
         }
     }
 
     private void WinScreen()
     {
+        AudioManager.instance.Stop("BGM Minigame");
+        AudioManager.instance.Play("Dungeon Music");
         StartCoroutine(ShowScreen(winScreen));
     }
 

@@ -13,6 +13,7 @@ public class SimpleQuestPart : QuestPart {
     public string playerDeclineText;
 
     private Flowchart flowchart;
+    bool BL_ObjectiveMarkersOn = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -61,10 +62,21 @@ public class SimpleQuestPart : QuestPart {
     {
         base.Update();
 
+        if(BL_IsInteractable && !BL_ObjectiveMarkersOn)
+        {
+            if (objectiveMarker != null)
+                objectiveMarker.SetActive(true);
+            BL_ObjectiveMarkersOn = true;
+        }
+
+
         if (flowchart.GetBooleanVariable("bl_textCycleOver") == true)
         {
             if (BL_IsInteractable)
+            {
                 BL_MinigameComplete = flowchart.GetBooleanVariable("bl_accepted");
+                BL_ObjectiveMarkersOn = false;
+            }
             Invoke("Reset", 1.0f);
         }
 

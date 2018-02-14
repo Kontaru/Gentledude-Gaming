@@ -17,9 +17,16 @@ public class PP_PlayerBehaviour : MonoBehaviour
     public int pixieCount;
     public int gremlinCount;
 
+    public bool BL_Swing = false;
+
+    //Animator
+    SpriteRenderer playerBroom;
+    public Sprite BroomDown;
+    public Sprite BroomUp;
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Pixie(Clone)" && Input.GetKey(KeyCode.W))
+        if (collision.gameObject.name == "Pixie(Clone)" && BL_Swing)
         {
             int rand = Random.Range(1, 3);
             Rigidbody2D RB = collision.gameObject.GetComponent<Rigidbody2D>();            
@@ -40,6 +47,10 @@ public class PP_PlayerBehaviour : MonoBehaviour
     // Use this for initialization
     private void OnEnable()
     {
+        playerBroom = GetComponent<SpriteRenderer>();
+        AudioManager.instance.Play("BGM Minigame");
+        AudioManager.instance.Stop("Theme");
+        AudioManager.instance.Stop("Dungeon Music");
         BL_MinigameFailed = false;
         winScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
         failScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
@@ -53,7 +64,23 @@ public class PP_PlayerBehaviour : MonoBehaviour
     {
         UpdateUI();
         CheckMovement();
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            BL_Swing = true;
+            StartCoroutine(BroomAnimator());
+        }
+        else
+            BL_Swing = false;
+
         CheckFailure();
+    }
+
+    IEnumerator BroomAnimator()
+    {
+        playerBroom.sprite = BroomUp;
+        yield return new WaitForSeconds(0.5f);
+        playerBroom.sprite = BroomDown;
     }
 
     private void UpdateUI()
@@ -72,12 +99,16 @@ public class PP_PlayerBehaviour : MonoBehaviour
     {
         if (gremlinCount <= 0 && !BL_MinigameFailed)
         {
+            AudioManager.instance.Stop("BGM Minigame");
+            AudioManager.instance.Play("Dungeon Music");
             StartCoroutine(ShowScreen(failScreen));
             BL_MinigameFailed = true;
             BL_GameComplete = true;
         }
         else if (pixieCount <= 0)
         {
+            AudioManager.instance.Stop("BGM Minigame");
+            AudioManager.instance.Play("Dungeon Music");
             WinScreen();
             BL_GameComplete = true;
         }

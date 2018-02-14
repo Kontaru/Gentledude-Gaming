@@ -58,7 +58,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bc51a6a9b6a17374893c155daab61088, type: 3}
     volume: 0.7
     pitch: 1
-    loop: 0
+    loop: 1
     Fade: 0
     fadeDuration: 0
     startVol: 0
@@ -199,13 +199,13 @@ MonoBehaviour:
     wasFading: 0
     fadeTime: 0
     fadeStartTime: 0
-  - name: Zombie Pain
+  - name: BGM Minigame
     description: 
     source: {fileID: 0}
-    clip: {fileID: 8300000, guid: bd5a91d5f0a1d0f46a20cdad7256e0cc, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: 74a3da42de8cd924ba7c8b2adb89fa06, type: 3}
+    volume: 0.7
     pitch: 1
-    loop: 0
+    loop: 1
     Fade: 0
     fadeDuration: 0
     startVol: 0
