@@ -8,7 +8,7 @@ public class HYL_IS_Fetch : QuestPart {
     public bool BL_QuestComplete;
 	
 	// Update is called once per frame
-	void Update () {
+	override public void Update () {
 
         if (BL_IsInteractable)
         {

@@ -61,15 +61,14 @@ public class SimpleQuestPart : QuestPart {
     {
         base.Update();
 
-        if (!BL_IsInteractable) return;
-
         if (flowchart.GetBooleanVariable("bl_textCycleOver") == true)
         {
-
-            BL_MinigameComplete = flowchart.GetBooleanVariable("bl_accepted");
+            if (BL_IsInteractable)
+                BL_MinigameComplete = flowchart.GetBooleanVariable("bl_accepted");
             Invoke("Reset", 1.0f);
         }
 
+        if (!BL_IsInteractable) return;
         CheckEndCondition();
     }
 
