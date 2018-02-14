@@ -1295,8 +1295,8 @@ MonoBehaviour:
     text: 
     acquired: 0
   BL_QuestComplete: 0
-  IN_maxItemCount: 0
-  IN_currentItemCount: 0
+  IN_maxItemCount: 10
+  IN_stolenCount: 0
   PigmanJim: {fileID: 1372952423127774}
 --- !u!114 &114258027490860874
 MonoBehaviour:
