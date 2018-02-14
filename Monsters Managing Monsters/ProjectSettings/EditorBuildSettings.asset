@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/__Main Game/_Office.unity
     guid: bbcc3f5faba5142468d00b10d2901c49
   - enabled: 1
+    path: Assets/__Main Game/_GameOver.unity
+    guid: 75970a177be034746bce0633717f6383
+  - enabled: 1
     path: Assets/__Main Game/Minigame Scenes/_DoughnutDash.unity
     guid: 97fd22ee1d1693c488880bd4e0caaabe
   - enabled: 1
@@ -21,5 +24,5 @@ EditorBuildSettings:
     path: Assets/__Main Game/Minigame Scenes/_CafeImp.unity
     guid: adaa57d760037c84b9ef48798bd76907
   - enabled: 1
-    path: Assets/__Main Game/_GameOver.unity
-    guid: 75970a177be034746bce0633717f6383
+    path: Assets/__Main Game/Minigame Scenes/_KungFuWizard.unity
+    guid: 22e7a7f396a421149a7504031fb56790

@@ -157,20 +157,24 @@ public class MenuHandler : MonoBehaviour {
 
     public void StartMiniGameOne()
     {
-        GameManager.instance.LoadScene(2);
+        GameManager.instance.LoadScene(3);
     }
 
     public void StartMiniGameTwo()
     {
-        GameManager.instance.LoadScene(3);
+        GameManager.instance.LoadScene(4);
     }
 
     public void StartMiniGameThree()
     {
-        GameManager.instance.LoadScene(4);
+        GameManager.instance.LoadScene(5);
     }
 
+    public void StartMiniGameOneH()
+    {
+        GameManager.instance.LoadScene(6);
 
+    }
     public void Exit()
     {
         Application.Quit();

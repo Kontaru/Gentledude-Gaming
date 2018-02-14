@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
     public GameObject Player;
-    public Text questText;
+    public Text notifTitleText;
+    public Text notifText;
     private GameObject notification;
 
     public bool PixelMode = false;
@@ -57,27 +58,28 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
-        notification = GameObject.Find("QuestCompletePanel");
+        notification = GameObject.Find("QuestInfoPanel");
         animator = notification.GetComponentInChildren<Animator>();
     }
 
-    void Update()
+    public void QuestGained(string questName)
     {
-
-        if (Input.GetKeyDown(KeyCode.Z)) QuestCompleted("Generic Quest Name", null);
+        notifTitleText.text = "New Quest!";
+        notifText.text = questName;
+        StartCoroutine(ShowNotification());
 
     }
-
-    public void QuestCompleted(string questName, GameObject plus)
+    public void QuestCompleted(string questName)
     {
-        questText.text = questName;
+        notifTitleText.text = "Quest Complete!";
+        notifText.text = questName;
         StartCoroutine(ShowNotification());
     }
 
     IEnumerator ShowNotification()
     {
         animator.SetBool("BL_ShowNotification", true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         animator.SetBool("BL_ShowNotification", false);
     }
 

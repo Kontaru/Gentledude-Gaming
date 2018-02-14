@@ -52,6 +52,7 @@ public class Task
 
     [HideInInspector] public bool BL_isObtainable = false;
     [HideInInspector] public bool BL_isAccepted = false;
+    private bool BL_firstFlag = false;
 
     private bool BL_Boost = true;
 
@@ -61,10 +62,16 @@ public class Task
     //Checks if all our steps are complete
     public void StepChecker()
     {
-        if (Quest_ID == 0) return;
+        if (Quest_ID == 0) return;       
 
         if (BL_isAccepted)
         {
+            if (!BL_firstFlag)
+            {
+                GameManager.instance.QuestGained(name);
+                BL_firstFlag = true;
+            }
+
             Quest_Complete = true;
             //For each step
             if (step_tracker < Steps.Length)
@@ -109,7 +116,6 @@ public class Task
         {
             if (BL_Boost)
             {
-
                 Attribution.Attributes Type = GO_belongsTo.GetComponent<Attribution>().myAttribute;
 
                 if (!Quest_Fail)
@@ -133,6 +139,8 @@ public class Task
             BL_isAccepted = false;
             Quest_Complete = false;
             Quest_Fail = false;
+
+            GameManager.instance.QuestCompleted(name);
         }
     }
 }

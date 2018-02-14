@@ -71,6 +71,12 @@ public class KW_PlayerBehaviour : MonoBehaviour {
         }
     }
 
+
+    public void ReturnToMenu()
+    {
+        GameManager.instance.LoadScene(0);
+    }
+
     IEnumerator CountdownTimer()
     {
         while (timer > 0)

@@ -260,7 +260,6 @@ public class NPCInteraction : MonoBehaviour
         ActiveTask.Quest_Finish = true;
         BL_QuestCompleted = false;
         BL_QuestAccepted = false;
-        BL_HasQuest = false;
-        Debug.Log("Quest Completed");
+        BL_HasQuest = false;      
     }
 }
