@@ -36,11 +36,16 @@ public class PC_Controller : Entity {
         {
             Task task = CurrentTasks.currentTask[i];
 
-            if (task.inActiveList)
+            if (task.BL_isObtainable && !task.BL_isAccepted || task.BL_isObtainable && task.Quest_Complete)
             {
                 target = task.GO_belongsTo.gameObject;
                 break;
-            }            
+            }
+            else if (task.BL_isAccepted)
+            {
+                target = task.Steps[task.step_tracker].requires.gameObject;
+                break;
+            }  
         }
     }
 

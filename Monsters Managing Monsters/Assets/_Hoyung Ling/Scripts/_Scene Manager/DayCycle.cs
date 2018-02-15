@@ -80,7 +80,9 @@ public class DayCycle : MonoBehaviour
 
         if (BL_beginDay)
         {
+            FL_actionPointsUsed = 0;
             IN_currentDay++;
+            ResetTimer();
             BL_beginDay = false;
         }
 
@@ -235,6 +237,5 @@ public class DayCycle : MonoBehaviour
     public void NewDay()
     {
         BL_beginDay = true;
-        ResetTimer();
     }
 }

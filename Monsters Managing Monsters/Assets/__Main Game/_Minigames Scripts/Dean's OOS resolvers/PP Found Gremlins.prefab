@@ -43,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1579746011826740
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,10 +144,10 @@ MonoBehaviour:
   BL_MinigameComplete: 0
   BL_MinigameFail: 0
   objectiveMarker: {fileID: 1237585435023172}
-  dialogueOnContact: The doughnut shop is right across the road. Simple enough right?
-    I'll have some time to play some "Doughnut Dash" too!
-  playerAcceptText: Leave Now
-  playerDeclineText: Later
+  dialogueOnContact: '[Placeholder] You see a commotion in the distance. A band of
+    gremlins are being harassed by pixies. Give them a hand?'
+  playerAcceptText: Sure
+  playerDeclineText: '... They can wait.'
 --- !u!114 &114342169754059472
 MonoBehaviour:
   m_ObjectHideFlags: 1
