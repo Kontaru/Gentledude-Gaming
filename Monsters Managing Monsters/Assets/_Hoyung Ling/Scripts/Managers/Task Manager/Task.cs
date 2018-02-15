@@ -66,38 +66,12 @@ public class Task
 
         if (BL_isAccepted)
         {
-            if (!BL_firstFlag)
-            {
-                EndDaySummary.instance.QuestGained(name);
-                BL_firstFlag = true;
-            }
+            FirstFlag();
 
             Quest_Complete = true;
             //For each step
             if (step_tracker < Steps.Length)
             {
-                if (Steps[step_tracker].TurnOff)
-                    Steps[step_tracker].requires.gameObject.SetActive(true);
-
-                Steps[step_tracker].active = true;
-
-                QuestPart questStep = Steps[step_tracker].requires.GetComponent<QuestPart>();
-
-                questStep.BL_IsInteractable = true;
-
-                if (questStep.BL_MinigameComplete)
-                {
-                    Steps[step_tracker].complete = true;
-                    questStep.BL_IsInteractable = false;
-                    questStep.BL_MinigameComplete = false;
-
-                    if (questStep.BL_MinigameFail)
-                        Quest_Fail = true;
-
-                    Steps[step_tracker].active = false;
-                    step_tracker++;
-                }
-
                 foreach (Step step in Steps)
                 {
                     //If any of these steps are false, just stop everything and quit the function.
@@ -109,9 +83,53 @@ public class Task
                         Quest_Complete = false;
                     }
                 }
+
+                if (!Quest_Complete)
+                {
+                    StepStatus();
+                }
             }
         }
 
+        CheckFinished();
+    }
+    
+    void StepStatus()
+    {
+        if (Steps[step_tracker].TurnOff)
+            Steps[step_tracker].requires.gameObject.SetActive(true);
+
+        Steps[step_tracker].active = true;
+
+        QuestPart questStep = Steps[step_tracker].requires.GetComponent<QuestPart>();
+
+        questStep.BL_IsInteractable = true;
+
+        if (questStep.BL_MinigameComplete)
+        {
+            Steps[step_tracker].complete = true;
+            questStep.BL_IsInteractable = false;
+            questStep.BL_MinigameComplete = false;
+
+            if (questStep.BL_MinigameFail)
+                Quest_Fail = true;
+
+            Steps[step_tracker].active = false;
+            step_tracker++;
+        }
+    }
+
+    void FirstFlag()
+    {
+        if (!BL_firstFlag)
+        {
+            EndDaySummary.instance.QuestGained(name);
+            BL_firstFlag = true;
+        }
+    }
+
+    void CheckFinished()
+    {
         if (Quest_Finish)
         {
             if (BL_Boost)
@@ -131,7 +149,7 @@ public class Task
             {
                 step.complete = false;
                 step.active = false;
-            }            
+            }
 
             BL_isAccepted = false;
             Quest_Complete = false;
@@ -145,7 +163,7 @@ public class Task
                 EndDaySummary.instance.tasksCount++;
                 EndDaySummary.instance.QuestCompleted(name);
                 BL_firstFlag = false;
-            }            
+            }
         }
     }
 }
