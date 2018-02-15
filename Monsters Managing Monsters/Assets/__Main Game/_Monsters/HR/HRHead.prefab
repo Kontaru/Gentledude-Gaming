@@ -160,7 +160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1483986121334840
 GameObject:
   m_ObjectHideFlags: 1
@@ -255,7 +255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1743227634528118
 GameObject:
   m_ObjectHideFlags: 1
@@ -569,7 +569,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1005542927515032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 139.77634, y: -0.53, z: 7.4343686}
+  m_LocalPosition: {x: -7.6, y: -10.54234, z: 11.228771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4428906744738004}
@@ -702,9 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 1
-  Forward: {fileID: 0}
 --- !u!114 &114021024923828088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -779,10 +777,12 @@ MonoBehaviour:
   BL_QuestCompleted: 0
   BL_inCombat: 0
   BL_HasQuest: 0
+  BL_QuestAccepted: 0
+  BL_WithinSpace: 0
+  BL_InConversation: 0
   flavourText:
   - Heeey~!
-  - Oh my gosh~! I- like- got a new dress todaaay~! W-What do you mean I look the
-    same?
+  - I'm a little busy right now~
   - '[Hums a tune]'
   exclaimationPoint: {fileID: 1983827634469722}
   questionMark: {fileID: 1255546625519126}
@@ -805,7 +805,6 @@ MonoBehaviour:
     GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
-    GO_reward: []
     BL_isObtainable: 0
     BL_isAccepted: 0
     Steps: []
@@ -821,9 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 1
-  Forward: {fileID: 0}
 --- !u!114 &114540979847137208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -835,9 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 1
-  Forward: {fileID: 0}
 --- !u!114 &114557446559279172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -962,9 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 1
-  BL_LookAtCam: 1
-  Forward: {fileID: 0}
+  BL_LookAtCam: 0
 --- !u!114 &114965760282891756
 MonoBehaviour:
   m_ObjectHideFlags: 1

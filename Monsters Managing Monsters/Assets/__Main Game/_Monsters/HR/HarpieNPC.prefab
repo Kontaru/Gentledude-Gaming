@@ -372,7 +372,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460613961499528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 140.22217, y: 0.6534698, z: -5.871175}
+  m_LocalPosition: {x: 1.3, y: -5.6532836, z: 77.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4853359628431976}
@@ -811,9 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 1
-  Forward: {fileID: 0}
 --- !u!114 &114356473486575694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -846,9 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 1
   BL_LookAtCam: 0
-  Forward: {fileID: 0}
 --- !u!114 &114582269838356406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -863,11 +859,12 @@ MonoBehaviour:
   BL_QuestCompleted: 0
   BL_inCombat: 0
   BL_HasQuest: 0
+  BL_QuestAccepted: 0
+  BL_WithinSpace: 0
+  BL_InConversation: 0
   flavourText:
-  - Want... Smash...
-  - Must... Work... No... Smashing...
-  - Want... Smash... Hero...
-  - Me... Strong...
+  - Get away from me! [Hissss]
+  - I'm busy!
   exclaimationPoint: {fileID: 1534241817788720}
   questionMark: {fileID: 1586134144411902}
   interactionObject: {fileID: 1476320392032768}
@@ -889,7 +886,6 @@ MonoBehaviour:
     GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
-    GO_reward: []
     BL_isObtainable: 0
     BL_isAccepted: 0
     Steps: []
@@ -920,9 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 0
-  Forward: {fileID: 0}
 --- !u!114 &114878839011522782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -934,9 +928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 0
-  Forward: {fileID: 0}
 --- !u!114 &114885720036185526
 MonoBehaviour:
   m_ObjectHideFlags: 1

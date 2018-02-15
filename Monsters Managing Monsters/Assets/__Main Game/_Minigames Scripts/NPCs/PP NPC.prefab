@@ -214,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1722488685264206
 GameObject:
   m_ObjectHideFlags: 1
@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1785972223135324
 GameObject:
   m_ObjectHideFlags: 1
@@ -360,7 +360,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1321648758970042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 52.363907, y: 0.24, z: 11.78937}
+  m_LocalPosition: {x: -7.2, y: -10.3023405, z: 36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4838240380188430}
@@ -709,10 +709,9 @@ MonoBehaviour:
   BL_WithinSpace: 0
   BL_InConversation: 0
   flavourText:
-  - Want... Smash...
-  - Must... Work... No... Smashing...
-  - Want... Smash... Hero...
-  - Me... Strong...
+  - Hey! Don't look down on me!
+  - Move it, kid.
+  - Don't you have work to do, kid?
   exclaimationPoint: {fileID: 1497280663900720}
   questionMark: {fileID: 1401547709674966}
   interactionObject: {fileID: 1888922253861824}
