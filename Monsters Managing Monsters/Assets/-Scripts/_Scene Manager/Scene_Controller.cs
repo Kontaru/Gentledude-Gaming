@@ -37,7 +37,10 @@ public class Scene_Controller : MonoBehaviour {
         if (DayCycle.instance.BL_ShowResults)
             StartCoroutine(EndDayEvaluation());
         else
-            DayOverStats.SetActive(false);
+        {
+            if (DayOverStats != null) DayOverStats.SetActive(false);
+        }
+            
     }
 
     public void NextDay()
