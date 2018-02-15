@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000074, guid: 64476e7d5d09ca049bb0035c30dd83a4,
+  m_LightingDataAsset: {fileID: 112000116, guid: 241b7a6dc0491f446a214f003b9e2d54,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -7221,7 +7221,7 @@ Prefab:
     - target: {fileID: 108100639766179416, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
         type: 2}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 108100639766179416, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
         type: 2}
@@ -7242,6 +7242,51 @@ Prefab:
         type: 2}
       propertyPath: m_Shadows.m_Resolution
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108100639766179416, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.16165657
+      objectReference: {fileID: 0}
+    - target: {fileID: 108100639766179416, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.17518653
+      objectReference: {fileID: 0}
+    - target: {fileID: 108100639766179416, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.19117647
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440466627255248, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
+        type: 2}
+      propertyPath: skyColour.Array.data[0].lightCastColour.r
+      value: 0.16078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440466627255248, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
+        type: 2}
+      propertyPath: skyColour.Array.data[0].lightCastColour.g
+      value: 0.1764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440466627255248, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
+        type: 2}
+      propertyPath: skyColour.Array.data[0].lightCastColour.b
+      value: 0.19215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440466627255248, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
+        type: 2}
+      propertyPath: skyColour.Array.data[1].lightCastColour.r
+      value: 0.75686276
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440466627255248, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
+        type: 2}
+      propertyPath: skyColour.Array.data[1].lightCastColour.g
+      value: 0.75686276
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440466627255248, guid: 5f3d2914be8f5ec4aab1e88ff396f049,
+        type: 2}
+      propertyPath: skyColour.Array.data[1].lightCastColour.b
+      value: 0.75686276
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f3d2914be8f5ec4aab1e88ff396f049, type: 2}
@@ -15952,8 +15997,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1685272520}
   m_HandleRect: {fileID: 1685272519}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.7008751
+  m_Value: 0.9999997
+  m_Size: 0.70087504
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -26580,6 +26625,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 66d1e81db733ca847a9433eb3408cd1f,
         type: 3}
+    - target: {fileID: 212988774225972912, guid: 254c3377af4e71c4583c8b210fea8d2e,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 254c3377af4e71c4583c8b210fea8d2e, type: 2}
   m_IsPrefabParent: 0

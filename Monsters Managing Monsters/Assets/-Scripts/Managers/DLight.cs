@@ -27,19 +27,22 @@ public class DLight : MonoBehaviour {
     public Daylight[] skyColour;
 
     const int midnight = 24;
+    [Header("Times of Day")]
     public int morningStart;
     public int afternoonStart;
     public int eveningStart;
-    public int nightStart;    
+    public int nightStart;
 
-    int currentStep = 0;
+    [SerializeField] int currentStep = 0;
+    //C1C1C100
     float until = 0;
     float duration = 0;
     float rate = 0;
 
-    float currentTime;
-    float timeInDay;
-    float currentHour;
+    [Header("Code Variables")]
+    [SerializeField] float currentTime;
+    [SerializeField] float timeInDay;
+    [SerializeField] float currentHour;
 
     #region Typical Singleton Format
 

@@ -150,6 +150,7 @@ public class Task
             }
 
             BL_isAccepted = false;
+            BL_isObtainable = false;
             Quest_Complete = false;
             Quest_Fail = false;
 
