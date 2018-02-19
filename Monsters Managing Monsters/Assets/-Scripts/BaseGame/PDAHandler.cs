@@ -11,6 +11,7 @@ public class PDAHandler : MonoBehaviour {
     public GameObject tasksScreen;
     public GameObject taskBriefScreen;
     public GameObject gamesScreen;
+    public GameObject instructionScreen;
     public GameObject loadingScreen;
     public GameObject pauseScreen;
     public GameObject renderCam;
@@ -128,6 +129,7 @@ public class PDAHandler : MonoBehaviour {
             timeObject.SetActive(true);
             animator.SetBool("BL_Landscape", false);
             renderCam.SetActive(false);
+            instructionScreen.SetActive(false);
             homeBtn.enabled = true;
             closeBtn.enabled = true;
             minigames[minigameIndex].SetActive(false);
@@ -220,6 +222,12 @@ public class PDAHandler : MonoBehaviour {
         ShowHome();
         animator.SetBool("BL_ShowPDA", false);
         BL_PDAactive = false;
+    }
+
+    public void EnableMinigameRender()
+    {
+        renderCam.SetActive(true);
+        minigames[minigameIndex].SetActive(true);
     }
 
     public void StartDD()
@@ -329,6 +337,14 @@ public class PDAHandler : MonoBehaviour {
     {
         HideAllScreens();
         loadingScreen.SetActive(true);
+    }    
+
+    private void HideAllInstructions()
+    {
+        Transform screen = instructionScreen.transform;
+        screen.GetChild(2).gameObject.SetActive(false);
+        screen.GetChild(3).gameObject.SetActive(false);
+        screen.GetChild(4).gameObject.SetActive(false);
     }
 
     private void SetBrief(int index)
@@ -349,8 +365,9 @@ public class PDAHandler : MonoBehaviour {
         }
         else
         {
-            renderCam.SetActive(true);
-            minigames[minigameIndex].SetActive(true);
+            instructionScreen.SetActive(true);
+            HideAllInstructions();
+            instructionScreen.transform.GetChild(minigameIndex + 2).gameObject.SetActive(true);
         }        
     }
 }

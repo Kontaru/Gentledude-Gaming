@@ -82,13 +82,24 @@ public class EndDaySummary : MonoBehaviour {
     public void QuestGained(string questName)
     {
         notifTitleText.text = "New Quest!";
+        notifText.color = Color.white;
         notifText.text = questName;
         StartCoroutine(ShowNotification());
 
     }
-    public void QuestCompleted(string questName)
+    public void QuestCompleted(string questName, bool failed)
     {
-        notifTitleText.text = "Quest Complete!";
+        if (failed)
+        {
+            notifTitleText.text = "Quest Failed!";
+            notifText.color = Color.red;
+        }
+        else
+        {
+            notifTitleText.text = "Quest Complete!";
+            notifText.color = Color.green;
+        }
+        
         notifText.text = questName;
         StartCoroutine(ShowNotification());
     }

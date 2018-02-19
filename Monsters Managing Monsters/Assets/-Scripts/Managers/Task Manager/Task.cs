@@ -132,6 +132,14 @@ public class Task
     {
         if (Quest_Finish)
         {
+
+            if (BL_firstFlag)
+            {
+                EndDaySummary.instance.tasksCount++;
+                EndDaySummary.instance.QuestCompleted(name, Quest_Fail);
+                BL_firstFlag = false;
+            }
+
             if (BL_Boost)
             {
                 Attribution.Attributes Type = GO_belongsTo.GetComponent<Attribution>().myAttribute;
@@ -156,13 +164,7 @@ public class Task
 
             if (Repeatable)
                 Quest_Finish = false;
-
-            if (BL_firstFlag)
-            {
-                EndDaySummary.instance.tasksCount++;
-                EndDaySummary.instance.QuestCompleted(name);
-                BL_firstFlag = false;
-            }
+            
         }
     }
 }
