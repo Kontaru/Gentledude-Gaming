@@ -10,7 +10,7 @@ public class EndDaySummary : MonoBehaviour {
     private Text notifTitleText;
     private Text notifText;
     private GameObject notification;
-    private Animator animator;
+    private Animator notifAnimator;
 
     public int tasksCount;
     private int penalties;
@@ -76,7 +76,7 @@ public class EndDaySummary : MonoBehaviour {
         notifChild = notification.transform.GetChild(0).gameObject;
         notifTitleText = notifChild.transform.GetChild(0).GetComponent<Text>();
         notifText = notifChild.transform.GetChild(1).GetComponent<Text>();
-        animator = notification.GetComponentInChildren<Animator>();
+        notifAnimator = notification.GetComponentInChildren<Animator>();
     }
 
     public void QuestGained(string questName)
@@ -106,8 +106,8 @@ public class EndDaySummary : MonoBehaviour {
 
     IEnumerator ShowNotification()
     {
-        animator.SetBool("BL_ShowNotification", true);
+        notifAnimator.SetBool("BL_ShowNotification", true);
         yield return new WaitForSeconds(4);
-        animator.SetBool("BL_ShowNotification", false);
+        notifAnimator.SetBool("BL_ShowNotification", false);
     }
 }

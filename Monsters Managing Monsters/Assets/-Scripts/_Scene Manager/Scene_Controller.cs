@@ -7,6 +7,7 @@ public class Scene_Controller : MonoBehaviour {
     public static Scene_Controller instance;
 
     public GameObject DayOverStats;
+    public Animator summaryAnimator;
 
     #region Typical Singleton Format
 
@@ -23,11 +24,6 @@ public class Scene_Controller : MonoBehaviour {
 
     #endregion
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -35,33 +31,25 @@ public class Scene_Controller : MonoBehaviour {
         if (GameManager.instance.PixelMode) return;
 
         if (DayCycle.instance.BL_ShowResults)
-            StartCoroutine(EndDayEvaluation());
-        else
         {
-            if (DayOverStats != null) DayOverStats.SetActive(false);
-        }
-            
-    }
-
-    public void NextDay()
-    {
-
-    }
-
-    IEnumerator EndDayEvaluation()
-    {
-        DayCycle.instance.BL_pause = false;
-
-        yield return new WaitForSeconds(1);       
-
-        DayOverStats.SetActive(true);        
+            DayCycle.instance.BL_pause = false;
+            DayOverStats.SetActive(true);
+            summaryAnimator.SetBool("BL_ShowSummary", true);
+        }        
     }
 
     public void ExitPrompt()
     {
-        DayCycle.instance.NewDay();
         DayCycle.instance.BL_ShowResults = false;
+        summaryAnimator.SetBool("BL_ShowSummary", false);
+        Invoke("HideSummary", 1);
+        DayCycle.instance.NewDay();        
 
         PC_Move.BL_canMove = true;
+    }
+
+    private void HideSummary()
+    {
+        DayOverStats.SetActive(false);
     }
 }
