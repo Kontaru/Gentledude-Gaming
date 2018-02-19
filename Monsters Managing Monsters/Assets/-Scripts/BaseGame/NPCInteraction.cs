@@ -23,6 +23,7 @@ public class NPCInteraction : MonoBehaviour
     public GameObject exclaimationPoint;
     public GameObject questionMark;
     public GameObject interactionObject;
+    public ScrollRect textScrollRect;
 
     //----- COMPONENTS ----------------------------------------------------------
     private TaskManager TM;
@@ -66,6 +67,7 @@ public class NPCInteraction : MonoBehaviour
         TM = TaskManager.instance;
         Quests = GetComponent<myQuests>();
         myIdle = GetComponentInParent<Idle>();
+        textScrollRect = GameObject.Find("SayWindow").GetComponent<ScrollRect>();
     }
 
     void Update()
@@ -176,6 +178,7 @@ public class NPCInteraction : MonoBehaviour
     {
         PC_Move.BL_canMove = false;
         BL_InConversation = true;
+        textScrollRect.verticalNormalizedPosition = 1f;
 
         if (BL_QuestAccepted)
         {
@@ -206,6 +209,7 @@ public class NPCInteraction : MonoBehaviour
         {
             int rand = Random.Range(0, flavourText.Length - 1);
             CC_Dialogue.SetStringVariable("Idle", flavourText[rand]);
+
             Fungus.Flowchart.BroadcastFungusMessage("Idle");
         }
     }
