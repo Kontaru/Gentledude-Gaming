@@ -7,9 +7,10 @@ public class EndDaySummary : MonoBehaviour {
 
     public static EndDaySummary instance;
 
-    private Text notifTitleText;
-    private Text notifText;
-    private GameObject notification;
+    public GameObject notification;
+    public Text notifTitleText;
+    public Text notifText;
+
     private Animator notifAnimator;
 
     public int tasksCount;
@@ -71,11 +72,6 @@ public class EndDaySummary : MonoBehaviour {
 
     void Start()
     {
-        GameObject notifChild;
-        notification = GameObject.Find("QuestInfoPanel");
-        notifChild = notification.transform.GetChild(0).gameObject;
-        notifTitleText = notifChild.transform.GetChild(0).GetComponent<Text>();
-        notifText = notifChild.transform.GetChild(1).GetComponent<Text>();
         notifAnimator = notification.GetComponentInChildren<Animator>();
     }
 

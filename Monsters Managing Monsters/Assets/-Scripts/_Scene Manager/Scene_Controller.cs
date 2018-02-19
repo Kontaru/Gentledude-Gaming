@@ -24,6 +24,10 @@ public class Scene_Controller : MonoBehaviour {
 
     #endregion
 
+    void Start()
+    {
+        HideSummary();
+    }
 
     // Update is called once per frame
     void Update()

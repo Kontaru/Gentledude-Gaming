@@ -11144,8 +11144,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 125.67781, y: 13.26}
-  m_SizeDelta: {x: 173.48, y: 52.37}
+  m_AnchoredPosition: {x: 106.2, y: 13.26}
+  m_SizeDelta: {x: 138.9, y: 52.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &616079785
 MonoBehaviour:
@@ -11862,8 +11862,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.4, y: 14.65}
-  m_SizeDelta: {x: 160, y: 16.1}
+  m_AnchoredPosition: {x: -1.2, y: 14.65}
+  m_SizeDelta: {x: 125.7, y: 16.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &661253383
 MonoBehaviour:
@@ -22075,7 +22075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1935816553}
+  selectedFlowchart: {fileID: 2051676245}
 --- !u!4 &1122166669
 Transform:
   m_ObjectHideFlags: 1
@@ -38193,8 +38193,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.7, y: -1.79}
-  m_SizeDelta: {x: 160, y: 16.78}
+  m_AnchoredPosition: {x: -1.4, y: -1.79}
+  m_SizeDelta: {x: 125.7, y: 16.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1909280186
 MonoBehaviour:
@@ -38719,12 +38719,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 36
   indentLevel: 0
---- !u!114 &1935816553 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114663732025065190, guid: 89a94cf01f52e324fb674e20af021498,
-    type: 2}
-  m_PrefabInternal: {fileID: 1762258147}
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
 --- !u!1 &1943062427
 GameObject:
   m_ObjectHideFlags: 0
@@ -39313,6 +39307,21 @@ Prefab:
       propertyPath: summaryAnimator
       value: 
       objectReference: {fileID: 1679678630}
+    - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: notification
+      value: 
+      objectReference: {fileID: 1536927635}
+    - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: notifTitleText
+      value: 
+      objectReference: {fileID: 661253383}
+    - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: notifText
+      value: 
+      objectReference: {fileID: 1909280186}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf980da153ea1b42a443525b716ab45, type: 2}
   m_IsPrefabParent: 0
