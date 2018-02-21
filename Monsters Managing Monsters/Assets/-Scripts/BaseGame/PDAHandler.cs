@@ -27,6 +27,7 @@ public class PDAHandler : MonoBehaviour {
     private Animator animator;
 
     private string tasks;
+
     public int minigameIndex;
     public bool BL_PDAactive;
     public bool BL_PDAlandscape;
@@ -254,6 +255,14 @@ public class PDAHandler : MonoBehaviour {
         ToggleMinigames(quickStart);
 
         BL_PDAlandscape = !BL_PDAlandscape;
+    }
+
+    public void MinigameComplete(bool win)
+    {
+        BL_Pause = false;
+        ToggleMinigames(false);        
+        ShowHome();
+        OnClickClose();
     }
 
     private void HideAllScreens()
