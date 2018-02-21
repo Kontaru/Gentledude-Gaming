@@ -8,6 +8,7 @@ public class Scene_Controller : MonoBehaviour {
 
     public GameObject DayOverStats;
     public Animator summaryAnimator;
+    private bool BL_firstFlag;
 
     #region Typical Singleton Format
 
@@ -39,6 +40,11 @@ public class Scene_Controller : MonoBehaviour {
             DayCycle.instance.BL_pause = false;
             DayOverStats.SetActive(true);
             summaryAnimator.SetBool("BL_ShowSummary", true);
+            if (!BL_firstFlag)
+            {
+                EndDaySummary.instance.CalculateScores();
+                BL_firstFlag = true;
+            }            
         }        
     }
 
@@ -47,8 +53,8 @@ public class Scene_Controller : MonoBehaviour {
         DayCycle.instance.BL_ShowResults = false;
         summaryAnimator.SetBool("BL_ShowSummary", false);
         Invoke("HideSummary", 1);
-        DayCycle.instance.NewDay();        
-
+        DayCycle.instance.NewDay();
+        BL_firstFlag = false;
         PC_Move.BL_canMove = true;
     }
 

@@ -14,6 +14,7 @@ public class EndDaySummary : MonoBehaviour {
     private Animator notifAnimator;
 
     public int tasksCount;
+    private int IN_HR, IN_IT, IN_JN, IN_MK, IN_FN, IN_OVR, IN_SEC;
     private int penalties;
     private int penalty1 = 50;
     private int penalty2 = 50;
@@ -37,14 +38,6 @@ public class EndDaySummary : MonoBehaviour {
     private void Update()
     {
         tasksComplete.text = tasksCount.ToString();
-
-        HR.text = "+" + GameManager.instance.PL_HR;
-        IT.text = "+" + GameManager.instance.PL_IT;
-        JN.text = "+" + GameManager.instance.PL_Janitorial;
-        MK.text = "+" + GameManager.instance.PL_Marketing;
-        FN.text = "+" + GameManager.instance.PL_Finance;
-        OVR.text = "+" + GameManager.instance.PL_Overseas;
-        SEC.text = "+" + GameManager.instance.PL_Security;
 
         pen1Text.text = "-" + penalty1;
         pen2Text.text = "-" + penalty2;
@@ -100,10 +93,42 @@ public class EndDaySummary : MonoBehaviour {
         StartCoroutine(ShowNotification());
     }
 
+    public void CalculateScores()
+    {
+        int mHR = GameManager.instance.PL_HR;
+        int mIT = GameManager.instance.PL_IT;
+        int mJN = GameManager.instance.PL_Janitorial;
+        int mMK = GameManager.instance.PL_Marketing;
+        int mFN = GameManager.instance.PL_Finance;
+        int mOVR = GameManager.instance.PL_Overseas;
+        int mSEC = GameManager.instance.PL_Security;
+
+        StopAllCoroutines();
+        StartCoroutine(CountTo(mHR, IN_HR, HR));
+        StartCoroutine(CountTo(mIT, IN_IT, IT));
+        StartCoroutine(CountTo(mJN, IN_JN, JN));
+        StartCoroutine(CountTo(mMK, IN_MK, MK));
+        StartCoroutine(CountTo(mFN, IN_FN, FN));
+        StartCoroutine(CountTo(mOVR, IN_OVR, OVR));
+        StartCoroutine(CountTo(mSEC, IN_SEC, SEC));
+    }
+
     IEnumerator ShowNotification()
     {
         notifAnimator.SetBool("BL_ShowNotification", true);
         yield return new WaitForSeconds(4);
         notifAnimator.SetBool("BL_ShowNotification", false);
+    }
+
+    IEnumerator CountTo(int target, int score, Text label)
+    {
+        int start = score;
+        while (score < target)
+        {
+            score++;
+            label.text = "+" + score;
+            yield return null;
+        }
+        score = target;
     }
 }
