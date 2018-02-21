@@ -22,6 +22,7 @@ public class PDAHandler : MonoBehaviour {
     public Button homeBtn, closeBtn;
     public Slider volSlider;
     public Text tasksText, volText, tbTitleText, tbText, tbInfoText;
+    public Text PDAminute, PDAhour;
 
     private Animator animator;
 
@@ -283,7 +284,9 @@ public class PDAHandler : MonoBehaviour {
 
     private void ShowHome()
     {     
-        HideAllScreens();        
+        HideAllScreens();
+        PDAhour.text = DayCycle.instance.Hour.text;
+        PDAminute.text = DayCycle.instance.Minute.text;
         homeScreen.SetActive(true);
 
         if (BL_PDAlandscape) animator.SetBool("BL_Landscape", false);

@@ -116,19 +116,22 @@ public class EndDaySummary : MonoBehaviour {
     IEnumerator ShowNotification()
     {
         notifAnimator.SetBool("BL_ShowNotification", true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         notifAnimator.SetBool("BL_ShowNotification", false);
     }
 
     IEnumerator CountTo(int target, int score, Text label)
     {
         int start = score;
-        while (score < target)
+        yield return new WaitForSeconds(1);
+        for (float timer = 0; timer < 3; timer += Time.deltaTime)
         {
-            score++;
-            label.text = "+" + score;
+            float progress = timer / 3;
+            score = (int)Mathf.Lerp(start, target, progress);
+            label.text = "+" + score.ToString();
             yield return null;
         }
         score = target;
+        label.text = "+" + score.ToString();
     }
 }
