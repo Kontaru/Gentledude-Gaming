@@ -352,8 +352,8 @@ public class PDAHandler : MonoBehaviour {
         Task task = CurrentTasks.currentTask[index];
         tbTitleText.text = task.name;
         tbText.text = task.ST_taskBrief;
-        if (task.GO_belongsTo.GetComponent<Attribution>() != null) tbInfoText.text = "From: " + task.GO_belongsTo.GetComponent<Attribution>().myAttribute.ToString() + "\nAction Points: " + task.IN_actionPointWeight + "\nMotivation: +" + task.IN_motivationAmount;
-        else tbInfoText.text = "No Attribute component attached";
+        if (task.GO_belongsTo) tbInfoText.text = "From: " + task.GO_belongsTo.GetComponent<Attribution>().myAttribute.ToString() + "\nAction Points: " + task.IN_actionPointWeight + "\nMotivation: +" + task.IN_motivationAmount;
+        else tbInfoText.text = "ERROR: No belongsTo object found";
     }
 
     IEnumerator WaitAndDisplay(float seconds, bool isPause)
