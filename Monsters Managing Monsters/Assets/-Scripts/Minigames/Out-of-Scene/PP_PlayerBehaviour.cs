@@ -13,13 +13,13 @@ public class PP_PlayerBehaviour : MonoBehaviour
     public Text pixieText;
     public Text gremlinText;
 
+    private PP_PixieSpawner PS;
     private Vector3 playerSpawn;
     public int pixieCount;
     public int gremlinCount;
 
     public bool BL_Swing = false;
 
-    //Animator
     SpriteRenderer playerBroom;
     public Sprite BroomDown;
     public Sprite BroomUp;
@@ -44,42 +44,39 @@ public class PP_PlayerBehaviour : MonoBehaviour
         }
     }
 
-    // Use this for initialization
     private void OnEnable()
     {
         playerBroom = GetComponent<SpriteRenderer>();
+        PS = FindObjectOfType<PP_PixieSpawner>();
         AudioManager.instance.Play("BGM Minigame");
         AudioManager.instance.Stop("Theme");
         AudioManager.instance.Stop("Dungeon Music");
+
+        BL_GameComplete = false;
         BL_MinigameFailed = false;
-        winScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
-        failScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
+        winScreen.SetActive(false);
+        failScreen.SetActive(false);
+
+        playerSpawn = transform.position;
         pixieCount = 30;
         gremlinCount = 10;
-        playerSpawn = transform.position;
+        SpawnGremlins();
+        StartCoroutine(PS.RandomSpawn(pixieCount));
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateUI();
         CheckMovement();
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            BL_Swing = true;
-            StartCoroutine(BroomAnimator());
-        }
-        else
-            BL_Swing = false;
-
         CheckFailure();
     }
 
     IEnumerator BroomAnimator()
     {
+        BL_Swing = true;
         playerBroom.sprite = BroomUp;
         yield return new WaitForSeconds(0.5f);
+        BL_Swing = false;
         playerBroom.sprite = BroomDown;
     }
 
@@ -91,8 +88,11 @@ public class PP_PlayerBehaviour : MonoBehaviour
 
     private void CheckMovement()
     {
+        if (BL_GameComplete) return;
+
         if (Input.GetKey(KeyCode.A)) transform.position += Vector3.left * 15 * Time.deltaTime;
         if (Input.GetKey(KeyCode.D)) transform.position += Vector3.right * 15 * Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.W)) StartCoroutine(BroomAnimator());
     }
 
     private void CheckFailure()
@@ -101,32 +101,47 @@ public class PP_PlayerBehaviour : MonoBehaviour
         {
             AudioManager.instance.Stop("BGM Minigame");
             AudioManager.instance.Play("Dungeon Music");
-            StartCoroutine(ShowScreen(failScreen));
             BL_MinigameFailed = true;
             BL_GameComplete = true;
+            failScreen.SetActive(true);
+            Time.timeScale = 0;
         }
         else if (pixieCount <= 0)
         {
-            AudioManager.instance.Stop("BGM Minigame");
-            AudioManager.instance.Play("Dungeon Music");
             WinScreen();
-            BL_GameComplete = true;
         }
     }
 
     private void WinScreen()
     {
-        StartCoroutine(ShowScreen(winScreen));
+        AudioManager.instance.Stop("BGM Minigame");
+        AudioManager.instance.Play("Dungeon Music");
+        BL_GameComplete = true;
+        BL_MinigameFailed = false;
+        winScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    private void SpawnGremlins()
+    {
+        foreach (GameObject gremlin in gremlins)
+        {
+            gremlin.SetActive(false);
+        }
+
+        for (int i = 0; i < gremlins.Count; i++)
+        {
+            gremlins[i].SetActive(true);
+        }
     }
 
     public void DestroyGremlin()
     {
         for (int i = 0; i < gremlins.Count; i++)
         {
-            if (gremlins[i] != null)
+            if (gremlins[i].activeSelf)
             {
-                Destroy(gremlins[i]);
-                gremlins.RemoveAt(i);
+                gremlins[i].SetActive(false);
                 break;
             }
         }
@@ -139,16 +154,4 @@ public class PP_PlayerBehaviour : MonoBehaviour
         GameManager.instance.LoadScene(0);
     }
 
-    IEnumerator ShowScreen(GameObject screen)
-    {
-        float lerpTime = 0;
-        while (lerpTime < 1)
-        {
-            lerpTime += Time.deltaTime * 3;
-            screen.GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(0, -345, 0), Vector3.zero, lerpTime);
-
-            yield return null;
-        }
-        Time.timeScale = 0;
-    }
 }

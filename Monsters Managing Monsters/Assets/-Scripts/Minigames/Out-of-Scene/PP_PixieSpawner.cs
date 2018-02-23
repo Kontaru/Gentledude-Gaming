@@ -6,21 +6,8 @@ public class PP_PixieSpawner : MonoBehaviour {
 
     public GameObject pixie;
     public GameObject[] spawns;
-    private PP_PlayerBehaviour PB;
 
     private int previousValue = 0;
-
-    private void Start()
-    {
-        PB = FindObjectOfType<PP_PlayerBehaviour>();
-        StartCoroutine(RandomSpawn());
-    }
-
-    private void OnEnable()
-    {
-        PB = FindObjectOfType<PP_PlayerBehaviour>();
-        StartCoroutine(RandomSpawn());
-    }
 
     private void SpawnPixie()
     {
@@ -41,13 +28,12 @@ public class PP_PixieSpawner : MonoBehaviour {
         return value;
     }
 
-    IEnumerator RandomSpawn()
+    public IEnumerator RandomSpawn(int count)
     {
-        if (PB.pixieCount > 0)
+        while (count > 0)
         {
             yield return new WaitForSeconds(1);
             SpawnPixie();
-            StartCoroutine(RandomSpawn());
-        }        
+        }      
     }    
 }

@@ -4,11 +4,16 @@ using UnityEngine.UI;
 
 public class CI_PlayerBehaviour : MonoBehaviour
 {
+    public bool BL_GameComplete = false;
     public bool BL_MinigameFailed;
+
     public GameObject winScreen;
     public GameObject failScreen;
+    public GameObject[] stations;
+
     public Text ordersText, missedText, repairText, invText;
     public int remainingOrders, missedOrders;
+
     private string inventory;
     public bool item1, item2, item3, item4;
     public bool repair1, repair2, repair3, repair4;
@@ -18,17 +23,22 @@ public class CI_PlayerBehaviour : MonoBehaviour
         HandleCollision(collision);
     }
 
-    // Use this for initialization
     private void OnEnable()
     {
+        AudioManager.instance.Play("BGM Minigame");
+        AudioManager.instance.Stop("Dungeon Music");
+        AudioManager.instance.Stop("Theme");
+
+        BL_GameComplete = false;
         BL_MinigameFailed = false;
-        winScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
-        failScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
-        remainingOrders = 5;
+        winScreen.SetActive(false);
+        failScreen.SetActive(false);
+
+        remainingOrders = 6;
         missedOrders = 0;
+        ResetAll();
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateUI();
@@ -52,10 +62,12 @@ public class CI_PlayerBehaviour : MonoBehaviour
 
     private void CheckMovement()
     {
-        if (Input.GetKey(KeyCode.W)) transform.position += Vector3.up * 8 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.S)) transform.position += Vector3.down * 8 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.A)) transform.position += Vector3.left * 8 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.D)) transform.position += Vector3.right * 8 * Time.deltaTime;
+        if (BL_GameComplete) return;
+
+        if (Input.GetKey(KeyCode.W)) transform.position += Vector3.up * 12 * Time.deltaTime;
+        if (Input.GetKey(KeyCode.S)) transform.position += Vector3.down * 12 * Time.deltaTime;
+        if (Input.GetKey(KeyCode.A)) transform.position += Vector3.left * 12 * Time.deltaTime;
+        if (Input.GetKey(KeyCode.D)) transform.position += Vector3.right * 12 * Time.deltaTime;
     }
 
     private void HandleCollision(Collision2D coll)
@@ -201,6 +213,17 @@ public class CI_PlayerBehaviour : MonoBehaviour
         repair4 = false;
     }
 
+    private void ResetAll()
+    {
+        ResetItems();
+        ResetRepairs();
+
+        for (int i = 0; i < 4; i++)
+        {
+            stations[i].GetComponent<CI_Station>().BL_Damaged = false;
+        }
+    }
+
     private void CheckFailure()
     {
         if (missedOrders >= 8) BL_MinigameFailed = true;
@@ -208,13 +231,21 @@ public class CI_PlayerBehaviour : MonoBehaviour
 
         if (BL_MinigameFailed)
         {
-            StartCoroutine(ShowScreen(failScreen));
+            AudioManager.instance.Stop("BGM Minigame");
+            AudioManager.instance.Play("Dungeon Music");
+            failScreen.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
     private void WinScreen()
     {
-        StartCoroutine(ShowScreen(winScreen));
+        AudioManager.instance.Stop("BGM Minigame");
+        AudioManager.instance.Play("Dungeon Music");
+        BL_GameComplete = true;
+        BL_MinigameFailed = false;
+        winScreen.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void ReturnToMenu()
@@ -222,16 +253,4 @@ public class CI_PlayerBehaviour : MonoBehaviour
         GameManager.instance.LoadScene(0);
     }
 
-    IEnumerator ShowScreen(GameObject screen)
-    {
-        float lerpTime = 0;
-        while (lerpTime < 1)
-        {
-            lerpTime += Time.deltaTime * 3;
-            screen.GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(0, -345, 0), Vector3.zero, lerpTime);
-
-            yield return null;
-        }
-        Time.timeScale = 0;
-    }
 }

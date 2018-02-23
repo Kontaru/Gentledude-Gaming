@@ -103,7 +103,6 @@ public class EndDaySummary : MonoBehaviour {
         int mOVR = GameManager.instance.PL_Overseas;
         int mSEC = GameManager.instance.PL_Security;
 
-        StopAllCoroutines();
         StartCoroutine(CountTo(mHR, IN_HR, HR));
         StartCoroutine(CountTo(mIT, IN_IT, IT));
         StartCoroutine(CountTo(mJN, IN_JN, JN));

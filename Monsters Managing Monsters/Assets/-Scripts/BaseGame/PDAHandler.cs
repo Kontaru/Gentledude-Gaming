@@ -15,7 +15,6 @@ public class PDAHandler : MonoBehaviour {
     public GameObject loadingScreen;
     public GameObject pauseScreen;
     public GameObject renderCam;
-    public GameObject timeObject;
     public GameObject[] minigames;
     public GameObject[] activeTasks;
 
@@ -23,6 +22,7 @@ public class PDAHandler : MonoBehaviour {
     public Slider volSlider;
     public Text tasksText, volText, tbTitleText, tbText, tbInfoText;
     public Text PDAminute, PDAhour;
+    public Text HRstat, ITstat, JNstat, MKstat, FNstat, OVRstat, SECstat;
 
     private Animator animator;
 
@@ -54,7 +54,6 @@ public class PDAHandler : MonoBehaviour {
 
     private void Start()
     {
-        GetComponent<RectTransform>().localPosition = new Vector3(249, -380, 0);
         animator = GetComponentInChildren<Animator>();
         minigameIndex = 0;
     }
@@ -76,8 +75,7 @@ public class PDAHandler : MonoBehaviour {
 
     private void UpdateUI()
     {
-        volText.text = "Volume " + volSlider.value + "%";
-        tasksText.text = tasks;
+        volText.text = "Volume " + volSlider.value + "%";        
     }
 
     private void RefreshTasksList()
@@ -90,6 +88,8 @@ public class PDAHandler : MonoBehaviour {
             if (i > 0) tasks += "\n" + "[" + tasksArr[i].Quest_ID + "]" + " " + tasksArr[i].name;
             else tasks += "[" + tasksArr[i].Quest_ID + "]" + " " + tasksArr[i].name;
         }
+
+        tasksText.text = tasks;
     }
 
     private void UpdateActiveTasks()
@@ -126,7 +126,6 @@ public class PDAHandler : MonoBehaviour {
         if (BL_PDAlandscape)
         {
             GameManager.instance.PixelMode = false;
-            timeObject.SetActive(true);
             animator.SetBool("BL_Landscape", false);
             renderCam.SetActive(false);
             instructionScreen.SetActive(false);
@@ -137,7 +136,6 @@ public class PDAHandler : MonoBehaviour {
         else
         {
             GameManager.instance.PixelMode = true;
-            timeObject.SetActive(false);
             animator.SetBool("BL_Landscape", true);
             homeBtn.enabled = false;
             closeBtn.enabled = false;
@@ -155,7 +153,6 @@ public class PDAHandler : MonoBehaviour {
         if (BL_Pause)
         {
             animator.speed = 3;
-            timeObject.SetActive(false);
             if (!BL_PDAactive) animator.SetBool("BL_ShowPDA", true);
             animator.SetBool("BL_Landscape", true);
             StartCoroutine(WaitAndDisplay(1f, true));
@@ -165,7 +162,6 @@ public class PDAHandler : MonoBehaviour {
         else
         {
             animator.speed = 1;
-            timeObject.SetActive(true);
             animator.SetBool("BL_Landscape", false);
             animator.SetBool("BL_ShowPDA", false);
             pauseScreen.SetActive(false);
@@ -300,7 +296,15 @@ public class PDAHandler : MonoBehaviour {
     private void ShowStats()
     {
         HideAllScreens();
+        HRstat.text = "+" + GameManager.instance.PL_HR.ToString();
+        ITstat.text = "+" + GameManager.instance.PL_IT.ToString();
+        JNstat.text = "+" + GameManager.instance.PL_Janitorial.ToString();
+        MKstat.text = "+" + GameManager.instance.PL_Marketing.ToString();
+        FNstat.text = "+" + GameManager.instance.PL_Finance.ToString();
+        OVRstat.text = "+" + GameManager.instance.PL_Overseas.ToString();
+        SECstat.text = "+" + GameManager.instance.PL_Security.ToString();
         statsScreen.SetActive(true);
+
         if (!BL_PDAactive) animator.SetBool("BL_ShowPDA", true);
 
         BL_PDAactive = true;

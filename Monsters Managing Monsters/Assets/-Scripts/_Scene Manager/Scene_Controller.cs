@@ -8,6 +8,7 @@ public class Scene_Controller : MonoBehaviour {
 
     public GameObject DayOverStats;
     public Animator summaryAnimator;
+    public Transform spawnPoint;
     private bool BL_firstFlag;
 
     #region Typical Singleton Format
@@ -30,7 +31,6 @@ public class Scene_Controller : MonoBehaviour {
         HideSummary();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.instance.PixelMode) return;
@@ -53,7 +53,10 @@ public class Scene_Controller : MonoBehaviour {
         DayCycle.instance.BL_ShowResults = false;
         summaryAnimator.SetBool("BL_ShowSummary", false);
         Invoke("HideSummary", 1);
+
         DayCycle.instance.NewDay();
+        GameManager.instance.Player.transform.position = spawnPoint.position;
+        
         BL_firstFlag = false;
         PC_Move.BL_canMove = true;
     }

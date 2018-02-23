@@ -15,7 +15,7 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     public Text livesText;
     public Text invText;
 
-    private Vector3 playerSpawn;
+    public static Vector3 playerSpawn;
     private int lives;
     private int timer;
     private string inventory;
@@ -35,30 +35,31 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.name == "DD_Office" && inventory == "Doughnuts")
-        {
-            BL_GameComplete = true;
-            BL_MinigameFailed = false;
+        {            
             WinScreen();
         }
     }
 
-    // Use this for initialization
     private void OnEnable ()
     {
         AudioManager.instance.Play("BGM Minigame");
         AudioManager.instance.Stop("Dungeon Music");
         AudioManager.instance.Stop("Theme");
+
+        BL_GameComplete = false;
         BL_MinigameFailed = false;
-        winScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
-        failScreen.GetComponent<RectTransform>().localPosition = new Vector3(0, -345, 0);
+        winScreen.SetActive(false);
+        failScreen.SetActive(false);        
+
         playerSpawn = transform.position;
         lives = 3;
         timer = 30;
         inventory = "Empty";
+        RespawnPlayer();
+
         StartCoroutine(CountdownTimer());
 	}
 	
-	// Update is called once per frame
 	void Update () {
 
         UpdateUI();
@@ -75,6 +76,8 @@ public class DD_PlayerBehaviour : MonoBehaviour {
 
     private void CheckMovement()
     {
+        if (BL_GameComplete) return;
+
         if (Input.GetKeyDown(KeyCode.W)) transform.position += Vector3.up * 1.5f;
         if (Input.GetKeyDown(KeyCode.S)) transform.position += Vector3.down * 1.5f;
         if (Input.GetKeyDown(KeyCode.A)) transform.position += Vector3.left;
@@ -87,7 +90,8 @@ public class DD_PlayerBehaviour : MonoBehaviour {
         {
             AudioManager.instance.Stop("BGM Minigame");
             AudioManager.instance.Play("Dungeon Music");
-            StartCoroutine(ShowScreen(failScreen));
+            failScreen.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
@@ -95,7 +99,10 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     {
         AudioManager.instance.Stop("BGM Minigame");
         AudioManager.instance.Play("Dungeon Music");
-        StartCoroutine(ShowScreen(winScreen));
+        BL_GameComplete = true;
+        BL_MinigameFailed = false;
+        winScreen.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private void RespawnPlayer()
@@ -111,6 +118,8 @@ public class DD_PlayerBehaviour : MonoBehaviour {
             BL_MinigameFailed = true;
             BL_GameComplete = true;
         }
+
+        transform.position = playerSpawn;
 
         if (!BL_DoughnutsVisible)
         {
@@ -133,18 +142,5 @@ public class DD_PlayerBehaviour : MonoBehaviour {
         }
 
         BL_MinigameFailed = true;
-    }
-
-    IEnumerator ShowScreen(GameObject screen)
-    {
-        float lerpTime = 0;
-        while (lerpTime < 1)
-        {
-            lerpTime += Time.deltaTime * 3;
-            screen.GetComponent<RectTransform>().localPosition = Vector3.Lerp(new Vector3(0, -345, 0), Vector3.zero, lerpTime);
-
-            yield return null;
-        }
-        Time.timeScale = 0;
     }
 }
