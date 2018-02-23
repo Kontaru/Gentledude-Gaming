@@ -40771,6 +40771,11 @@ Prefab:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1343947395}
+    - target: {fileID: 114839365720268744, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: summaryRect
+      value: 
+      objectReference: {fileID: 1670617890}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf980da153ea1b42a443525b716ab45, type: 2}
   m_IsPrefabParent: 0

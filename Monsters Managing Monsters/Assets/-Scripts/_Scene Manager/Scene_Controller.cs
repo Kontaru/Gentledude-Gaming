@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Scene_Controller : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class Scene_Controller : MonoBehaviour {
     public GameObject DayOverStats;
     public Animator summaryAnimator;
     public Transform spawnPoint;
+    public ScrollRect summaryRect;
     private bool BL_firstFlag;
 
     #region Typical Singleton Format
@@ -63,6 +65,7 @@ public class Scene_Controller : MonoBehaviour {
 
     private void HideSummary()
     {
+        summaryRect.verticalNormalizedPosition = 1;
         DayOverStats.SetActive(false);
     }
 }
