@@ -12,6 +12,17 @@ public class PC_Controller : Entity {
     //Controllers
     PC_Move CC_Move;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "AutoDoors") other.gameObject.GetComponent<AutoDoors>().OpenDoors(true);
+        else if (other.gameObject.name == "TutorialTrigger") PDAHandler.instance.ShowTutorial();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "AutoDoors") other.gameObject.GetComponent<AutoDoors>().OpenDoors(false);
+    }
+
     // Use this for initialization
     void Start () {
         GameManager.instance.Player = gameObject;

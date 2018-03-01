@@ -271,6 +271,11 @@ public class PDAHandler : MonoBehaviour {
         loadingScreen.SetActive(false);
     }
 
+    public void ShowTutorial()
+    {
+        ShowTasks();
+    }
+
     private void ShowHome()
     {     
         HideAllScreens();
