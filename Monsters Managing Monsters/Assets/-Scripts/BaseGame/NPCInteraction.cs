@@ -149,6 +149,8 @@ public class NPCInteraction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && BL_InConversation == false)
                 Converse();
 
+        if (CC_Dialogue == null) return;
+
         if (CC_Dialogue.GetBooleanVariable("bl_accepted") && BL_InConversation == true)
         {
             BL_QuestAccepted = true;
