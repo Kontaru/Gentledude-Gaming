@@ -399,7 +399,7 @@ Transform:
   m_GameObject: {fileID: 1724477946943920}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 140.5915, y: 0.36991405, z: 47.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4601290656535470}
   - {fileID: 4673119394552274}
@@ -774,9 +774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 1
   BL_LookAtCam: 0
-  Forward: {fileID: 0}
 --- !u!114 &114487570972748412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -805,9 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 0
-  Forward: {fileID: 0}
 --- !u!114 &114646407910926734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -840,9 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 1
-  Forward: {fileID: 0}
 --- !u!114 &114835619590712534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -871,9 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 0
-  Forward: {fileID: 0}
 --- !u!114 &114949132435991338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -903,6 +895,9 @@ MonoBehaviour:
   BL_QuestCompleted: 0
   BL_inCombat: 0
   BL_HasQuest: 0
+  BL_QuestAccepted: 0
+  BL_WithinSpace: 0
+  BL_InConversation: 0
   flavourText:
   - Want... Smash...
   - Must... Work... No... Smashing...
@@ -911,6 +906,7 @@ MonoBehaviour:
   exclaimationPoint: {fileID: 1284976360644620}
   questionMark: {fileID: 1466890541222190}
   interactionObject: {fileID: 1031083150845534}
+  textScrollRect: {fileID: 0}
   ActiveTask:
     name: 
     ST_taskBrief: 
@@ -929,7 +925,6 @@ MonoBehaviour:
     GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
-    GO_reward: []
     BL_isObtainable: 0
     BL_isAccepted: 0
     Steps: []

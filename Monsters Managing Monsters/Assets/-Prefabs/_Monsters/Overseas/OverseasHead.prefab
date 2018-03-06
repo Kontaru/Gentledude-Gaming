@@ -403,7 +403,7 @@ Transform:
   m_GameObject: {fileID: 1279944839800848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 119.6, y: -10.96234, z: 29.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4534514786666934}
   - {fileID: 4177279323636868}
@@ -900,6 +900,7 @@ MonoBehaviour:
   exclaimationPoint: {fileID: 1826494199603608}
   questionMark: {fileID: 1305207129238816}
   interactionObject: {fileID: 1681783564930768}
+  textScrollRect: {fileID: 0}
   ActiveTask:
     name: 
     ST_taskBrief: 

@@ -569,7 +569,7 @@ Transform:
   m_GameObject: {fileID: 1826775713820320}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 140.29657, y: 0.7764007, z: -5.8489513}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4676482798631470}
   - {fileID: 4200028604967050}
@@ -704,6 +704,9 @@ MonoBehaviour:
   BL_QuestCompleted: 0
   BL_inCombat: 0
   BL_HasQuest: 0
+  BL_QuestAccepted: 0
+  BL_WithinSpace: 0
+  BL_InConversation: 0
   flavourText:
   - Want... Smash...
   - Must... Work... No... Smashing...
@@ -712,6 +715,7 @@ MonoBehaviour:
   exclaimationPoint: {fileID: 1231298605476308}
   questionMark: {fileID: 1594648741061602}
   interactionObject: {fileID: 1083390241929938}
+  textScrollRect: {fileID: 0}
   ActiveTask:
     name: 
     ST_taskBrief: 
@@ -730,7 +734,6 @@ MonoBehaviour:
     GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
-    GO_reward: []
     BL_isObtainable: 0
     BL_isAccepted: 0
     Steps: []
@@ -761,9 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 1
-  Forward: {fileID: 0}
 --- !u!114 &114176284683171096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -836,9 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 1
   BL_LookAtCam: 0
-  Forward: {fileID: 0}
 --- !u!114 &114478041614516508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -913,9 +912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 0
-  Forward: {fileID: 0}
 --- !u!114 &114770788517795438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -964,9 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtPC: 0
   BL_LookAtCam: 0
-  Forward: {fileID: 0}
 --- !u!195 &195545733821774806
 NavMeshAgent:
   m_ObjectHideFlags: 1
