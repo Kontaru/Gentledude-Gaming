@@ -115,7 +115,7 @@ public class PDAHandler : MonoBehaviour {
         if (BL_PDAactive) animator.SetBool("BL_ShowPDA", false);
         else animator.SetBool("BL_ShowPDA", true);
 
-        ShowHome();
+        ShowHome(false);
         BL_PDAactive = !BL_PDAactive;
     }
 
@@ -167,13 +167,13 @@ public class PDAHandler : MonoBehaviour {
             pauseScreen.SetActive(false);
             BL_PDAactive = false;
             BL_PDAlandscape = false;
-            ShowHome();
+            ShowHome(false);
         }          
     }
 
     public void OnClickHome()
     {
-        ShowHome();
+        ShowHome(false);
     }
 
     public void OnClickMap()
@@ -215,7 +215,7 @@ public class PDAHandler : MonoBehaviour {
     {
         if (BL_PDAlandscape && !BL_Pause) return;
 
-        ShowHome();
+        ShowHome(false);
         animator.SetBool("BL_ShowPDA", false);
         BL_PDAactive = false;
     }
@@ -257,7 +257,7 @@ public class PDAHandler : MonoBehaviour {
     {
         BL_Pause = false;
         ToggleMinigames(false);        
-        ShowHome();
+        ShowHome(false);
         OnClickClose();
     }
 
@@ -276,12 +276,15 @@ public class PDAHandler : MonoBehaviour {
         ShowTasks();
     }
 
-    private void ShowHome()
+    private void ShowHome(bool showText)
     {     
         HideAllScreens();
         PDAhour.text = DayCycle.instance.Hour.text;
         PDAminute.text = DayCycle.instance.Minute.text;
         homeScreen.SetActive(true);
+
+        if (showText) homeScreen.transform.GetChild(6).gameObject.SetActive(true);
+        else homeScreen.transform.GetChild(6).gameObject.SetActive(false);
 
         if (BL_PDAlandscape) animator.SetBool("BL_Landscape", false);
         if (BL_Pause) PauseGame();
@@ -350,6 +353,12 @@ public class PDAHandler : MonoBehaviour {
         screen.GetChild(2).gameObject.SetActive(false);
         screen.GetChild(3).gameObject.SetActive(false);
         screen.GetChild(4).gameObject.SetActive(false);
+    }
+
+    public void ShowMomText()
+    {       
+        TogglePDA();
+        ShowHome(true);
     }
 
     private void SetBrief(int index)
