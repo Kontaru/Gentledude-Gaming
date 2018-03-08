@@ -62,7 +62,7 @@ public class HeroEntry : MonoBehaviour {
 
         if (GameManager.instance.PixelMode) return;
 
-        if (Input.GetKeyDown(KeyCode.Q) || DayCycle.instance.IN_currentDay == DayCycle.instance.IN_DaysInWeek)
+        if (DayCycle.instance.IN_currentDay == DayCycle.instance.IN_DaysInWeek)
         {
             if (CurrentState != InteractionState.End)
             {
