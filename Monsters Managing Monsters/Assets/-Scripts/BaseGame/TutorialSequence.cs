@@ -8,16 +8,13 @@ public class TutorialSequence : MonoBehaviour {
 
     public GameObject fadeObject;
     public Image fadeImage;
+    public GameObject traffic;
 
     public GameObject player;
 
     void Start () {
 
         StartCoroutine(FadeIn(5, fadeImage));
-	}
-	
-	void Update () {
-		
 	}
 
     IEnumerator FadeIn(float t, Image i)
@@ -31,16 +28,20 @@ public class TutorialSequence : MonoBehaviour {
         }
         fadeObject.SetActive(false);
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
+
         player.SetActive(true);
+        traffic.SetActive(false);
         CameraFollow.instance.otherLook = null;
+
         yield return new WaitForSeconds(2);
-        TextMessage();
-        
+        StartCoroutine(TextMessage());        
     }
 
-    private void TextMessage()
+    IEnumerator TextMessage()
     {
         PDAHandler.instance.ShowMomText();
+        yield return new WaitForSeconds(5);
+        PDAHandler.instance.OnClickClose();
     }
 }
