@@ -55,7 +55,7 @@ public class TutorialSequence : MonoBehaviour {
 
     private void InitiateConvo(NavMeshAgent agent, Transform agentPos)
     {
-
+        Flowchart.BroadcastFungusMessage("MachicoIntroduction");
         // Once convo is over...
         agent.destination = agentPos.position;
         hrHead.SetActive(true);
