@@ -103,8 +103,17 @@ public class PDAHandler : MonoBehaviour {
             string taskName = task.name;
             int taskID = task.Quest_ID;
 
-            title.text = taskName;
-            id.text = taskID.ToString();
+            if (taskID != 0)
+            {
+                title.text = taskName;
+                id.text = taskID.ToString();
+            }
+            else
+            {
+                title.text = "No Quest Found";
+                id.text = "";
+            }
+
         }
     }
     
@@ -330,6 +339,7 @@ public class PDAHandler : MonoBehaviour {
 
     private void ShowTaskBrief(int index)
     {
+        if (CurrentTasks.instance.currentTask[index].Quest_ID == 0) return;
         HideAllScreens();
         SetBrief(index);
         taskBriefScreen.SetActive(true);
