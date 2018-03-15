@@ -9,6 +9,7 @@ public class TutorialSequence : MonoBehaviour {
 
     public GameObject fadeObject;
     public Image fadeImage;
+    public GameObject skipBtn;
     public GameObject taxi;
     public GameObject traffic;
     public GameObject player;
@@ -63,12 +64,12 @@ public class TutorialSequence : MonoBehaviour {
 
         GameObject.Find("TutorialTrigger").SetActive(false);
         PDAHandler.instance.ShowTutorial();
+        skipBtn.SetActive(true);
     }
 
     IEnumerator FadeIn(float t, Image i)
     {
         player.SetActive(false);
-
         fadeObject.SetActive(true);
         i.color = new Color(i.color.r, i.color.g, i.color.b, 1);
         while (i.color.a > 0f)

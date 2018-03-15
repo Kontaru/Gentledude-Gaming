@@ -56,7 +56,7 @@ public class MenuHandler : MonoBehaviour {
 
     public void LoadGame()
     {
-        if (saveSlots[0].transform.Find("SaveTitle").GetComponent<Text>().text == "[1] Save Game") StartCoroutine(LoadAsync(1));
+        if (saveSlots[0].transform.Find("SaveTitle").GetComponent<Text>().text == "[1] Save Game") StartCoroutine(LoadAsync(2));
     }
 
     public void LoadGamePanel()
@@ -157,22 +157,22 @@ public class MenuHandler : MonoBehaviour {
 
     public void StartMiniGameOne()
     {
-        GameManager.instance.LoadScene(3);
+        GameManager.instance.LoadScene(4);
     }
 
     public void StartMiniGameTwo()
     {
-        GameManager.instance.LoadScene(4);
+        GameManager.instance.LoadScene(5);
     }
 
     public void StartMiniGameThree()
     {
-        GameManager.instance.LoadScene(5);
+        GameManager.instance.LoadScene(6);
     }
 
     public void StartMiniGameOneH()
     {
-        GameManager.instance.LoadScene(6);
+        GameManager.instance.LoadScene(7);
 
     }
     public void Exit()
