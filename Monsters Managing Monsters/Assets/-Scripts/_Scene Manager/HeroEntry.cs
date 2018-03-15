@@ -11,6 +11,7 @@ public class HeroEntry : MonoBehaviour {
 
     public GameObject fadeObject;
     public Image fadeImage;
+    public GameObject warningMessage;
     public GameObject renderCam;
 
     #region    //----- Hero Variables (Initialised by code) (No touchy)
@@ -168,6 +169,18 @@ public class HeroEntry : MonoBehaviour {
 
     IEnumerator Entry()
     {
+        int flashCount = 0;
+
+        while (flashCount < 5)
+        {
+            warningMessage.SetActive(true);
+            yield return new WaitForSeconds(0.6f);
+            warningMessage.SetActive(false);
+            yield return new WaitForSeconds(0.2f);
+            flashCount++;
+        }
+        warningMessage.SetActive(false);
+
         CameraFollow.instance.otherLook = hero;
         yield return new WaitForSeconds(2);
         flowchart.SetStringVariable("hero_entry", ST_entryText);
