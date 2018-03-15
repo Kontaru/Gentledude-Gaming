@@ -30,14 +30,14 @@ public class MenuHandler : MonoBehaviour {
             int day = GameManager.instance.day;
             int score = GameManager.instance.score;
 
-            saveSlots[0].transform.Find("SaveTitle").GetComponent<Text>().text = "[0] Save Game";
+            saveSlots[0].transform.Find("SaveTitle").GetComponent<Text>().text = "[1] Save Game";
             saveSlots[0].transform.Find("SaveInfo").GetComponent<Text>().text = "Day " + day + ": Score " + score;
         }
         else
         {
             foreach (GameObject g in saveSlots)
             {
-                g.transform.Find("SaveTitle").GetComponent<Text>().text = "[0] Empty Save Slot";
+                g.transform.Find("SaveTitle").GetComponent<Text>().text = "[1] Empty Save Slot";
                 g.transform.Find("SaveInfo").GetComponent<Text>().text = "Day 0: Score 0000";
             }
         }
@@ -56,7 +56,7 @@ public class MenuHandler : MonoBehaviour {
 
     public void LoadGame()
     {
-        if (saveSlots[0].transform.Find("SaveTitle").GetComponent<Text>().text == "[0] Save Game") StartCoroutine(LoadAsync(1));
+        if (saveSlots[0].transform.Find("SaveTitle").GetComponent<Text>().text == "[1] Save Game") StartCoroutine(LoadAsync(1));
     }
 
     public void LoadGamePanel()
@@ -192,7 +192,7 @@ public class MenuHandler : MonoBehaviour {
             yield return null;
         }
 
-        if (progress >= 1) GameManager.instance.LoadScene(1);
+        if (progress >= 1) GameManager.instance.LoadScene(_sceneIndex);
     }
 
     IEnumerator ShowScreen(GameObject screen)
