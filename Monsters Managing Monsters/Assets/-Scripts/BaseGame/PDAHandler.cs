@@ -361,7 +361,6 @@ public class PDAHandler : MonoBehaviour {
         ShowHome(true);
     }
 
-
     private void SetBrief(int index)
     {
         Task task = CurrentTasks.instance.currentTask[index];

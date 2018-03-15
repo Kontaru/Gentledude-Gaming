@@ -17,14 +17,14 @@ public class Billboard : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        player = FindObjectOfType<PC_Controller>().gameObject;
+        //player = FindObjectOfType<PC_Controller>().gameObject;
         originalRot = transform.rotation;
     }
 
     // Update is called once per frame
     virtual public void Update()
     {
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 10f && !BL_LookAtCam)
+        if (player != null && Vector3.Distance(gameObject.transform.position, player.transform.position) < 10f && !BL_LookAtCam)
         {
             //originalRot = transform.rotation;
             lookPos = transform.position - player.transform.position;

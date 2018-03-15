@@ -15,7 +15,7 @@ public class PC_Controller : Entity {
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "AutoDoors") other.gameObject.GetComponent<AutoDoors>().OpenDoors(true);
-        else if (other.gameObject.name == "TutorialTrigger") PDAHandler.instance.ShowTutorial();
+        else if (other.gameObject.name == "TutorialTrigger") StartCoroutine(TutorialSequence.instance.HRHeadIntroduction());
     }
 
     private void OnTriggerExit(Collider other)
