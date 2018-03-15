@@ -68,6 +68,8 @@ public class NPCInteraction : MonoBehaviour
         Quests = GetComponent<myQuests>();
         myIdle = GetComponentInParent<Idle>();
         textScrollRect = GameObject.Find("SayWindow").GetComponent<ScrollRect>();
+
+        QuestChecker();
     }
 
     void Update()
@@ -81,6 +83,7 @@ public class NPCInteraction : MonoBehaviour
             BL_HasQuest = false;
             return;
         }
+
 
         QuestChecker();
 

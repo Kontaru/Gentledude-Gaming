@@ -98,7 +98,7 @@ public class PDAHandler : MonoBehaviour {
         {
             Text title = activeTasks[i].transform.GetChild(0).GetComponent<Text>();
             Text id = activeTasks[i].transform.GetChild(1).GetComponent<Text>();
-            Task task = CurrentTasks.currentTask[i];
+            Task task = CurrentTasks.instance.currentTask[i];
 
             string taskName = task.name;
             int taskID = task.Quest_ID;
@@ -364,7 +364,7 @@ public class PDAHandler : MonoBehaviour {
 
     private void SetBrief(int index)
     {
-        Task task = CurrentTasks.currentTask[index];
+        Task task = CurrentTasks.instance.currentTask[index];
         tbTitleText.text = task.name;
         tbText.text = task.ST_taskBrief;
         if (task.GO_belongsTo) tbInfoText.text = "From: " + task.GO_belongsTo.GetComponent<Attribution>().myAttribute.ToString() + "\nAction Points: " + task.IN_actionPointWeight + "\nMotivation: +" + task.IN_motivationAmount;

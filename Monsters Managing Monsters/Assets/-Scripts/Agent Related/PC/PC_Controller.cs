@@ -43,9 +43,9 @@ public class PC_Controller : Entity {
 
     private void FindTarget()
     {
-        for (int i = 0; i < CurrentTasks.currentTask.Length; i++)
+        for (int i = 0; i < CurrentTasks.instance.currentTask.Length; i++)
         {
-            Task task = CurrentTasks.currentTask[i];
+            Task task = CurrentTasks.instance.currentTask[i];
 
             if (task.BL_isObtainable && !task.BL_isAccepted || task.Quest_Complete)
             {

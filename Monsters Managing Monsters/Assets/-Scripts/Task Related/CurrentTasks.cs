@@ -4,20 +4,39 @@ using UnityEngine;
 
 public class CurrentTasks : MonoBehaviour {
 
-    public static Task[] currentTask = new Task[5];
+    public Task[] currentTask = new Task[5];
     //Do a thing which stores a queue of tasks
     //Do another thing which only displays the recent tasks
     //Do a final thing where if a task is complete, do a delay on the delivering the next task (deliver after x minutes: y seconds)
 
     bool BL_allQuestsComplete = true;
 
-	// Use this for initialization
-	void Start () {
+    public static CurrentTasks instance;
+
+    #region Typical Singleton Format
+
+    void Awake()
+    {
+
+        //Singleton stuff
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    #endregion
+
+    // Use this for initialization
+    void Start () {
         for (int i = 0; i < currentTask.Length; i++)
         {
             currentTask[i] = GrabRandomQuest();
-            currentTask[i].BL_isObtainable = true;
         }
+        currentTask[0].BL_isObtainable = true;
     }
 	
 	// Update is called once per frame
@@ -35,10 +54,11 @@ public class CurrentTasks : MonoBehaviour {
 
         for (int i = 0; i < currentTask.Length; i++)
         {
-            if (currentTask[i].Quest_Finish == true)
+            if (currentTask[i] == null || currentTask[i].Quest_Finish == true)
             {
+                currentTask[i].inActiveList = false;
                 currentTask[i] = GrabRandomQuest();
-                currentTask[i].BL_isObtainable = true;
+                currentTask[Random.Range(0, currentTask.Length)].BL_isObtainable = true;
             }
         }
 	}

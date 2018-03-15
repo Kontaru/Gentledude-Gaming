@@ -50,7 +50,7 @@ public class Task
     public int IN_actionPointWeight;
     public int IN_motivationAmount;
 
-    [HideInInspector] public bool BL_isObtainable = false;
+    public bool BL_isObtainable = false;
     [HideInInspector] public bool BL_isAccepted = false;
     private bool BL_firstFlag = false;
 
