@@ -31,17 +31,31 @@ public class CurrentTasks : MonoBehaviour {
     #endregion
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         for (int i = 0; i < currentTask.Length; i++)
         {
             currentTask[i] = GrabRandomQuest();
         }
         currentTask[0].BL_isObtainable = true;
     }
-	
-	// Update is called once per frame
-	void Update () {
 
+    // Update is called once per frame
+    void Update() {
+
+        currentTask[0].BL_isObtainable = true;
+
+        if (currentTask[0] == null || currentTask[0].Quest_Finish == true)
+        {
+            currentTask[0].inActiveList = false;
+
+            if (HasAllQuestsAcquired()) NewQuestFromQueue();
+            else
+                NewQuestFromPool();
+        }
+    }
+
+    bool HasAllQuestsAcquired()
+    {
         BL_allQuestsComplete = true;
 
         foreach (Task task in TaskManager.instance.Tasks)
@@ -50,21 +64,33 @@ public class CurrentTasks : MonoBehaviour {
                 BL_allQuestsComplete = false;
         }
 
-        if (BL_allQuestsComplete) return;
+        return BL_allQuestsComplete;
+    }
 
-        for (int i = 0; i < currentTask.Length; i++)
+    void NewQuestFromQueue()
+    {
+        ReorganiseQuests();
+    }
+
+    void NewQuestFromPool()
+    {
+        currentTask[0] = GrabRandomQuest();
+        ReorganiseQuests();
+    }
+
+    void ReorganiseQuests()
+    {
+        Task FirstQuest = currentTask[0];
+        for(int i = 1; i < currentTask.Length; i++)
         {
-            if (currentTask[i] == null || currentTask[i].Quest_Finish == true)
-            {
-                currentTask[i].inActiveList = false;
-                currentTask[i] = GrabRandomQuest();
-                currentTask[Random.Range(0, currentTask.Length)].BL_isObtainable = true;
-            }
+            currentTask[i - 1] = currentTask[i];
         }
-	}
+        currentTask[currentTask.Length - 1] = FirstQuest;
+    }
 
     Task GrabRandomQuest()
     {
+
         Task vTask = TaskManager.instance.Tasks[0];
         vTask = TaskManager.instance.Tasks[Random.Range(0, TaskManager.instance.Tasks.Length)];
         if (vTask.inActiveList == false && vTask.Quest_Finish == false)

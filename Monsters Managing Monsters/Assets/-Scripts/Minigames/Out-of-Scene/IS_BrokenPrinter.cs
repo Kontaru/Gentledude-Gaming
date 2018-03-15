@@ -14,7 +14,7 @@ public class IS_BrokenPrinter : QuestPart
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (!BL_IsInteractable) return;
+        if (!BL_IsInteractable) return;
 
         if (other.gameObject.name == "PC")
         {
@@ -26,7 +26,7 @@ public class IS_BrokenPrinter : QuestPart
 
     private void OnTriggerExit(Collider other)
     {
-        //if (!BL_IsInteractable) return;
+        if (!BL_IsInteractable) return;
 
         if (other.gameObject.name == "PC")
         {
@@ -38,13 +38,20 @@ public class IS_BrokenPrinter : QuestPart
     // Use this for initialization
     void Start()
     {
-
         InitialiseGame(true);
     }
 
     // Update is called once per frame
-    void Update()
+    override public void Update()
     {
+        base.Update();
+        if (!BL_IsInteractable)
+        {
+            HideLabels();
+            return;
+        }
+        else
+            ShowLabelObject();    
 
         if (!BL_IsPlaying) return;
 
@@ -113,6 +120,12 @@ public class IS_BrokenPrinter : QuestPart
         labelObject.GetComponentInChildren<Text>().text = "Fixed Printer";
         labelObject.transform.GetChild(1).gameObject.SetActive(false);
         repairObject.SetActive(false);
+    }
+
+    private void HideLabels()
+    {
+        repairObject.SetActive(false);
+        labelObject.SetActive(false);
     }
 
     IEnumerator RunTimer()
