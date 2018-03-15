@@ -348,7 +348,7 @@ public class PDAHandler : MonoBehaviour {
     }    
 
     private void HideAllInstructions()
-    {
+    {        
         Transform screen = instructionScreen.transform;
         screen.GetChild(2).gameObject.SetActive(false);
         screen.GetChild(3).gameObject.SetActive(false);
@@ -360,6 +360,7 @@ public class PDAHandler : MonoBehaviour {
         TogglePDA();
         ShowHome(true);
     }
+
 
     private void SetBrief(int index)
     {
