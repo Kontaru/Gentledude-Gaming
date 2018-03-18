@@ -104,7 +104,7 @@ public class PC_PlayerBehaviour : MonoBehaviour {
 
     private int GetRandomAdIndex()
     {
-        int value = Random.Range(0, 2);
+        int value = Random.Range(0, 3);
         return value;
     }
 
