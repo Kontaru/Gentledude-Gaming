@@ -250,6 +250,11 @@ public class PDAHandler : MonoBehaviour {
         StartMinigame(2, false);
     }
 
+    public void StartPC()
+    {
+        StartMinigame(3, false);
+    }
+
     public void StartMinigame(int index, bool quickStart)
     {
         minigameIndex = index;
