@@ -17,6 +17,9 @@ public class TutorialSequence : MonoBehaviour {
     public Transform target;
     public static TutorialSequence instance;
 
+    [Header("Fungus")]
+    public Flowchart fung;
+
     #region Typical Singleton Format
 
     void Awake()
@@ -51,12 +54,17 @@ public class TutorialSequence : MonoBehaviour {
         yield return new WaitForSeconds(4);
 
         CameraFollow.instance.otherLook = null;
-        InitiateConvo(agent, agentPos);
+        StartCoroutine(InitiateConvo(agent, agentPos));
     }
 
-    private void InitiateConvo(NavMeshAgent agent, Transform agentPos)
+    private IEnumerator InitiateConvo(NavMeshAgent agent, Transform agentPos)
     {
         Flowchart.BroadcastFungusMessage("MachicoIntroduction");
+
+        do {
+            yield return null;
+        } while (fung.GetBooleanVariable("bl_textCycleOver") == false);
+
         // Once convo is over...
         agent.destination = agentPos.position;
         hrHead.SetActive(true);
