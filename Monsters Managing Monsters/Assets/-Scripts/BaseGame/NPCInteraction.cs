@@ -67,7 +67,6 @@ public class NPCInteraction : MonoBehaviour
         TM = TaskManager.instance;
         Quests = GetComponent<myQuests>();
         myIdle = GetComponentInParent<Idle>();
-        textScrollRect = GameObject.Find("SayWindow").GetComponent<ScrollRect>();
 
         QuestChecker();
     }
@@ -183,7 +182,9 @@ public class NPCInteraction : MonoBehaviour
     {
         PC_Move.BL_canMove = false;
         BL_InConversation = true;
-        textScrollRect.verticalNormalizedPosition = 1f;
+
+        if(textScrollRect != null)
+            textScrollRect.verticalNormalizedPosition = 1f;
 
         if (BL_QuestAccepted)
         {
