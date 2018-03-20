@@ -64,10 +64,18 @@ public class TutorialSequence : MonoBehaviour {
         do {
             yield return null;
         } while (fung.GetBooleanVariable("bl_textCycleOver") == false);
+        fung.SetBooleanVariable("bl_textCycleOver", false);
 
         // Once convo is over...
         agent.destination = agentPos.position;
-        hrHead.SetActive(true);
+        Flowchart.BroadcastFungusMessage("MachicoIntroLeave");
+        do {
+            yield return null;
+        } while (fung.GetBooleanVariable("bl_textCycleOver") == false);
+        fung.SetBooleanVariable("bl_textCycleOver", false);
+
+        // After she leaves...
+        hrHead.SetActive(false);
         PC_Move.BL_canMove = true;
 
         GameObject.Find("TutorialTrigger").SetActive(false);
