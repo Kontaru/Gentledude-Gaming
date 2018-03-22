@@ -66,14 +66,15 @@ public class TutorialSequence : MonoBehaviour {
         } while (fung.GetBooleanVariable("bl_textCycleOver") == false);
         fung.SetBooleanVariable("bl_textCycleOver", false);
 
-        // Once convo is over...
-        agent.destination = agentPos.position;
+        // Once convo is over...        
         Flowchart.BroadcastFungusMessage("MachicoIntroLeave");
         do {
             yield return null;
         } while (fung.GetBooleanVariable("bl_textCycleOver") == false);
         fung.SetBooleanVariable("bl_textCycleOver", false);
+        agent.destination = agentPos.position;
 
+        yield return new WaitForSeconds(3);
         // After she leaves...
         hrHead.SetActive(false);
         PC_Move.BL_canMove = true;
