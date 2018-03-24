@@ -113,7 +113,6 @@ public class PDAHandler : MonoBehaviour {
                 title.text = "No Quest Found";
                 id.text = "";
             }
-
         }
     }
     
@@ -373,6 +372,8 @@ public class PDAHandler : MonoBehaviour {
         screen.GetChild(2).gameObject.SetActive(false);
         screen.GetChild(3).gameObject.SetActive(false);
         screen.GetChild(4).gameObject.SetActive(false);
+        screen.GetChild(5).gameObject.SetActive(false);
+        screen.GetChild(6).gameObject.SetActive(false);
     }
 
     public void ShowMomText()
