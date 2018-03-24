@@ -15,7 +15,7 @@ public class SS_Hand : MonoBehaviour {
     private void OnEnable()
     {
         PB = FindObjectOfType<SS_PlayerBehaviour>();
-        Destroy(gameObject, 8);
+        Destroy(gameObject, 6);
         StartCoroutine(StealItem());
     }
 
@@ -40,28 +40,36 @@ public class SS_Hand : MonoBehaviour {
     {
         if (BL_escaping)
         {
-            transform.position += -direction * (speed + 4) * Time.deltaTime;
+            transform.position += -direction * (speed + 12) * Time.deltaTime;
         }
         else
         {
-            transform.position += direction * (speed + 2) * Time.deltaTime;
+            transform.position += direction * (speed + GetRandomSpeed()) * Time.deltaTime;
             if (direction == Vector3.right || direction == Vector3.left) transform.position += Vector3.down * (speed + 2) * Time.deltaTime;
         }
+    }
+
+    private int GetRandomSpeed()
+    {
+        return Random.Range(3, 8);
     }
 
     public void Escape(bool hasItem)
     {
         Destroy(GetComponent<Rigidbody2D>());
         BL_escaping = true;
+        GetComponent<BoxCollider2D>().enabled = false;
+
         if (hasItem)
         {
+            PB.ClearItem();
             carriedItem.SetActive(true);
-        }               
+        }                  
     }
 
     IEnumerator StealItem()
     {
         yield return new WaitForSeconds(2.5f);
-        Escape(true);
+        if (!BL_escaping) Escape(true);
     }
 }

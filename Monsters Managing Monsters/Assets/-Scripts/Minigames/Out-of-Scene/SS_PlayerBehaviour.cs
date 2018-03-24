@@ -7,6 +7,8 @@ public class SS_PlayerBehaviour : MonoBehaviour {
 
     public bool BL_GameComplete = false;
     public bool BL_MinigameFailed;
+
+    public Camera cam;
     public GameObject handsParent;
     public GameObject[] hands;
     public GameObject hand;
@@ -14,9 +16,10 @@ public class SS_PlayerBehaviour : MonoBehaviour {
     public GameObject[] items;
     public GameObject winScreen;
     public GameObject failScreen;
-    public Text timerText, handsSwattedCount;
+    public Text timerText, itemsCountText;
 
     public int swatCount;
+    private int itemsCount;
     private List<GameObject> activeHands;
     private int timer;
     private int previousValue;
@@ -34,26 +37,43 @@ public class SS_PlayerBehaviour : MonoBehaviour {
 
         activeHands = new List<GameObject>();
         timer = 30;
+        itemsCount = items.Length;
         swatCount = 0;
+        ResetItems();
         StartCoroutine(CountdownTimer());
         StartCoroutine(RandomSpawn());
     }
 
     void Update()
     {
+        CheckInput();
         UpdateUI();
-        CheckFailure();
+        CheckFailure();        
+    }
+
+    private void CheckInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+            if (hit)
+            {
+                hit.collider.gameObject.GetComponent<SS_Hand>().Escape(false);
+                swatCount++;
+            }
+        }
     }
 
     private void UpdateUI()
     {
         timerText.text = "Timer: " + timer.ToString() + " seconds";
-        handsSwattedCount.text = "Hands Swatted: " + swatCount.ToString();
+        itemsCountText.text = "Items Remaining: " + itemsCount.ToString();
     }
 
     private void CheckFailure()
     {
-        if (swatCount >= 25) WinScreen();
+        if (itemsCount <= 0) BL_MinigameFailed = true;
 
         if (BL_MinigameFailed)
         {
@@ -124,7 +144,7 @@ public class SS_PlayerBehaviour : MonoBehaviour {
 
     private int GetRandomSeconds()
     {
-        return Random.Range(1, 3);
+        return Random.Range(0, 3);
     }
 
     private void ClearHands()
@@ -132,6 +152,28 @@ public class SS_PlayerBehaviour : MonoBehaviour {
         foreach (GameObject hand in activeHands)
         {
             Destroy(hand);
+        }
+    }
+
+    public void ClearItem()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i].activeSelf)
+            {
+                items[i].SetActive(false);
+                break;
+            }
+        }
+
+        itemsCount--;
+    }
+
+    private void ResetItems()
+    {
+        foreach (GameObject item in items)
+        {
+            item.SetActive(true);
         }
     }
 
@@ -150,6 +192,6 @@ public class SS_PlayerBehaviour : MonoBehaviour {
             timer--;
         }
 
-        BL_MinigameFailed = true;
+        WinScreen();
     }
 }
