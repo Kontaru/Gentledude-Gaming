@@ -26,8 +26,8 @@ public class PP_Pixie : MonoBehaviour {
         PB = FindObjectOfType<PP_PlayerBehaviour>();
         carriedGremlin = transform.GetChild(0).gameObject;
         _startPosition = transform.position;
-        randomFactor = Random.Range(1, 4);        
-        StartCoroutine(DestroyPixie());
+        randomFactor = Random.Range(1, 4);
+        Destroy(gameObject, 8);
     }
 
     void Update()
@@ -58,11 +58,5 @@ public class PP_Pixie : MonoBehaviour {
     public void SpeedType(int _type)
     {
         speed = _type;
-    }
-
-    IEnumerator DestroyPixie()
-    {
-        yield return new WaitForSeconds(8);
-        Destroy(this.gameObject);
     }
 }
