@@ -51,7 +51,7 @@ public class SS_Hand : MonoBehaviour {
 
     private int GetRandomSpeed()
     {
-        return Random.Range(3, 8);
+        return Random.Range(3, 6);
     }
 
     public void Escape(bool hasItem)
@@ -69,7 +69,7 @@ public class SS_Hand : MonoBehaviour {
 
     IEnumerator StealItem()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         if (!BL_escaping) Escape(true);
     }
 }
