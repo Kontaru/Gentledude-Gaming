@@ -58,11 +58,11 @@ public class PDAHandler : MonoBehaviour {
         minigameIndex = 0;
     }
 
-    // Update is called once per frame
     void Update () {
 
         CheckInput();
         UpdateUI();
+
     }
 
     private void CheckInput()

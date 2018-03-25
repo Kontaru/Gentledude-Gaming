@@ -57,11 +57,7 @@ public class SS_PlayerBehaviour : MonoBehaviour {
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-            if (hit)
-            {
-                hit.collider.gameObject.GetComponent<SS_Hand>().Escape(false);
-                swatCount++;
-            }
+            if (hit) hit.collider.gameObject.GetComponent<SS_Hand>().HandSwatted();
         }
     }
 
@@ -123,8 +119,7 @@ public class SS_PlayerBehaviour : MonoBehaviour {
         {
             GO.GetComponent<SS_Hand>().direction = Vector3.down;
             GO.transform.rotation = Quaternion.Euler(0, 0, 60);
-        }
-            
+        }           
 
         activeHands.Add(GO);
     }

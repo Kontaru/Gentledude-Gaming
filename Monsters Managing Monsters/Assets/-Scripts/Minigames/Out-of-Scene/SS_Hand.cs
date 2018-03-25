@@ -54,9 +54,8 @@ public class SS_Hand : MonoBehaviour {
         return Random.Range(3, 6);
     }
 
-    public void Escape(bool hasItem)
+    private void Escape(bool hasItem)
     {
-        Destroy(GetComponent<Rigidbody2D>());
         BL_escaping = true;
         GetComponent<BoxCollider2D>().enabled = false;
 
