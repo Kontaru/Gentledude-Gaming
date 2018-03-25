@@ -15,6 +15,7 @@ public class PDAHandler : MonoBehaviour {
     public GameObject loadingScreen;
     public GameObject pauseScreen;
     public GameObject renderCam;
+
     public GameObject[] minigames;
     public GameObject[] activeTasks;
 
@@ -137,16 +138,20 @@ public class PDAHandler : MonoBehaviour {
             animator.SetBool("BL_Landscape", false);
             renderCam.SetActive(false);
             instructionScreen.SetActive(false);
+
             homeBtn.enabled = true;
             closeBtn.enabled = true;
+
             minigames[minigameIndex].SetActive(false);
         }
         else
         {
             GameManager.instance.PixelMode = true;
             animator.SetBool("BL_Landscape", true);
+
             homeBtn.enabled = false;
             closeBtn.enabled = false;
+
             if (!quickStart) StartCoroutine(WaitAndDisplay(1.5f, false));
             else StartCoroutine(WaitAndDisplay(3f, false));
         }        
@@ -161,20 +166,25 @@ public class PDAHandler : MonoBehaviour {
         if (BL_Pause)
         {
             animator.speed = 3;
+
             if (!BL_PDAactive) animator.SetBool("BL_ShowPDA", true);
             animator.SetBool("BL_Landscape", true);
             StartCoroutine(WaitAndDisplay(1f, true));
+
             BL_PDAactive = true;
             BL_PDAlandscape = true;            
         }
         else
         {
             animator.speed = 1;
+
             animator.SetBool("BL_Landscape", false);
             animator.SetBool("BL_ShowPDA", false);
+
             pauseScreen.SetActive(false);
             BL_PDAactive = false;
             BL_PDAlandscape = false;
+
             ShowHome(false);
         }          
     }
@@ -257,6 +267,11 @@ public class PDAHandler : MonoBehaviour {
     public void StartSS()
     {
         StartMinigame(4, false);
+    }
+
+    public void StartOE()
+    {
+        StartMinigame(5, false);
     }
 
     public void StartMinigame(int index, bool quickStart)
@@ -374,6 +389,7 @@ public class PDAHandler : MonoBehaviour {
         screen.GetChild(4).gameObject.SetActive(false);
         screen.GetChild(5).gameObject.SetActive(false);
         screen.GetChild(6).gameObject.SetActive(false);
+        screen.GetChild(7).gameObject.SetActive(false);
     }
 
     public void ShowMomText()
@@ -394,11 +410,10 @@ public class PDAHandler : MonoBehaviour {
     IEnumerator WaitAndDisplay(float seconds, bool isPause)
     {
         if (!isPause) ShowLoading();
+
         yield return new WaitForSeconds(seconds);
-        if (isPause)
-        {
-            pauseScreen.SetActive(true);
-        }
+
+        if (isPause) pauseScreen.SetActive(true);
         else
         {
             instructionScreen.SetActive(true);
