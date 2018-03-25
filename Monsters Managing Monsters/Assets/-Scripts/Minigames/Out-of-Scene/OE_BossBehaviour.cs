@@ -9,20 +9,27 @@ public class OE_BossBehaviour : MonoBehaviour
 
     private OE_PlayerBehaviour PB;
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Worker(Clone)")
+        {
+            if (currentState == State.Active) Invoke("SeenWorker", 1f);
+        }
+    }
+
     private void OnEnable()
     {
         PB = FindObjectOfType<OE_PlayerBehaviour>();
+
+        currentState = State.Active;
+        SetState(currentState);
+
         StartCoroutine(StateSwitcher());
     }
 
-    void Start()
+    private int GetRandomSecondDelay(int min, int max)
     {
-        currentState = State.Active; 
-    }
-
-    private int GetRandomSecondDelay()
-    {
-        int value = Random.Range(1, 3);
+        int value = Random.Range(min, max);
         return value;
     }
 
@@ -36,6 +43,7 @@ public class OE_BossBehaviour : MonoBehaviour
     private void SetState(State state)
     {
         HideAllStates();
+        currentState = state;
 
         switch (state)
         {
@@ -48,20 +56,24 @@ public class OE_BossBehaviour : MonoBehaviour
             case State.Active:
                 stateActive.SetActive(true);
                 break;
-            default:
-                break;
         }
+    }
+
+    private void SeenWorker()
+    {
+        PB.BL_MinigameFailed = true;
     }
 
     IEnumerator StateSwitcher()
     {
-        while (true)
-        {
-
-        }
+        yield return new WaitForSeconds(GetRandomSecondDelay(3, 8));
+        SetState(State.Inactive);
+        yield return new WaitForSeconds(GetRandomSecondDelay(2, 6));
+        SetState(State.Warning);
         yield return new WaitForSeconds(4);
-        PB.escapedCount++;
-        Destroy(gameObject);
+        SetState(State.Active);
+
+        StartCoroutine(StateSwitcher());
     }
 }
 

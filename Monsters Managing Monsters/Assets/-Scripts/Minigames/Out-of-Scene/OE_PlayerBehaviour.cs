@@ -60,8 +60,6 @@ public class OE_PlayerBehaviour : MonoBehaviour
         {
             BL_commandGO = !BL_commandGO;
 
-            Debug.Log("GO " + BL_commandGO);
-
             if (BL_commandGO)
             {
                 // PC Sprite GO
@@ -173,7 +171,7 @@ public class OE_PlayerBehaviour : MonoBehaviour
 
     private void WorkersStop()
     {
-        StopAllCoroutines();
+        StopCoroutine(Spawn(false));
         StartCoroutine(Spawn(true));
 
         foreach (GameObject worker in waitLine)
@@ -195,14 +193,15 @@ public class OE_PlayerBehaviour : MonoBehaviour
     {
         if (firstFlag)
         {
-            yield return new WaitForSeconds(1);
-            SpawnWorker(1);
-            pointInUse[1] = true;
+            if (!pointInUse[1])
+            {
+                SpawnWorker(1);
+                pointInUse[1] = true;
+            }
         }
 
         if (!pointInUse[0])
         {
-            yield return new WaitForSeconds(1);
             SpawnWorker(0);
             pointInUse[0] = true;
         }
