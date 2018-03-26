@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PDAHandler : MonoBehaviour {
 
+    public GameObject oldPDA;
     public GameObject homeScreen;
     public GameObject mapScreen;
     public GameObject statsScreen;
@@ -116,6 +117,14 @@ public class PDAHandler : MonoBehaviour {
             }
         }
     }
+
+    private void ToggleOldPDA()
+    {
+        if (BL_PDAactive) oldPDA.GetComponent<Animator>().SetBool("BL_ShowPDA", false);
+        else oldPDA.GetComponent<Animator>().SetBool("BL_ShowPDA", true);
+
+        BL_PDAactive = !BL_PDAactive;
+    }
     
     private void TogglePDA()
     {
@@ -124,7 +133,8 @@ public class PDAHandler : MonoBehaviour {
         if (BL_PDAactive) animator.SetBool("BL_ShowPDA", false);
         else animator.SetBool("BL_ShowPDA", true);
 
-        ShowHome(false);
+        ShowHome();
+        oldPDA.SetActive(false);
         BL_PDAactive = !BL_PDAactive;
     }
 
@@ -185,13 +195,13 @@ public class PDAHandler : MonoBehaviour {
             BL_PDAactive = false;
             BL_PDAlandscape = false;
 
-            ShowHome(false);
+            ShowHome();
         }          
     }
 
     public void OnClickHome()
     {
-        ShowHome(false);
+        ShowHome();
     }
 
     public void OnClickMap()
@@ -233,7 +243,7 @@ public class PDAHandler : MonoBehaviour {
     {
         if (BL_PDAlandscape && !BL_Pause) return;
 
-        ShowHome(false);
+        ShowHome();
         animator.SetBool("BL_ShowPDA", false);
         BL_PDAactive = false;
     }
@@ -290,7 +300,7 @@ public class PDAHandler : MonoBehaviour {
     {
         BL_Pause = false;
         ToggleMinigames(false);        
-        ShowHome(false);
+        ShowHome();
         OnClickClose();
     }
 
@@ -304,20 +314,12 @@ public class PDAHandler : MonoBehaviour {
         loadingScreen.SetActive(false);
     }
 
-    public void ShowTutorial()
-    {
-        ShowTasks();
-    }
-
-    private void ShowHome(bool showText)
+    private void ShowHome()
     {     
         HideAllScreens();
         PDAhour.text = DayCycle.instance.Hour.text;
         PDAminute.text = DayCycle.instance.Minute.text;
         homeScreen.SetActive(true);
-
-        if (showText) homeScreen.transform.GetChild(6).gameObject.SetActive(true);
-        else homeScreen.transform.GetChild(6).gameObject.SetActive(false);
 
         if (BL_PDAlandscape) animator.SetBool("BL_Landscape", false);
         if (BL_Pause) PauseGame();
@@ -393,9 +395,14 @@ public class PDAHandler : MonoBehaviour {
     }
 
     public void ShowMomText()
-    {       
-        TogglePDA();
-        ShowHome(true);
+    {
+        oldPDA.SetActive(true);
+        ToggleOldPDA();
+    }
+
+    public void HideMomText()
+    {
+        ToggleOldPDA();
     }
 
     private void SetBrief(int index)

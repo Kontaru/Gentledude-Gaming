@@ -80,7 +80,7 @@ public class TutorialSequence : MonoBehaviour {
         PC_Move.BL_canMove = true;
 
         GameObject.Find("TutorialTrigger").SetActive(false);
-        PDAHandler.instance.ShowTutorial();
+        EndDaySummary.instance.QuestGained(CurrentTasks.instance.currentTask[0].name);
         skipBtn.SetActive(true);
     }
 
@@ -111,6 +111,6 @@ public class TutorialSequence : MonoBehaviour {
     {
         PDAHandler.instance.ShowMomText();
         yield return new WaitForSeconds(4);
-        PDAHandler.instance.OnClickClose();
+        PDAHandler.instance.HideMomText();
     }
 }
