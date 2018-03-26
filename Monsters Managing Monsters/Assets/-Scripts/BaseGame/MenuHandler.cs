@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class MenuHandler : MonoBehaviour {
     public GameObject settingsScreen;
     public GameObject[] saveSlots;
 
+    private AsyncOperation ao;
     private bool BL_helpVisible = false;
     private bool BL_loadVisible = false;
     private bool BL_minigamesVisible = false;
@@ -182,17 +184,18 @@ public class MenuHandler : MonoBehaviour {
 
     IEnumerator LoadAsync(int _sceneIndex)
     {
-        float progress = 0;
         loadingScreen.SetActive(true);
 
-        while (progress < 1)
+        ao = SceneManager.LoadSceneAsync(_sceneIndex);
+        ao.allowSceneActivation = false;
+
+        while (!ao.isDone)
         {
-            progress += Time.deltaTime / 3f;
-            loadingSlider.value = progress;
+            loadingSlider.value = ao.progress;
+
+            if (ao.progress >= 0.9f) ao.allowSceneActivation = true;
             yield return null;
         }
-
-        if (progress >= 1) GameManager.instance.LoadScene(_sceneIndex);
     }
 
     IEnumerator ShowScreen(GameObject screen)

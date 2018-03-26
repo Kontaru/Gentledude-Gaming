@@ -134,6 +134,11 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(index, LoadSceneMode.Single);
     }
 
+    public void LoadSceneAsync(int index)
+    {
+        SceneManager.LoadSceneAsync(index);
+    }
+
     public void EndGame()
     {
         Application.Quit();
