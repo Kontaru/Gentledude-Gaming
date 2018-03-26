@@ -6,7 +6,7 @@ using Fungus;
 public class MainTextBox : MonoBehaviour {
 
 	void Start() {
-        NPCInteraction.CC_Dialogue = GetComponent<Flowchart>();
+        FungusDirector.instance.FungusFlow = GetComponent<Flowchart>();
         HeroEntry.instance.flowchart = GetComponent<Flowchart>();
     }
 }

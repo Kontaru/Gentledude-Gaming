@@ -52,6 +52,112 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a74c7c17e239d498570ce8f7068f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask:
+  - name: 
+    ST_taskBrief: 
+    ST_descriptionDialogue: 
+    ST_acceptedDialogue: 
+    ST_declinedDialogue: 
+    ST_finishDialogue: 
+    ST_failDialogue: 
+    ST_waitingDialogue: 
+    Quest_ID: 0
+    inActiveList: 0
+    Repeatable: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    Steps: []
+    step_tracker: 0
+  - name: 
+    ST_taskBrief: 
+    ST_descriptionDialogue: 
+    ST_acceptedDialogue: 
+    ST_declinedDialogue: 
+    ST_finishDialogue: 
+    ST_failDialogue: 
+    ST_waitingDialogue: 
+    Quest_ID: 0
+    inActiveList: 0
+    Repeatable: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    Steps: []
+    step_tracker: 0
+  - name: 
+    ST_taskBrief: 
+    ST_descriptionDialogue: 
+    ST_acceptedDialogue: 
+    ST_declinedDialogue: 
+    ST_finishDialogue: 
+    ST_failDialogue: 
+    ST_waitingDialogue: 
+    Quest_ID: 0
+    inActiveList: 0
+    Repeatable: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    Steps: []
+    step_tracker: 0
+  - name: 
+    ST_taskBrief: 
+    ST_descriptionDialogue: 
+    ST_acceptedDialogue: 
+    ST_declinedDialogue: 
+    ST_finishDialogue: 
+    ST_failDialogue: 
+    ST_waitingDialogue: 
+    Quest_ID: 0
+    inActiveList: 0
+    Repeatable: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    Steps: []
+    step_tracker: 0
+  - name: 
+    ST_taskBrief: 
+    ST_descriptionDialogue: 
+    ST_acceptedDialogue: 
+    ST_declinedDialogue: 
+    ST_finishDialogue: 
+    ST_failDialogue: 
+    ST_waitingDialogue: 
+    Quest_ID: 0
+    inActiveList: 0
+    Repeatable: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    GO_belongsTo: {fileID: 0}
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    Steps: []
+    step_tracker: 0
 --- !u!114 &114460942788931260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,8 +175,8 @@ MonoBehaviour:
       know. Come take a look?
     ST_descriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but
       I uh \u2013 I got a virus. I don\u2019t know how but I need you to fix it for
-      me fast. Don\u2019t go telling Jim, the technician. This isn\u2019t the first
-      time\u2026 "
+      me, fast. n//n  Don\u2019t go telling Jim, the technician. This isn\u2019t the
+      first time\u2026 Could you fix it for me?"
     ST_acceptedDialogue: 'Hurry it up then, before someone sees! '
     ST_declinedDialogue: Uh oh. Uuuuuh... I mean, you're gonna come back, right? I'll
       wait.
@@ -81,7 +187,7 @@ MonoBehaviour:
     ST_waitingDialogue: "You\u2019d better know what you\u2019re doing. "
     Quest_ID: 1
     inActiveList: 0
-    Repeatable: 1
+    Repeatable: 0
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
@@ -102,8 +208,8 @@ MonoBehaviour:
     ST_taskBrief: Doughnuts need to be delivered around the office!
     ST_descriptionDialogue: "Hey, you \u2013 yeah, you. We got some doughnuts in that
       I gotta go dish around, but frankly Pigman Jim is roaming about and he can\u2019t
-      hold back when food is about. I\u2019m not in the mood for running today. But
-      hey, you look weedy and fast. What do you say? "
+      hold back when food is about. n//n I\u2019m not in the mood for running today.
+      But hey, you look weedy and fast. What do you say? "
     ST_acceptedDialogue: "Thanks. I can\u2019t tell if you\u2019re brave or stupid,
       but watch out\u2026 He loves them doughnuts\u2026 "
     ST_declinedDialogue: Not now? I can wait.
@@ -132,21 +238,20 @@ MonoBehaviour:
       active: 0
     step_tracker: 0
   - name: Doughnut Dash
-    ST_taskBrief: Don't text me ever again. Just get those doughnuts across the street
-      for us, alright?
-    ST_descriptionDialogue: "Hey you! Yeah you, the wimpy looking one. We ordered
-      some doughnuts for the department, but have to go fetch them. I\u2019m uh, busy.
-      Right now. How about you go grab them? They\u2019re just across the street.
-      I\u2019ll make it worth your while.  "
+    ST_taskBrief: Hey Carlson. It's me, Machico. I need a small favour - see you soon!
+    ST_descriptionDialogue: "Hey Carlson. We ordered some doughnuts for the department,
+      and I need someone to go fetch them. n//n I have my hands full with some new
+      recruits. How about you go grab them? They\u2019re just across the street. Easy,
+      right?"
     ST_acceptedDialogue: "Thanks~ I\u2019ve already paid. Just make sure you look
-      both ways and up\u2026 Damn dragons\u2026 "
-    ST_declinedDialogue: Later then? Right?
-    ST_finishDialogue: "Wow, nice one. What? Isn\u2019t doing a good deed for your
-      coworker a good enough reward? "
-    ST_failDialogue: "I don\u2019t care if you got hit by something, the doughnuts
-      are gone! Damn it\u2026 "
-    ST_waitingDialogue: "Don\u2019t dally, we\u2019ve got a hungry department waiting
-      on you, uh\u2026 John, right? "
+      both ways... And up\u2026 Damn dragons\u2026 "
+    ST_declinedDialogue: Later then? I could really use another hand.
+    ST_finishDialogue: Wow! Nice one! You're doing a great job at your new job, I
+      knew you could do it!
+    ST_failDialogue: The doughnuts are gone? That's not gonna be good... The boss
+      is not gonna be happy...
+    ST_waitingDialogue: You've got this Carlson. You were born to do this! The doughnut
+      shop is just across the street.
     Quest_ID: 3
     inActiveList: 0
     Repeatable: 0
@@ -172,43 +277,12 @@ MonoBehaviour:
       complete: 0
       active: 0
     step_tracker: 0
-  - name: Stray Pixies
-    ST_taskBrief: The pixies got in again. Get here, asap!
-    ST_descriptionDialogue: "Looks like the pixies got in again. Stubborn little gremlins
-      aren\u2019t they? I\u2019m not cleaning up this mess. Hold on\u2026 Look! One\u2019s
-      getting away now! Go on! I\u2019m not going after it\u2026 "
-    ST_acceptedDialogue: 'Well get to it then! Those pests are fast. '
-    ST_declinedDialogue: 
-    ST_finishDialogue: "Looks like you\u2019re agile as well as weedy. You\u2019re
-      getting blamed for the mess though. "
-    ST_failDialogue: "Damn. If that thing gets anywhere near the boss, it\u2019s your
-      fault\u2026 "
-    ST_waitingDialogue: 'What are you looking at me for? Go get it! '
-    Quest_ID: 4
-    inActiveList: 0
-    Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 6
-    IN_motivationAmount: 220
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    Steps:
-    - name: Hunt down the pixies
-      description: Hunt down the pixies
-      requires: {fileID: 0}
-      TurnOff: 0
-      complete: 0
-      active: 0
-    step_tracker: 0
   - name: Wandering Spirit
     ST_taskBrief: Hey... Listen. Don't be alarmed, but I'm a pixie. I don't mean any
       harm. I just want OUT.
     ST_descriptionDialogue: Hey... Listen. Hey... LISTEN! Are you listening, punk?
-      Look, I somehow got here with my buddies. Don't worry, we're gonna leave, but
-      could you help me find my mates?
+      n//n Look, I somehow got here with my buddies. Don't worry, we're gonna leave,
+      but could you help me find my mates?
     ST_acceptedDialogue: Good. You're smarter than you look. I'll wait here. Don't
       take long, punk.
     ST_declinedDialogue: Look. I know you're coming back, because if you don't, we
@@ -239,14 +313,16 @@ MonoBehaviour:
     ST_taskBrief: Oh no... Oh no no no... My gremlin brothers are gone... Where could
       they be?!
     ST_descriptionDialogue: Look, buddy... Jim, was it? Whatever, look. I'm sorry
-      about always making fun of you, but PLEASE, my brothers are gone. Last I saw,
-      boss wanted them to clear all the pixies that were lurking around. This can't
-      be good...
+      about always making fun of you, but PLEASE... n//n ... My brothers - they're
+      gone. Last I saw, boss wanted them to clear all the pixies that were lurking
+      around. This can't be good...
     ST_acceptedDialogue: Thanks, buddy. You're actually really nice, now that I think
-      about it... Here, I'll mark for you where I think they  might be. Please hurry...
+      about it... n//n Here, I'll mark for you where I think they  might be. Please
+      hurry...
     ST_declinedDialogue: Please? You'll be doing me a favour man. I'll wait here.
-    ST_finishDialogue: Haha! You did it! Yeah, thanks, but jeez I hate your face.
-      I was lying about everything I said!
+    ST_finishDialogue: Haha! You did it! Yeah, thanks! I got the word that you saved
+      my brothers! n//n But JEEZ I hate your face. I was lying about everything I
+      said!
     ST_failDialogue: W-What do you mean my brothers were taken away...?
     ST_waitingDialogue: Heh, no rush buddy, nooo rush at all.
     Quest_ID: 6
