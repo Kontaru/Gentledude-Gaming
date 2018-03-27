@@ -64,15 +64,14 @@ public class TutorialSequence : MonoBehaviour {
         do {
             yield return null;
         } while (fung.GetBooleanVariable("bl_textCycleOver") == false);
-        fung.SetBooleanVariable("bl_textCycleOver", false);
 
         // Once convo is over...        
-        Flowchart.BroadcastFungusMessage("MachicoIntroLeave");
-        do {
-            yield return null;
-        } while (fung.GetBooleanVariable("bl_textCycleOver") == false);
-        fung.SetBooleanVariable("bl_textCycleOver", false);
+        //Flowchart.BroadcastFungusMessage("MachicoIntroLeave");
+        //do {
+        //    yield return null;
+        //} while (fung.GetBooleanVariable("bl_textCycleOver") == false);
         agent.destination = agentPos.position;
+        CameraFollow.instance.otherLook = hrHead;
 
         yield return new WaitForSeconds(3);
         // After she leaves...
