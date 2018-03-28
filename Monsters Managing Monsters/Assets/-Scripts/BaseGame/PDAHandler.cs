@@ -202,31 +202,37 @@ public class PDAHandler : MonoBehaviour {
     public void OnClickHome()
     {
         ShowHome();
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void OnClickMap()
     {
         ShowMap();
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void OnClickStats()
     {
         ShowStats();
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void OnClickTasks()
     {
         ShowTasks();
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void OnClickTask(int index)
     {
         ShowTaskBrief(index);
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void OnClickGames()
     {
         ShowMinigames();
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void OnClickSave()
@@ -257,31 +263,37 @@ public class PDAHandler : MonoBehaviour {
     public void StartDD()
     {
         StartMinigame(0, false);
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void StartPP()
     {
         StartMinigame(1, false);
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void StartCI()
     {
         StartMinigame(2, false);
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void StartPC()
     {
         StartMinigame(3, false);
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void StartSS()
     {
         StartMinigame(4, false);
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void StartOE()
     {
         StartMinigame(5, false);
+        AudioManager.instance.Play("PDA Button Click");
     }
 
     public void StartMinigame(int index, bool quickStart)

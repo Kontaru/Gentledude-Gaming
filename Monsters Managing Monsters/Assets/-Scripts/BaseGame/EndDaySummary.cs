@@ -67,7 +67,7 @@ public class EndDaySummary : MonoBehaviour {
     }
 
     public void QuestGained(string questName)
-    {
+    {       
         notifTitleText.text = "New Quest!";
         notifText.color = Color.white;
         notifText.text = questName;
@@ -112,6 +112,7 @@ public class EndDaySummary : MonoBehaviour {
 
     IEnumerator ShowNotification()
     {
+        AudioManager.instance.Play("Quest Notification");
         notifAnimator.SetBool("BL_ShowNotification", true);
         yield return new WaitForSeconds(3);
         notifAnimator.SetBool("BL_ShowNotification", false);

@@ -164,6 +164,29 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
+    private bool IsPunctuation(char letter)
+    {
+        bool flag = false;
+
+        switch (letter)
+        {
+            case '.':
+                flag = true;
+                break;
+            case ',':
+                flag = true;
+                break;
+            case '?':
+                flag = true;
+                break;
+            case '!':
+                flag = true;
+                break;
+        }
+
+        return flag;
+    }
+
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
@@ -171,7 +194,8 @@ public class DialogueManager : MonoBehaviour {
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+            if (IsPunctuation(letter)) yield return new WaitForSeconds(0.5f);
+            else yield return new WaitForSeconds(0.01f);
         }
     }
 }
