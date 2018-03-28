@@ -31,8 +31,6 @@ public class EndDaySummary : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
-
-        DontDestroyOnLoad(transform.gameObject);
     }
 
     private void Update()
