@@ -13,6 +13,9 @@ public class MenuHandler : MonoBehaviour {
     public GameObject helpScreen;
     public GameObject settingsScreen;
     public GameObject[] saveSlots;
+    public Text loadingText;
+    public GameObject[] splashArtArray;
+    public Image fadeFX;
 
     private AsyncOperation ao;
     private bool BL_helpVisible = false;
@@ -182,20 +185,50 @@ public class MenuHandler : MonoBehaviour {
         Application.Quit();
     }
 
+    private void HideAllSplashArt()
+    {
+        for (int i = 0; i < splashArtArray.Length; i++)
+        {
+            splashArtArray[i].SetActive(false);
+        }
+    }
+
     IEnumerator LoadAsync(int _sceneIndex)
     {
         loadingScreen.SetActive(true);
 
         ao = SceneManager.LoadSceneAsync(_sceneIndex);
         ao.allowSceneActivation = false;
+        StartCoroutine(CycleSplashArt());
 
         while (!ao.isDone)
         {
             loadingSlider.value = ao.progress;
 
-            if (ao.progress >= 0.9f) ao.allowSceneActivation = true;
+            if (ao.progress >= 0.9f)
+            {
+                loadingSlider.value = 1;
+                loadingText.text = "Scene Loaded. Press 'Space' to continue.";
+                if (Input.GetKeyDown(KeyCode.Space)) ao.allowSceneActivation = true;
+            }
             yield return null;
         }
+    }
+
+    IEnumerator CycleSplashArt()
+    {
+        for (int i = 0; i < splashArtArray.Length; i++)
+        {
+            HideAllSplashArt();
+
+            splashArtArray[i].SetActive(true);
+            StartCoroutine(FadeImageToZeroAlpha(2, fadeFX));
+            yield return new WaitForSeconds(2);            
+            StartCoroutine(FadeImageToFullAlpha(3, fadeFX));
+            yield return new WaitForSeconds(3);            
+        }
+
+        StartCoroutine(CycleSplashArt());
     }
 
     IEnumerator ShowScreen(GameObject screen)
@@ -224,5 +257,25 @@ public class MenuHandler : MonoBehaviour {
         }
 
         screen.SetActive(false);
+    }
+
+    IEnumerator FadeImageToFullAlpha(float t, Image i)
+    {
+        i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
+        while (i.color.a < 1.0f)
+        {
+            i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeImageToZeroAlpha(float t, Image i)
+    {
+        i.color = new Color(i.color.r, i.color.g, i.color.b, 1);
+        while (i.color.a > 0f)
+        {
+            i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
+            yield return null;
+        }
     }
 }
