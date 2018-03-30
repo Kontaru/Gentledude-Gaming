@@ -23,7 +23,6 @@ public class NPCInteraction : MonoBehaviour
     public GameObject exclaimationPoint;
     public GameObject questionMark;
     public GameObject interactionObject;
-    public ScrollRect textScrollRect;
 
     //----- COMPONENTS ----------------------------------------------------------
     private TaskManager TM;
@@ -77,7 +76,6 @@ public class NPCInteraction : MonoBehaviour
         //If I'm in combat, don't bother doing things anymore
         if (BL_inCombat == true)
         {
-            HideAll();
             BL_HasQuest = false;
             return;
         }
@@ -85,7 +83,6 @@ public class NPCInteraction : MonoBehaviour
 
         QuestChecker();
 
-        UIState();
         ConversationChecker();
 
         UpdateFlags();
@@ -124,24 +121,6 @@ public class NPCInteraction : MonoBehaviour
             BL_HasQuest = false;
             BL_QuestAccepted = false;
         }
-    }
-
-    void UIState()
-    {
-        if (!BL_WithinSpace)
-        {
-            if (BL_QuestAccepted)
-            {
-                if (!ActiveTask.Quest_Complete && !ActiveTask.Quest_Fail) AcceptedQuest();
-                else HasQuest();
-            }
-            else
-            {
-                if (BL_HasQuest) HasQuest();
-                else HideAll();
-            }
-        }else
-            ShowInteraction();
     }
 
     void ConversationChecker()
@@ -205,53 +184,8 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 
-    #region Interaction States
-
-    private void ShowInteraction()
-    {
-        exclaimationPoint.SetActive(false);
-        questionMark.SetActive(false);
-
-        interactionObject.SetActive(true);
-    }
-
-    private void HideInteraction()
-    {
-        exclaimationPoint.SetActive(true);
-        questionMark.SetActive(false);
-
-        interactionObject.SetActive(false);
-    }
-
-    private void AcceptedQuest()
-    {
-        exclaimationPoint.SetActive(false);
-        questionMark.SetActive(true);
-
-        interactionObject.SetActive(false);
-    }
-
-    private void HasQuest()
-    {
-        exclaimationPoint.SetActive(true);
-        questionMark.SetActive(false);
-
-        interactionObject.SetActive(false);
-    }
-
-    //Hide all
-    private void HideAll()
-    {
-        exclaimationPoint.SetActive(false);
-        interactionObject.SetActive(false);
-        questionMark.SetActive(false);
-    }
-
-    #endregion
-
     private void QuestCompleted()
     {
-        HideAll();
         ActiveTask.Quest_Finish = true;
         BL_QuestCompleted = false;
         BL_QuestAccepted = false;
