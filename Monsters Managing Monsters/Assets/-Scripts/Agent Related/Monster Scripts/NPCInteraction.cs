@@ -6,12 +6,18 @@ using Fungus;
 
 public class NPCInteraction : MonoBehaviour
 {
+    private Camera cam;
+    [Header("Viewport Interaction Axis Points")]
+    public float Xmin;
+    public float Xmax;
 
-    //Used by controller
-    public bool BL_QuestCompleted = false;
+    public float Ymin;
+    public float Ymax;
 
+    [Header("NPC States")]
     public bool BL_inCombat;                    //Am I in combat?
     public bool BL_HasQuest;                    //Do I have a quest?
+    public bool BL_QuestCompleted = false;
     private bool BL_QuestAccepted = false;      //Did I accept a quest?
     private bool BL_WithinSpace = false;        //Am I inside the trigger box?
 
@@ -19,76 +25,61 @@ public class NPCInteraction : MonoBehaviour
 
     public string[] flavourText;
 
-    //----- INTERACTION GOs -----------------------------------------------------
-    public GameObject exclaimationPoint;
-    public GameObject questionMark;
-    public GameObject interactionObject;
-
     //----- COMPONENTS ----------------------------------------------------------
     private TaskManager TM;
     private myQuests Quests;
     private Idle myIdle;
     public Task ActiveTask;
 
-    #region Triggers
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<Entity>() != null)
-        {
-            Entity e_coll = other.gameObject.GetComponent<Entity>();
-            if (e_coll.EntityType == Entity.Entities.Player)
-            {
-                BL_WithinSpace = true;
-                myIdle.BL_pauseMovement = true;
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.GetComponent<Entity>() != null)
-        {
-            Entity e_coll = other.gameObject.GetComponent<Entity>();
-            if (e_coll.EntityType == Entity.Entities.Player)
-            {
-                BL_WithinSpace = false;
-                myIdle.BL_pauseMovement = false;
-            }
-        }
-    }
-
-    #endregion
-
     void Start()
     {
         TM = TaskManager.instance;
         Quests = GetComponent<myQuests>();
         myIdle = GetComponentInParent<Idle>();
+        cam = Camera.main;
 
-        QuestChecker();
+        TakeQuestByID();
     }
 
     void Update()
     {
         if (GameManager.instance.PixelMode) return;
 
-        //If I'm in combat, don't bother doing things anymore
+        //If the hero's here, call return;
         if (BL_inCombat == true)
         {
             BL_HasQuest = false;
             return;
         }
 
+        WithinSpace();
+        TalkingState();
 
-        QuestChecker();
-
-        ConversationChecker();
-
-        UpdateFlags();
+        //Quest related
+        TakeQuestByID();
+        UpdateQuestFlags();
     }
 
-    void UpdateFlags()
+    void WithinSpace()
+    {
+        Vector3 OnScreenPos = cam.WorldToViewportPoint(gameObject.transform.position);
+        float x = OnScreenPos.x;
+        float y = OnScreenPos.y;
+        float z = OnScreenPos.z;
+
+        if (z > 0 && x > Xmin && x < Xmax && y > Ymin && y < Ymax)
+        {
+            BL_WithinSpace = true;
+            myIdle.BL_pauseMovement = true;
+        }
+        else
+        {
+            myIdle.BL_pauseMovement = false;
+            BL_WithinSpace = false;
+        }
+    }
+
+    void UpdateQuestFlags()
     {
         if (BL_QuestAccepted)
             if (!ActiveTask.Quest_Complete) ActiveTask.BL_isAccepted = true;
@@ -96,7 +87,7 @@ public class NPCInteraction : MonoBehaviour
                 ActiveTask.BL_isAccepted = false;
     }
 
-    void QuestChecker()
+    void TakeQuestByID()
     {
         if (Quests != null)
         {
@@ -123,7 +114,7 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 
-    void ConversationChecker()
+    void TalkingState()
     {
         if (BL_WithinSpace)
             if (Input.GetKeyDown(KeyCode.E) && BL_InConversation == false)

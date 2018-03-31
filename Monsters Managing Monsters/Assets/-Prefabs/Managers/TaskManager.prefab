@@ -238,11 +238,11 @@ MonoBehaviour:
       active: 0
     step_tracker: 0
   - name: Doughnut Dash
-    ST_taskBrief: Hey Carlson. It's me, Machico. I need a small favour - see you soon!
-    ST_descriptionDialogue: "Hey Carlson. We ordered some doughnuts for the department,
-      and I need someone to go fetch them. n//n I have my hands full with some new
-      recruits. How about you go grab them? They\u2019re just across the street. Easy,
-      right?"
+    ST_taskBrief: Hey Carlson. It's me, Machico! I need a small favour - see you soon!
+    ST_descriptionDialogue: "Hey Carlson! We ordered some doughnuts for the department,
+      and I need someone to go fetch them! n//n I have my hands full with some new
+      recruits. How about you go grab them for me? They\u2019re just across the street!
+      Piece of cake, right?"
     ST_acceptedDialogue: "Thanks~ I\u2019ve already paid. Just make sure you look
       both ways... And up\u2026 Damn dragons\u2026 "
     ST_declinedDialogue: Later then? I could really use another hand.

@@ -7,13 +7,18 @@ public class NPCCanvasManager : MonoBehaviour {
 
     private NPCInteraction NPC;
     //----- INTERACTION GOs -----------------------------------------------------
-    public GameObject exclaimationPoint;
-    public GameObject questionMark;
-    public GameObject interactionObject;
+    [SerializeField] private Camera cam;
+    [SerializeField] private GameObject exclaimationPoint;
+    [SerializeField] private GameObject interactionObject;
+    [SerializeField] private GameObject questionMark;
 
     void Start()
     {
-        InvokeRepeating("OverheadNotificationToggle", 0, 1);
+        NPC = GetComponent<NPCInteraction>();
+        cam = Camera.main;
+        exclaimationPoint = transform.GetChild(0).gameObject;
+        interactionObject = transform.GetChild(1).gameObject;
+        questionMark = transform.GetChild(2).gameObject;
     }
 
     void Update()
@@ -22,27 +27,33 @@ public class NPCCanvasManager : MonoBehaviour {
         {
             HideAll();
         }
+
+        OverheadNotificationToggle();
     }
+
     void OverheadNotificationToggle()
     {
 
-        Vector3 OnScreenPos = Camera.main.ScreenToViewportPoint(gameObject.transform.position);
-
+        Vector3 OnScreenPos = cam.WorldToViewportPoint(gameObject.transform.position);
         float x = OnScreenPos.x;
         float y = OnScreenPos.y;
         float z = OnScreenPos.z;
 
-        if (z > 0 && x > 0.4 && x < 0.6 && y > 0.4 && y < 0.4)
+        if (z > 0 && x > NPC.Xmin && x < NPC.Xmax && y > NPC.Ymin && y < NPC.Ymax)
         {
             ShowInteraction();
         }
-        else if (z > 0 && x > 0 && x < 1 && y > 0 && y < 1)
+        else if (z > 0 && x > 0.05 && x < 0.95 && y > 0.05 && y < 0.95)
         {
-            if (!NPC.ActiveTask.Quest_Complete && !NPC.ActiveTask.Quest_Fail)
+            if (!NPC.BL_HasQuest)
+            {
+                HideAll();
+            }
+            else if (NPC.ActiveTask.BL_isAccepted && !NPC.ActiveTask.Quest_Complete)
             {
                 ShowQuestionMark();
             }
-            else if (NPC.BL_HasQuest || NPC.BL_QuestCompleted)
+            else if (!NPC.ActiveTask.BL_isAccepted || NPC.BL_QuestCompleted)
             {
                 ShowExclamation();
             }
