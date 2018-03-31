@@ -7,10 +7,10 @@ public class NPCCanvasManager : MonoBehaviour {
 
     private NPCInteraction NPC;
     //----- INTERACTION GOs -----------------------------------------------------
-    [SerializeField] private Camera cam;
-    [SerializeField] private GameObject exclaimationPoint;
-    [SerializeField] private GameObject interactionObject;
-    [SerializeField] private GameObject questionMark;
+    private Camera cam;
+    private GameObject exclaimationPoint;
+    private GameObject interactionObject;
+    private GameObject questionMark;
 
     void Start()
     {

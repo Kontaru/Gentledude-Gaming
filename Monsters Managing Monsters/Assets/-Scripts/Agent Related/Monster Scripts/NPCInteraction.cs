@@ -8,11 +8,11 @@ public class NPCInteraction : MonoBehaviour
 {
     private Camera cam;
     [Header("Viewport Interaction Axis Points")]
-    public float Xmin;
-    public float Xmax;
+    public float Xmin = 0.35f;
+    public float Xmax = 0.65f;
 
-    public float Ymin;
-    public float Ymax;
+    public float Ymin = 0.35f;
+    public float Ymax = 0.65f;
 
     [Header("NPC States")]
     public bool BL_inCombat;                    //Am I in combat?
@@ -37,6 +37,11 @@ public class NPCInteraction : MonoBehaviour
         Quests = GetComponent<myQuests>();
         myIdle = GetComponentInParent<Idle>();
         cam = Camera.main;
+
+        if (Xmin == 0) Xmin = 0.35f;
+        if (Xmax == 0) Xmax = 0.65f;
+        if (Ymin == 0) Ymin = 0.35f;
+        if (Ymax == 0) Ymax = 0.65f;
 
         TakeQuestByID();
     }
