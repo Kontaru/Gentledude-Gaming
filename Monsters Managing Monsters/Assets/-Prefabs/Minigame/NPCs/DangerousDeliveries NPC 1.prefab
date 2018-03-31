@@ -663,7 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 0
+  BL_LookAtCam: 1
 --- !u!114 &114253920715096356
 MonoBehaviour:
   m_ObjectHideFlags: 1

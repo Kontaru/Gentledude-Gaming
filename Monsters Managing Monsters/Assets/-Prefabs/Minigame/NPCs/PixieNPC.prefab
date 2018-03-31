@@ -792,7 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 0
+  BL_LookAtCam: 1
 --- !u!195 &195952323927155462
 NavMeshAgent:
   m_ObjectHideFlags: 1
