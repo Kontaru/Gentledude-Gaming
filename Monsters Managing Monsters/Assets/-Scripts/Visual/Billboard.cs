@@ -39,6 +39,9 @@ public class Billboard : MonoBehaviour
                 //lookPos = transform.position - Camera.main.transform.position;
                 //rotation = Quaternion.LookRotation(lookPos);
                 transform.rotation = Quaternion.Euler((90f - Camera.main.transform.rotation.x), 0, 0);
+
+                ////Tempfix
+                //transform.rotation = Quaternion.Euler((Camera.main.transform.rotation.x), 0, 0);
             }
             else
             {
