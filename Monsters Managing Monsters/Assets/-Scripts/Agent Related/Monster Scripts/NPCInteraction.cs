@@ -19,7 +19,6 @@ public class NPCInteraction : MonoBehaviour
     public bool BL_HasQuest;                    //Do I have a quest?
     public bool BL_QuestCompleted = false;
     private bool BL_QuestAccepted = false;      //Did I accept a quest?
-    private bool BL_WithinSpace = false;        //Am I inside the trigger box?
 
     public bool BL_InConversation = false;
 
@@ -57,31 +56,12 @@ public class NPCInteraction : MonoBehaviour
             return;
         }
 
-        WithinSpace();
-        TalkingState();
+        myIdle.BL_pauseMovement = WithinSpace();
+        if(WithinSpace()) TalkingState();
 
         //Quest related
         TakeQuestByID();
         UpdateQuestFlags();
-    }
-
-    void WithinSpace()
-    {
-        Vector3 OnScreenPos = cam.WorldToViewportPoint(gameObject.transform.position);
-        float x = OnScreenPos.x;
-        float y = OnScreenPos.y;
-        float z = OnScreenPos.z;
-
-        if (z > 0 && x > Xmin && x < Xmax && y > Ymin && y < Ymax)
-        {
-            BL_WithinSpace = true;
-            myIdle.BL_pauseMovement = true;
-        }
-        else
-        {
-            myIdle.BL_pauseMovement = false;
-            BL_WithinSpace = false;
-        }
     }
 
     void UpdateQuestFlags()
@@ -121,18 +101,17 @@ public class NPCInteraction : MonoBehaviour
 
     void TalkingState()
     {
-        if (BL_WithinSpace)
-            if (Input.GetKeyDown(KeyCode.E) && BL_InConversation == false)
-                Converse();
+        if (Input.GetKeyDown(KeyCode.E) && BL_InConversation == false)
+            Converse();
 
-        if (FungusDirector.instance.bl_AcceptedTask && BL_InConversation == true)
+        if (BL_HasQuest && FungusDirector.instance.bl_AcceptedTask && BL_InConversation == true)
         {
             BL_QuestAccepted = true;
         }
 
         if (FungusDirector.instance.bl_conversationEnd)
         {
-            if (ActiveTask.Quest_Complete || ActiveTask.Quest_Fail)
+            if (BL_HasQuest && (ActiveTask.Quest_Complete || ActiveTask.Quest_Fail))
             {
                 QuestCompleted();
             }
@@ -178,6 +157,19 @@ public class NPCInteraction : MonoBehaviour
             int rand = Random.Range(0, flavourText.Length - 1);
             FungusDirector.instance.IdleNPC(flavourText[rand]);
         }
+    }
+
+    bool WithinSpace()
+    {
+        Vector3 OnScreenPos = cam.WorldToViewportPoint(gameObject.transform.position);
+        float x = OnScreenPos.x;
+        float y = OnScreenPos.y;
+        float z = OnScreenPos.z;
+
+        if (z > 0 && x > Xmin && x < Xmax && y > Ymin && y < Ymax)
+            return true;
+        else
+            return false;
     }
 
     private void QuestCompleted()
