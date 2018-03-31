@@ -34,14 +34,19 @@ public class Billboard : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
         }else if (BL_LookAtCam)
         {
-            //originalRot = transform.rotation;
-            lookPos = transform.position - Camera.main.transform.position;
             if (Camera.main.orthographic)
             {
-                lookPos.x = 0;
+                //lookPos = transform.position - Camera.main.transform.position;
+                //rotation = Quaternion.LookRotation(lookPos);
+                transform.rotation = Quaternion.Euler((90f - Camera.main.transform.rotation.x), 0, 0);
             }
-            rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
+            else
+            {
+                //originalRot = transform.rotation;
+                lookPos = transform.position - Camera.main.transform.position;
+                rotation = Quaternion.LookRotation(lookPos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerfollowSmoothSpeed * Time.deltaTime);
+            }
         }
         else
         {
