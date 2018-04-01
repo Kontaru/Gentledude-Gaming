@@ -48,16 +48,16 @@ public class TutorialSequence : MonoBehaviour {
 
         NavMeshAgent agent = hrHead.GetComponent<NavMeshAgent>();
         CameraFollow.instance.otherLook = hrHead;
-        Transform agentPos = agent.transform;
+        Vector3 agentPos = agent.transform.position;
         agent.destination = target.position;
 
         yield return new WaitForSeconds(4);
 
         CameraFollow.instance.otherLook = null;
-        StartCoroutine(InitiateConvo(agent, agentPos));
+        StartCoroutine(InitiateMachicoConvo(agent, agentPos));
     }
 
-    private IEnumerator InitiateConvo(NavMeshAgent agent, Transform agentPos)
+    private IEnumerator InitiateMachicoConvo(NavMeshAgent agent, Vector3 agentPos)
     {
         Flowchart.BroadcastFungusMessage("MachicoIntroduction");
 
@@ -65,15 +65,20 @@ public class TutorialSequence : MonoBehaviour {
             yield return null;
         } while (fung.GetBooleanVariable("bl_textCycleOver") == false);
 
-        // Once convo is over...        
-        //Flowchart.BroadcastFungusMessage("MachicoIntroLeave");
-        //do {
-        //    yield return null;
-        //} while (fung.GetBooleanVariable("bl_textCycleOver") == false);
-        agent.destination = agentPos.position;
+        agent.destination = agentPos;
         CameraFollow.instance.otherLook = hrHead;
+        yield return new WaitForSeconds(0.31f);
 
-        yield return new WaitForSeconds(3);
+        // Once convo is over...        
+        Flowchart.BroadcastFungusMessage("MachicoIntroLeave");
+        do
+        {
+            yield return null;
+        } while (fung.GetBooleanVariable("bl_textCycleOver") == false);
+
+        CameraFollow.instance.otherLook = null;
+
+        yield return new WaitForSeconds(0.5f);
         // After she leaves...
         hrHead.SetActive(false);
         PC_Move.BL_canMove = true;
@@ -96,20 +101,24 @@ public class TutorialSequence : MonoBehaviour {
         fadeObject.SetActive(false);
 
         CameraFollow.instance.otherLook = taxi;
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(3.0f);
+
+        StartCoroutine(TextMessage());
+        yield return new WaitForSeconds(0.5f);
 
         player.SetActive(true);
         traffic.SetActive(false);
         CameraFollow.instance.otherLook = null;
-
-        yield return new WaitForSeconds(1.5f);
-        StartCoroutine(TextMessage());        
+        PC_Move.BL_canMove = false;
+   
     }
 
     IEnumerator TextMessage()
     {
         PDAHandler.instance.ShowMomText();
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
+        PC_Move.BL_canMove = true;
+        yield return new WaitForSeconds(2);
         PDAHandler.instance.HideMomText();
     }
 }
