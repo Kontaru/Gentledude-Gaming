@@ -6,8 +6,6 @@ using Fungus;
 public class PDATutorial : QuestPart {
 
     private Camera cam;
-    public Flowchart flow;
-    public string[] flavourText;
 
     private void Start()
     {
@@ -17,19 +15,10 @@ public class PDATutorial : QuestPart {
     override public void Update()
     {
         base.Update();
-        if (Interactable())
+        if (Interactable() && Input.GetKeyDown(KeyCode.E))
         {
-            if (BL_IsInteractable)
-            {
-                if (Input.GetKeyDown(KeyCode.E)) Fungus.Flowchart.BroadcastFungusMessage("PDATutorial");
-                if (flow.GetBooleanVariable("bl_textCycleOver") == true) BL_MinigameComplete = true;
-            }else
-            {
-                if (Input.GetKeyDown(KeyCode.E)) FungusDirector.instance.IdleNPC(FlavourText());
-            }
+            Fungus.Flowchart.BroadcastFungusMessage("PDATutorial");
         }
-
-
     }
 
     bool Interactable()
@@ -47,11 +36,5 @@ public class PDATutorial : QuestPart {
         }
         else
             return false;
-    }
-
-    string FlavourText()
-    {
-        int rand = Random.Range(0, flavourText.Length - 1);
-        return flavourText[rand];
     }
 }
