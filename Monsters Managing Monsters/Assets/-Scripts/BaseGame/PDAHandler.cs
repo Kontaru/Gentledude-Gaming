@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PDAHandler : MonoBehaviour {
 
+    public bool BL_hasPDA;
+
     public GameObject oldPDA;
     public GameObject homeScreen;
     public GameObject mapScreen;
@@ -69,6 +71,8 @@ public class PDAHandler : MonoBehaviour {
 
     private void CheckInput()
     {
+        if (!BL_hasPDA) return;
+
         if (Input.GetKeyDown(KeyCode.P)) TogglePDA();
         if (Input.GetKeyDown(KeyCode.M)) ShowMap();
         if (Input.GetKeyDown(KeyCode.N)) ShowTasks();
@@ -82,7 +86,7 @@ public class PDAHandler : MonoBehaviour {
 
     private void RefreshTasksList()
     {
-        Task[] tasksArr = TaskManager.instance.Tasks;
+        Task[] tasksArr = CurrentTasks.instance.currentTask;
         tasks = "";
 
         for (int i = 0; i < tasksArr.Length; i++)
@@ -126,7 +130,7 @@ public class PDAHandler : MonoBehaviour {
         else animator.SetBool("BL_ShowPDA", true);
 
         ShowHome();
-        oldPDA.SetActive(false);
+        if (oldPDA != null) oldPDA.SetActive(false);
         BL_PDAactive = !BL_PDAactive;
     }
 

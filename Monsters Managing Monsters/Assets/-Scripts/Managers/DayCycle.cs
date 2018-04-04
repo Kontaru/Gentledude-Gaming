@@ -52,6 +52,7 @@ public class DayCycle : MonoBehaviour
     public Text Hour;
     public Text Minute;
     public Text Days;
+    public Text AP;
 
     #region Typical Singleton Format
 
@@ -169,7 +170,7 @@ public class DayCycle : MonoBehaviour
         if (IN_currentDay < 10)
             Days.text = string.Format("0" + IN_currentDay);
         else
-            Days.text = string.Format("" + IN_currentDay);
+            Days.text = string.Format("" + IN_currentDay);        
 
         FL_actionPointsUsed = 0;
 
@@ -194,6 +195,10 @@ public class DayCycle : MonoBehaviour
         else
             Hour.text = string.Format("" + FL_displayHour);
 
+        if (FL_actionPointsAvailable < 10)
+            AP.text = string.Format("0" + time);
+        else
+            AP.text = string.Format("" + time);
 
         //Current time * time it takes for a minute - (the hour that we're at * 60)
         FL_displayMinute = Mathf.Floor(time * 60 *
