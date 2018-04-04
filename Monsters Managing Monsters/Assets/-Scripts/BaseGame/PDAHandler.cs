@@ -31,6 +31,7 @@ public class PDAHandler : MonoBehaviour {
     private Animator animator;
 
     private string tasks;
+    private int taskIndex;
 
     public int minigameIndex;
     public bool BL_PDAactive;
@@ -229,7 +230,8 @@ public class PDAHandler : MonoBehaviour {
 
     public void OnClickTask(int index)
     {
-        ShowTaskBrief(index);
+        taskIndex = index;
+        ShowTaskBrief(taskIndex);
         AudioManager.instance.Play("PDA Button Click");
     }
 
@@ -256,6 +258,12 @@ public class PDAHandler : MonoBehaviour {
         ShowHome();
         animator.SetBool("BL_ShowPDA", false);
         BL_PDAactive = false;
+    }
+
+    public void LocateUser()
+    {
+        StartCoroutine(LocateEntity(3));
+        AudioManager.instance.Play("PDA Locate");
     }
 
     public void EnableMinigameRender()
@@ -383,7 +391,7 @@ public class PDAHandler : MonoBehaviour {
     {
         if (CurrentTasks.instance.currentTask[index].Quest_ID == 0) return;
         HideAllScreens();
-        SetBrief(index);
+        SetBrief(taskIndex);
         taskBriefScreen.SetActive(true);
     }
 
@@ -443,5 +451,13 @@ public class PDAHandler : MonoBehaviour {
             HideAllInstructions();
             instructionScreen.transform.GetChild(minigameIndex + 2).gameObject.SetActive(true);
         }        
+    }
+
+    IEnumerator LocateEntity(float seconds)
+    {
+        Task task = CurrentTasks.instance.currentTask[taskIndex];
+        CameraFollow.instance.otherLook = task.GO_belongsTo;
+        yield return new WaitForSeconds(seconds);
+        CameraFollow.instance.otherLook = null;
     }
 }

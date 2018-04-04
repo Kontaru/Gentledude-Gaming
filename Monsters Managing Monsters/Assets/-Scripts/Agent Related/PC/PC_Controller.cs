@@ -6,8 +6,6 @@ public class PC_Controller : Entity {
 
     //Bool
     public bool BL_IsMoving;
-    public GameObject pointer;
-    private GameObject target;
 
     //Controllers
     PC_Move CC_Move;
@@ -37,40 +35,5 @@ public class PC_Controller : Entity {
         if (GameManager.instance.PixelMode) return;
 
         BL_IsMoving = CC_Move.BL_isMoving;
-        PointAtTarget();
-        FindTarget();
-    }
-
-    private void FindTarget()
-    {
-        for (int i = 0; i < CurrentTasks.instance.currentTask.Length; i++)
-        {
-            Task task = CurrentTasks.instance.currentTask[i];
-
-            if (task.BL_isObtainable && !task.BL_isAccepted || task.Quest_Complete)
-            {
-                target = task.GO_belongsTo.gameObject;
-                break;
-            }
-            else if (task.BL_isAccepted)
-            {
-                target = task.Steps[task.step_tracker].requires.gameObject;
-                break;
-            }  
-        }
-    }
-
-    private void PointAtTarget()
-    {
-        if (target != null)
-        {
-            pointer.SetActive(true);
-            pointer.transform.LookAt(target.transform.position);
-        }
-        else
-        {
-            pointer.SetActive(false);
-        }
-        
     }
 }
