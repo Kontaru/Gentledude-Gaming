@@ -118,15 +118,7 @@ public class PDAHandler : MonoBehaviour {
         }
     }
 
-    private void ToggleOldPDA()
-    {
-        if (BL_PDAactive) oldPDA.GetComponent<Animator>().SetBool("BL_ShowPDA", false);
-        else oldPDA.GetComponent<Animator>().SetBool("BL_ShowPDA", true);
-
-        BL_PDAactive = !BL_PDAactive;
-    }
-    
-    private void TogglePDA()
+    public void TogglePDA()
     {
         if (BL_PDAlandscape) return;
 
@@ -137,6 +129,14 @@ public class PDAHandler : MonoBehaviour {
         oldPDA.SetActive(false);
         BL_PDAactive = !BL_PDAactive;
     }
+
+    private void ToggleOldPDA()
+    {
+        if (BL_PDAactive) oldPDA.GetComponent<Animator>().SetBool("BL_ShowPDA", false);
+        else oldPDA.GetComponent<Animator>().SetBool("BL_ShowPDA", true);
+
+        BL_PDAactive = !BL_PDAactive;
+    }   
 
     private void ToggleMinigames(bool quickStart)
     {
