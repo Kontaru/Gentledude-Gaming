@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4850603270858064}
   - component: {fileID: 114213431135503980}
+  - component: {fileID: 111719207891863012}
   m_Layer: 0
   m_Name: E Key
   m_TagString: Untagged
@@ -598,6 +599,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.461075, y: 7.0738883, z: 1}
   m_Center: {x: -0.23322296, y: 3.5369442, z: 0}
+--- !u!111 &111719207891863012
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069100816789286}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: adbac3b19efd71f4fbe0ce62cf043125, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: adbac3b19efd71f4fbe0ce62cf043125, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114164260383246616
 MonoBehaviour:
   m_ObjectHideFlags: 1

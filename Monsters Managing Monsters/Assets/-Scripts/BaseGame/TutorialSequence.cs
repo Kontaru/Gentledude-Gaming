@@ -59,6 +59,7 @@ public class TutorialSequence : MonoBehaviour {
 
     private IEnumerator InitiateMachicoConvo(NavMeshAgent agent, Vector3 agentPos)
     {
+        GameObject.Find("TutorialTrigger").SetActive(false);
         Flowchart.BroadcastFungusMessage("MachicoIntroduction");
 
         do {
@@ -68,7 +69,7 @@ public class TutorialSequence : MonoBehaviour {
         agent.destination = agentPos;
         CameraFollow.instance.otherLook = hrHead;
         yield return new WaitForSeconds(0.31f);
-
+        PC_Move.BL_canMove = false;
         // Once convo is over...        
         Flowchart.BroadcastFungusMessage("MachicoIntroLeave");
         do
@@ -81,10 +82,9 @@ public class TutorialSequence : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         // After she leaves...
         hrHead.SetActive(false);
-        PC_Move.BL_canMove = true;
-
-        GameObject.Find("TutorialTrigger").SetActive(false);
         EndDaySummary.instance.QuestGained(CurrentTasks.instance.currentTask[0].name);
+        yield return new WaitForSeconds(1.0f);
+        //PC_Move.BL_canMove = true;
         skipBtn.SetActive(true);
     }
 
