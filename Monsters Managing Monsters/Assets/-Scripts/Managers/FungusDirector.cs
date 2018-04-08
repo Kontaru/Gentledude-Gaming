@@ -17,6 +17,10 @@ public class FungusDirector : MonoBehaviour {
     public string parseKeyword;
     public string[] paragraphs;
 
+    [Header("Debug")]
+    [TextArea(2, 10)]
+    public string fullText;
+
     void Awake()
     {
         if (instance == null)
@@ -52,18 +56,19 @@ public class FungusDirector : MonoBehaviour {
 
     public void QuestNPCDialogue(string BlockType, string dialogue, bool completed, bool failed)
     {
+        fullText = dialogue;
         paragraphs = dialogue.Split(new string[] { parseKeyword }, System.StringSplitOptions.None);
         if(BlockType == "QuestAccepted")
         {
             //Have we completed it yet?
             if (!completed)
             {
-                ParagraphedConversation(paragraphs, 2);
+                FungusFlow.SetStringVariable("paragraph1", paragraphs[paragraphs.Length - 2]);
             }
             //If we have, then what was our victory state
             else if (completed && !failed)
             {
-                FungusFlow.SetStringVariable("paragraph1", paragraphs[paragraphs.Length - 2]);
+                ParagraphedConversation(paragraphs, 2);
             }
             else if (completed && failed)
             {

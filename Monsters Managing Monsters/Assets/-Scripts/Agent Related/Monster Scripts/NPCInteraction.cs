@@ -128,9 +128,9 @@ public class NPCInteraction : MonoBehaviour
 
         if (BL_QuestAccepted)
         {
-            string conversation = ActiveTask.ST_waitingDialogue +
-                FungusDirector.instance.parseKeyword +
-                ActiveTask.ST_finishDialogue +
+            string conversation = ActiveTask.ST_finishDialogue +
+                FungusDirector.instance.parseKeyword + 
+                ActiveTask.ST_waitingDialogue +
                 FungusDirector.instance.parseKeyword +
                 ActiveTask.ST_failDialogue;
 

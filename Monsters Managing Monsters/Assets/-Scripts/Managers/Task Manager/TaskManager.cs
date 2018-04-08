@@ -8,11 +8,10 @@ public class TaskManager : MonoBehaviour {
 
     public static TaskManager instance;
 
-    #region Typical Singleton Format
 
     void Awake()
     {
-
+        #region Typical Singleton Format
         //Singleton stuff
         if (instance == null)
             instance = this;
@@ -21,9 +20,12 @@ public class TaskManager : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
+        #endregion
+
+        foreach (Task task in Tasks)
+            task.InitialiseQuest();
     }
 
-    #endregion
 
     void Update()
     {

@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTask:
   - name: 
+    Quest: {fileID: 0}
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -62,19 +63,20 @@ MonoBehaviour:
     ST_failDialogue: 
     ST_waitingDialogue: 
     Quest_ID: 0
-    inActiveList: 0
     Repeatable: 0
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    Steps: []
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
-    Steps: []
     step_tracker: 0
   - name: 
+    Quest: {fileID: 0}
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -83,19 +85,20 @@ MonoBehaviour:
     ST_failDialogue: 
     ST_waitingDialogue: 
     Quest_ID: 0
-    inActiveList: 0
     Repeatable: 0
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    Steps: []
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
-    Steps: []
     step_tracker: 0
   - name: 
+    Quest: {fileID: 0}
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -104,19 +107,20 @@ MonoBehaviour:
     ST_failDialogue: 
     ST_waitingDialogue: 
     Quest_ID: 0
-    inActiveList: 0
     Repeatable: 0
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    Steps: []
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
-    Steps: []
     step_tracker: 0
   - name: 
+    Quest: {fileID: 0}
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -125,19 +129,20 @@ MonoBehaviour:
     ST_failDialogue: 
     ST_waitingDialogue: 
     Quest_ID: 0
-    inActiveList: 0
     Repeatable: 0
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    Steps: []
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
-    Steps: []
     step_tracker: 0
   - name: 
+    Quest: {fileID: 0}
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -146,17 +151,17 @@ MonoBehaviour:
     ST_failDialogue: 
     ST_waitingDialogue: 
     Quest_ID: 0
-    inActiveList: 0
     Repeatable: 0
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    Steps: []
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
-    Steps: []
     step_tracker: 0
 --- !u!114 &114460942788931260
 MonoBehaviour:
@@ -171,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tasks:
   - name: Technical Trouble
+    Quest: {fileID: 11400000, guid: aa0481c383651de4e88795fda6e4fded, type: 2}
     ST_taskBrief: There's... something up with my computer. I can't let Pigman Jim
       know. Come take a look?
     ST_descriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but
@@ -186,16 +192,9 @@ MonoBehaviour:
       it this time\u2026 Hey uh, no hard feelings though... ..."
     ST_waitingDialogue: "You\u2019d better know what you\u2019re doing. "
     Quest_ID: 1
-    inActiveList: 0
     Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 3
     IN_motivationAmount: 100
-    BL_isObtainable: 0
-    BL_isAccepted: 0
     Steps:
     - name: Fix Computer
       description: The player should do a thing which does another thing.
@@ -203,8 +202,16 @@ MonoBehaviour:
       TurnOff: 0
       complete: 0
       active: 0
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     step_tracker: 0
   - name: Dangerous Deliveries!
+    Quest: {fileID: 11400000, guid: b0fa143289fa3f243b4c94c2e07a7ccb, type: 2}
     ST_taskBrief: Doughnuts need to be delivered around the office!
     ST_descriptionDialogue: "Hey, you \u2013 yeah, you. We got some doughnuts in that
       I gotta go dish around, but frankly Pigman Jim is roaming about and he can\u2019t
@@ -219,16 +226,9 @@ MonoBehaviour:
       take a bite outta you too. "
     ST_waitingDialogue: 'Gotta hurry! I think I can see him coming down the hall! '
     Quest_ID: 2
-    inActiveList: 0
     Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 6
     IN_motivationAmount: 220
-    BL_isObtainable: 0
-    BL_isAccepted: 0
     Steps:
     - name: Deliver Donuts
       description: Deliver them!
@@ -236,8 +236,16 @@ MonoBehaviour:
       TurnOff: 0
       complete: 0
       active: 0
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     step_tracker: 0
   - name: Doughnut Dash
+    Quest: {fileID: 11400000, guid: b1006ad50945433479ec362b51449abd, type: 2}
     ST_taskBrief: Hey Carlson. It's me, Machico! I need a small favour - see you soon!
     ST_descriptionDialogue: "Hey Carlson! We ordered some doughnuts for the department,
       and I need someone to go fetch them! n//n I have my hands full with some new
@@ -253,16 +261,9 @@ MonoBehaviour:
     ST_waitingDialogue: You've got this Carlson. You were born to do this! The doughnut
       shop is just across the street.
     Quest_ID: 3
-    inActiveList: 0
     Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 10
     IN_motivationAmount: 500
-    BL_isObtainable: 0
-    BL_isAccepted: 0
     Steps:
     - name: Leave the office
       description: Minigame
@@ -276,8 +277,16 @@ MonoBehaviour:
       TurnOff: 0
       complete: 0
       active: 0
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     step_tracker: 0
   - name: Wandering Spirit
+    Quest: {fileID: 11400000, guid: f1572c1c57ca62a49a146f006394ee8f, type: 2}
     ST_taskBrief: Hey... Listen. Don't be alarmed, but I'm a pixie. I don't mean any
       harm. I just want OUT.
     ST_descriptionDialogue: Hey... Listen. Hey... LISTEN! Are you listening, punk?
@@ -291,16 +300,9 @@ MonoBehaviour:
     ST_failDialogue: What? Seriously? You guys will pay for this... I'll be back.
     ST_waitingDialogue: Seriously, you're taking too long. Hurry up.
     Quest_ID: 5
-    inActiveList: 0
     Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 3
     IN_motivationAmount: 100
-    BL_isObtainable: 0
-    BL_isAccepted: 0
     Steps:
     - name: Hunt down the pixies
       description: Find them, fast!
@@ -308,8 +310,16 @@ MonoBehaviour:
       TurnOff: 0
       complete: 0
       active: 0
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     step_tracker: 0
   - name: Pixie Panic
+    Quest: {fileID: 11400000, guid: 7e117f48bf3c0444c98b66f0199ef75f, type: 2}
     ST_taskBrief: Oh no... Oh no no no... My gremlin brothers are gone... Where could
       they be?!
     ST_descriptionDialogue: Look, buddy... Jim, was it? Whatever, look. I'm sorry
@@ -326,16 +336,9 @@ MonoBehaviour:
     ST_failDialogue: W-What do you mean my brothers were taken away...?
     ST_waitingDialogue: Heh, no rush buddy, nooo rush at all.
     Quest_ID: 6
-    inActiveList: 0
     Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 10
     IN_motivationAmount: 500
-    BL_isObtainable: 0
-    BL_isAccepted: 0
     Steps:
     - name: Find the Gremlins
       description: Find them, fast!
@@ -349,4 +352,11 @@ MonoBehaviour:
       TurnOff: 0
       complete: 0
       active: 0
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
     step_tracker: 0

@@ -378,7 +378,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621168203585798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.75, y: 0, z: 2.5}
+  m_LocalPosition: {x: -2.66, y: 0, z: 9.79}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4440693907768618}
@@ -582,7 +582,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec97a042335624444878e3d59b2ae823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestIDs: 02000000
+  QuestIDs: 65000000
   Tasks: []
 --- !u!114 &114199049093928568
 MonoBehaviour:
@@ -701,8 +701,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Xmin: 0.35
   Xmax: 0.65
-  Ymin: 0.35
-  Ymax: 0.65
+  Ymin: 0.25
+  Ymax: 0.55
   BL_inCombat: 0
   BL_HasQuest: 0
   BL_QuestCompleted: 0
@@ -712,6 +712,7 @@ MonoBehaviour:
   - I'm busy working here, shoo! I'll call you, ONLY when I need you.
   ActiveTask:
     name: 
+    Quest: {fileID: 0}
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -720,17 +721,17 @@ MonoBehaviour:
     ST_failDialogue: 
     ST_waitingDialogue: 
     Quest_ID: 0
-    inActiveList: 0
     Repeatable: 0
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    Steps: []
+    GO_belongsTo: {fileID: 0}
+    inActiveList: 0
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
-    Steps: []
     step_tracker: 0
 --- !u!114 &114571275958900664
 MonoBehaviour:

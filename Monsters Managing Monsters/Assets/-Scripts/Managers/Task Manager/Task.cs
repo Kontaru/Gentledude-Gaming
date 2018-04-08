@@ -15,50 +15,45 @@ public class Step
 [System.Serializable]
 public class Task
 {
-    [Header("Details")]
-    public string name;                     //The name of our task. This should be something easy to distinguish. "Jeff's Quest 1" or "Diana's Bracelet".
+    public string name;
+    public Quests Quest;
 
-    [Header("Accepting a quest")]
-    [TextArea(2, 10)]
-    public string ST_taskBrief;
-    [TextArea(2, 10)]
-    public string ST_descriptionDialogue;              //A description of the quest. Please fill this in so everyone else knows what the quest is and what the steps are to completing a quest.
-    [TextArea(2, 10)]
-    public string ST_acceptedDialogue;
-    [TextArea(2, 10)]
-    public string ST_declinedDialogue;
+    #region Internal Stuff - Not important
 
-    [Header("Finishing a quest")]
-    [TextArea(2, 10)]
-    public string ST_finishDialogue;
-    [TextArea(2, 10)]
-    public string ST_failDialogue;
-    [TextArea(2, 10)]
-    public string ST_waitingDialogue;
+    [HideInInspector] public string ST_taskBrief;
+    [HideInInspector] public string ST_descriptionDialogue;              //A description of the quest. Please fill this in so everyone else knows what the quest is and what the steps are to completing a quest.
+    [HideInInspector] public string ST_acceptedDialogue;
+    [HideInInspector] public string ST_declinedDialogue;
 
-    public int Quest_ID;
+    [HideInInspector] public string ST_finishDialogue;
+    [HideInInspector] public string ST_failDialogue;
+    [HideInInspector] public string ST_waitingDialogue;
+
+    [HideInInspector] public int Quest_ID;
+    [HideInInspector] public bool Repeatable = false;
+
+    [HideInInspector] public int IN_actionPointWeight;
+    [HideInInspector] public int IN_motivationAmount;
+
+    #endregion
+
+    [Header("Steps")]
+    public Step[] Steps;                    //Our steps to completing the quest
+    public GameObject GO_belongsTo;
+
+    [Header("In Use?")]
     public bool inActiveList = false;
-    public bool Repeatable = false;
-
     public bool Quest_Complete = false;     //Is our quest complete?
     public bool Quest_Fail = false;         //Is our quest complete?
     [HideInInspector] public bool Quest_Finish = false;       //Trigger for NPC hand in
 
-    [HideInInspector] public GameObject GO_belongsTo;
-
-    [Header("Action Points + Motivation")]
-    public int IN_actionPointWeight;
-    public int IN_motivationAmount;
-
     public bool BL_isObtainable = false;
-    [HideInInspector] public bool BL_isAccepted = false;
-    private bool BL_firstFlag = false;
+    public bool BL_isAccepted = false;
+    public int step_tracker = 0;
 
+    private bool BL_firstFlag = false;
     private bool BL_Boost = true;
 
-    [Header("Steps")]
-    public Step[] Steps;                    //Our steps to completing the quest
-    public int step_tracker = 0;
     //Checks if all our steps are complete
     public void StepChecker()
     {
@@ -166,5 +161,43 @@ public class Task
                 Quest_Finish = false;
             
         }
+    }
+
+    public void InitialiseQuest()
+    {
+        name = Quest.name;
+
+        ST_taskBrief = Quest.TaskBrief;
+        ST_descriptionDialogue = Quest.DescriptionDialogue;
+        ST_acceptedDialogue = Quest.AcceptedDialogue;
+        ST_declinedDialogue = Quest.DeclinedDialogue;
+
+        ST_finishDialogue = Quest.FinishDialogue;
+        ST_failDialogue = Quest.FailDialogue;
+        ST_waitingDialogue = Quest.WaitingDialogue;
+
+        Quest_ID = Quest.Quest_ID;
+        Repeatable = Quest.Repeatable;
+
+        if (Quest.Presets == Quests.Values.None)
+        {
+            IN_actionPointWeight = Quest.customActionPointWeight;
+            IN_motivationAmount = Quest.customMotivationAmount;
+        }else if (Quest.Presets == Quests.Values.Level_01)
+        {
+            IN_actionPointWeight = 3;
+            IN_motivationAmount = 100;
+        }
+        else if (Quest.Presets == Quests.Values.Level_02)
+        {
+            IN_actionPointWeight = 6;
+            IN_motivationAmount = 220;
+        }
+        else if (Quest.Presets == Quests.Values.Level_03)
+        {
+            IN_actionPointWeight = 10;
+            IN_motivationAmount = 500;
+        }
+
     }
 }

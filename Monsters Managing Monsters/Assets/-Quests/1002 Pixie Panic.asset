@@ -19,7 +19,8 @@ MonoBehaviour:
     I saw, boss wanted them to clear all the pixies that were lurking around. This
     can't be good...
   AcceptedDialogue: Thanks, buddy. You're actually really nice, now that I think about
-    it... n//n Here, I'll mark for you where I think they  might be. Please hurry...
+    it... Here, I'll mark for you where I think they might be. Use your PDA to check
+    the location. Please hurry...
   DeclinedDialogue: Please? You'll be doing me a favour man. I'll wait here.
   FinishDialogue: Haha! You did it! Yeah, thanks! I got the word that you saved my
     brothers! n//n But JEEZ I hate your face. I was lying about everything I said!
