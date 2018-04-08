@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4185240259470340}
   - component: {fileID: 114993949001920066}
+  - component: {fileID: 111635517532988900}
   m_Layer: 0
   m_Name: E Key
   m_TagString: Untagged
@@ -293,7 +294,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460613961499528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 59.39, y: 0, z: 45.46}
+  m_LocalPosition: {x: 36.258957, y: 0, z: 51.342045}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4853359628431976}
@@ -308,13 +309,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888855315965002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.47731, y: 9.07, z: -42.254364}
+  m_LocalPosition: {x: 0, y: 9.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4428041212946932}
   m_Father: {fileID: 4815663228464176}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!4 &4252776472988326
 Transform:
   m_ObjectHideFlags: 1
@@ -335,7 +336,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1334199495013438}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.47731, y: 8, z: -42.254364}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4855164993691302}
@@ -405,7 +406,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1364396644798258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.47731, y: 9.07, z: -42.254364}
+  m_LocalPosition: {x: 0, y: 9.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4591458933569970}
@@ -598,6 +599,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.461075, y: 7.0738883, z: 1}
   m_Center: {x: -0.23322296, y: 3.5369442, z: 0}
+--- !u!111 &111635517532988900
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1888855315965002}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: adbac3b19efd71f4fbe0ce62cf043125, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: adbac3b19efd71f4fbe0ce62cf043125, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114057312439784170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -655,7 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d517a442d59d98d469741d96bb073fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BL_LookAtCam: 0
+  BL_LookAtCam: 1
 --- !u!114 &114510190693544824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -689,7 +705,7 @@ MonoBehaviour:
   BL_InConversation: 0
   flavourText:
   - Get away from me! [Hissss]
-  - I'm busy!
+  - Don't you see I'm busy here! Get out of my way, inferior flying thing! [Hisssss]
   ActiveTask:
     name: 
     ST_taskBrief: 
