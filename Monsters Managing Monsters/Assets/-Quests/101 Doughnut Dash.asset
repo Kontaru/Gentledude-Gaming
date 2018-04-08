@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d6ff407be7af647ad3ceef595f8c2d, type: 3}
+  m_Name: 101 Doughnut Dash
+  m_EditorClassIdentifier: 
+  name: Doughnut Dash
+  ST_taskBrief: Hey Carlson. It's me, Machico! I need a small favour - see you soon!
+  ST_descriptionDialogue: "Hey Carlson! We ordered some doughnuts for the department,
+    and I need someone to go fetch them! n//n I have my hands full with some new recruits.
+    How about you go grab them for me? They\u2019re just across the street! Piece
+    of cake, right?"
+  ST_acceptedDialogue: "Thanks~ I\u2019ve already paid. Just make sure you look both
+    ways... And up\u2026 Damn dragons\u2026 "
+  ST_declinedDialogue: Later then? I could really use another hand.
+  ST_finishDialogue: Wow! Nice one! You're doing a great job at your new job, I knew
+    you could do it!
+  ST_failDialogue: The doughnuts are gone? That's not gonna be good... The boss is
+    not gonna be happy...
+  ST_waitingDialogue: You've got this Carlson. You were born to do this! The doughnut
+    shop is just across the street.
+  Quest_ID: 101
+  Repeatable: 0
+  IN_actionPointWeight: 10
+  IN_motivationAmount: 500

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d6ff407be7af647ad3ceef595f8c2d, type: 3}
+  m_Name: 103 CafeImp
+  m_EditorClassIdentifier: 
+  name: 
+  ST_taskBrief: 
+  ST_descriptionDialogue: 
+  ST_acceptedDialogue: 
+  ST_declinedDialogue: 
+  ST_finishDialogue: 
+  ST_failDialogue: 
+  ST_waitingDialogue: 
+  Quest_ID: 0
+  Repeatable: 0
+  IN_actionPointWeight: 0
+  IN_motivationAmount: 0

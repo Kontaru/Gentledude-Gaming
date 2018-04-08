@@ -31590,7 +31590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 2051676245}
+  selectedFlowchart: {fileID: 1935816553}
 --- !u!4 &1122166669
 Transform:
   m_ObjectHideFlags: 1
@@ -54381,6 +54381,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 36
   indentLevel: 0
+--- !u!114 &1935816553 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114663732025065190, guid: 89a94cf01f52e324fb674e20af021498,
+    type: 2}
+  m_PrefabInternal: {fileID: 1762258147}
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
 --- !u!1 &1943062427
 GameObject:
   m_ObjectHideFlags: 0
