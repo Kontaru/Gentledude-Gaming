@@ -82,7 +82,8 @@ public class FungusDirector : MonoBehaviour {
 
     public void IdleNPC(string dialogue)
     {
-        FungusFlow.SetStringVariable("paragraph1", dialogue);
+        paragraphs = dialogue.Split(new string[] { parseKeyword }, System.StringSplitOptions.None);
+        ParagraphedConversation(paragraphs, 0);
         InitiateFlow("Idle");
     }
 
