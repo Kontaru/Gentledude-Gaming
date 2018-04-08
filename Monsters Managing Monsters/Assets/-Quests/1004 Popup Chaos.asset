@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7d6ff407be7af647ad3ceef595f8c2d, type: 3}
-  m_Name: 104 Popup Chaos
+  m_Name: 1004 Popup Chaos
   m_EditorClassIdentifier: 
-  name: 
-  ST_taskBrief: 
-  ST_descriptionDialogue: 
-  ST_acceptedDialogue: 
-  ST_declinedDialogue: 
-  ST_finishDialogue: 
-  ST_failDialogue: 
-  ST_waitingDialogue: 
-  Quest_ID: 0
+  name: Popup Chaos
+  TaskBrief: 
+  DescriptionDialogue: 
+  AcceptedDialogue: 
+  DeclinedDialogue: 
+  FinishDialogue: 
+  FailDialogue: 
+  WaitingDialogue: 
+  Quest_ID: 1004
   Repeatable: 0
-  IN_actionPointWeight: 0
-  IN_motivationAmount: 0
+  Presets: 3
+  customActionPointWeight: 0
+  customMotivationAmount: 0

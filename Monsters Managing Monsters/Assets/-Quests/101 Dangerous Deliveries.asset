@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d6ff407be7af647ad3ceef595f8c2d, type: 3}
+  m_Name: 101 Dangerous Deliveries
+  m_EditorClassIdentifier: 
+  name: Dangerous Deliveries!
+  TaskBrief: Doughnuts need to be delivered around the office!
+  DescriptionDialogue: "Hey, you \u2013 yeah, you. We got some doughnuts in that I
+    gotta go dish around, but frankly Pigman Jim is roaming about and he can\u2019t
+    hold back when food is about. n//n I\u2019m not in the mood for running today.
+    But hey, you look weedy and fast. What do you say? "
+  AcceptedDialogue: "Thanks. I can\u2019t tell if you\u2019re brave or stupid, but
+    watch out\u2026 He loves them doughnuts\u2026 "
+  DeclinedDialogue: Not now? I can wait.
+  FinishDialogue: "And you made it back without a bite taken out of you, yourself.
+    Thanks, uh\u2026 Guy. "
+  FailDialogue: "He caught you didn\u2019t he? Bad luck there. Least he didn\u2019t
+    take a bite outta you too (I wish he did). "
+  WaitingDialogue: 'Gotta hurry! I think I can see him coming down the hall! '
+  Quest_ID: 101
+  Repeatable: 0
+  Presets: 2
+  customActionPointWeight: 6
+  customMotivationAmount: 220

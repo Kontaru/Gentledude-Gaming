@@ -12,20 +12,23 @@ MonoBehaviour:
   m_Name: 03 Wandering Spirit
   m_EditorClassIdentifier: 
   name: Wandering Spirit
-  ST_taskBrief: Hey... Listen. Don't be alarmed, but I'm a pixie. I don't mean any
-    harm. I just want OUT.
-  ST_descriptionDialogue: Hey... Listen. Hey... LISTEN! Are you listening, punk? n//n
-    Look, I somehow got here with my buddies. Don't worry, we're gonna leave, but
-    could you help me find my mates?
-  ST_acceptedDialogue: Good. You're smarter than you look. I'll wait here. Don't take
+  TaskBrief: Hey... Listen. Don't be alarmed, but I'm a pixie. I don't mean any harm.
+    I just want OUT.
+  DescriptionDialogue: Hey... Listen. Hey... LISTEN! Are you listening, punk? n//n
+    Look, I somehow got here with my buddies. They shouldn't be too far, this office
+    is tiny after all. (... Figures, this office sucks). n//n Don't worry, we're gonna
+    leave,but only if you help me find my mates. What do you say, punk? Find my friends
+    and we leave - problem solved.
+  AcceptedDialogue: Good. You're smarter than you look. I'll wait here. Don't take
     long, punk.
-  ST_declinedDialogue: Look. I know you're coming back, because if you don't, we will
+  DeclinedDialogue: Look. I know you're coming back, because if you don't, we will
     cause CHAOS, hear me, punk?
-  ST_finishDialogue: Good, you did it. We can finally leave. See you around, kiddo.
-  ST_failDialogue: What? Seriously? You guys will pay for this... ... I come back
-    for your kneecaps kiddo, just you see!
-  ST_waitingDialogue: Seriously, you're taking too long. Hurry up.
+  FinishDialogue: Good, you did it. We can finally leave. See you around, kiddo.
+  FailDialogue: What? Seriously? You guys will pay for this... I'll be back to break
+    your kneecaps, punk.
+  WaitingDialogue: Seriously, you're taking too long. Hurry up.
   Quest_ID: 3
   Repeatable: 0
-  IN_actionPointWeight: 3
-  IN_motivationAmount: 100
+  Presets: 1
+  customActionPointWeight: 0
+  customMotivationAmount: 0

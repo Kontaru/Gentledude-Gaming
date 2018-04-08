@@ -11,22 +11,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d6ff407be7af647ad3ceef595f8c2d, type: 3}
   m_Name: 01 Technical Trouble
   m_EditorClassIdentifier: 
-  name: 
-  ST_taskBrief: There's... something up with my computer. I can't let Pigman Jim know.
+  name: Technical Trouble
+  TaskBrief: There's... something up with my computer. I can't let Pigman Jim know.
     Come take a look?
-  ST_descriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but I
-    uh \u2013 I got a virus. I don\u2019t know how but I need you to fix it for me,
-    fast. n//n  Don\u2019t go telling Jim, the technician. This isn\u2019t the first
-    time\u2026 Could you fix it for me?"
-  ST_acceptedDialogue: 'Hurry it up then, before someone sees! '
-  ST_declinedDialogue: Uh oh. Uuuuuh... I mean, you're gonna come back, right? I'll
-    wait.
-  ST_finishDialogue: "Phew\u2026 Thanks uh\u2026 Yeah\u2026 Don\u2019t you have work
+  DescriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but I uh
+    \u2013 I got a virus. I don\u2019t know how but I need you to fix it for me, fast.
+    n//n  Don\u2019t go telling Jim, the technician. This isn\u2019t the first time\u2026
+    Could you fix it for me?"
+  AcceptedDialogue: 'Hurry it up then, before someone sees! '
+  DeclinedDialogue: Uh oh. Uuuuuh... I mean, you're gonna come back, right? I'll wait.
+  FinishDialogue: "Phew\u2026 Thanks uh\u2026 Yeah\u2026 Don\u2019t you have work
     to be getting on with? "
-  ST_failDialogue: "You\u2019ve got to be kidding me. How am I going to explain it
-    this time\u2026 Hey uh, no hard feelings though... ..."
-  ST_waitingDialogue: "You\u2019d better know what you\u2019re doing. "
+  FailDialogue: "You\u2019ve got to be kidding me. How am I going to explain it this
+    time\u2026 Hey uh, no hard feelings though... ..."
+  WaitingDialogue: "You\u2019d better know what you\u2019re doing. "
   Quest_ID: 1
   Repeatable: 0
-  IN_actionPointWeight: 6
-  IN_motivationAmount: 220
+  Presets: 1
+  customActionPointWeight: 3
+  customMotivationAmount: 100

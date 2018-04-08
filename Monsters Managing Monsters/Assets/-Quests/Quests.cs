@@ -22,29 +22,38 @@ public class Quests : ScriptableObject {
 
     [Header("Accepting a quest")]
     [TextArea(2, 10)]
-    public string ST_taskBrief;
+    public string TaskBrief;
     [TextArea(2, 10)]
-    public string ST_descriptionDialogue;              //A description of the quest. Please fill this in so everyone else knows what the quest is and what the steps are to completing a quest.
+    public string DescriptionDialogue;              //A description of the quest. Please fill this in so everyone else knows what the quest is and what the steps are to completing a quest.
     [TextArea(2, 10)]
-    public string ST_acceptedDialogue;
+    public string AcceptedDialogue;
     [TextArea(2, 10)]
-    public string ST_declinedDialogue;
+    public string DeclinedDialogue;
 
     [Header("Finishing a quest")]
     [TextArea(2, 10)]
-    public string ST_finishDialogue;
+    public string FinishDialogue;
     [TextArea(2, 10)]
-    public string ST_failDialogue;
+    public string FailDialogue;
     [TextArea(2, 10)]
-    public string ST_waitingDialogue;
+    public string WaitingDialogue;
 
 
     public int Quest_ID;
     public bool Repeatable = false;
 
+    public enum Values
+    {
+        None,
+        Level_01,
+        Level_02,
+        Level_03
+    }
+
     [Header("Action Points + Motivation")]
-    public int IN_actionPointWeight;
-    public int IN_motivationAmount;
+    public Values Presets;
+    public int customActionPointWeight;
+    public int customMotivationAmount;
 
     //[Header("Steps")]
     //public Step[] Steps;                    //Our steps to completing the quest
