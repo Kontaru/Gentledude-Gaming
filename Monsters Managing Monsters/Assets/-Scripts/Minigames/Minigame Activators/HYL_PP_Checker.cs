@@ -8,7 +8,6 @@ public class HYL_PP_Checker : HYL_OS_Minigame_Handler {
     // Update is called once per frame
     override public void Update()
     {
-
         base.Update();
 
         BL_MinigameComplete = DDgame.BL_GameComplete;
