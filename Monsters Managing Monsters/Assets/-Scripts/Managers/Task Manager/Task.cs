@@ -8,6 +8,7 @@ public class Step
     public string description;              //Description of my step (how to complete it, what I need for it to be complete)
     public QuestPart requires;
     public bool TurnOff = false;
+    public bool Hidden = false;
     public bool complete = false;           //Is this step complete?
     public bool active = false;
 }
