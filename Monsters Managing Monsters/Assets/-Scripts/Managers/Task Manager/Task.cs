@@ -114,7 +114,7 @@ public class Task
 
 
             Steps[step_tracker].active = false;
-            step_tracker++;
+            step_tracker += 1;
         }
     }
 
