@@ -58,7 +58,7 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    void ZoomedOut(bool zoomOut)
+    public void ZoomedOut(bool zoomOut)
     {
         if (zoomOut == true && Camera.main.orthographic)
         {

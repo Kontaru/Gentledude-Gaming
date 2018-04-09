@@ -266,6 +266,12 @@ public class PDAHandler : MonoBehaviour {
         AudioManager.instance.Play("PDA Locate");
     }
 
+    public void LocateObjective()
+    {
+        StartCoroutine(LocateStep(3));
+        AudioManager.instance.Play("PDA Locate");
+    }
+
     public void EnableMinigameRender()
     {
         renderCam.SetActive(true);
@@ -459,5 +465,15 @@ public class PDAHandler : MonoBehaviour {
         CameraFollow.instance.otherLook = task.GO_belongsTo;
         yield return new WaitForSeconds(seconds);
         CameraFollow.instance.otherLook = null;
+    }
+
+    IEnumerator LocateStep(float seconds)
+    {
+        Task task = CurrentTasks.instance.currentTask[taskIndex];
+        if (task.Steps[task.step_tracker].Hidden) CameraFollow.instance.ZoomedOut(true);
+        else CameraFollow.instance.otherLook = task.Steps[task.step_tracker].requires.gameObject;
+        yield return new WaitForSeconds(seconds);
+        CameraFollow.instance.otherLook = null;
+        CameraFollow.instance.ZoomedOut(false);
     }
 }
