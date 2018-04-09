@@ -156,6 +156,7 @@ public class Task
                 step.active = false;
             }
 
+            step_tracker = 0;
             Quest_Fail = false;
 
             if (Repeatable)
