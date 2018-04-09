@@ -20,8 +20,6 @@ public class HYL_IS_Distribution : QuestPart {
     // Update is called once per frame
     override public void Update()
     {
-        Fluff();
-
         SetObjectStates();
 
         if (!BL_IsInteractable) return;
@@ -99,10 +97,5 @@ public class HYL_IS_Distribution : QuestPart {
         }
 
         IN_FinalCount = IN_itemCount - IN_stolenCount - itemCount;
-    }
-
-    virtual public void Fluff()
-    {
-
     }
 }

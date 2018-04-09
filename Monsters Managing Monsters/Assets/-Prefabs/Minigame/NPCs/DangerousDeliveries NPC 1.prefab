@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4440693907768618}
-  - component: {fileID: 54953055521653250}
+  - component: {fileID: 54270619199831340}
   - component: {fileID: 195771986369002160}
   - component: {fileID: 65500520434581834}
   - component: {fileID: 23922676909328548}
@@ -378,7 +378,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621168203585798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.66, y: 0, z: 9.79}
+  m_LocalPosition: {x: -2.66, y: 0, z: 33.62}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4440693907768618}
@@ -571,18 +571,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1617513619650250}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54953055521653250
+--- !u!54 &54270619199831340
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1117519991171852}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -713,6 +713,12 @@ MonoBehaviour:
   ActiveTask:
     name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -724,15 +730,9 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
 --- !u!114 &114571275958900664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -812,7 +812,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

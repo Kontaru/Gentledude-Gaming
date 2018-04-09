@@ -6,11 +6,9 @@ using Fungus;
 public class SimpleQuestPart : QuestPart {
 
     public GameObject objectiveMarker;
+    public GameObject[] VisibilityTargets;
     [TextArea(2, 10)]
     public string dialogueOnContact;
-
-    public string playerAcceptText;
-    public string playerDeclineText;
 
     private Flowchart flowchart;
     bool BL_ObjectiveMarkersOn = false;
@@ -29,10 +27,7 @@ public class SimpleQuestPart : QuestPart {
 
                 if(dialogueOnContact != "")
                 {
-                    flowchart.SetStringVariable("dialogue", dialogueOnContact);
-                    flowchart.SetStringVariable("acceptText", playerAcceptText);
-                    flowchart.SetStringVariable("declineText", playerDeclineText);
-                    Fungus.Flowchart.BroadcastFungusMessage("InitiateStep");
+                    FungusDirector.instance.IdleNPC(dialogueOnContact);
                 }
             }
         }
@@ -62,11 +57,24 @@ public class SimpleQuestPart : QuestPart {
     {
         base.Update();
 
-        if(BL_IsInteractable && !BL_ObjectiveMarkersOn)
+        if(BL_IsInteractable)
         {
-            if (objectiveMarker != null)
-                objectiveMarker.SetActive(true);
-            BL_ObjectiveMarkersOn = true;
+            foreach (GameObject target in VisibilityTargets)
+            {
+                target.SetActive(true);
+            }
+            if (!BL_ObjectiveMarkersOn)
+            {
+                if (objectiveMarker != null)
+                    objectiveMarker.SetActive(true);
+                BL_ObjectiveMarkersOn = true;
+            }
+        }else
+        {
+            foreach (GameObject target in VisibilityTargets)
+            {
+                target.SetActive(false);
+            }
         }
 
 

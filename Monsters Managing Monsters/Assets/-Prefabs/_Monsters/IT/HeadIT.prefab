@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 4895452542923568}
   - component: {fileID: 114929552743000260}
   - component: {fileID: 114932166786343378}
+  - component: {fileID: 114315250666719138}
   m_Layer: 0
   m_Name: Quest Handler
   m_TagString: Untagged
@@ -308,7 +309,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1403143229462154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.692545, y: 0, z: 20.47832}
+  m_LocalPosition: {x: -2.39, y: 0, z: 4.6900024}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4847093725515630}
@@ -660,6 +661,19 @@ MonoBehaviour:
   bl_scale_y: 0
   bl_scale_z: 0
   BL_Pulse: 1
+--- !u!114 &114315250666719138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222332874026926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec97a042335624444878e3d59b2ae823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestIDs: ec030000
+  Tasks: []
 --- !u!114 &114502886623164714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -767,6 +781,13 @@ MonoBehaviour:
   - Me... Strong...
   ActiveTask:
     name: 
+    Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -775,18 +796,12 @@ MonoBehaviour:
     ST_failDialogue: 
     ST_waitingDialogue: 
     Quest_ID: 0
-    inActiveList: 0
     Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    Steps: []
     step_tracker: 0
+    Steps: []
+    GO_belongsTo: {fileID: 0}
 --- !u!114 &114932166786343378
 MonoBehaviour:
   m_ObjectHideFlags: 1

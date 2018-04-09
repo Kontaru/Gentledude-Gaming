@@ -13,15 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Dangerous Deliveries!
   TaskBrief: Doughnuts need to be delivered around the office!
-  DescriptionDialogue: "Hey, you \u2013 yeah, you. We got some doughnuts in that I
-    gotta go dish around, but frankly Pigman Jim is roaming about and he can\u2019t
-    hold back when food is about. n//n I\u2019m not in the mood for running today.
-    But hey, you look weedy and fast. What do you say? "
-  AcceptedDialogue: "Thanks. I can\u2019t tell if you\u2019re brave or stupid, but
-    watch out\u2026 He loves them doughnuts\u2026 "
-  DeclinedDialogue: Not now? I can wait.
-  FinishDialogue: "And you made it back without a bite taken out of you, yourself.
-    Thanks, uh\u2026 Guy. "
+  DescriptionDialogue: "Hey, you. n//n- Yeah, you! n//n We got some doughnuts in that
+    I gotta go dish around, but I\u2019m not in the mood for running today. But hey,
+    you look weedy and fast. What do you say? "
+  AcceptedDialogue: "Thanks. I can\u2019t tell if you\u2019re bored or stupid. Huh?
+    I didn't say anything. Get to work! "
+  DeclinedDialogue: Not now? I can wait. It's your job around here so I know you'll
+    be back.
+  FinishDialogue: "And you made it back without a bite taken out of you. Thanks, uh\u2026
+    Guy."
   FailDialogue: "He caught you didn\u2019t he? Bad luck there. Least he didn\u2019t
     take a bite outta you too (I wish he did). "
   WaitingDialogue: 'Gotta hurry! I think I can see him coming down the hall! '

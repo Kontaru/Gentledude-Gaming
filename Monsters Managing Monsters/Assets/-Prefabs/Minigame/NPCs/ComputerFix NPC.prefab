@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4820370054083188}
-  - component: {fileID: 54358689304594036}
+  - component: {fileID: 54085083499037402}
   - component: {fileID: 195621078222267728}
   - component: {fileID: 65205202018263628}
   - component: {fileID: 23074729553672282}
@@ -415,7 +415,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1226722199365598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 17.07, y: 0, z: 2.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4880826082141144}
@@ -571,18 +571,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1551514089066798}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54358689304594036
+--- !u!54 &54085083499037402
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1226722199365598}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -678,6 +678,12 @@ MonoBehaviour:
   ActiveTask:
     name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -689,15 +695,9 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
 --- !u!114 &114399093617939008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -813,7 +813,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
