@@ -12,14 +12,32 @@ MonoBehaviour:
   m_Name: 00 Tutorial Getting Started
   m_EditorClassIdentifier: 
   name: 'Tutorial: Getting Started'
-  TaskBrief: '[Brief]'
-  DescriptionDialogue: '[Description]'
-  AcceptedDialogue: '[Accepted]'
-  DeclinedDialogue: '[Declined]'
-  FinishDialogue: '[Success]'
-  FailDialogue: '[Failure]'
-  WaitingDialogue: '[Waiting]'
-  Quest_ID: 1003
+  TaskBrief: Welcome to the job!
+  DescriptionDialogue: 'So you''re here for a job! n//n  Let''s skip the formalities.
+    I''ll  give you a brief of the job details. n//n There''s been an increase in
+    hero activity lately, and that is SUPER bad for everyone''s moral. They attack,
+    like, once a week! It''s crazy! n//n Here''s where you come in. n//n Our moral
+    is at an ALL. TIME. LOW. Everyone''s so worried about these heroes that they''ve
+    toootally forgotten to do their own work. n//n If you work as the odd jobs around
+    here and help people who are in need, that will help us sooo much! No strings
+    attached! (... I don''t think) n//n How about it? This has your name written all
+    over it! Why don''t you take on the job? '
+  AcceptedDialogue: You'll do it? Awesome! I've written your name down. Let's get
+    to it, rookie! Why don't you grab a PDA from the booth to your left?
+  DeclinedDialogue: '... Hmmm? Sorry, did you say something? I''ve already written
+    your name down. Let''s get to it, rookie! Why don''t you grab a PDA from the booth
+    to your left?'
+  FinishDialogue: You did it! See, I knew you had it in you! n//n Wow, a few moments
+    ago you were a wimpy, disgusting Imp. Now when I look at you, I see a wimpy, disgusting
+    Imp with a job! n//n You didn't catch that? Good! n//n Our office is known for
+    being a liiittle harsh on new recruits, but don't let that get you down, okay?
+    n//n It's perfectly normal! Every office is like that! Don't contact our boss
+    about it! n//n Well... Looks like you're ready to tackle on the real world. Take
+    the elevator to your right to start your new job!
+  FailDialogue: Ah shucks. You can do it next time! I believe in you!
+  WaitingDialogue: I've already written your name down. Let's start with the initiation!
+    Why don't you grab a PDA from the booth to your left?
+  Quest_ID: 0
   Repeatable: 0
   Presets: 3
   customActionPointWeight: 0

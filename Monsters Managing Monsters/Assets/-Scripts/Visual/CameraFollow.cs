@@ -14,6 +14,11 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 1f;
     public float playerfollowSmoothSpeed = 1f;
 
+    public float maxCameraSize;
+    private float FL_originalCamSize;
+
+    public float rate;
+
     #region Typical Singleton Format
 
     void Awake()
@@ -26,6 +31,8 @@ public class CameraFollow : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        FL_originalCamSize = Camera.main.orthographicSize;
     }
 
     #endregion
@@ -49,5 +56,27 @@ public class CameraFollow : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, otherLook.transform.position, smoothSpeed * Time.deltaTime);
         }
+    }
+
+    void ZoomedOut(bool zoomOut)
+    {
+        if (zoomOut == true && Camera.main.orthographic)
+        {
+            StartCoroutine(ChangeCameraOrthSize(Camera.main.orthographicSize, maxCameraSize));
+        }else if (zoomOut == false && Camera.main.orthographic)
+        {
+            StartCoroutine(ChangeCameraOrthSize(Camera.main.orthographicSize, FL_originalCamSize));
+        }
+    }
+
+    IEnumerator ChangeCameraOrthSize(float originalValue, float destinationValue)
+    {
+        do
+        {
+            Camera.main.orthographicSize = Mathf.Lerp(originalValue, destinationValue, rate);
+            rate += Time.deltaTime / 20;
+            yield return null;
+        } while (Camera.main.orthographicSize != destinationValue);
+        rate = 0;
     }
 }
