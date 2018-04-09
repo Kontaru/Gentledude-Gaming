@@ -156,11 +156,7 @@ public class Task
                 step.active = false;
             }
 
-            BL_isAccepted = false;
-            BL_isObtainable = false;
-            Quest_Complete = false;
             Quest_Fail = false;
-            inActiveList = false;
 
             if (Repeatable)
             {

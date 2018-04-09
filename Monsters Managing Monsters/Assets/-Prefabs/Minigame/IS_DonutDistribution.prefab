@@ -673,7 +673,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229355628254854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -81.7, y: 0, z: -66.2}
+  m_LocalPosition: {x: -82.75, y: 0, z: -66.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4304261658147414}
@@ -826,7 +826,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498432958227950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 95.5, y: 0, z: 50.94}
+  m_LocalPosition: {x: 84.48, y: 0, z: 24.34}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4091635008383998}
@@ -1103,19 +1103,21 @@ MonoBehaviour:
   items:
   - target: {fileID: 1229355628254854}
     interactDistance: 5
-    text: 
+    text: Oh, for me? Don't... touch that doughnut. I don't want your germs on it.
+      'kay, thanks.
     acquired: 0
   - target: {fileID: 1303075772535660}
     interactDistance: 5
-    text: 
+    text: Ah... it's you. Oh, doughnuts? Well, I guess I'll let it slide this time
+      and be nice...
     acquired: 0
   - target: {fileID: 1277927009045594}
     interactDistance: 5
-    text: 
+    text: '... It''s you... [She visibly cringes and takes a doughnut]. Move along...'
     acquired: 0
   - target: {fileID: 1880020945369236}
     interactDistance: 5
-    text: 
+    text: Ah... Your name... Froggy, was it? No? Whatever, thanks for the doughnut.
     acquired: 0
   BL_QuestComplete: 0
   IN_maxItemCount: 10

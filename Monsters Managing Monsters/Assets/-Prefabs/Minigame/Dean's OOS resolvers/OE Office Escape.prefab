@@ -193,9 +193,10 @@ MonoBehaviour:
   BL_MinigameComplete: 0
   BL_MinigameFail: 0
   objectiveMarker: {fileID: 1403697322345690}
-  dialogueOnContact: '[Placeholder]'
-  playerAcceptText: Let's do this.
-  playerDeclineText: '... This can wait.'
+  VisibilityTargets: []
+  dialogueOnContact: I've got to help them sneak past. They're counting on me.
+  acceptDialogue: Alright. All sneaky.
+  declineDialogue: I'll come back to this later, the moment's not right.
 --- !u!114 &114827958474326596
 MonoBehaviour:
   m_ObjectHideFlags: 1

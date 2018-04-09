@@ -12,6 +12,7 @@ public class NPCCanvasManager : MonoBehaviour {
     private GameObject interactionObject;
     private GameObject questionMark;
 
+
     void Start()
     {
         NPC = GetComponent<NPCInteraction>();
@@ -41,10 +42,17 @@ public class NPCCanvasManager : MonoBehaviour {
 
         if (z > 0 && x > NPC.Xmin && x < NPC.Xmax && y > NPC.Ymin && y < NPC.Ymax)
         {
-            ShowInteraction();
+            if (NPC.BL_InTalkingRange == true || NPCInteraction.BL_monoTalk == false)
+            {
+                NPC.BL_InTalkingRange = true;
+                NPCInteraction.BL_monoTalk = true;
+                ShowInteraction();
+            }
         }
         else if (z > 0 && x > 0.05 && x < 0.95 && y > 0.05 && y < 0.95)
         {
+            NPC.BL_InTalkingRange = false;
+            NPCInteraction.BL_monoTalk = false;
             if (!NPC.BL_HasQuest)
             {
                 HideAll();
@@ -60,6 +68,8 @@ public class NPCCanvasManager : MonoBehaviour {
         }
         else
         {
+            NPC.BL_InTalkingRange = false;
+            NPCInteraction.BL_monoTalk = false;
             HideAll();
         }
     }

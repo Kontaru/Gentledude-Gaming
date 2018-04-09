@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1581385837662800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.380001, y: 0.63999987, z: -9.41}
+  m_LocalPosition: {x: 42.51, y: 0.63999987, z: 35.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4852741840628016}
@@ -177,10 +177,11 @@ MonoBehaviour:
   BL_MinigameComplete: 0
   BL_MinigameFail: 0
   objectiveMarker: {fileID: 1620422159606644}
+  VisibilityTargets: []
   dialogueOnContact: His PC is riddled with popups. I don't want to know what he was
     doing. But someone's got to do it.
-  playerAcceptText: Fix it now.
-  playerDeclineText: Come back later.
+  acceptDialogue: I've got this.
+  declineDialogue: I'll come back to it.
 --- !u!114 &114761758410270710
 MonoBehaviour:
   m_ObjectHideFlags: 1

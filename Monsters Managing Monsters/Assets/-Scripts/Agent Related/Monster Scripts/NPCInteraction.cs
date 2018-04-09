@@ -21,6 +21,8 @@ public class NPCInteraction : MonoBehaviour
     private bool BL_QuestAccepted = false;      //Did I accept a quest?
 
     public bool BL_InConversation = false;
+    public bool BL_InTalkingRange = false;
+    public static bool BL_monoTalk = false;
 
     public string[] flavourText;
 
@@ -101,7 +103,7 @@ public class NPCInteraction : MonoBehaviour
 
     void TalkingState()
     {
-        if (Input.GetKeyDown(KeyCode.E) && BL_InConversation == false)
+        if (Input.GetKeyDown(KeyCode.E) && BL_InConversation == false && BL_InTalkingRange)
             Converse();
 
         if (BL_HasQuest && FungusDirector.instance.bl_AcceptedTask && BL_InConversation == true)
@@ -175,8 +177,12 @@ public class NPCInteraction : MonoBehaviour
     private void QuestCompleted()
     {
         ActiveTask.Quest_Finish = true;
+        ActiveTask.BL_isAccepted = false;
+        ActiveTask.BL_isObtainable = false;
+        ActiveTask.Quest_Complete = false;
+        ActiveTask.inActiveList = false;
         BL_QuestCompleted = false;
         BL_QuestAccepted = false;
-        BL_HasQuest = false;      
+        BL_HasQuest = false;
     }
 }

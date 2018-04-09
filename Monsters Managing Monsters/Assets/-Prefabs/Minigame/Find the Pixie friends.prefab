@@ -143,8 +143,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4197867504637196}
-  - component: {fileID: 114006383326706772}
-  - component: {fileID: 65812337499982604}
   m_Layer: 0
   m_Name: Pixie (1)
   m_TagString: Untagged
@@ -436,8 +434,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4157529631647506}
-  - component: {fileID: 114691536564161494}
-  - component: {fileID: 65912264193501968}
   m_Layer: 0
   m_Name: Pixie
   m_TagString: Untagged
@@ -453,8 +449,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4317188969761622}
-  - component: {fileID: 114896881707876654}
-  - component: {fileID: 65850641438479584}
   m_Layer: 0
   m_Name: Pixie (2)
   m_TagString: Untagged
@@ -661,59 +655,6 @@ Transform:
   m_Father: {fileID: 224163870223199746}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65812337499982604
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174206765331570}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65850641438479584
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1963164511443628}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65912264193501968
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1933751609009804}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114006383326706772
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174206765331570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c96f71024b5264a88ee30ae6b4766e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BL_IsInteractable: 0
-  BL_MinigameComplete: 0
-  BL_MinigameFail: 0
-  objectiveMarker: {fileID: 0}
-  VisibilityTargets: []
-  dialogueOnContact: Hey, I called an uber! Are you my uber?
 --- !u!114 &114089149998547364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -862,16 +803,17 @@ MonoBehaviour:
   BL_MinigameFail: 0
   items:
   - target: {fileID: 1933751609009804}
-    interactDistance: 7
-    text: Pixie 1
+    interactDistance: 4
+    text: Hey! I'm lost! ... Not proud about it! ... You've come to pick me up? Perfect!
     acquired: 0
   - target: {fileID: 1174206765331570}
-    interactDistance: 7
-    text: Pixie 2
+    interactDistance: 4
+    text: Hey, I called an uber! Are you my uber?
     acquired: 0
   - target: {fileID: 1963164511443628}
-    interactDistance: 7
-    text: Pixie 2
+    interactDistance: 4
+    text: AH! ... You scared the HECK out of me. You look too wimpy to be a threat.
+      Get me the hell outta dodge!
     acquired: 0
   BL_QuestComplete: 0
 --- !u!114 &114484052197670760
@@ -1020,24 +962,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Hit 'E' to Take
---- !u!114 &114691536564161494
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1933751609009804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c96f71024b5264a88ee30ae6b4766e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BL_IsInteractable: 0
-  BL_MinigameComplete: 0
-  BL_MinigameFail: 0
-  objectiveMarker: {fileID: 0}
-  VisibilityTargets: []
-  dialogueOnContact: Hey! I'm lost! ... Not proud about it! ... You've come to pick
-    me up? Perfect!
 --- !u!114 &114714373795810342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1234,24 +1158,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114896881707876654
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1963164511443628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c96f71024b5264a88ee30ae6b4766e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BL_IsInteractable: 0
-  BL_MinigameComplete: 0
-  BL_MinigameFail: 0
-  objectiveMarker: {fileID: 0}
-  VisibilityTargets: []
-  dialogueOnContact: AH! ... You scared the HECK out of me. You look too wimpy to
-    be a threat. Get me the hell outta dodge!
 --- !u!114 &114917365263271736
 MonoBehaviour:
   m_ObjectHideFlags: 1

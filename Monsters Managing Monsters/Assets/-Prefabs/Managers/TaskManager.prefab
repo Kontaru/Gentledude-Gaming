@@ -55,6 +55,12 @@ MonoBehaviour:
   currentTask:
   - name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -66,17 +72,17 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
   - name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -88,17 +94,17 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
   - name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -110,17 +116,17 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
   - name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -132,17 +138,17 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
   - name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -154,15 +160,9 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
 --- !u!114 &114460942788931260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,8 +175,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tasks:
-  - name: Technical Trouble
+  - name: 01 Technical Trouble
     Quest: {fileID: 11400000, guid: aa0481c383651de4e88795fda6e4fded, type: 2}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: There's... something up with my computer. I can't let Pigman Jim
       know. Come take a look?
     ST_descriptionDialogue: "Psst! You! Come here! Look don\u2019t tell anyone but
@@ -193,25 +199,26 @@ MonoBehaviour:
     ST_waitingDialogue: "You\u2019d better know what you\u2019re doing. "
     Quest_ID: 1
     Repeatable: 0
-    IN_actionPointWeight: 3
-    IN_motivationAmount: 100
+    IN_actionPointWeight: 0
+    IN_motivationAmount: 0
+    step_tracker: 0
     Steps:
     - name: Fix Computer
       description: The player should do a thing which does another thing.
       requires: {fileID: 0}
       TurnOff: 0
+      Hidden: 0
       complete: 0
       active: 0
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
+  - name: 101 Dangerous Deliveries!
+    Quest: {fileID: 11400000, guid: b0fa143289fa3f243b4c94c2e07a7ccb, type: 2}
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
-    step_tracker: 0
-  - name: Dangerous Deliveries!
-    Quest: {fileID: 11400000, guid: b0fa143289fa3f243b4c94c2e07a7ccb, type: 2}
+    inActiveList: 0
     ST_taskBrief: Doughnuts need to be delivered around the office!
     ST_descriptionDialogue: "Hey, you \u2013 yeah, you. We got some doughnuts in that
       I gotta go dish around, but frankly Pigman Jim is roaming about and he can\u2019t
@@ -229,23 +236,24 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 6
     IN_motivationAmount: 220
+    step_tracker: 0
     Steps:
     - name: Deliver Donuts
       description: Deliver them!
       requires: {fileID: 0}
       TurnOff: 0
+      Hidden: 0
       complete: 0
       active: 0
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
+  - name: 1001 Doughnut Dash
+    Quest: {fileID: 11400000, guid: b1006ad50945433479ec362b51449abd, type: 2}
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
-    step_tracker: 0
-  - name: Doughnut Dash
-    Quest: {fileID: 11400000, guid: b1006ad50945433479ec362b51449abd, type: 2}
+    inActiveList: 0
     ST_taskBrief: Hey Carlson. It's me, Machico! I need a small favour - see you soon!
     ST_descriptionDialogue: "Hey Carlson! We ordered some doughnuts for the department,
       and I need someone to go fetch them! n//n I have my hands full with some new
@@ -264,29 +272,31 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 10
     IN_motivationAmount: 500
+    step_tracker: 0
     Steps:
     - name: Leave the office
       description: Minigame
       requires: {fileID: 0}
       TurnOff: 1
+      Hidden: 0
       complete: 0
       active: 0
     - name: Grab the donuts
       description: Minigame
       requires: {fileID: 0}
       TurnOff: 0
+      Hidden: 0
       complete: 0
       active: 0
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
+  - name: 03 Wandering Spirit
+    Quest: {fileID: 11400000, guid: f1572c1c57ca62a49a146f006394ee8f, type: 2}
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
-    step_tracker: 0
-  - name: Wandering Spirit
-    Quest: {fileID: 11400000, guid: f1572c1c57ca62a49a146f006394ee8f, type: 2}
+    inActiveList: 0
     ST_taskBrief: Hey... Listen. Don't be alarmed, but I'm a pixie. I don't mean any
       harm. I just want OUT.
     ST_descriptionDialogue: Hey... Listen. Hey... LISTEN! Are you listening, punk?
@@ -303,23 +313,24 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 3
     IN_motivationAmount: 100
+    step_tracker: 0
     Steps:
     - name: Hunt down the pixies
       description: Find them, fast!
       requires: {fileID: 0}
       TurnOff: 0
+      Hidden: 0
       complete: 0
       active: 0
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
+  - name: 1002 Pixie Panic
+    Quest: {fileID: 11400000, guid: 7e117f48bf3c0444c98b66f0199ef75f, type: 2}
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
-    step_tracker: 0
-  - name: Pixie Panic
-    Quest: {fileID: 11400000, guid: 7e117f48bf3c0444c98b66f0199ef75f, type: 2}
+    inActiveList: 0
     ST_taskBrief: Oh no... Oh no no no... My gremlin brothers are gone... Where could
       they be?!
     ST_descriptionDialogue: Look, buddy... Jim, was it? Whatever, look. I'm sorry
@@ -339,24 +350,196 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 10
     IN_motivationAmount: 500
+    step_tracker: 0
     Steps:
     - name: Find the Gremlins
       description: Find them, fast!
       requires: {fileID: 0}
       TurnOff: 0
+      Hidden: 0
       complete: 0
       active: 0
     - name: Protect the Gremlins
       description: Find them, fast!
       requires: {fileID: 0}
       TurnOff: 0
+      Hidden: 0
       complete: 0
       active: 0
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
+  - name: 1003 Cafe Imp
+    Quest: {fileID: 11400000, guid: 38681bfe131f9ad47947f3ffae1eda22, type: 2}
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
     BL_isObtainable: 0
     BL_isAccepted: 0
+    inActiveList: 0
+    ST_taskBrief: Oh no... Oh no no no... My gremlin brothers are gone... Where could
+      they be?!
+    ST_descriptionDialogue: Look, buddy... Jim, was it? Whatever, look. I'm sorry
+      about always making fun of you, but PLEASE... n//n ... My brothers - they're
+      gone. Last I saw, boss wanted them to clear all the pixies that were lurking
+      around. This can't be good...
+    ST_acceptedDialogue: Thanks, buddy. You're actually really nice, now that I think
+      about it... n//n Here, I'll mark for you where I think they  might be. Please
+      hurry...
+    ST_declinedDialogue: Please? You'll be doing me a favour man. I'll wait here.
+    ST_finishDialogue: Haha! You did it! Yeah, thanks! I got the word that you saved
+      my brothers! n//n But JEEZ I hate your face. I was lying about everything I
+      said!
+    ST_failDialogue: W-What do you mean my brothers were taken away...?
+    ST_waitingDialogue: Heh, no rush buddy, nooo rush at all.
+    Quest_ID: 6
+    Repeatable: 0
+    IN_actionPointWeight: 10
+    IN_motivationAmount: 500
     step_tracker: 0
+    Steps:
+    - name: Make it out of the office
+      description: Leave the office and make your way to the cafe
+      requires: {fileID: 0}
+      TurnOff: 0
+      Hidden: 0
+      complete: 0
+      active: 0
+    - name: Cafe Imp
+      description: Manage the Cafe during rush hour
+      requires: {fileID: 0}
+      TurnOff: 0
+      Hidden: 0
+      complete: 0
+      active: 0
+    GO_belongsTo: {fileID: 0}
+  - name: 1004 Popup Chaos
+    Quest: {fileID: 11400000, guid: 35a2354b19891254b962a619e7992a1e, type: 2}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
+    ST_taskBrief: Oh no... Oh no no no... My gremlin brothers are gone... Where could
+      they be?!
+    ST_descriptionDialogue: Look, buddy... Jim, was it? Whatever, look. I'm sorry
+      about always making fun of you, but PLEASE... n//n ... My brothers - they're
+      gone. Last I saw, boss wanted them to clear all the pixies that were lurking
+      around. This can't be good...
+    ST_acceptedDialogue: Thanks, buddy. You're actually really nice, now that I think
+      about it... n//n Here, I'll mark for you where I think they  might be. Please
+      hurry...
+    ST_declinedDialogue: Please? You'll be doing me a favour man. I'll wait here.
+    ST_finishDialogue: Haha! You did it! Yeah, thanks! I got the word that you saved
+      my brothers! n//n But JEEZ I hate your face. I was lying about everything I
+      said!
+    ST_failDialogue: W-What do you mean my brothers were taken away...?
+    ST_waitingDialogue: Heh, no rush buddy, nooo rush at all.
+    Quest_ID: 6
+    Repeatable: 0
+    IN_actionPointWeight: 10
+    IN_motivationAmount: 500
+    step_tracker: 0
+    Steps:
+    - name: Not again...
+      description: Reach the PC console and get to work.
+      requires: {fileID: 0}
+      TurnOff: 0
+      Hidden: 0
+      complete: 0
+      active: 0
+    - name: Popup Chaos
+      description: Clear the popups before the virus takes over!
+      requires: {fileID: 0}
+      TurnOff: 0
+      Hidden: 0
+      complete: 0
+      active: 0
+    GO_belongsTo: {fileID: 0}
+  - name: 1005 Stationary Snatchers
+    Quest: {fileID: 11400000, guid: c239c8c1352ea3348b9be98dedcdd8b6, type: 2}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
+    ST_taskBrief: Oh no... Oh no no no... My gremlin brothers are gone... Where could
+      they be?!
+    ST_descriptionDialogue: Look, buddy... Jim, was it? Whatever, look. I'm sorry
+      about always making fun of you, but PLEASE... n//n ... My brothers - they're
+      gone. Last I saw, boss wanted them to clear all the pixies that were lurking
+      around. This can't be good...
+    ST_acceptedDialogue: Thanks, buddy. You're actually really nice, now that I think
+      about it... n//n Here, I'll mark for you where I think they  might be. Please
+      hurry...
+    ST_declinedDialogue: Please? You'll be doing me a favour man. I'll wait here.
+    ST_finishDialogue: Haha! You did it! Yeah, thanks! I got the word that you saved
+      my brothers! n//n But JEEZ I hate your face. I was lying about everything I
+      said!
+    ST_failDialogue: W-What do you mean my brothers were taken away...?
+    ST_waitingDialogue: Heh, no rush buddy, nooo rush at all.
+    Quest_ID: 6
+    Repeatable: 0
+    IN_actionPointWeight: 10
+    IN_motivationAmount: 500
+    step_tracker: 0
+    Steps:
+    - name: Meddling kids!
+      description: Stand by the table and wait for them to show up.
+      requires: {fileID: 0}
+      TurnOff: 0
+      Hidden: 0
+      complete: 0
+      active: 0
+    - name: Save all the stationary!
+      description: Protect the stationary at all cost!
+      requires: {fileID: 0}
+      TurnOff: 0
+      Hidden: 0
+      complete: 0
+      active: 0
+    GO_belongsTo: {fileID: 0}
+  - name: 1006 Office Escape
+    Quest: {fileID: 11400000, guid: edea5d39697a5af4ba7f0e7191015bd2, type: 2}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
+    ST_taskBrief: Oh no... Oh no no no... My gremlin brothers are gone... Where could
+      they be?!
+    ST_descriptionDialogue: Look, buddy... Jim, was it? Whatever, look. I'm sorry
+      about always making fun of you, but PLEASE... n//n ... My brothers - they're
+      gone. Last I saw, boss wanted them to clear all the pixies that were lurking
+      around. This can't be good...
+    ST_acceptedDialogue: Thanks, buddy. You're actually really nice, now that I think
+      about it... n//n Here, I'll mark for you where I think they  might be. Please
+      hurry...
+    ST_declinedDialogue: Please? You'll be doing me a favour man. I'll wait here.
+    ST_finishDialogue: Haha! You did it! Yeah, thanks! I got the word that you saved
+      my brothers! n//n But JEEZ I hate your face. I was lying about everything I
+      said!
+    ST_failDialogue: W-What do you mean my brothers were taken away...?
+    ST_waitingDialogue: Heh, no rush buddy, nooo rush at all.
+    Quest_ID: 6
+    Repeatable: 0
+    IN_actionPointWeight: 10
+    IN_motivationAmount: 500
+    step_tracker: 0
+    Steps:
+    - name: Get setup
+      description: The heat is on. I can't believe I'm doing this...
+      requires: {fileID: 0}
+      TurnOff: 0
+      Hidden: 0
+      complete: 0
+      active: 0
+    - name: Do you like my car?
+      description: Impnitial D
+      requires: {fileID: 0}
+      TurnOff: 0
+      Hidden: 0
+      complete: 0
+      active: 0
+    GO_belongsTo: {fileID: 0}

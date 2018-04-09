@@ -37,7 +37,9 @@ public class InteractableObject
             interactionObject.SetActive(true);
             if(Input.GetKeyDown(GameManager.instance.KC_Interact))
             {
-                acquired = true;
+                FungusDirector.instance.IdleNPC(text);
+                if (FungusDirector.instance.FungusFlow.GetBooleanVariable("bl_textCycleOver") == true)
+                    acquired = true;
             }
         }
         else

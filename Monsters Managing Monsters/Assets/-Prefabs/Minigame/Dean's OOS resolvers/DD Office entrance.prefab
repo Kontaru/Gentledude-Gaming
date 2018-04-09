@@ -159,10 +159,11 @@ MonoBehaviour:
   BL_MinigameComplete: 0
   BL_MinigameFail: 0
   objectiveMarker: {fileID: 1581828800042310}
+  VisibilityTargets: []
   dialogueOnContact: The doughnut shop is right across the road. Simple enough right?
     I'll have some time to play some "Doughnut Dash" too!
-  playerAcceptText: Leave Now
-  playerDeclineText: Later
+  acceptDialogue: Let's go! Machico's waiting!
+  declineDialogue: '... Maybe later'
 --- !u!114 &114336130003176494
 MonoBehaviour:
   m_ObjectHideFlags: 1
