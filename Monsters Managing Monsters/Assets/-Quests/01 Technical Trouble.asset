@@ -28,5 +28,5 @@ MonoBehaviour:
   Quest_ID: 1
   Repeatable: 0
   Presets: 1
-  customActionPointWeight: 3
-  customMotivationAmount: 100
+  customActionPointWeight: 0
+  customMotivationAmount: 0

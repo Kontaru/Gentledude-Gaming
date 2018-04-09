@@ -3552,6 +3552,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 112837398}
+--- !u!114 &113047366 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114899677129696582, guid: d261f7730c8179b47bc1c3b911e8f59e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1123044100}
+  m_Script: {fileID: 11500000, guid: 0152f8ddfd7824f4a9887bd67c358151, type: 3}
 --- !u!1 &113957795
 GameObject:
   m_ObjectHideFlags: 0
@@ -5592,6 +5598,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 197078022}
+--- !u!114 &200380963 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114631240941715864, guid: 753dca28ede5c8543bc71d3ee99f337a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1227017667}
+  m_Script: {fileID: 11500000, guid: 69c96f71024b5264a88ee30ae6b4766e, type: 3}
 --- !u!1 &206770742
 GameObject:
   m_ObjectHideFlags: 0
@@ -15792,6 +15804,12 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030517578, y: 0.000015258789}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &540051523 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114631677095066932, guid: d261f7730c8179b47bc1c3b911e8f59e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1123044100}
+  m_Script: {fileID: 11500000, guid: 69c96f71024b5264a88ee30ae6b4766e, type: 3}
 --- !u!1 &545020416
 GameObject:
   m_ObjectHideFlags: 0
@@ -16631,6 +16649,12 @@ MonoBehaviour:
   ActiveTask:
     name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -16642,15 +16666,9 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
 --- !u!1 &565128585
 GameObject:
   m_ObjectHideFlags: 0
@@ -28735,6 +28753,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 920621665}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &922229493 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114842876354775850, guid: 7b23093208c0c5646b4808e3a8f1b36d,
+    type: 2}
+  m_PrefabInternal: {fileID: 604799935}
+  m_Script: {fileID: 11500000, guid: 381ea48759cb9cb4794750d43ff65215, type: 3}
 --- !u!1 &925698707
 GameObject:
   m_ObjectHideFlags: 0
@@ -30116,6 +30140,46 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].Steps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].Steps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4438948802543868, guid: 08fa9aa8a186ad648ae0e0ded2efed85, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.223114
@@ -30208,6 +30272,730 @@ Prefab:
       propertyPath: Tasks.Array.data[4].GO_belongsTo
       value: 
       objectReference: {fileID: 638307293}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[0].IN_actionPointWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[0].IN_motivationAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].name
+      value: 1003 Cafe Imp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Quest
+      value: 
+      objectReference: {fileID: 11400000, guid: 38681bfe131f9ad47947f3ffae1eda22,
+        type: 2}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].ST_taskBrief
+      value: Oh no... Oh no no no... My gremlin brothers are gone... Where could they
+        be?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].ST_descriptionDialogue
+      value: Look, buddy... Jim, was it? Whatever, look. I'm sorry about always making
+        fun of you, but PLEASE... n//n ... My brothers - they're gone. Last I saw,
+        boss wanted them to clear all the pixies that were lurking around. This can't
+        be good...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].ST_acceptedDialogue
+      value: Thanks, buddy. You're actually really nice, now that I think about it...
+        n//n Here, I'll mark for you where I think they  might be. Please hurry...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].ST_declinedDialogue
+      value: Please? You'll be doing me a favour man. I'll wait here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].ST_finishDialogue
+      value: Haha! You did it! Yeah, thanks! I got the word that you saved my brothers!
+        n//n But JEEZ I hate your face. I was lying about everything I said!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].ST_failDialogue
+      value: W-What do you mean my brothers were taken away...?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].ST_waitingDialogue
+      value: Heh, no rush buddy, nooo rush at all.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Quest_ID
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].IN_actionPointWeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].IN_motivationAmount
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.data[0].name
+      value: Make it out of the office
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.data[0].description
+      value: Leave the office and make your way to the cafe
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 200380963}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.data[1].name
+      value: Cafe Imp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.data[1].description
+      value: Manage the Cafe during rush hour
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].Steps.Array.data[1].requires
+      value: 
+      objectReference: {fileID: 1096240598}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[5].GO_belongsTo
+      value: 
+      objectReference: {fileID: 638307293}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].name
+      value: 1004 Popup Chaos
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Quest
+      value: 
+      objectReference: {fileID: 11400000, guid: 35a2354b19891254b962a619e7992a1e,
+        type: 2}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].ST_taskBrief
+      value: Oh no... Oh no no no... My gremlin brothers are gone... Where could they
+        be?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].ST_descriptionDialogue
+      value: Look, buddy... Jim, was it? Whatever, look. I'm sorry about always making
+        fun of you, but PLEASE... n//n ... My brothers - they're gone. Last I saw,
+        boss wanted them to clear all the pixies that were lurking around. This can't
+        be good...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].ST_acceptedDialogue
+      value: Thanks, buddy. You're actually really nice, now that I think about it...
+        n//n Here, I'll mark for you where I think they  might be. Please hurry...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].ST_declinedDialogue
+      value: Please? You'll be doing me a favour man. I'll wait here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].ST_finishDialogue
+      value: Haha! You did it! Yeah, thanks! I got the word that you saved my brothers!
+        n//n But JEEZ I hate your face. I was lying about everything I said!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].ST_failDialogue
+      value: W-What do you mean my brothers were taken away...?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].ST_waitingDialogue
+      value: Heh, no rush buddy, nooo rush at all.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Quest_ID
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].IN_actionPointWeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].IN_motivationAmount
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.data[0].name
+      value: Not again...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.data[0].description
+      value: Reach the PC console and get to work.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 540051523}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.data[1].name
+      value: Popup Chaos
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.data[1].description
+      value: Clear the popups before the virus takes over!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].Steps.Array.data[1].requires
+      value: 
+      objectReference: {fileID: 113047366}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[6].GO_belongsTo
+      value: 
+      objectReference: {fileID: 638307293}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].name
+      value: 1005 Stationary Snatchers
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Quest
+      value: 
+      objectReference: {fileID: 11400000, guid: c239c8c1352ea3348b9be98dedcdd8b6,
+        type: 2}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].ST_taskBrief
+      value: Oh no... Oh no no no... My gremlin brothers are gone... Where could they
+        be?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].ST_descriptionDialogue
+      value: Look, buddy... Jim, was it? Whatever, look. I'm sorry about always making
+        fun of you, but PLEASE... n//n ... My brothers - they're gone. Last I saw,
+        boss wanted them to clear all the pixies that were lurking around. This can't
+        be good...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].ST_acceptedDialogue
+      value: Thanks, buddy. You're actually really nice, now that I think about it...
+        n//n Here, I'll mark for you where I think they  might be. Please hurry...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].ST_declinedDialogue
+      value: Please? You'll be doing me a favour man. I'll wait here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].ST_finishDialogue
+      value: Haha! You did it! Yeah, thanks! I got the word that you saved my brothers!
+        n//n But JEEZ I hate your face. I was lying about everything I said!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].ST_failDialogue
+      value: W-What do you mean my brothers were taken away...?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].ST_waitingDialogue
+      value: Heh, no rush buddy, nooo rush at all.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Quest_ID
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].IN_actionPointWeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].IN_motivationAmount
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.data[0].name
+      value: Meddling kids!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.data[0].description
+      value: Stand by the table and wait for them to show up.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1894073387}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.data[1].name
+      value: Save all the stationary!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.data[1].description
+      value: Protect the stationary at all cost!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].Steps.Array.data[1].requires
+      value: 
+      objectReference: {fileID: 922229493}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[7].GO_belongsTo
+      value: 
+      objectReference: {fileID: 638307293}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].name
+      value: 1006 Office Escape
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Quest
+      value: 
+      objectReference: {fileID: 11400000, guid: edea5d39697a5af4ba7f0e7191015bd2,
+        type: 2}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].ST_taskBrief
+      value: Oh no... Oh no no no... My gremlin brothers are gone... Where could they
+        be?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].ST_descriptionDialogue
+      value: Look, buddy... Jim, was it? Whatever, look. I'm sorry about always making
+        fun of you, but PLEASE... n//n ... My brothers - they're gone. Last I saw,
+        boss wanted them to clear all the pixies that were lurking around. This can't
+        be good...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].ST_acceptedDialogue
+      value: Thanks, buddy. You're actually really nice, now that I think about it...
+        n//n Here, I'll mark for you where I think they  might be. Please hurry...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].ST_declinedDialogue
+      value: Please? You'll be doing me a favour man. I'll wait here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].ST_finishDialogue
+      value: Haha! You did it! Yeah, thanks! I got the word that you saved my brothers!
+        n//n But JEEZ I hate your face. I was lying about everything I said!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].ST_failDialogue
+      value: W-What do you mean my brothers were taken away...?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].ST_waitingDialogue
+      value: Heh, no rush buddy, nooo rush at all.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Quest_ID
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].IN_actionPointWeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].IN_motivationAmount
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.data[0].name
+      value: Get setup
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.data[0].description
+      value: The heat is on. I can't believe I'm doing this...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 1416858500}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.data[1].name
+      value: Do you like my car?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.data[1].description
+      value: Impnitial D
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].Steps.Array.data[1].requires
+      value: 
+      objectReference: {fileID: 1469915728}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[8].GO_belongsTo
+      value: 
+      objectReference: {fileID: 638307293}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].name
+      value: Pixie Panic
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Quest
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e117f48bf3c0444c98b66f0199ef75f,
+        type: 2}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].ST_taskBrief
+      value: Oh no... Oh no no no... My gremlin brothers are gone... Where could they
+        be?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].ST_descriptionDialogue
+      value: Look, buddy... Jim, was it? Whatever, look. I'm sorry about always making
+        fun of you, but PLEASE... n//n ... My brothers - they're gone. Last I saw,
+        boss wanted them to clear all the pixies that were lurking around. This can't
+        be good...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].ST_acceptedDialogue
+      value: Thanks, buddy. You're actually really nice, now that I think about it...
+        n//n Here, I'll mark for you where I think they  might be. Please hurry...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].ST_declinedDialogue
+      value: Please? You'll be doing me a favour man. I'll wait here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].ST_finishDialogue
+      value: Haha! You did it! Yeah, thanks! I got the word that you saved my brothers!
+        n//n But JEEZ I hate your face. I was lying about everything I said!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].ST_failDialogue
+      value: W-What do you mean my brothers were taken away...?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].ST_waitingDialogue
+      value: Heh, no rush buddy, nooo rush at all.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Quest_ID
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].IN_actionPointWeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].IN_motivationAmount
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.data[0].name
+      value: Find the Gremlins
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.data[0].description
+      value: Find them, fast!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 545467637}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.data[1].name
+      value: Protect the Gremlins
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.data[1].description
+      value: Find them, fast!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].Steps.Array.data[1].requires
+      value: 
+      objectReference: {fileID: 156162183}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[9].GO_belongsTo
+      value: 
+      objectReference: {fileID: 638307293}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].name
+      value: 1002 Pixie Panic
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[3].name
+      value: 03 Wandering Spirit
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[2].name
+      value: 1001 Doughnut Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[1].name
+      value: 101 Dangerous Deliveries!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[0].name
+      value: 01 Technical Trouble
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].name
+      value: Pixie Panic
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].Quest
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e117f48bf3c0444c98b66f0199ef75f,
+        type: 2}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].ST_taskBrief
+      value: Oh no... Oh no no no... My gremlin brothers are gone... Where could they
+        be?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].ST_descriptionDialogue
+      value: Look, buddy... Jim, was it? Whatever, look. I'm sorry about always making
+        fun of you, but PLEASE... n//n ... My brothers - they're gone. Last I saw,
+        boss wanted them to clear all the pixies that were lurking around. This can't
+        be good...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].ST_acceptedDialogue
+      value: Thanks, buddy. You're actually really nice, now that I think about it...
+        n//n Here, I'll mark for you where I think they  might be. Please hurry...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].ST_declinedDialogue
+      value: Please? You'll be doing me a favour man. I'll wait here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].ST_finishDialogue
+      value: Haha! You did it! Yeah, thanks! I got the word that you saved my brothers!
+        n//n But JEEZ I hate your face. I was lying about everything I said!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].ST_failDialogue
+      value: W-What do you mean my brothers were taken away...?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].ST_waitingDialogue
+      value: Heh, no rush buddy, nooo rush at all.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].Quest_ID
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].IN_actionPointWeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].IN_motivationAmount
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].Steps.Array.data[0].name
+      value: Find the Gremlins
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].Steps.Array.data[0].description
+      value: Find them, fast!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].Steps.Array.data[0].requires
+      value: 
+      objectReference: {fileID: 545467637}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].Steps.Array.data[1].name
+      value: Protect the Gremlins
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].Steps.Array.data[1].description
+      value: Find them, fast!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].Steps.Array.data[1].requires
+      value: 
+      objectReference: {fileID: 156162183}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[10].GO_belongsTo
+      value: 
+      objectReference: {fileID: 638307293}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].Quest
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e117f48bf3c0444c98b66f0199ef75f,
+        type: 2}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].ST_taskBrief
+      value: Oh no... Oh no no no... My gremlin brothers are gone... Where could they
+        be?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].ST_descriptionDialogue
+      value: Look, buddy... Jim, was it? Whatever, look. I'm sorry about always making
+        fun of you, but PLEASE... n//n ... My brothers - they're gone. Last I saw,
+        boss wanted them to clear all the pixies that were lurking around. This can't
+        be good...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].ST_acceptedDialogue
+      value: Thanks, buddy. You're actually really nice, now that I think about it...
+        n//n Here, I'll mark for you where I think they  might be. Please hurry...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].ST_declinedDialogue
+      value: Please? You'll be doing me a favour man. I'll wait here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].ST_finishDialogue
+      value: Haha! You did it! Yeah, thanks! I got the word that you saved my brothers!
+        n//n But JEEZ I hate your face. I was lying about everything I said!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].ST_failDialogue
+      value: W-What do you mean my brothers were taken away...?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].ST_waitingDialogue
+      value: Heh, no rush buddy, nooo rush at all.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].Quest_ID
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].IN_actionPointWeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].IN_motivationAmount
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].Steps.Array.data[0].name
+      value: Find the Gremlins
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].Steps.Array.data[1].name
+      value: Protect the Gremlins
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[4].Steps.Array.data[1].description
+      value: Find them, fast!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08fa9aa8a186ad648ae0e0ded2efed85, type: 2}
   m_IsPrefabParent: 0
@@ -33846,6 +34634,12 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1096240598 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114389258742218912, guid: 753dca28ede5c8543bc71d3ee99f337a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1227017667}
+  m_Script: {fileID: 11500000, guid: c6f903b6a9c71ed4a8bb425bc1aea688, type: 3}
 --- !u!1 &1098758122
 GameObject:
   m_ObjectHideFlags: 0
@@ -35075,6 +35869,12 @@ MonoBehaviour:
   ActiveTask:
     name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -35086,15 +35886,9 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
 --- !u!1 &1128435972
 GameObject:
   m_ObjectHideFlags: 0
@@ -42389,6 +43183,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1410858628}
+--- !u!114 &1416858500 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114514983294379214, guid: 588b9cbc01082a14db4207d32a7e19c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1208326863}
+  m_Script: {fileID: 11500000, guid: 69c96f71024b5264a88ee30ae6b4766e, type: 3}
 --- !u!1 &1419738242
 GameObject:
   m_ObjectHideFlags: 0
@@ -43840,6 +44640,12 @@ Transform:
   m_Father: {fileID: 954047909}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1469915728 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114503863831449614, guid: 588b9cbc01082a14db4207d32a7e19c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1208326863}
+  m_Script: {fileID: 11500000, guid: 583ca7eef7b6ae84f89f7b73e4fd3244, type: 3}
 --- !u!1 &1471088567
 GameObject:
   m_ObjectHideFlags: 0
@@ -45137,6 +45943,12 @@ MonoBehaviour:
   ActiveTask:
     name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -45148,15 +45960,9 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
 --- !u!1 &1511147207
 GameObject:
   m_ObjectHideFlags: 0
@@ -46769,6 +47575,12 @@ MonoBehaviour:
   ActiveTask:
     name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -46780,15 +47592,9 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
 --- !u!1 &1541538237
 GameObject:
   m_ObjectHideFlags: 0
@@ -50851,6 +51657,12 @@ MonoBehaviour:
   ActiveTask:
     name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -50862,15 +51674,9 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
 --- !u!1 &1670617888
 GameObject:
   m_ObjectHideFlags: 0
@@ -58647,6 +59453,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1894017111}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1894073387 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114567148219740792, guid: 7b23093208c0c5646b4808e3a8f1b36d,
+    type: 2}
+  m_PrefabInternal: {fileID: 604799935}
+  m_Script: {fileID: 11500000, guid: 69c96f71024b5264a88ee30ae6b4766e, type: 3}
 --- !u!1 &1901169005
 GameObject:
   m_ObjectHideFlags: 0
@@ -60730,21 +61542,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+    - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
-      propertyPath: Hour
+      propertyPath: notification
       value: 
-      objectReference: {fileID: 770548882}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+      objectReference: {fileID: 1536927635}
+    - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
-      propertyPath: Minute
+      propertyPath: notifTitleText
       value: 
-      objectReference: {fileID: 1004828765}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+      objectReference: {fileID: 661253383}
+    - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
-      propertyPath: Days
+      propertyPath: notifText
       value: 
-      objectReference: {fileID: 1033465518}
+      objectReference: {fileID: 1909280186}
     - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
       propertyPath: tasksComplete
@@ -60805,6 +61617,26 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1245232806}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: Hour
+      value: 
+      objectReference: {fileID: 770548882}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: Minute
+      value: 
+      objectReference: {fileID: 1004828765}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: Days
+      value: 
+      objectReference: {fileID: 1033465518}
+    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
+        type: 2}
+      propertyPath: AP
+      value: 
+      objectReference: {fileID: 1738664939}
     - target: {fileID: 114839365720268744, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
       propertyPath: DayOverStats
@@ -60815,21 +61647,6 @@ Prefab:
       propertyPath: summaryAnimator
       value: 
       objectReference: {fileID: 1679678630}
-    - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: notification
-      value: 
-      objectReference: {fileID: 1536927635}
-    - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: notifTitleText
-      value: 
-      objectReference: {fileID: 661253383}
-    - target: {fileID: 114372307447742686, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: notifText
-      value: 
-      objectReference: {fileID: 1909280186}
     - target: {fileID: 114839365720268744, guid: 3bf980da153ea1b42a443525b716ab45,
         type: 2}
       propertyPath: spawnPoint
@@ -60840,11 +61657,6 @@ Prefab:
       propertyPath: summaryRect
       value: 
       objectReference: {fileID: 1670617890}
-    - target: {fileID: 114255361010624350, guid: 3bf980da153ea1b42a443525b716ab45,
-        type: 2}
-      propertyPath: AP
-      value: 
-      objectReference: {fileID: 1738664939}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bf980da153ea1b42a443525b716ab45, type: 2}
   m_IsPrefabParent: 0
@@ -62814,6 +63626,12 @@ MonoBehaviour:
   ActiveTask:
     name: 
     Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -62825,15 +63643,9 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
-    inActiveList: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    step_tracker: 0
 --- !u!1 &2073698716
 GameObject:
   m_ObjectHideFlags: 0

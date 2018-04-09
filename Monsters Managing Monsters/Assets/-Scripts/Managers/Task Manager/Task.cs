@@ -18,6 +18,17 @@ public class Task
     public string name;
     public Quests Quest;
 
+    [Header("Quest States")]
+    public bool Quest_Complete = false;     //Is our quest complete?
+    public bool Quest_Fail = false;         //Is our quest complete?
+    public bool Quest_Finish = false;       //Trigger for NPC hand in
+
+    public bool BL_isObtainable = false;
+    public bool BL_isAccepted = false;
+
+    [Header("In Use?")]
+    public bool inActiveList = false;
+
     #region Internal Stuff - Not important
 
     [HideInInspector] public string ST_taskBrief;
@@ -37,19 +48,10 @@ public class Task
 
     #endregion
 
-    [Header("Steps")]
+    [Header("Quest Requirements")]
+    public int step_tracker = 0;
     public Step[] Steps;                    //Our steps to completing the quest
     public GameObject GO_belongsTo;
-
-    [Header("In Use?")]
-    public bool inActiveList = false;
-    public bool Quest_Complete = false;     //Is our quest complete?
-    public bool Quest_Fail = false;         //Is our quest complete?
-    [HideInInspector] public bool Quest_Finish = false;       //Trigger for NPC hand in
-
-    public bool BL_isObtainable = false;
-    public bool BL_isAccepted = false;
-    public int step_tracker = 0;
 
     private bool BL_firstFlag = false;
     private bool BL_Boost = true;
@@ -109,6 +111,7 @@ public class Task
             if (questStep.BL_MinigameFail)
                 Quest_Fail = true;
 
+
             Steps[step_tracker].active = false;
             step_tracker++;
         }
@@ -125,7 +128,7 @@ public class Task
 
     void CheckFinished()
     {
-        if (Quest_Finish)
+        if (Quest_Finish || Quest_Fail)
         {
 
             if (BL_firstFlag)
@@ -156,9 +159,12 @@ public class Task
             BL_isObtainable = false;
             Quest_Complete = false;
             Quest_Fail = false;
+            inActiveList = false;
 
             if (Repeatable)
+            {
                 Quest_Finish = false;
+            }
             
         }
     }

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: 1005 Stationary Snatchers
   m_EditorClassIdentifier: 
   name: Stationary Snatchers
-  TaskBrief: 
-  DescriptionDialogue: 
-  AcceptedDialogue: 
-  DeclinedDialogue: 
-  FinishDialogue: 
-  FailDialogue: 
-  WaitingDialogue: 
+  TaskBrief: '[Brief]'
+  DescriptionDialogue: '[Description]'
+  AcceptedDialogue: '[Accepted]'
+  DeclinedDialogue: '[Declined]'
+  FinishDialogue: '[Success]'
+  FailDialogue: '[Failure]'
+  WaitingDialogue: '[Waiting]'
   Quest_ID: 1005
   Repeatable: 0
   Presets: 3

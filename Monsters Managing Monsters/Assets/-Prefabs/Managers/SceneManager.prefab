@@ -58,7 +58,7 @@ MonoBehaviour:
   FL_actionPointsAvailable: 10
   FL_actionPointsUsed: 0
   IN_currentDay: 1
-  IN_DaysInWeek: 3
+  IN_DaysInWeek: 5
   BL_beginDay: 0
   BL_pause: 0
   BL_playerControlledEvent: 1
@@ -66,6 +66,7 @@ MonoBehaviour:
   Hour: {fileID: 0}
   Minute: {fileID: 0}
   Days: {fileID: 0}
+  AP: {fileID: 0}
 --- !u!114 &114372307447742686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,6 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14513c06ebafea49ae30bdd3c882916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notification: {fileID: 0}
+  notifTitleText: {fileID: 0}
+  notifText: {fileID: 0}
   tasksCount: 0
   tasksComplete: {fileID: 0}
   HR: {fileID: 0}
@@ -102,3 +106,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DayOverStats: {fileID: 0}
+  summaryAnimator: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  summaryRect: {fileID: 0}

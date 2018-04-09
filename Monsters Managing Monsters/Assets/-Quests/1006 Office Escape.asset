@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: 1006 Office Escape
   m_EditorClassIdentifier: 
   name: Office Escape
-  TaskBrief: 
-  DescriptionDialogue: 
-  AcceptedDialogue: 
-  DeclinedDialogue: 
-  FinishDialogue: 
-  FailDialogue: 
-  WaitingDialogue: 
+  TaskBrief: '[Brief]'
+  DescriptionDialogue: '[Description]'
+  AcceptedDialogue: '[Accepted]'
+  DeclinedDialogue: '[Declined]'
+  FinishDialogue: '[Success]'
+  FailDialogue: '[Failure]'
+  WaitingDialogue: '[Waiting]'
   Quest_ID: 1006
   Repeatable: 0
   Presets: 3

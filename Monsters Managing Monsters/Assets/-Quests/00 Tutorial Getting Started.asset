@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7d6ff407be7af647ad3ceef595f8c2d, type: 3}
-  m_Name: 1003 Cafe Imp
+  m_Name: 00 Tutorial Getting Started
   m_EditorClassIdentifier: 
-  name: Cafe Imp
+  name: 'Tutorial: Getting Started'
   TaskBrief: '[Brief]'
   DescriptionDialogue: '[Description]'
   AcceptedDialogue: '[Accepted]'
