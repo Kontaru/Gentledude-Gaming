@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PDAHandler : MonoBehaviour {
 
+    public bool BL_isTutorial;
     public bool BL_hasPDA;
 
     public GameObject oldPDA;
@@ -36,7 +37,7 @@ public class PDAHandler : MonoBehaviour {
     public int minigameIndex;
     public bool BL_PDAactive;
     public bool BL_PDAlandscape;
-    public bool BL_Pause;
+    public bool BL_Pause;    
 
     public static PDAHandler instance;
 
@@ -101,7 +102,9 @@ public class PDAHandler : MonoBehaviour {
 
     private void UpdateActiveTasks()
     {
-        for (int i = 0; i < activeTasks.Length; i++)
+        int length = BL_isTutorial ? 1 : activeTasks.Length;
+
+        for (int i = 0; i < length; i++)
         {
             Text title = activeTasks[i].transform.GetChild(0).GetComponent<Text>();
             Text id = activeTasks[i].transform.GetChild(1).GetComponent<Text>();
@@ -110,7 +113,7 @@ public class PDAHandler : MonoBehaviour {
             string taskName = task.name;
             int taskID = task.Quest_ID;
 
-            if (taskID != 0)
+            if (taskID != -1)
             {
                 title.text = taskName;
                 id.text = taskID.ToString();
@@ -395,7 +398,7 @@ public class PDAHandler : MonoBehaviour {
 
     private void ShowTaskBrief(int index)
     {
-        if (CurrentTasks.instance.currentTask[index].Quest_ID == 0) return;
+        if (CurrentTasks.instance.currentTask[index].Quest_ID == -1) return;
         HideAllScreens();
         SetBrief(taskIndex);
         taskBriefScreen.SetActive(true);
