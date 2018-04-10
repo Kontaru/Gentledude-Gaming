@@ -10,6 +10,7 @@ public class CurrentTasks : MonoBehaviour {
     //Do a final thing where if a task is complete, do a delay on the delivering the next task (deliver after x minutes: y seconds)
 
     bool BL_allQuestsComplete = true;
+    public bool BL_Randomise;
 
     public static CurrentTasks instance;
 

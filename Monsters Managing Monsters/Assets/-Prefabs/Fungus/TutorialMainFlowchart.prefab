@@ -1523,8 +1523,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 213
   indentLevel: 0
-  storyText: '[Hit the "N" button again. Then, select the task you want to locate,
-    and then select "Locate Sender"]'
+  storyText: '[Hit the "N" button again. Then, select the task you want to locate.
+    Hit the "Open user navigation", then select "Locate Sender"]'
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -1968,9 +1968,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114252742032635286}
+  - {fileID: 114872342761381392}
   selectedCommands:
-  - {fileID: 114591821522718432}
+  - {fileID: 114287940844295860}
   variables:
   - {fileID: 114928905025832542}
   - {fileID: 114134913882522010}
@@ -4323,7 +4323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 133.53526
+    x: 132.3989
     y: 400.59253
     width: 143.18181
     height: 40
