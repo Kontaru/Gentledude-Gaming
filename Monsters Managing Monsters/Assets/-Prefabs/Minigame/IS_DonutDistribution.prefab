@@ -1102,22 +1102,20 @@ MonoBehaviour:
   BL_MinigameFail: 0
   items:
   - target: {fileID: 1229355628254854}
-    interactDistance: 5
-    text: Oh, for me? Don't... touch that doughnut. I don't want your germs on it.
-      'kay, thanks.
+    interactDistance: 2
+    text: '[Placeholder]'
     acquired: 0
   - target: {fileID: 1303075772535660}
-    interactDistance: 5
-    text: Ah... it's you. Oh, doughnuts? Well, I guess I'll let it slide this time
-      and be nice...
+    interactDistance: 2
+    text: '[Placeholder]'
     acquired: 0
   - target: {fileID: 1277927009045594}
-    interactDistance: 5
-    text: '... It''s you... [She visibly cringes and takes a doughnut]. Move along...'
+    interactDistance: 2
+    text: '[Placeholder]'
     acquired: 0
   - target: {fileID: 1880020945369236}
-    interactDistance: 5
-    text: Ah... Your name... Froggy, was it? No? Whatever, thanks for the doughnut.
+    interactDistance: 2
+    text: '[Placeholder]'
     acquired: 0
   BL_QuestComplete: 0
   IN_maxItemCount: 10

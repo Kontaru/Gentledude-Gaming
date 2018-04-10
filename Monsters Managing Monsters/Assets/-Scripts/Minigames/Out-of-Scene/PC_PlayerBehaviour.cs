@@ -58,6 +58,7 @@ public class PC_PlayerBehaviour : MonoBehaviour {
             AudioManager.instance.Stop("BGM Minigame");
             AudioManager.instance.Play("Dungeon Music");
             ClearPopups();
+            BL_GameComplete = true;
             failScreen.SetActive(true);
             Time.timeScale = 0;
         }
@@ -66,9 +67,9 @@ public class PC_PlayerBehaviour : MonoBehaviour {
     private void WinScreen()
     {
         AudioManager.instance.Stop("BGM Minigame");
-        AudioManager.instance.Play("Dungeon Music");
-        BL_GameComplete = true;
+        AudioManager.instance.Play("Dungeon Music");        
         BL_MinigameFailed = false;
+        BL_GameComplete = true;
         ClearPopups();
         winScreen.SetActive(true);
         Time.timeScale = 0;

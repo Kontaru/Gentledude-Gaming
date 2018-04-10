@@ -40,10 +40,11 @@ public class OE_PlayerBehaviour : MonoBehaviour
         failScreen.SetActive(false);
 
         waitLine = new List<GameObject>();
-        timer = 30;
+
+        timer = 0;
         escapedCount = 0;
         ClearWorkers();
-        StartCoroutine(CountdownTimer());
+        StartCoroutine(CountTimer());
         StartCoroutine(Spawn(true));
     }
 
@@ -88,9 +89,12 @@ public class OE_PlayerBehaviour : MonoBehaviour
             AudioManager.instance.Stop("BGM Minigame");
             AudioManager.instance.Play("Dungeon Music");
 
+            BL_commandGO = false;
             ClearWorkers();
 
+            BL_GameComplete = true;
             failScreen.SetActive(true);
+            
             Time.timeScale = 0;
         }
     }
@@ -100,11 +104,13 @@ public class OE_PlayerBehaviour : MonoBehaviour
         AudioManager.instance.Stop("BGM Minigame");
         AudioManager.instance.Play("Dungeon Music");
 
-        BL_GameComplete = true;
         BL_MinigameFailed = false;
+        BL_GameComplete = true;
 
+        BL_commandGO = false;
         ClearWorkers();
         winScreen.SetActive(true);
+
         Time.timeScale = 0;
     }
 
@@ -156,6 +162,7 @@ public class OE_PlayerBehaviour : MonoBehaviour
     {
         if (pointInUse[1])
         {
+            if (waitLine[0] == null) return;
             waitLine[0].GetComponent<OE_Worker>().Dash();
             waitLine.RemoveAt(0);
             pointInUse[1] = false;
@@ -209,14 +216,12 @@ public class OE_PlayerBehaviour : MonoBehaviour
         StartCoroutine(Spawn(false));
     }
 
-    IEnumerator CountdownTimer()
+    IEnumerator CountTimer()
     {
-        while (timer > 0)
+        while (timer < 60)
         {
             yield return new WaitForSeconds(1);
-            timer--;
+            timer++;
         }
-
-        BL_MinigameFailed = true;
     }
 }

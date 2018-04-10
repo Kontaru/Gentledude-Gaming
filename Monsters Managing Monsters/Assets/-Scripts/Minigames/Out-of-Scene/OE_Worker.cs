@@ -35,6 +35,7 @@ public class OE_Worker : MonoBehaviour
 
     public IEnumerator MoveToPoint(Vector3 point)
     {
+        if (gameObject == null) yield break;
         if (isMoving) yield break;
         isMoving = true;
 

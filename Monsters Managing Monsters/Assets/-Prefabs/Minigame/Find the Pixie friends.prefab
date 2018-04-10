@@ -803,17 +803,16 @@ MonoBehaviour:
   BL_MinigameFail: 0
   items:
   - target: {fileID: 1933751609009804}
-    interactDistance: 4
-    text: Hey! I'm lost! ... Not proud about it! ... You've come to pick me up? Perfect!
+    interactDistance: 2
+    text: '[Placeholder]'
     acquired: 0
   - target: {fileID: 1174206765331570}
-    interactDistance: 4
-    text: Hey, I called an uber! Are you my uber?
+    interactDistance: 2
+    text: '[Placeholder]'
     acquired: 0
   - target: {fileID: 1963164511443628}
-    interactDistance: 4
-    text: AH! ... You scared the HECK out of me. You look too wimpy to be a threat.
-      Get me the hell outta dodge!
+    interactDistance: 2
+    text: '[Placeholder]'
     acquired: 0
   BL_QuestComplete: 0
 --- !u!114 &114484052197670760

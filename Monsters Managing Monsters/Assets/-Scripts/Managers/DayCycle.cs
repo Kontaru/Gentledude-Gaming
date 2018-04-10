@@ -196,9 +196,9 @@ public class DayCycle : MonoBehaviour
             Hour.text = string.Format("" + FL_displayHour);
 
         if (FL_actionPointsAvailable < 10)
-            AP.text = string.Format("0" + (FL_actionPointsAvailable - time));
+            AP.text = string.Format("0" + (FL_actionPointsUsed - time));
         else
-            AP.text = string.Format("" + (FL_actionPointsAvailable - time));
+            AP.text = string.Format("" + (FL_actionPointsUsed - time));
 
         //Current time * time it takes for a minute - (the hour that we're at * 60)
         FL_displayMinute = Mathf.Floor(time * 60 *

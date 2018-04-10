@@ -216,7 +216,7 @@ MonoBehaviour:
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
-    BL_isObtainable: 0
+    BL_isObtainable: 1
     BL_isAccepted: 0
     inActiveList: 0
     ST_taskBrief: Doughnuts need to be delivered around the office!

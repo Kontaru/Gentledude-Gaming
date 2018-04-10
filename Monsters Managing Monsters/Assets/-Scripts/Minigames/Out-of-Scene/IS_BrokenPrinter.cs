@@ -44,14 +44,7 @@ public class IS_BrokenPrinter : QuestPart
     // Update is called once per frame
     override public void Update()
     {
-        base.Update();
-        if (!BL_IsInteractable)
-        {
-            HideLabels();
-            return;
-        }
-        else
-            ShowLabelObject();    
+        base.Update();       
 
         if (!BL_IsPlaying) return;
 
@@ -137,5 +130,9 @@ public class IS_BrokenPrinter : QuestPart
         }
 
         BL_MinigameComplete = true;
+        BL_IsInteractable = false;
+        HideLabels();
+
+        BL_MinigameFail = true;        
     }
 }

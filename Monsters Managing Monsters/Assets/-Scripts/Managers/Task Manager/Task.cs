@@ -54,7 +54,7 @@ public class Task
     public Step[] Steps;                    //Our steps to completing the quest
     public GameObject GO_belongsTo;
 
-    private bool BL_firstFlag = false;
+    private bool BL_firstFlag, BL_secondFlag = false;
     private bool BL_Boost = true;
 
     //Checks if all our steps are complete
@@ -129,14 +129,13 @@ public class Task
 
     void CheckFinished()
     {
-        if (Quest_Finish || Quest_Fail)
+        if (Quest_Finish)
         {
-
-            if (BL_firstFlag)
+            if (!BL_secondFlag)
             {
                 EndDaySummary.instance.tasksCount++;
                 EndDaySummary.instance.QuestCompleted(name, Quest_Fail);
-                BL_firstFlag = false;
+                BL_secondFlag = true;
             }
 
             if (BL_Boost)
@@ -158,6 +157,7 @@ public class Task
 
             step_tracker = 0;
             Quest_Fail = false;
+            BL_isObtainable = false;
 
             if (Repeatable)
             {

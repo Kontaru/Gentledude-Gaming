@@ -226,13 +226,14 @@ public class CI_PlayerBehaviour : MonoBehaviour
 
     private void CheckFailure()
     {
-        if (missedOrders >= 8) BL_MinigameFailed = true;
         if (remainingOrders <= 0) WinScreen();
+        if (missedOrders >= 12) BL_MinigameFailed = true;        
 
         if (BL_MinigameFailed)
         {
             AudioManager.instance.Stop("BGM Minigame");
             AudioManager.instance.Play("Dungeon Music");
+            BL_GameComplete = true;
             failScreen.SetActive(true);
             Time.timeScale = 0;
         }
@@ -241,9 +242,9 @@ public class CI_PlayerBehaviour : MonoBehaviour
     private void WinScreen()
     {
         AudioManager.instance.Stop("BGM Minigame");
-        AudioManager.instance.Play("Dungeon Music");
-        BL_GameComplete = true;
+        AudioManager.instance.Play("Dungeon Music");        
         BL_MinigameFailed = false;
+        BL_GameComplete = true;
         winScreen.SetActive(true);
         Time.timeScale = 0;
     }
