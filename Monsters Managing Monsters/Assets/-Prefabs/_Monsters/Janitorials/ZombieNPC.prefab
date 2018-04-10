@@ -241,7 +241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1868217985498816
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1551773442231106}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 9.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4846034237040760}
@@ -754,11 +754,19 @@ MonoBehaviour:
   BL_HasQuest: 0
   BL_QuestCompleted: 0
   BL_InConversation: 0
+  BL_InTalkingRange: 0
   flavourText:
   - '... Grrrrr ... n//n [As he cleans a spot, he leaves a chunk of flesh behind in
     his wake]'
   ActiveTask:
     name: 
+    Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -767,18 +775,12 @@ MonoBehaviour:
     ST_failDialogue: 
     ST_waitingDialogue: 
     Quest_ID: 0
-    inActiveList: 0
     Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    Steps: []
     step_tracker: 0
+    Steps: []
+    GO_belongsTo: {fileID: 0}
 --- !u!114 &114923365366087574
 MonoBehaviour:
   m_ObjectHideFlags: 1

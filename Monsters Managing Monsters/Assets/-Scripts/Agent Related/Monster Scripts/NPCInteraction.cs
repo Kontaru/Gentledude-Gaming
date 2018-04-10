@@ -118,6 +118,7 @@ public class NPCInteraction : MonoBehaviour
                 QuestCompleted();
             }
 
+            CameraFollow.instance.otherLook = null;
             BL_InConversation = false;
         }
 
@@ -127,6 +128,7 @@ public class NPCInteraction : MonoBehaviour
     void Converse()
     {
         BL_InConversation = true;
+        CameraFollow.instance.otherLook = gameObject;
 
         if (BL_QuestAccepted)
         {

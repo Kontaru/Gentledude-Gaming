@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1222895188653848
 GameObject:
   m_ObjectHideFlags: 1
@@ -334,7 +334,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1458891953381860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 9.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4812606788652048}
@@ -375,7 +375,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566697062826760}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.461136, y: 0, z: 50.16497}
+  m_LocalPosition: {x: 24.58937, y: 0, z: 23.93272}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4912578218729392}
@@ -776,10 +776,18 @@ MonoBehaviour:
   BL_HasQuest: 0
   BL_QuestCompleted: 0
   BL_InConversation: 0
+  BL_InTalkingRange: 0
   flavourText:
   - Do NOT come near me!
   ActiveTask:
     name: 
+    Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -788,18 +796,12 @@ MonoBehaviour:
     ST_failDialogue: 
     ST_waitingDialogue: 
     Quest_ID: 0
-    inActiveList: 0
     Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    Steps: []
     step_tracker: 0
+    Steps: []
+    GO_belongsTo: {fileID: 0}
 --- !u!114 &114963505767850902
 MonoBehaviour:
   m_ObjectHideFlags: 1

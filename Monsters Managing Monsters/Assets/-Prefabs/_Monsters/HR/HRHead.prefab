@@ -57,7 +57,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1258294628253982
 GameObject:
   m_ObjectHideFlags: 1
@@ -476,7 +476,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1731761591707034}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: -0}
+  m_LocalPosition: {x: 0, y: 9.07, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4265532731759074}
@@ -490,7 +490,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1005542927515032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.15, y: 0, z: 30.97}
+  m_LocalPosition: {x: 26.387623, y: 0, z: 22.862164}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4428906744738004}
@@ -678,6 +678,7 @@ MonoBehaviour:
   BL_HasQuest: 0
   BL_QuestCompleted: 0
   BL_InConversation: 0
+  BL_InTalkingRange: 0
   flavourText:
   - Heeey~! Did you know? If you hit P, you can bring up your PDA!
   - I'm a little busy right now~

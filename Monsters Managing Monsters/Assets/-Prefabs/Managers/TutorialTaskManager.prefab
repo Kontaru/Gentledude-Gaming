@@ -54,6 +54,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTask:
   - name: 
+    Quest: {fileID: 0}
+    Quest_Complete: 0
+    Quest_Fail: 0
+    Quest_Finish: 0
+    BL_isObtainable: 0
+    BL_isAccepted: 0
+    inActiveList: 0
     ST_taskBrief: 
     ST_descriptionDialogue: 
     ST_acceptedDialogue: 
@@ -62,102 +69,12 @@ MonoBehaviour:
     ST_failDialogue: 
     ST_waitingDialogue: 
     Quest_ID: 0
-    inActiveList: 0
     Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    Steps: []
     step_tracker: 0
-  - name: 
-    ST_taskBrief: 
-    ST_descriptionDialogue: 
-    ST_acceptedDialogue: 
-    ST_declinedDialogue: 
-    ST_finishDialogue: 
-    ST_failDialogue: 
-    ST_waitingDialogue: 
-    Quest_ID: 0
-    inActiveList: 0
-    Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
+    Steps: []
     GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    Steps: []
-    step_tracker: 0
-  - name: 
-    ST_taskBrief: 
-    ST_descriptionDialogue: 
-    ST_acceptedDialogue: 
-    ST_declinedDialogue: 
-    ST_finishDialogue: 
-    ST_failDialogue: 
-    ST_waitingDialogue: 
-    Quest_ID: 0
-    inActiveList: 0
-    Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    Steps: []
-    step_tracker: 0
-  - name: 
-    ST_taskBrief: 
-    ST_descriptionDialogue: 
-    ST_acceptedDialogue: 
-    ST_declinedDialogue: 
-    ST_finishDialogue: 
-    ST_failDialogue: 
-    ST_waitingDialogue: 
-    Quest_ID: 0
-    inActiveList: 0
-    Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    Steps: []
-    step_tracker: 0
-  - name: 
-    ST_taskBrief: 
-    ST_descriptionDialogue: 
-    ST_acceptedDialogue: 
-    ST_declinedDialogue: 
-    ST_finishDialogue: 
-    ST_failDialogue: 
-    ST_waitingDialogue: 
-    Quest_ID: 0
-    inActiveList: 0
-    Repeatable: 0
-    Quest_Complete: 0
-    Quest_Fail: 0
-    Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 0
-    IN_motivationAmount: 0
-    BL_isObtainable: 0
-    BL_isAccepted: 0
-    Steps: []
-    step_tracker: 0
 --- !u!114 &114995797399854468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,31 +88,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tasks:
   - name: First Day
-    ST_taskBrief: Welcome to the job!
-    ST_descriptionDialogue: 'Here, let me give you a brief of the job details. n//n  n//n
-      How about it? This has your name written all over it! Why don''t you take on
-      the job? '
-    ST_acceptedDialogue: 
-    ST_declinedDialogue: '[PlaceHolder tutorial declined]'
-    ST_finishDialogue: '[PlaceHolder tutorial pass]'
-    ST_failDialogue: '[PlaceHolder tutorial fail]'
-    ST_waitingDialogue: '[PlaceHolder tutorial waiting]'
-    Quest_ID: 1
-    inActiveList: 0
-    Repeatable: 0
+    Quest: {fileID: 11400000, guid: 304186a5076703a44a838dc1cfcdce73, type: 2}
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
-    GO_belongsTo: {fileID: 0}
-    IN_actionPointWeight: 3
-    IN_motivationAmount: 100
     BL_isObtainable: 0
     BL_isAccepted: 0
+    inActiveList: 0
+    ST_taskBrief: Welcome to the job!
+    ST_descriptionDialogue: 'So you''re here for a job! n//n  Let''s skip the formalities.
+      I''ll  give you a brief of the job details. n//n There''s been an increase in
+      hero activity lately, and that is SUPER bad for everyone''s moral. They attack,
+      like, once a week! It''s crazy! n//n Here''s where you come in. n//n Our moral
+      is at an ALL. TIME. LOW. Everyone''s so worried about these heroes that they''ve
+      toootally forgotten to do their own work. n//n If you work as the odd jobs around
+      here and help people who are in need, that will help us sooo much! No strings
+      attached! (... I don''t think) n//n How about it? This has your name written
+      all over it! Why don''t you take on the job? '
+    ST_acceptedDialogue: You'll do it? Awesome! I've written your name down. Let's
+      get to it, rookie! Why don't you grab a PDA from the booth to your left?
+    ST_declinedDialogue: '... Hmmm? Sorry, did you say something? I''ve already written
+      your name down. Let''s get to it, rookie! Why don''t you grab a PDA from the
+      booth to your left?'
+    ST_finishDialogue: 
+    ST_failDialogue: '[It shouldn''t be possible to fail idfk how you did it you bugged
+      the game well done]'
+    ST_waitingDialogue: I've already written your name down. Let's start with the
+      initiation! Why don't you grab a PDA from the booth to your left?
+    Quest_ID: 1
+    Repeatable: 0
+    IN_actionPointWeight: 3
+    IN_motivationAmount: 100
+    step_tracker: 0
     Steps:
-    - name: '[PlaceHolder step]'
-      description: '[PlaceHolder step desc]'
+    - name: Getting a PDA
+      description: The PDA is at the other booth.
       requires: {fileID: 0}
       TurnOff: 0
+      Hidden: 0
       complete: 0
       active: 0
-    step_tracker: 0
+    GO_belongsTo: {fileID: 0}

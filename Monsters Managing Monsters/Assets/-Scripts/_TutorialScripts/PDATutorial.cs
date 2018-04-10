@@ -23,6 +23,8 @@ public class PDATutorial : QuestPart {
     private bool BL_hasAccepted = false;
     private bool BL_begunTutorial = false;
 
+    public int stageTracker = 0;
+
     private void Start()
     {
         cam = Camera.main;
@@ -65,6 +67,7 @@ public class PDATutorial : QuestPart {
             {
                 BL_inConversation = false;
                 CameraFollow.instance.otherLook = PDABoxes;
+                PDABoxes.GetComponent<ObjectInteraction>().BL_collectPDA = true;
                 yield return new WaitForSeconds(1.0f);
                 CameraFollow.instance.otherLook = null;
             }
@@ -72,56 +75,131 @@ public class PDATutorial : QuestPart {
         } while (PDAHandler.instance.BL_hasPDA == false);
 
         Quest_Complete = true;
+        stageTracker += 1;
         StartCoroutine(ViewTaskTutorial());
     }
 
     IEnumerator ViewTaskTutorial()
     {
+        bool spokenToOnce = false;
+
         do
         {
-            if (Interactable() && Input.GetKeyDown(GameManager.instance.KC_Interact))
+            if (Talkable())
             {
-                Fungus.Flowchart.BroadcastFungusMessage("ViewTaskTutorial");
-                CameraFollow.instance.otherLook = gameObject;
-                BL_inConversation = true;
+                TutorialDialogue("ViewTaskTutorial");
             }
 
             if (FungusDirector.instance.FungusFlow.GetBooleanVariable("bl_textCycleOver") && BL_inConversation)
             {
-                CameraFollow.instance.otherLook = null;
-                BL_inConversation = false;
+                EndConversation();
+                spokenToOnce = true;
                 yield return new WaitForSeconds(1.0f);
             }
             yield return null;
-        } while (!BL_inConversation == false && !Input.GetKeyDown(KeyCode.N));
+        } while (!Input.GetKeyDown(KeyCode.N) || !spokenToOnce);
 
         Quest_Complete = true;
+        stageTracker += 1;
+        StartCoroutine(PingingQuests());
     }
 
     IEnumerator PingingQuests()
     {
+        bool spokenToOnce = false;
+
         do
         {
-            if (Interactable() && Input.GetKeyDown(GameManager.instance.KC_Interact))
+            if (Talkable())
             {
-                Fungus.Flowchart.BroadcastFungusMessage("LocatorTutorial");
-                CameraFollow.instance.otherLook = gameObject;
-                BL_inConversation = true;
+                TutorialDialogue("LocatorTutorial");
             }
 
             if (FungusDirector.instance.FungusFlow.GetBooleanVariable("bl_textCycleOver") && BL_inConversation)
             {
-                CameraFollow.instance.otherLook = null;
-                BL_inConversation = false;
+                EndConversation();
+                spokenToOnce = true;
                 yield return new WaitForSeconds(1.0f);
             }
             yield return null;
-        } while (!BL_inConversation == false && CameraFollow.instance.otherLook == CurrentTasks.instance.currentTask[0].GO_belongsTo);
+        } while (CameraFollow.instance.otherLook != CurrentTasks.instance.currentTask[0].GO_belongsTo || !spokenToOnce);
 
         Quest_Complete = true;
+        StartCoroutine(Conclude());
     }
 
+    IEnumerator Conclude()
+    {
+        bool spokenToOnce = false;
+
+        do
+        {
+            if (Talkable())
+            {
+                TutorialDialogue("TutorialConclude");
+            }
+
+            if (FungusDirector.instance.FungusFlow.GetBooleanVariable("bl_textCycleOver") && BL_inConversation)
+            {
+                EndConversation();
+                spokenToOnce = true;
+                yield return new WaitForSeconds(1.0f);
+            }
+            yield return null;
+        } while (!spokenToOnce);
+
+        Quest_Complete = true;
+        BL_MinigameComplete = true;
+
+    }
+
+    /*
+IEnumerator TakingOnQuests()
+{
+    bool spokenToOnce = false;
+
+    do
+    {
+        if (Talkable())
+        {
+            TutorialDialogue("TakingOnQuests");
+        }
+
+        if (FungusDirector.instance.FungusFlow.GetBooleanVariable("bl_textCycleOver") && BL_inConversation)
+        {
+            EndConversation();
+            spokenToOnce = true;
+            yield return new WaitForSeconds(1.0f);
+        }
+        yield return null;
+    } while (!BL_inConversation == false || CameraFollow.instance.otherLook == CurrentTasks.instance.currentTask[0].GO_belongsTo || !spokenToOnce);
+
+    Quest_Complete = true;
+}
+*/
+
     #endregion
+
+    bool Talkable()
+    {
+        if (Interactable() && Input.GetKeyDown(GameManager.instance.KC_Interact))
+            return true;
+        else
+            return false;
+    }
+
+    void TutorialDialogue(string Tutorial)
+    {
+        Fungus.Flowchart.BroadcastFungusMessage(Tutorial);
+        CameraFollow.instance.otherLook = gameObject;
+        BL_inConversation = true;
+    }
+
+    void EndConversation()
+    {
+        CameraFollow.instance.otherLook = null;
+        BL_inConversation = false;
+    }
 
     bool Interactable()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CurrentTasks : MonoBehaviour {
 
-    public Task[] currentTask = new Task[5];
+    public Task[] currentTask;
     //Do a thing which stores a queue of tasks
     //Do another thing which only displays the recent tasks
     //Do a final thing where if a task is complete, do a delay on the delivering the next task (deliver after x minutes: y seconds)

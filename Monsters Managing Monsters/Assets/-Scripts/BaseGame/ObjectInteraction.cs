@@ -14,12 +14,12 @@ public class ObjectInteraction : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") ShowLabel();
+        if (other.tag == "Player" && BL_collectPDA) ShowLabel();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && BL_collectPDA)
         {
             if (Input.GetKeyDown(KeyCode.E)) Interact();
         }
@@ -27,7 +27,7 @@ public class ObjectInteraction : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player") ShowDefault();
+        if (other.tag == "Player" && BL_collectPDA) ShowDefault();
     }
 
     private void Start()
@@ -41,6 +41,7 @@ public class ObjectInteraction : MonoBehaviour {
     {
         if (BL_collectPDA) 
         {
+            PDAHandler.instance.BL_hasPDA = true;
             PDAHandler.instance.TogglePDA();
             EndDaySummary.instance.QuestCompleted("Collected PDA", false);
         }       

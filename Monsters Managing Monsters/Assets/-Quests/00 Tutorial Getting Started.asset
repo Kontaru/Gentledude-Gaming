@@ -27,18 +27,18 @@ MonoBehaviour:
   DeclinedDialogue: '... Hmmm? Sorry, did you say something? I''ve already written
     your name down. Let''s get to it, rookie! Why don''t you grab a PDA from the booth
     to your left?'
-  FinishDialogue: You did it! See, I knew you had it in you! n//n Wow, a few moments
-    ago you were a wimpy, disgusting Imp. Now when I look at you, I see a wimpy, disgusting
-    Imp with a job! n//n You didn't catch that? Good! n//n Our office is known for
-    being a liiittle harsh on new recruits, but don't let that get you down, okay?
+  FinishDialogue: You did it! See, I knew you had it in you! Wow, a few moments ago
+    you were a wimpy, disgusting Imp. Now when I look at you, I see a wimpy, disgusting
+    Imp... with a job! n//n You didn't catch that? Good! n//n Our office is known
+    for being a liiittle harsh on new recruits, but don't let that get you down, okay?
     n//n It's perfectly normal! Every office is like that! Don't contact our boss
     about it! n//n Well... Looks like you're ready to tackle on the real world. Take
-    the elevator to your right to start your new job!
+    the elevator to your right to start your new job. I'll see you in the office~
   FailDialogue: Ah shucks. You can do it next time! I believe in you!
   WaitingDialogue: I've already written your name down. Let's start with the initiation!
     Why don't you grab a PDA from the booth to your left?
   Quest_ID: 0
   Repeatable: 0
-  Presets: 3
-  customActionPointWeight: 0
-  customMotivationAmount: 0
+  Presets: 0
+  customActionPointWeight: 30
+  customMotivationAmount: 100
