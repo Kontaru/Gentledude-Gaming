@@ -60,7 +60,7 @@ public class Task
     //Checks if all our steps are complete
     public void StepChecker()
     {
-        if (Quest_ID == 0) return;       
+        if (Quest_ID < 0) return;       
 
         if (BL_isAccepted)
         {

@@ -195,6 +195,14 @@ GameObject:
   - component: {fileID: 114816853712953312}
   - component: {fileID: 114697206166448746}
   - component: {fileID: 114507945202473914}
+  - component: {fileID: 114631100710347326}
+  - component: {fileID: 114018370429295396}
+  - component: {fileID: 114022169280392490}
+  - component: {fileID: 114755115716794524}
+  - component: {fileID: 114872342761381392}
+  - component: {fileID: 114315614157789204}
+  - component: {fileID: 114754408146361056}
+  - component: {fileID: 114063182014860832}
   m_Layer: 0
   m_Name: TutorialMainFlowchart
   m_TagString: Untagged
@@ -271,6 +279,32 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &114018370429295396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200297677551948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 192
+  indentLevel: 0
+  storyText: '[ViewTaskTutorial]'
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &114018820546630412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -297,6 +331,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 129
   indentLevel: 4
+--- !u!114 &114022169280392490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200297677551948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 197
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 114522055376590058}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
 --- !u!114 &114027764512886334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,6 +527,19 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &114063182014860832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200297677551948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114872342761381392}
+  message: LocatorTutorial
 --- !u!114 &114071157982900440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1347,6 +1414,32 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &114315614157789204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200297677551948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 199
+  indentLevel: 0
+  storyText: '[LocatorTutorial]'
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &114343876606254786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1542,7 +1635,7 @@ MonoBehaviour:
   version: 1
   scrollPos: {x: 156.46478, y: 203.95302}
   variablesScrollPos: {x: 0, y: 0}
-  variablesExpanded: 1
+  variablesExpanded: 0
   blockViewHeight: 400
   zoom: 0.8800001
   scrollViewRect:
@@ -1552,7 +1645,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 114843732937805334}
+  - {fileID: 114872342761381392}
   selectedCommands: []
   variables:
   - {fileID: 114928905025832542}
@@ -2652,6 +2745,32 @@ MonoBehaviour:
   stringData:
     stringRef: {fileID: 0}
     stringVal: 
+--- !u!114 &114631100710347326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200297677551948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 129.44434
+    y: 330.13815
+    width: 155.6818
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 168
+  blockName: ViewTaskTutorial
+  description: 
+  eventHandler: {fileID: 114755115716794524}
+  commandList:
+  - {fileID: 114018370429295396}
+  - {fileID: 114022169280392490}
 --- !u!114 &114650411862310728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3152,6 +3271,39 @@ MonoBehaviour:
   scope: 1
   key: bl_textCycleOver
   value: 0
+--- !u!114 &114754408146361056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200297677551948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 204
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 114522055376590058}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &114755115716794524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200297677551948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 114631100710347326}
+  message: ViewTaskTutorial
 --- !u!114 &114761073878973632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3244,7 +3396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 114889942111310352}
-  message: 
+  message: PDATutorial
 --- !u!114 &114800220699327554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3661,6 +3813,32 @@ MonoBehaviour:
   stringData:
     stringRef: {fileID: 0}
     stringVal: 
+--- !u!114 &114872342761381392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200297677551948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 133.53526
+    y: 401.72888
+    width: 143.18181
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 168
+  blockName: LocatorTutorial
+  description: 
+  eventHandler: {fileID: 114063182014860832}
+  commandList:
+  - {fileID: 114315614157789204}
+  - {fileID: 114754408146361056}
 --- !u!114 &114872583255664228
 MonoBehaviour:
   m_ObjectHideFlags: 1

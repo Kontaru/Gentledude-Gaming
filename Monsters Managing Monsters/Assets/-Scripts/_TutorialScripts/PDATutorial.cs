@@ -13,9 +13,15 @@ public class PDATutorial : QuestPart {
     public float Ymin = 0.35f;
     public float Ymax = 0.65f;
 
+    public GameObject PDABoxes;
+
     private GameObject exclaimationPoint;
     private GameObject interactionObject;
     private GameObject questionMark;
+    private bool BL_inConversation;
+    private bool Quest_Complete = false;
+    private bool BL_hasAccepted = false;
+    private bool BL_begunTutorial = false;
 
     private void Start()
     {
@@ -31,11 +37,91 @@ public class PDATutorial : QuestPart {
 
         OverheadNotificationToggle();
 
-        if (Interactable() && Input.GetKeyDown(KeyCode.E))
+        if (Interactable() && Input.GetKeyDown(GameManager.instance.KC_Interact))
         {
-            Fungus.Flowchart.BroadcastFungusMessage("PDATutorial");
+            if(BL_IsInteractable && !BL_begunTutorial)
+            {
+                BL_begunTutorial = true;
+                BL_hasAccepted = true;
+                StartCoroutine(GettingThePDA());
+            }
         }
     }
+
+    #region PDA Tutorial
+
+    IEnumerator GettingThePDA()
+    {
+        do
+        {
+            if(Interactable() && Input.GetKeyDown(GameManager.instance.KC_Interact))
+            {
+                Fungus.Flowchart.BroadcastFungusMessage("PDATutorial");
+                CameraFollow.instance.otherLook = gameObject;
+                BL_inConversation = true;
+            }
+
+            if(FungusDirector.instance.FungusFlow.GetBooleanVariable("bl_textCycleOver") && BL_inConversation)
+            {
+                BL_inConversation = false;
+                CameraFollow.instance.otherLook = PDABoxes;
+                yield return new WaitForSeconds(1.0f);
+                CameraFollow.instance.otherLook = null;
+            }
+            yield return null;
+        } while (PDAHandler.instance.BL_hasPDA == false);
+
+        Quest_Complete = true;
+        StartCoroutine(ViewTaskTutorial());
+    }
+
+    IEnumerator ViewTaskTutorial()
+    {
+        do
+        {
+            if (Interactable() && Input.GetKeyDown(GameManager.instance.KC_Interact))
+            {
+                Fungus.Flowchart.BroadcastFungusMessage("ViewTaskTutorial");
+                CameraFollow.instance.otherLook = gameObject;
+                BL_inConversation = true;
+            }
+
+            if (FungusDirector.instance.FungusFlow.GetBooleanVariable("bl_textCycleOver") && BL_inConversation)
+            {
+                CameraFollow.instance.otherLook = null;
+                BL_inConversation = false;
+                yield return new WaitForSeconds(1.0f);
+            }
+            yield return null;
+        } while (!BL_inConversation == false && !Input.GetKeyDown(KeyCode.N));
+
+        Quest_Complete = true;
+    }
+
+    IEnumerator PingingQuests()
+    {
+        do
+        {
+            if (Interactable() && Input.GetKeyDown(GameManager.instance.KC_Interact))
+            {
+                Fungus.Flowchart.BroadcastFungusMessage("LocatorTutorial");
+                CameraFollow.instance.otherLook = gameObject;
+                BL_inConversation = true;
+            }
+
+            if (FungusDirector.instance.FungusFlow.GetBooleanVariable("bl_textCycleOver") && BL_inConversation)
+            {
+                CameraFollow.instance.otherLook = null;
+                BL_inConversation = false;
+                yield return new WaitForSeconds(1.0f);
+            }
+            yield return null;
+        } while (!BL_inConversation == false && CameraFollow.instance.otherLook == CurrentTasks.instance.currentTask[0].GO_belongsTo);
+
+        Quest_Complete = true;
+    }
+
+    #endregion
 
     bool Interactable()
     {
@@ -71,6 +157,10 @@ public class PDATutorial : QuestPart {
             if (!BL_IsInteractable)
             {
                 HideAll();
+            }
+            else if (BL_hasAccepted && !Quest_Complete)
+            {
+                ShowQuestionMark();
             }
             else
             {

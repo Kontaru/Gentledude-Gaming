@@ -103,7 +103,7 @@ public class NPCInteraction : MonoBehaviour
 
     void TalkingState()
     {
-        if (Input.GetKeyDown(KeyCode.E) && BL_InConversation == false && BL_InTalkingRange)
+        if (Input.GetKeyDown(GameManager.instance.KC_Interact) && BL_InConversation == false && BL_InTalkingRange)
             Converse();
 
         if (BL_HasQuest && FungusDirector.instance.bl_AcceptedTask && BL_InConversation == true)
