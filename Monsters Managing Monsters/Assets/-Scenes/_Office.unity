@@ -840,19 +840,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4820370054083188, guid: cd5fd1e08265ba64d87f95c3724fe116, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4820370054083188, guid: cd5fd1e08265ba64d87f95c3724fe116, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114600974371693076, guid: cd5fd1e08265ba64d87f95c3724fe116,
-        type: 2}
-      propertyPath: BL_LookAtCam
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd5fd1e08265ba64d87f95c3724fe116, type: 2}
   m_IsPrefabParent: 0
@@ -1670,14 +1657,25 @@ Prefab:
       propertyPath: m_Name
       value: DangerousDeliveries NPC
       objectReference: {fileID: 0}
-    - target: {fileID: 114199049093928568, guid: 2746d7e0e5144384d8da70c5b2e6e21e,
-        type: 2}
-      propertyPath: BL_LookAtCam
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2746d7e0e5144384d8da70c5b2e6e21e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &67182027 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1160131318097630, guid: 2746d7e0e5144384d8da70c5b2e6e21e,
+    type: 2}
+  m_PrefabInternal: {fileID: 67182026}
+--- !u!114 &67182028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 67182027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da66248f859cd634eab705e68ab8294b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &70206173
 GameObject:
   m_ObjectHideFlags: 0
@@ -23468,8 +23466,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1685272520}
   m_HandleRect: {fileID: 1685272519}
   m_Direction: 2
-  m_Value: 0.99851495
-  m_Size: 0.7008859
+  m_Value: 0.9984932
+  m_Size: 0.7008645
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -25922,6 +25920,11 @@ Prefab:
     - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
         type: 2}
       propertyPath: Tasks.Array.data[1].BL_isObtainable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460942788931260, guid: 08fa9aa8a186ad648ae0e0ded2efed85,
+        type: 2}
+      propertyPath: Tasks.Array.data[0].Quest_Finish
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -34368,11 +34371,6 @@ Prefab:
     - target: {fileID: 1321648758970042, guid: c2d780543e5a47a44a16eb6ac4f8bd4b, type: 2}
       propertyPath: m_Name
       value: PixiePanic NPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 114451157972620474, guid: c2d780543e5a47a44a16eb6ac4f8bd4b,
-        type: 2}
-      propertyPath: BL_LookAtCam
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2d780543e5a47a44a16eb6ac4f8bd4b, type: 2}

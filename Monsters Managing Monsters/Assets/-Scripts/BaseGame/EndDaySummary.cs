@@ -74,7 +74,7 @@ public class EndDaySummary : MonoBehaviour {
         StartCoroutine(ShowNotification());
 
     }
-    public void QuestCompleted(string questName, bool failed)
+    public void QuestCompleted(string questName, GameObject sender, int motivation, bool failed)
     {
         if (failed)
         {
@@ -88,6 +88,7 @@ public class EndDaySummary : MonoBehaviour {
         }
         
         notifText.text = questName;
+        StartCoroutine(ShowAnimation(sender, motivation));
         StartCoroutine(ShowNotification());
     }
 
@@ -116,6 +117,19 @@ public class EndDaySummary : MonoBehaviour {
         notifAnimator.SetBool("BL_ShowNotification", true);
         yield return new WaitForSeconds(3);
         notifAnimator.SetBool("BL_ShowNotification", false);
+    }
+
+    IEnumerator ShowAnimation(GameObject sender , int motivation)
+    {
+        GameObject canv = sender.transform.GetChild(0).GetChild(3).gameObject;
+        Text label = canv.transform.GetChild(0).GetChild(0).GetComponent<Text>();
+        label.text = "+ " + motivation.ToString() + " Motivation";
+
+        if (canv == null) yield break;
+
+        canv.SetActive(true);
+        yield return new WaitForSeconds(3);
+        canv.SetActive(false);
     }
 
     IEnumerator CountTo(int target, int score, Text label)

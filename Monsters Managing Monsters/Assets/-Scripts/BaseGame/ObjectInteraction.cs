@@ -43,7 +43,6 @@ public class ObjectInteraction : MonoBehaviour {
         {
             PDAHandler.instance.BL_hasPDA = true;
             PDAHandler.instance.TogglePDA();
-            EndDaySummary.instance.QuestCompleted("Collected PDA", false);
         }       
     }
 

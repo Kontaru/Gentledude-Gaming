@@ -134,7 +134,7 @@ public class Task
             if (!BL_secondFlag)
             {
                 EndDaySummary.instance.tasksCount++;
-                EndDaySummary.instance.QuestCompleted(name, Quest_Fail);
+                EndDaySummary.instance.QuestCompleted(name, GO_belongsTo, IN_motivationAmount, Quest_Fail);
                 BL_secondFlag = true;
             }
 
