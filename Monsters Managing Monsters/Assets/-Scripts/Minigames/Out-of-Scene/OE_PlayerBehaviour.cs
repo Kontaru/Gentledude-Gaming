@@ -77,12 +77,12 @@ public class OE_PlayerBehaviour : MonoBehaviour
     private void UpdateUI()
     {
         timerText.text = "Timer: " + timer.ToString() + " seconds";
-        escapedText.text = "Workers Escaped: " + escapedCount.ToString();
+        escapedText.text = "Workers Escaped: " + escapedCount.ToString() + "/15";
     }
 
     private void CheckFailure()
     {
-        if (escapedCount >= 10) WinScreen();
+        if (escapedCount >= 15) WinScreen();
 
         if (BL_MinigameFailed)
         {

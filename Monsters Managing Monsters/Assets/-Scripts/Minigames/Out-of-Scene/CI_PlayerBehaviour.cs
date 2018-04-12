@@ -49,7 +49,7 @@ public class CI_PlayerBehaviour : MonoBehaviour
     private void UpdateUI()
     {
         ordersText.text = remainingOrders + " Orders Remaining";
-        missedText.text = missedOrders + " Missed Order(s)";
+        missedText.text = missedOrders + "/12" + " Missed Order(s)";
 
         if (repair1) repairText.text = "Repair Kit: 1";
         else if (repair2) repairText.text = "Repair Kit: 2";

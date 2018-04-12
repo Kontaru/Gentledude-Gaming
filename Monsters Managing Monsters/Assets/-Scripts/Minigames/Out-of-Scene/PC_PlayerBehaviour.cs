@@ -46,7 +46,7 @@ public class PC_PlayerBehaviour : MonoBehaviour {
     private void UpdateUI()
     {
         timerText.text = "Timer: " + timer.ToString() + " seconds";
-        popupsClosedCount.text = "Popups Closed: " + popupsClosed.ToString();
+        popupsClosedCount.text = "Popups Closed: " + popupsClosed.ToString() + "/25";
     }
 
     private void CheckFailure()
