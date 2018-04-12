@@ -9,7 +9,6 @@ public class MenuHandler : MonoBehaviour {
     public GameObject loadingScreen;
     public Slider loadingSlider;
     public GameObject loadScreen;
-    public GameObject minigameScreen;
     public GameObject helpScreen;
     public GameObject settingsScreen;
     public GameObject[] saveSlots;
@@ -20,7 +19,6 @@ public class MenuHandler : MonoBehaviour {
     private AsyncOperation ao;
     private bool BL_helpVisible = false;
     private bool BL_loadVisible = false;
-    private bool BL_minigamesVisible = false;
     private bool BL_settingsVisible = false;
 
     private void Start()
@@ -76,11 +74,6 @@ public class MenuHandler : MonoBehaviour {
             StartCoroutine(HideScreen(settingsScreen));
             BL_settingsVisible = !BL_settingsVisible;
         }
-        else if (BL_minigamesVisible)
-        {
-            StartCoroutine(HideScreen(minigameScreen));
-            BL_minigamesVisible = !BL_minigamesVisible;
-        }
 
         if (BL_loadVisible) StartCoroutine(HideScreen(loadScreen));
         else StartCoroutine(ShowScreen(loadScreen));
@@ -88,30 +81,6 @@ public class MenuHandler : MonoBehaviour {
         BL_loadVisible = !BL_loadVisible;
     }
 
-    public void LoadMinigamesPanel()
-    {
-        if (BL_helpVisible)
-        {
-            StartCoroutine(HideScreen(helpScreen));
-            BL_helpVisible = !BL_helpVisible;
-        }
-        else if (BL_settingsVisible)
-        {
-            StartCoroutine(HideScreen(settingsScreen));
-            BL_settingsVisible = !BL_settingsVisible;
-        }
-        else if (BL_loadVisible)
-        {
-            StartCoroutine(HideScreen(loadScreen));
-            BL_loadVisible = !BL_loadVisible;
-        }
-
-        if (BL_minigamesVisible) StartCoroutine(HideScreen(minigameScreen));
-        else StartCoroutine(ShowScreen(minigameScreen));
-
-        BL_minigamesVisible = !BL_minigamesVisible;
-
-    }
     public void LoadSettingsPanel()
     {
         if (BL_helpVisible)
@@ -123,11 +92,6 @@ public class MenuHandler : MonoBehaviour {
         {
             StartCoroutine(HideScreen(loadScreen));
             BL_loadVisible = !BL_loadVisible;
-        }
-        else if (BL_minigamesVisible)
-        {
-            StartCoroutine(HideScreen(minigameScreen));
-            BL_minigamesVisible = !BL_minigamesVisible;
         }
 
         if (BL_settingsVisible) StartCoroutine(HideScreen(settingsScreen));
@@ -148,11 +112,6 @@ public class MenuHandler : MonoBehaviour {
             StartCoroutine(HideScreen(loadScreen));
             BL_loadVisible = !BL_loadVisible;
         }
-        else if (BL_minigamesVisible)
-        {
-            StartCoroutine(HideScreen(minigameScreen));
-            BL_minigamesVisible = !BL_minigamesVisible;
-        }
 
         if (BL_helpVisible) StartCoroutine(HideScreen(helpScreen));
         else StartCoroutine(ShowScreen(helpScreen));
@@ -160,26 +119,6 @@ public class MenuHandler : MonoBehaviour {
         BL_helpVisible = !BL_helpVisible;
     }
 
-    public void StartMiniGameOne()
-    {
-        GameManager.instance.LoadScene(4);
-    }
-
-    public void StartMiniGameTwo()
-    {
-        GameManager.instance.LoadScene(5);
-    }
-
-    public void StartMiniGameThree()
-    {
-        GameManager.instance.LoadScene(6);
-    }
-
-    public void StartMiniGameOneH()
-    {
-        GameManager.instance.LoadScene(7);
-
-    }
     public void Exit()
     {
         Application.Quit();

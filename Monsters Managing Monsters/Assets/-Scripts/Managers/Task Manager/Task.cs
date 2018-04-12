@@ -155,13 +155,13 @@ public class Task
                 step.active = false;
             }
 
-            step_tracker = 0;
-            Quest_Fail = false;
+            step_tracker = 0;            
             BL_isObtainable = false;
 
             if (Repeatable)
             {
                 Quest_Finish = false;
+                Quest_Fail = false;
             }
             
         }

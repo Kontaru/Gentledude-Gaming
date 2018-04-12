@@ -23,6 +23,9 @@ public class PDAHandler : MonoBehaviour {
     public GameObject[] minigames;
     public GameObject[] activeTasks;
 
+    public GameObject questContainer;
+    public GameObject questSlot;
+
     public Button homeBtn, closeBtn;
     public Slider volSlider;
     public Text tasksText, volText, tbTitleText, tbText, tbInfoText;
@@ -31,6 +34,8 @@ public class PDAHandler : MonoBehaviour {
 
     private Animator animator;
 
+    public GameObject noQuestsLabel;
+    private List<GameObject> completedTasks;
     private string tasks;
     private int taskIndex;
 
@@ -61,6 +66,7 @@ public class PDAHandler : MonoBehaviour {
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        completedTasks = new List<GameObject>();
         minigameIndex = 0;
     }
 
@@ -402,6 +408,43 @@ public class PDAHandler : MonoBehaviour {
         HideAllScreens();
         SetBrief(taskIndex);
         taskBriefScreen.SetActive(true);
+    }
+
+    public void ShowCompletedTasks()
+    {
+        foreach (GameObject go in completedTasks)
+        {
+            Destroy(go);
+        }
+
+        completedTasks.Clear();
+
+        foreach (Task task in TaskManager.instance.Tasks)
+        {
+            if (task.Quest_Finish)
+            {
+                GameObject GO = Instantiate(questSlot);
+                GO.transform.SetParent(questContainer.transform, false);
+                completedTasks.Add(GO);
+
+                if (task.Quest_Fail)
+                {
+                    GO.transform.GetChild(0).GetComponent<Text>().text = task.name;
+                    GO.transform.GetChild(1).GetComponent<Text>().text = "Failed";
+                    GO.transform.GetChild(1).GetComponent<Text>().color = Color.red;
+                }
+                else
+                {
+                    GO.transform.GetChild(0).GetComponent<Text>().text = task.name;
+                    GO.transform.GetChild(1).GetComponent<Text>().text = "Completed";
+                    GO.transform.GetChild(1).GetComponent<Text>().color = Color.green;
+                }
+            }            
+        }
+
+        if (completedTasks.Count > 0) noQuestsLabel.SetActive(false);
+        else noQuestsLabel.SetActive(true);
+
     }
 
     private void ShowMinigames()
