@@ -121,7 +121,10 @@ public class EndDaySummary : MonoBehaviour {
 
     IEnumerator ShowAnimation(GameObject sender , int motivation)
     {
-        GameObject canv = sender.transform.GetChild(0).GetChild(3).gameObject;
+        GameObject canv;
+        if (sender.transform.GetChild(0).GetChild(3).gameObject != null)
+            canv = sender.transform.GetChild(0).GetChild(3).gameObject;
+        else canv = null;
 
         if (canv != null)
         {
