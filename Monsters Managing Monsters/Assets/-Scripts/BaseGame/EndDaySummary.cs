@@ -122,14 +122,16 @@ public class EndDaySummary : MonoBehaviour {
     IEnumerator ShowAnimation(GameObject sender , int motivation)
     {
         GameObject canv = sender.transform.GetChild(0).GetChild(3).gameObject;
-        Text label = canv.transform.GetChild(0).GetChild(0).GetComponent<Text>();
-        label.text = "+ " + motivation.ToString() + " Motivation";
 
-        if (canv == null) yield break;
+        if (canv != null)
+        {
+            Text label = canv.transform.GetChild(0).GetChild(0).GetComponent<Text>();
+            label.text = "+ " + motivation.ToString() + " Motivation";
 
-        canv.SetActive(true);
-        yield return new WaitForSeconds(3);
-        canv.SetActive(false);
+            canv.SetActive(true);
+            yield return new WaitForSeconds(3);
+            canv.SetActive(false);
+        }       
     }
 
     IEnumerator CountTo(int target, int score, Text label)
