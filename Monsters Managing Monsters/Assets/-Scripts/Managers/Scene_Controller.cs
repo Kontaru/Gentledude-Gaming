@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class Scene_Controller : MonoBehaviour {
 
@@ -57,7 +58,11 @@ public class Scene_Controller : MonoBehaviour {
         Invoke("HideSummary", 1);
 
         DayCycle.instance.NewDay();
-        GameManager.instance.Player.transform.position = spawnPoint.position;
+
+        GameObject player = GameManager.instance.Player;
+        player.GetComponent<NavMeshAgent>().enabled = false;
+        player.transform.position = spawnPoint.position;
+        player.GetComponent<NavMeshAgent>().enabled = true;
         
         BL_firstFlag = false;
         PC_Move.BL_canMove = true;
