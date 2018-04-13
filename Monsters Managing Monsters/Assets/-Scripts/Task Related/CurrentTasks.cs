@@ -41,9 +41,7 @@ public class CurrentTasks : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
-
-        currentTask[0].BL_isObtainable = true;
+    void Update() {        
 
         if (currentTask[0] == null || currentTask[0].Quest_Finish == true)
         {
@@ -53,6 +51,8 @@ public class CurrentTasks : MonoBehaviour {
             else
                 NewQuestFromPool();
         }
+
+        currentTask[0].BL_isObtainable = true;
     }
 
     bool HasAllQuestsAcquired()

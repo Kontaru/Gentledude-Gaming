@@ -85,10 +85,10 @@ public class EndDaySummary : MonoBehaviour {
         {
             notifTitleText.text = "Quest Complete!";
             notifText.color = Color.green;
+            StartCoroutine(ShowAnimation(sender, motivation));
         }
         
-        notifText.text = questName;
-        StartCoroutine(ShowAnimation(sender, motivation));
+        notifText.text = questName;        
         StartCoroutine(ShowNotification());
     }
 

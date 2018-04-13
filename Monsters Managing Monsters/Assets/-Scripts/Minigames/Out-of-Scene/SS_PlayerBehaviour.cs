@@ -76,6 +76,8 @@ public class SS_PlayerBehaviour : MonoBehaviour {
             AudioManager.instance.Stop("BGM Minigame");
             AudioManager.instance.Play("Dungeon Music");
             ClearHands();
+            BL_MinigameFailed = true;
+            BL_GameComplete = true;
             failScreen.SetActive(true);
             Time.timeScale = 0;
         }
@@ -86,7 +88,6 @@ public class SS_PlayerBehaviour : MonoBehaviour {
         AudioManager.instance.Stop("BGM Minigame");
         AudioManager.instance.Play("Dungeon Music");
         BL_GameComplete = true;
-        BL_MinigameFailed = false;
         ClearHands();
         winScreen.SetActive(true);
         Time.timeScale = 0;

@@ -156,14 +156,12 @@ public class Task
             }
 
             step_tracker = 0;            
-            BL_isObtainable = false;
 
             if (Repeatable)
             {
                 Quest_Finish = false;
                 Quest_Fail = false;
-            }
-            
+            }            
         }
     }
 
