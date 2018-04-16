@@ -69,7 +69,11 @@ public class SS_PlayerBehaviour : MonoBehaviour {
 
     private void CheckFailure()
     {
-        if (itemsCount <= 0) BL_MinigameFailed = true;
+        if (itemsCount <= 0)
+        {
+            BL_MinigameFailed = true;
+            BL_GameComplete = true;
+        }
 
         if (BL_MinigameFailed)
         {
