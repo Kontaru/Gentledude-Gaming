@@ -58,25 +58,28 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    public void ZoomedOut(bool zoomOut)
+    public void ZoomedOut()
     {
-        if (zoomOut == true && Camera.main.orthographic)
+        StopAllCoroutines();
+
+        if (Camera.main.orthographic)
         {
-            StartCoroutine(ChangeCameraOrthSize(Camera.main.orthographicSize, maxCameraSize));
-        }else if (zoomOut == false && Camera.main.orthographic)
-        {
-            StartCoroutine(ChangeCameraOrthSize(Camera.main.orthographicSize, FL_originalCamSize));
+            StartCoroutine(ChangeCameraOrthSize(Camera.main.orthographicSize, maxCameraSize, 0));
+            StartCoroutine(ChangeCameraOrthSize(Camera.main.orthographicSize, FL_originalCamSize, 6));
         }
     }
 
-    IEnumerator ChangeCameraOrthSize(float originalValue, float destinationValue)
+    IEnumerator ChangeCameraOrthSize(float originalValue, float destinationValue, int time)
     {
-        do
+        yield return new WaitForSeconds(time);
+
+        while (Camera.main.orthographicSize != destinationValue)
         {
             Camera.main.orthographicSize = Mathf.Lerp(originalValue, destinationValue, rate);
-            rate += Time.deltaTime / 20;
+            rate += Time.deltaTime / 5;
             yield return null;
-        } while (Camera.main.orthographicSize != destinationValue);
+        }
         rate = 0;
+        otherLook = null;
     }
 }

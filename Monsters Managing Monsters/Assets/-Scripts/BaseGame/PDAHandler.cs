@@ -516,10 +516,15 @@ public class PDAHandler : MonoBehaviour {
     IEnumerator LocateStep(float seconds)
     {
         Task task = CurrentTasks.instance.currentTask[taskIndex];
-        if (task.Steps[task.step_tracker].Hidden) CameraFollow.instance.ZoomedOut(true);
-        else CameraFollow.instance.otherLook = task.Steps[task.step_tracker].requires.gameObject;
-        yield return new WaitForSeconds(seconds);
-        CameraFollow.instance.otherLook = null;
-        CameraFollow.instance.ZoomedOut(false);
+        if (task.Steps[task.step_tracker].Hidden)
+        {
+            CameraFollow.instance.ZoomedOut();
+        }
+        else
+        {
+            CameraFollow.instance.otherLook = task.Steps[task.step_tracker].requires.gameObject;
+            yield return new WaitForSeconds(seconds);
+            CameraFollow.instance.otherLook = null;
+        }
     }
 }
