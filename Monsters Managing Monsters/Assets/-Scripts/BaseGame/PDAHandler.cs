@@ -89,7 +89,7 @@ public class PDAHandler : MonoBehaviour {
 
     private void UpdateUI()
     {
-        volText.text = "Volume " + volSlider.value + "%";        
+        if (volText != null) volText.text = "Volume " + volSlider.value + "%";        
     }
 
     private void RefreshTasksList()
