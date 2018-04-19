@@ -72,7 +72,7 @@ public class ScenarioBuilder : MonoBehaviour {
 
         PreSortedDailyQuests = dailyQuests;
         RankDailyQuests(PreSortedDailyQuests);
-        //GeneratePlayerPossibilities(PreSortedDailyQuests);
+        GeneratePlayerPossibilities(PreSortedDailyQuests);
     }
 
     void RankDailyQuests(List<Task> preSorted)
@@ -92,7 +92,10 @@ public class ScenarioBuilder : MonoBehaviour {
     void GeneratePlayerPossibilities(List<Task> dailyQuests)
     {
         List<Task> shuffle = dailyQuests;
-        List<Task> playerQuests = new List<Task>();
+        for (int index = 0; index < dailyQuests.Count; index++)
+        {
+            shuffle.Add(dailyQuests[index]);
+        }
 
         for (int current = 0; current < shuffle.Count; current++)
         {
@@ -102,6 +105,7 @@ public class ScenarioBuilder : MonoBehaviour {
             shuffle[searchedTask] = storedTask;
         }
 
+        List<Task> playerQuests = new List<Task>();
         //for (int current = 0; current < DailyQuests.Count || current < 5; current++)
         //{
         //    playerQuests[current] = shuffle[current];
