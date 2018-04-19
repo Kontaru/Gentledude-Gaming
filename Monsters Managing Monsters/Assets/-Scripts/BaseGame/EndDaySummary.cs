@@ -116,7 +116,7 @@ public class EndDaySummary : MonoBehaviour {
         StartCoroutine(CountTo(mOVR, IN_OVR, OVR));
         StartCoroutine(CountTo(mSEC, IN_SEC, SEC));
 
-        if ((morale - penalties) <= 200) GameManager.instance.BL_GameOver = true;
+        if ((morale - penalties) <= -200) GameManager.instance.BL_GameOver = true;
         
     }
 
