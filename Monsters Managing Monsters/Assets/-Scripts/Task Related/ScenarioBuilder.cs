@@ -7,9 +7,10 @@ public class ScenarioBuilder : MonoBehaviour {
 
     public List<Task> PlayerQuests = new List<Task>();           //Generated - Display this as the top 5 possible quests
     public List<Task> DailyQuests;
+    public bool trigger = false;
     List<Task> PreSortedDailyQuests;
 
-    public int APlim;
+    public int ApLim;
     TaskManager taskManager;
 
 	// Use this for initialization
@@ -19,8 +20,9 @@ public class ScenarioBuilder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (DayCycle.instance.BL_beginDay)
+		if (trigger)
         {
+            trigger = false;
             GenerateDailyQuests(taskManager.Tasks);
         }
 	}
@@ -28,7 +30,7 @@ public class ScenarioBuilder : MonoBehaviour {
     void GenerateDailyQuests(Task[] all)
     {
         //Sort based on max spendable AP
-        int spendableAP = APlim;
+        int spendableAP = ApLim;
         int questLims = spendableAP + 5;
         List<Task> allquests = TaskManager.instance.Tasks.ToList();
         List<Task> dailyQuests = new List<Task>();
@@ -57,6 +59,7 @@ public class ScenarioBuilder : MonoBehaviour {
         }
 
         PreSortedDailyQuests = dailyQuests;
+        RankDailyQuests(PreSortedDailyQuests);
     }
 
     void RankDailyQuests(List<Task> preSorted)
@@ -66,6 +69,7 @@ public class ScenarioBuilder : MonoBehaviour {
         sorted.Sort(delegate (Task x, Task y) { return x.IN_actionPointWeight.CompareTo(y.IN_actionPointWeight); });
 
         DailyQuests = sorted;
+        GeneratePlayerPossibilities(DailyQuests);
     }
 
     void GeneratePlayerPossibilities(List<Task> dailyQuests)
