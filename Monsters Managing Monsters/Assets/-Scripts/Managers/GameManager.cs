@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public GameObject Player;
 
     public bool PixelMode = false;
+    public bool BL_GameOver;
 
     [Header("Controls")]
 

@@ -11,10 +11,14 @@ public class EndDaySummary : MonoBehaviour {
     public Text notifTitleText;
     public Text notifText;
 
+    public Text endDayButtonText;
+
     private Animator notifAnimator;
 
     public int tasksCount;
+    private int morale;
     private int IN_HR, IN_IT, IN_JN, IN_MK, IN_FN, IN_OVR, IN_SEC;
+
     private int penalties;
     private int penalty1 = 50;
     private int penalty2 = 50;
@@ -37,11 +41,13 @@ public class EndDaySummary : MonoBehaviour {
     {
         tasksComplete.text = tasksCount.ToString();
 
+        if (GameManager.instance.BL_GameOver) endDayButtonText.text = "Game Over";
+
         pen1Text.text = "-" + penalty1;
         pen2Text.text = "-" + penalty2;
         pen3Text.text = "-" + penalty3;
 
-        int morale = GameManager.instance.PL_HR +
+        morale = GameManager.instance.PL_HR +
             GameManager.instance.PL_IT +
             GameManager.instance.PL_Janitorial +
             GameManager.instance.PL_Marketing +
@@ -109,6 +115,9 @@ public class EndDaySummary : MonoBehaviour {
         StartCoroutine(CountTo(mFN, IN_FN, FN));
         StartCoroutine(CountTo(mOVR, IN_OVR, OVR));
         StartCoroutine(CountTo(mSEC, IN_SEC, SEC));
+
+        if ((morale - penalties) <= 200) GameManager.instance.BL_GameOver = true;
+        
     }
 
     IEnumerator ShowNotification()

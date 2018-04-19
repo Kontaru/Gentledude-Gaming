@@ -53,19 +53,29 @@ public class Scene_Controller : MonoBehaviour {
 
     public void ExitPrompt()
     {
-        DayCycle.instance.BL_ShowResults = false;
-        summaryAnimator.SetBool("BL_ShowSummary", false);
-        Invoke("HideSummary", 1);
+        EndDaySummary summary = EndDaySummary.instance;
 
-        DayCycle.instance.NewDay();
+        if (GameManager.instance.BL_GameOver)
+        {            
+            GameManager.instance.LoadScene(3);
 
-        GameObject player = GameManager.instance.Player;
-        player.GetComponent<NavMeshAgent>().enabled = false;
-        player.transform.position = spawnPoint.position;
-        player.GetComponent<NavMeshAgent>().enabled = true;
-        
-        BL_firstFlag = false;
-        PC_Move.BL_canMove = true;
+        }
+        else
+        {
+            DayCycle.instance.BL_ShowResults = false;
+            summaryAnimator.SetBool("BL_ShowSummary", false);
+            Invoke("HideSummary", 1);
+
+            DayCycle.instance.NewDay();
+
+            GameObject player = GameManager.instance.Player;
+            player.GetComponent<NavMeshAgent>().enabled = false;
+            player.transform.position = spawnPoint.position;
+            player.GetComponent<NavMeshAgent>().enabled = true;
+
+            BL_firstFlag = false;
+            PC_Move.BL_canMove = true;
+        }        
     }
 
     private void HideSummary()
