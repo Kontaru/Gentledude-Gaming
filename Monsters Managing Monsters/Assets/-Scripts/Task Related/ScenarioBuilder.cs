@@ -8,7 +8,7 @@ public class ScenarioBuilder : MonoBehaviour {
     public List<Task> PlayerQuests = new List<Task>();           //Generated - Display this as the top 5 possible quests
     public List<Task> DailyQuests;
     public bool trigger = false;
-    List<Task> PreSortedDailyQuests;
+    public List<Task> PreSortedDailyQuests;
 
     public int ApLim;
     TaskManager taskManager;
@@ -32,8 +32,18 @@ public class ScenarioBuilder : MonoBehaviour {
         //Sort based on max spendable AP
         int spendableAP = ApLim;
         int questLims = spendableAP + 5;
-        List<Task> allquests = TaskManager.instance.Tasks.ToList();
+        List<Task> allquests = all.ToList();
         List<Task> dailyQuests = new List<Task>();
+
+
+
+        for (int current = 0; current < allquests.Count; current++)
+        {
+            Task storedTask = allquests[current];
+            int searchedTask = Random.Range(current, allquests.Count);
+            allquests[current] = allquests[searchedTask];
+            allquests[searchedTask] = storedTask;
+        }
 
         for (int current = 0; current < allquests.Count; current++)
         {
@@ -41,16 +51,18 @@ public class ScenarioBuilder : MonoBehaviour {
                 break;
             else
             {
-                int tQuestLims = 0;
-                if (tQuestLims == 0)
+                if (current == 0)
+                {
                     dailyQuests.Add(allquests[current]);
+                }
                 else
                 {
+                    int tQuestLims = 0;
                     for (int index = 0; index < dailyQuests.Count; index++)
                     {
                         tQuestLims += dailyQuests[index].IN_actionPointWeight;
                     }
-                    if (tQuestLims + allquests[current].IN_actionPointWeight >= questLims)
+                    if (tQuestLims >= questLims)
                         break;
                     else
                         dailyQuests.Add(allquests[current]);
@@ -60,23 +72,26 @@ public class ScenarioBuilder : MonoBehaviour {
 
         PreSortedDailyQuests = dailyQuests;
         RankDailyQuests(PreSortedDailyQuests);
+        //GeneratePlayerPossibilities(PreSortedDailyQuests);
     }
 
     void RankDailyQuests(List<Task> preSorted)
     {
-        List<Task> sorted = preSorted;
+        List<Task> sorted = new List<Task>();
+
+        for (int index = 0; index < preSorted.Count; index++)
+        {
+            sorted.Add(preSorted[index]);
+        }
 
         sorted.Sort(delegate (Task x, Task y) { return x.IN_actionPointWeight.CompareTo(y.IN_actionPointWeight); });
 
         DailyQuests = sorted;
-        GeneratePlayerPossibilities(DailyQuests);
     }
 
     void GeneratePlayerPossibilities(List<Task> dailyQuests)
     {
         List<Task> shuffle = dailyQuests;
-        List<Task> tempList = new List<Task>(shuffle.Count);
-
         List<Task> playerQuests = new List<Task>();
 
         for (int current = 0; current < shuffle.Count; current++)
@@ -87,11 +102,11 @@ public class ScenarioBuilder : MonoBehaviour {
             shuffle[searchedTask] = storedTask;
         }
 
-        for (int current = 0; current < DailyQuests.Count || current < 5; current++)
-        {
-            playerQuests[current] = shuffle[current];
-        }
+        //for (int current = 0; current < DailyQuests.Count || current < 5; current++)
+        //{
+        //    playerQuests[current] = shuffle[current];
+        //}
 
-        PlayerQuests = playerQuests;
+        PlayerQuests = shuffle;
     }
 }
