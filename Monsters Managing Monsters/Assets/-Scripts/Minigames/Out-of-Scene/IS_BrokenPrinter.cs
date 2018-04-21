@@ -14,7 +14,14 @@ public class IS_BrokenPrinter : QuestPart
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!BL_IsInteractable) return;
+        if (!BL_IsInteractable)
+        {
+            HideLabels();
+            return;
+        }else
+        {
+            ShowLabelObject();
+        }
 
         if (other.gameObject.name == "PC")
         {
