@@ -11,16 +11,28 @@ public class CI_PlayerBehaviour : MonoBehaviour
     public GameObject failScreen;
     public GameObject[] stations;
 
-    public Text ordersText, missedText, repairText, invText;
+    public Text ordersText, missedText, repairText, invText, hintText;
     public int remainingOrders, missedOrders;
 
+    private Collider2D collider;
+    private bool InTrigger;
+    private string objectName;
     private string inventory;
     public bool item1, item2, item3, item4;
     public bool repair1, repair2, repair3, repair4;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        HandleCollision(collision);
+        InTrigger = true;
+        collider = collision;
+        hintText.text = "Press 'E' to interact";
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        InTrigger = false;
+        collider = null;
+        hintText.text = "";
     }
 
     private void OnEnable()
@@ -42,6 +54,7 @@ public class CI_PlayerBehaviour : MonoBehaviour
     void Update()
     {
         UpdateUI();
+        CheckCollisions();
         CheckMovement();
         CheckFailure();
     }
@@ -60,6 +73,14 @@ public class CI_PlayerBehaviour : MonoBehaviour
         invText.text = "Inventory:" + inventory;
     }
 
+    private void CheckCollisions()
+    {
+        if (InTrigger)
+        {
+            if (Input.GetKeyDown(KeyCode.E)) HandleCollision();
+        }
+    }
+
     private void CheckMovement()
     {
         if (BL_GameComplete) return;
@@ -70,11 +91,11 @@ public class CI_PlayerBehaviour : MonoBehaviour
         if (Input.GetKey(KeyCode.D)) transform.position += Vector3.right * 12 * Time.deltaTime;
     }
 
-    private void HandleCollision(Collision2D coll)
+    private void HandleCollision()
     {
-        if (coll.gameObject.name == "Station1")
+        if (collider.gameObject.name == "Station1")
         {
-            CI_Station station = coll.gameObject.GetComponent<CI_Station>();
+            CI_Station station = collider.gameObject.GetComponent<CI_Station>();
             if (station.BL_Damaged && repair1)
             {
                 station.BL_Damaged = false;
@@ -87,9 +108,9 @@ public class CI_PlayerBehaviour : MonoBehaviour
                 item1 = true;
             }
         }
-        else if (coll.gameObject.name == "Station2")
+        else if (collider.gameObject.name == "Station2")
         {
-            CI_Station station = coll.gameObject.GetComponent<CI_Station>();
+            CI_Station station = collider.gameObject.GetComponent<CI_Station>();
             if (station.BL_Damaged && repair2)
             {
                 station.BL_Damaged = false;
@@ -102,9 +123,9 @@ public class CI_PlayerBehaviour : MonoBehaviour
                 item2 = true;
             }
         }
-        else if (coll.gameObject.name == "Station3")
+        else if (collider.gameObject.name == "Station3")
         {
-            CI_Station station = coll.gameObject.GetComponent<CI_Station>();
+            CI_Station station = collider.gameObject.GetComponent<CI_Station>();
             if (station.BL_Damaged && repair3)
             {
                 station.BL_Damaged = false;
@@ -117,9 +138,9 @@ public class CI_PlayerBehaviour : MonoBehaviour
                 item3 = true;
             }
         }
-        else if (coll.gameObject.name == "Station4")
+        else if (collider.gameObject.name == "Station4")
         {
-            CI_Station station = coll.gameObject.GetComponent<CI_Station>();
+            CI_Station station = collider.gameObject.GetComponent<CI_Station>();
             if (station.BL_Damaged && repair4)
             {
                 station.BL_Damaged = false;
@@ -132,29 +153,29 @@ public class CI_PlayerBehaviour : MonoBehaviour
                 item4 = true;
             }
         }
-        else if (coll.gameObject.name == "Repair1")
+        else if (collider.gameObject.name == "Repair1")
         {
             ResetRepairs();
             repair1 = true;
         }
-        else if (coll.gameObject.name == "Repair2")
+        else if (collider.gameObject.name == "Repair2")
         {
             ResetRepairs();
             repair2 = true;
         }
-        else if (coll.gameObject.name == "Repair3")
+        else if (collider.gameObject.name == "Repair3")
         {
             ResetRepairs();
             repair3 = true;
         }
-        else if (coll.gameObject.name == "Repair4")
+        else if (collider.gameObject.name == "Repair4")
         {
             ResetRepairs();
             repair4 = true;
         }
-        else if (coll.gameObject.name == "CI_Table1")
+        else if (collider.gameObject.name == "CI_Table1")
         {
-            CI_Table table = coll.gameObject.GetComponent<CI_Table>();
+            CI_Table table = collider.gameObject.GetComponent<CI_Table>();
             bool[] array = table.items;
             if (CheckItems(array))
             {
@@ -164,9 +185,9 @@ public class CI_PlayerBehaviour : MonoBehaviour
             }
             ResetItems();
         }
-        else if (coll.gameObject.name == "CI_Table2")
+        else if (collider.gameObject.name == "CI_Table2")
         {
-            CI_Table table = coll.gameObject.GetComponent<CI_Table>();
+            CI_Table table = collider.gameObject.GetComponent<CI_Table>();
             bool[] array = table.items;
             if (CheckItems(array))
             {
@@ -176,9 +197,9 @@ public class CI_PlayerBehaviour : MonoBehaviour
             }
             ResetItems();
         }
-        else if (coll.gameObject.name == "CI_Table3")
+        else if (collider.gameObject.name == "CI_Table3")
         {
-            CI_Table table = coll.gameObject.GetComponent<CI_Table>();
+            CI_Table table = collider.gameObject.GetComponent<CI_Table>();
             bool[] array = table.items;
             if (CheckItems(array))
             {
@@ -187,7 +208,7 @@ public class CI_PlayerBehaviour : MonoBehaviour
                 remainingOrders--;
             }
             ResetItems();
-        }
+        }        
     }
 
     private bool CheckItems(bool[] items)

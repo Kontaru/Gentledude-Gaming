@@ -9,13 +9,16 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     public bool BL_GameComplete = false;
     public bool BL_MinigameFailed;
     public GameObject doughnuts;
+    public Transform doughnutSpawn;
     public GameObject winScreen;
     public GameObject failScreen;
     public Text timerText;
     public Text livesText;
+    public Text collectedText;
     public Text invText;
 
     public static Vector3 playerSpawn;
+    private int doughnutsCollected = 0;
     private int lives;
     private int timer;
     private string inventory;
@@ -29,14 +32,16 @@ public class DD_PlayerBehaviour : MonoBehaviour {
             inventory = "Doughnuts";
             BL_DoughnutsVisible = false;
         }
-        else RespawnPlayer();
+        else RespawnPlayer(true);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.name == "DD_Office" && inventory == "Doughnuts")
         {            
-            WinScreen();
+            if (doughnutsCollected >= 2) WinScreen();
+            doughnutsCollected++;
+            RespawnPlayer(false);
         }
     }
 
@@ -54,8 +59,9 @@ public class DD_PlayerBehaviour : MonoBehaviour {
         playerSpawn = transform.position;
         lives = 3;
         timer = 30;
+        doughnutsCollected = 0;
         inventory = "Empty";
-        RespawnPlayer();
+        RespawnPlayer(true);
 
         StartCoroutine(CountdownTimer());
 	}
@@ -71,6 +77,7 @@ public class DD_PlayerBehaviour : MonoBehaviour {
     {
         timerText.text = "Timer: " + timer.ToString() + " seconds";
         livesText.text = "Lives: " + lives.ToString();
+        collectedText.text = "Collected: " + doughnutsCollected.ToString() + "/3";
         invText.text = "Inventory: " + inventory;
     }
 
@@ -105,13 +112,16 @@ public class DD_PlayerBehaviour : MonoBehaviour {
         Time.timeScale = 0;
     }
 
-    private void RespawnPlayer()
+    private void RespawnPlayer(bool killed)
     {
         if (lives > 0)
         {
-            lives--;
+            if (killed)
+            {
+                lives--;
+                transform.position = playerSpawn;
+            }            
             inventory = "Empty";
-            transform.position = playerSpawn;
         }
         else
         {
@@ -123,7 +133,7 @@ public class DD_PlayerBehaviour : MonoBehaviour {
 
         if (!BL_DoughnutsVisible)
         {
-            Instantiate(doughnuts, doughnuts.transform.position, doughnuts.transform.rotation);
+            GameObject GO = Instantiate(doughnuts, new Vector3(-118, -4.5f, -180), doughnuts.transform.rotation);
             BL_DoughnutsVisible = !BL_DoughnutsVisible;
         }            
     }
