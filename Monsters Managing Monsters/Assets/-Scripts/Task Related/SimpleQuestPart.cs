@@ -64,6 +64,7 @@ public class SimpleQuestPart : QuestPart {
 
         if(BL_IsInteractable)
         {
+            OpenDoor.instance.Open();
             foreach (GameObject target in VisibilityTargets)
             {
                 target.SetActive(true);

@@ -11,6 +11,7 @@ public class PC_Move : MonoBehaviour {
     public float FL_moveSpeed;
     public bool BL_isMoving = false;
     public static bool BL_canMove = true;
+    public SpriteRenderer SR;
     float FL_defaultSpeed;
 
     // Use this for initialization
@@ -26,6 +27,8 @@ public class PC_Move : MonoBehaviour {
 
         FL_moveSpeed = FL_defaultSpeed;
         PlayerMove();
+
+        SR.flipX = RB_PC.velocity.x < 0 ? false : true;
         //LookInput();
     }
 
