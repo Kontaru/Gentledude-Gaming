@@ -10,7 +10,6 @@ public class Scene_Controller : MonoBehaviour {
 
     public GameObject DayOverStats;
     public Animator summaryAnimator;
-    public Transform spawnPoint;
     public ScrollRect summaryRect;
     private bool BL_firstFlag;
 
@@ -67,11 +66,7 @@ public class Scene_Controller : MonoBehaviour {
             Invoke("HideSummary", 1);
 
             DayCycle.instance.NewDay();
-
-            GameObject player = GameManager.instance.Player;
-            player.GetComponent<NavMeshAgent>().enabled = false;
-            player.transform.position = spawnPoint.position;
-            player.GetComponent<NavMeshAgent>().enabled = true;
+            OfficeEntrance.instance.RespawnPlayer();
 
             BL_firstFlag = false;
             PC_Move.BL_canMove = true;
