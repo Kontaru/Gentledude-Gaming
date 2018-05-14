@@ -73,7 +73,7 @@ public class Idle : MonoBehaviour
 
     void NewPosition()
     {
-        Square square = Bounds[Random.Range(0, Bounds.Length - 1)];
+        Square square = Bounds[Random.Range(0, Bounds.Length)];
         V_destination = square.Vertices[Random.Range(0, square.Vertices.Length)];
         GO_destination = V_destination.Corner;
     }
