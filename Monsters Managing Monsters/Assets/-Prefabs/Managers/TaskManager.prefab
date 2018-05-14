@@ -72,6 +72,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    UsingDoor: 0
     step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
@@ -94,6 +95,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    UsingDoor: 0
     step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
@@ -116,6 +118,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    UsingDoor: 0
     step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
@@ -138,6 +141,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    UsingDoor: 0
     step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
@@ -160,9 +164,11 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    UsingDoor: 0
     step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
+  BL_Randomise: 0
 --- !u!114 &114460942788931260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,6 +207,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    UsingDoor: 0
     step_tracker: 0
     Steps:
     - name: Fix Computer
@@ -216,7 +223,7 @@ MonoBehaviour:
     Quest_Complete: 0
     Quest_Fail: 0
     Quest_Finish: 0
-    BL_isObtainable: 1
+    BL_isObtainable: 0
     BL_isAccepted: 0
     inActiveList: 0
     ST_taskBrief: Doughnuts need to be delivered around the office!
@@ -236,13 +243,14 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 6
     IN_motivationAmount: 220
+    UsingDoor: 1
     step_tracker: 0
     Steps:
     - name: Deliver Donuts
       description: Deliver them!
       requires: {fileID: 0}
       TurnOff: 0
-      Hidden: 0
+      Hidden: 1
       complete: 0
       active: 0
     GO_belongsTo: {fileID: 0}
@@ -272,6 +280,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 10
     IN_motivationAmount: 500
+    UsingDoor: 0
     step_tracker: 0
     Steps:
     - name: Leave the office
@@ -313,13 +322,14 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 3
     IN_motivationAmount: 100
+    UsingDoor: 1
     step_tracker: 0
     Steps:
     - name: Hunt down the pixies
       description: Find them, fast!
       requires: {fileID: 0}
       TurnOff: 0
-      Hidden: 0
+      Hidden: 1
       complete: 0
       active: 0
     GO_belongsTo: {fileID: 0}
@@ -350,6 +360,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 10
     IN_motivationAmount: 500
+    UsingDoor: 0
     step_tracker: 0
     Steps:
     - name: Find the Gremlins
@@ -394,6 +405,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 10
     IN_motivationAmount: 500
+    UsingDoor: 0
     step_tracker: 0
     Steps:
     - name: Make it out of the office
@@ -438,6 +450,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 10
     IN_motivationAmount: 500
+    UsingDoor: 0
     step_tracker: 0
     Steps:
     - name: Not again...
@@ -482,6 +495,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 10
     IN_motivationAmount: 500
+    UsingDoor: 0
     step_tracker: 0
     Steps:
     - name: Meddling kids!
@@ -526,6 +540,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 10
     IN_motivationAmount: 500
+    UsingDoor: 0
     step_tracker: 0
     Steps:
     - name: Get setup

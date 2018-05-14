@@ -119,6 +119,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4091635008383998}
+  - component: {fileID: 114544696017017918}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -166,6 +167,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4460097838558226}
+  - component: {fileID: 114069409786971908}
   m_Layer: 0
   m_Name: NPC (2)
   m_TagString: Untagged
@@ -433,6 +435,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4596819622858248}
+  - component: {fileID: 114002205676790292}
   m_Layer: 0
   m_Name: NPC (3)
   m_TagString: Untagged
@@ -658,6 +661,22 @@ Transform:
   m_Father: {fileID: 224111913432985218}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114002205676790292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880020945369236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb22c160af02aa46a97512c32c70acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  interactDistance: 2
+  text: Eww, don't touch them, I'll grab one. I don't want your disgusting imp-hands
+    touching them.
+  acquired: 0
 --- !u!114 &114034395279626868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -679,6 +698,21 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1000
+--- !u!114 &114069409786971908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277927009045594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb22c160af02aa46a97512c32c70acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  interactDistance: 2
+  text: D-Doughnuts? ... I guess I'll take one.
+  acquired: 0
 --- !u!114 &114077203870611502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -850,22 +884,9 @@ MonoBehaviour:
   BL_MinigameComplete: 0
   BL_MinigameFail: 0
   items:
-  - target: {fileID: 1229355628254854}
-    interactDistance: 2
-    text: '[Placeholder]'
-    acquired: 0
-  - target: {fileID: 0}
-    interactDistance: 2
-    text: '[Placeholder]'
-    acquired: 0
-  - target: {fileID: 1277927009045594}
-    interactDistance: 2
-    text: '[Placeholder]'
-    acquired: 0
-  - target: {fileID: 1880020945369236}
-    interactDistance: 2
-    text: '[Placeholder]'
-    acquired: 0
+  - {fileID: 114544696017017918}
+  - {fileID: 114069409786971908}
+  - {fileID: 114002205676790292}
   BL_QuestComplete: 0
   IN_maxItemCount: 10
   IN_stolenCount: 0
@@ -1077,6 +1098,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114544696017017918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229355628254854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb22c160af02aa46a97512c32c70acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  interactDistance: 2
+  text: Oh, wimp! Thanks for the doughnut!
+  acquired: 0
 --- !u!114 &114596600154093524
 MonoBehaviour:
   m_ObjectHideFlags: 1

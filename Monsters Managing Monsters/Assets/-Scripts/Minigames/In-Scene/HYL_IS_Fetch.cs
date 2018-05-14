@@ -21,7 +21,6 @@ public class HYL_IS_Fetch : QuestPart {
                     if (obj.target != null)
                     {
                         obj.target.SetActive(true);
-                        obj.SetCanvasElements();
                     }
                 }
                 BL_FirstLoad = false;
@@ -43,7 +42,6 @@ public class HYL_IS_Fetch : QuestPart {
 
         foreach (InteractableObject obj in items)
         {
-            obj.CheckInteractState(GameManager.instance.Player);
 
             if (obj.acquired)
                 Destroy(obj.target);
@@ -55,6 +53,7 @@ public class HYL_IS_Fetch : QuestPart {
 
         if (BL_QuestComplete)
         {
+            OpenDoor.instance.QuestEnded = true;
             BL_MinigameComplete = true;
             BL_FirstLoad = true;
         }

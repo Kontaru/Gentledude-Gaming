@@ -47,10 +47,7 @@ public class HYL_IS_Distribution : QuestPart {
                 foreach (InteractableObject obj in items)
                 {
                     if (obj.target != null)
-                    {
                         obj.target.SetActive(true);
-                        obj.SetCanvasElements();
-                    }
                 }
                 BL_FirstLoad = false;
             }
@@ -69,6 +66,7 @@ public class HYL_IS_Distribution : QuestPart {
     {
         if (IN_FinalCount < items.Length)
         {
+            OpenDoor.instance.QuestEnded = true;
             BL_MinigameComplete = true;
             BL_MinigameFail = true;
             BL_FirstLoad = true;
@@ -83,8 +81,6 @@ public class HYL_IS_Distribution : QuestPart {
 
         foreach (InteractableObject obj in items)
         {
-            obj.CheckInteractState(GameManager.instance.Player);
-
             if (obj.acquired == true)
             {
                 obj.target.SetActive(false);

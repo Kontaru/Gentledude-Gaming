@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class InteractableObject
+public class InteractableObject : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject target;
     public float interactDistance;
     [TextArea(2, 10)]
@@ -16,35 +16,42 @@ public class InteractableObject
     GameObject exclaimationPoint;
     GameObject interactionObject;
 
-    public void SetCanvasElements()
+    public void Start()
     {
+        target = transform.gameObject;
         exclaimationPoint = target.transform.GetChild(1).transform.GetChild(1).gameObject;
         interactionObject = target.transform.GetChild(1).transform.GetChild(0).gameObject;
     }
 
+    public void Update()
+    {
+        CheckInteractState(GameManager.instance.Player);
+        CheckDistance(GameManager.instance.Player);
+    }
+
     public void CheckInteractState(GameObject PC)
     {
-        if (target == null) return;
-
-        CheckDistance(PC);
+        if (Vector3.Distance(PC.transform.position, target.transform.position) < interactDistance)
+        {
+            exclaimationPoint.SetActive(false);
+            interactionObject.SetActive(true);
+        }
+        else
+        {
+            exclaimationPoint.SetActive(true);
+            interactionObject.SetActive(false);
+        }
     }
 
     void CheckDistance(GameObject PC)
     {
         if (Vector3.Distance(PC.transform.position, target.transform.position) < interactDistance)
         {
-            exclaimationPoint.SetActive(false);
-            interactionObject.SetActive(true);
             if(Input.GetKeyDown(GameManager.instance.KC_Interact))
             {
                 FungusDirector.instance.IdleNPC(text);
                 acquired = true;
             }
-        }
-        else
-        {
-            exclaimationPoint.SetActive(true);
-            interactionObject.SetActive(false);
         }
     }
 }

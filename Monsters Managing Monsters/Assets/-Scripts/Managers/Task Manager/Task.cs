@@ -50,6 +50,7 @@ public class Task
     #endregion
 
     [Header("Quest Requirements")]
+    public bool UsingDoor = false;
     public int step_tracker = 0;
     public Step[] Steps;                    //Our steps to completing the quest
     public GameObject GO_belongsTo;
@@ -123,6 +124,7 @@ public class Task
         if (!BL_firstFlag)
         {
             EndDaySummary.instance.QuestGained(name);
+            if(UsingDoor) OpenDoor.instance.Open();
             BL_firstFlag = true;
         }
     }
@@ -131,6 +133,7 @@ public class Task
     {
         if (Quest_Finish)
         {
+            if (UsingDoor) OpenDoor.instance.QuestEnded = true;
             if (!BL_secondFlag)
             {
                 EndDaySummary.instance.tasksCount++;

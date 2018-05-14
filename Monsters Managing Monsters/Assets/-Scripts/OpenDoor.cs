@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour {
 
     public static OpenDoor instance;
+    public bool QuestEnded = false;
 
     private void Awake()
     {
@@ -14,20 +15,40 @@ public class OpenDoor : MonoBehaviour {
             Destroy(gameObject);
     }
 
-    Animation anim;
+    Animator anim;
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Entity>().EntityType == Entity.Entities.Player && QuestEnded)
+        {
+            Close();
+            QuestEnded = false;
+        }
+    }
 
     // Use this for initialization
     void Start () {
-        anim = GetComponent<Animation>();
+        anim = transform.GetChild(0).GetComponent<Animator>();
 	}
 	
 	public void Open()
     {
-        anim.Play();
+        anim.SetBool("open", true);
+        //StartCoroutine(WatchDoor());
     }
 
     public void Close()
     {
-        anim.Rewind();
+        anim.SetBool("open", false);
+        //StartCoroutine(WatchDoor());
+    }
+
+    IEnumerator WatchDoor()
+    {
+        CameraFollow.instance.otherLook = transform.gameObject;
+        PC_Move.BL_canMove = false;
+        yield return new WaitForSeconds(2f);
+        CameraFollow.instance.otherLook = null;
+        PC_Move.BL_canMove = true;
     }
 }

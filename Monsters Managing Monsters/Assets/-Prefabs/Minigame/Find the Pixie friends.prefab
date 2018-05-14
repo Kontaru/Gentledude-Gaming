@@ -143,6 +143,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4197867504637196}
+  - component: {fileID: 114091916499623942}
   m_Layer: 0
   m_Name: Pixie (1)
   m_TagString: Untagged
@@ -434,6 +435,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4157529631647506}
+  - component: {fileID: 114935428712250718}
   m_Layer: 0
   m_Name: Pixie
   m_TagString: Untagged
@@ -449,6 +451,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4317188969761622}
+  - component: {fileID: 114167892351518582}
   m_Layer: 0
   m_Name: Pixie (2)
   m_TagString: Untagged
@@ -491,7 +494,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1933751609009804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.49, y: -34.4, z: -45.73}
+  m_LocalPosition: {x: -32.49, y: -34.4, z: -7.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4013939247091664}
@@ -546,7 +549,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174206765331570}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.66, y: -34.4, z: -35}
+  m_LocalPosition: {x: -24.95, y: -34.4, z: 13.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4181851188460676}
@@ -589,7 +592,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1963164511443628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -86.6, y: -34.4, z: 26.1}
+  m_LocalPosition: {x: -39.98, y: -34.4, z: 17.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4170236894470940}
@@ -632,7 +635,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1254087856389570}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25, y: 18.04, z: 14.54}
+  m_LocalPosition: {x: 17.9, y: 18.04, z: 20.6}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4157529631647506}
@@ -682,6 +685,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114091916499623942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174206765331570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb22c160af02aa46a97512c32c70acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  interactDistance: 2
+  text: I'm not lost. Definitely not lost, but I totally wouldn't mind if you gave
+    me a hand.
+  acquired: 0
 --- !u!114 &114126600316746112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -736,6 +755,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114167892351518582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1963164511443628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb22c160af02aa46a97512c32c70acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  interactDistance: 2
+  text: Get me outta here or I will RAISE hell. That's what I thought.
+  acquired: 0
 --- !u!114 &114276168726739960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -802,18 +836,9 @@ MonoBehaviour:
   BL_MinigameComplete: 0
   BL_MinigameFail: 0
   items:
-  - target: {fileID: 1933751609009804}
-    interactDistance: 2
-    text: '[Placeholder]'
-    acquired: 0
-  - target: {fileID: 1174206765331570}
-    interactDistance: 2
-    text: '[Placeholder]'
-    acquired: 0
-  - target: {fileID: 1963164511443628}
-    interactDistance: 2
-    text: '[Placeholder]'
-    acquired: 0
+  - {fileID: 114935428712250718}
+  - {fileID: 114091916499623942}
+  - {fileID: 114167892351518582}
   BL_QuestComplete: 0
 --- !u!114 &114484052197670760
 MonoBehaviour:
@@ -1190,6 +1215,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Pixie
+--- !u!114 &114935428712250718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1933751609009804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb22c160af02aa46a97512c32c70acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  interactDistance: 2
+  text: OI, UBER. UBER...? You my uber? Get me the HELL outta here.
+  acquired: 0
 --- !u!212 &212406752410532438
 SpriteRenderer:
   m_ObjectHideFlags: 1
