@@ -14,14 +14,7 @@ public class IS_BrokenPrinter : QuestPart
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!BL_IsInteractable)
-        {
-            HideLabels();
-            return;
-        }else
-        {
-            ShowLabelObject();
-        }
+        if (!BL_IsInteractable) return;
 
         if (other.gameObject.name == "PC")
         {
@@ -51,8 +44,17 @@ public class IS_BrokenPrinter : QuestPart
     // Update is called once per frame
     override public void Update()
     {
-        base.Update();       
+        base.Update();
 
+        if (!BL_IsInteractable)
+        {
+            HideLabels();
+            return;
+        }
+        else
+        {
+            ShowLabelObject();
+        }
         if (!BL_IsPlaying) return;
 
         CheckEndCondition();
