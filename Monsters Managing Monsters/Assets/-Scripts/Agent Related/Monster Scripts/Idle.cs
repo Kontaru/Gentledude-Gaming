@@ -26,9 +26,10 @@ public class Idle : MonoBehaviour
 
     public GameObject GO_home;
     public Square[] Bounds;
+    private Vertice V_destination;
     GameObject GO_destination;
 
-    float FL_delay = 0;
+    public float FL_delay = 0;
 
     NavMeshAgent NMA_agent;
 
@@ -53,11 +54,15 @@ public class Idle : MonoBehaviour
 
         if (BL_isIdle)
         {
-            if (Time.time > FL_delay)
+            if (GO_destination == null || Vector3.Distance(transform.position, GO_destination.transform.position) < 0.1f)
             {
-                if (GO_destination == null || Vector3.Distance(transform.position, GO_destination.transform.position) < 0.1f)
+                if (Time.time > FL_delay)
+                {
                     NewPosition();
-            }
+                }
+            }else
+                FL_delay = Time.time + V_destination.idleDuration;
+
         }
         else
             GO_destination = GO_home;
@@ -69,7 +74,7 @@ public class Idle : MonoBehaviour
     void NewPosition()
     {
         Square square = Bounds[Random.Range(0, Bounds.Length - 1)];
-        GO_destination = square.Vertices[Random.Range(0, square.Vertices.Length)].Corner;
-        FL_delay = Time.time + square.Vertices[Random.Range(0, square.Vertices.Length)].idleDuration;
+        V_destination = square.Vertices[Random.Range(0, square.Vertices.Length)];
+        GO_destination = V_destination.Corner;
     }
 }
