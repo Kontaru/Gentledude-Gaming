@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Name: 1003 Cafe Imp
   m_EditorClassIdentifier: 
   name: Cafe Imp
-  TaskBrief: '[Brief]'
-  DescriptionDialogue: '[Description]'
-  AcceptedDialogue: '[Accepted]'
-  DeclinedDialogue: '[Declined]'
-  FinishDialogue: '[Success]'
-  FailDialogue: '[Failure]'
-  WaitingDialogue: '[Waiting]'
+  TaskBrief: ALL HANDS ON DECK, THE CATERING STAFF ARE SLACKING. REPORT TO ME, MR.
+    FAFF.
+  DescriptionDialogue: "DAMN CATERING STAFF! THEY'RE SLACKING! SLACKING, I TELL YOU!!
+    n//n THE STAFF HAVEN'T TURNED UP TO SERVICE THE CANTEEEEN. I'LL BE DAMNED IF I'M
+    GOING TO WASTE RESOURCES! n//n GO MAN THOSE STATIONS \u2013 NOW! I DEMAND IT!!"
+  AcceptedDialogue: "TOO RIGHT YOU WILL \u2013 NOW GET TO WORK!!"
+  DeclinedDialogue: I REQUESTED YOUR ASSISTANCE. YOU WILL COME HITHER, IMP. I SHALL
+    WAIT AS LONG AS I NEED.
+  FinishDialogue: NOT BAD... FOR AN IMP.
+  FailDialogue: I SHOULD NOT HAVE ENTRUSTED THIS TO AN IMP.
+  WaitingDialogue: TIME IS MONEY, IMP. GET THOSE PUNY WINGS FLAPPING.
   Quest_ID: 1003
   Repeatable: 0
   Presets: 3

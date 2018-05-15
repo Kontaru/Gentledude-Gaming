@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 4241586838954532}
   - component: {fileID: 114045646866472526}
   - component: {fileID: 114556776868918496}
+  - component: {fileID: 114372711982836602}
   m_Layer: 0
   m_Name: Quest Handler
   m_TagString: Untagged
@@ -422,7 +423,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1657173207767988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.8500004, y: 0.15000004, z: -0.8135216}
+  m_LocalPosition: {x: -5.234834, y: 0.17000005, z: 36.762524}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4282066821491606}
@@ -713,6 +714,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    UsingDoor: 0
     step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}
@@ -783,6 +785,20 @@ MonoBehaviour:
   BL_isIdle: 1
   GO_home: {fileID: 0}
   Bounds: []
+  FL_delay: 0
+--- !u!114 &114372711982836602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906869469389432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec97a042335624444878e3d59b2ae823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestIDs: eb030000
+  Tasks: []
 --- !u!114 &114527208060879594
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -133,9 +133,9 @@ public class Task
     {
         if (Quest_Finish)
         {
-            if (UsingDoor) OpenDoor.instance.QuestEnded = true;
             if (!BL_secondFlag)
             {
+                if (UsingDoor) OpenDoor.instance.QuestEnded = true;
                 EndDaySummary.instance.tasksCount++;
                 EndDaySummary.instance.QuestCompleted(name, GO_belongsTo, IN_motivationAmount, Quest_Fail);
                 BL_secondFlag = true;

@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1181703203611288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.380001, y: 0.63999987, z: -9.41}
+  m_LocalPosition: {x: -15.85, y: 0.63999987, z: 40.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4550571516524252}
@@ -142,7 +142,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 1, z: 8}
+  m_Size: {x: 4, y: 1, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114097000207610508
 MonoBehaviour:
@@ -212,7 +212,8 @@ MonoBehaviour:
   BL_MinigameFail: 0
   objectiveMarker: {fileID: 1716340934586008}
   VisibilityTargets: []
-  dialogueOnContact: "The caf\xE9 is in disarray, and they need my help. Head out?"
+  dialogueOnContact: "The caf\xE9 is in disarray, and they need my help. Is it time
+    to head out?"
   acceptDialogue: I'm ready.
   declineDialogue: Let me take a moment first...
 --- !u!212 &212466425067605818

@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Name: 1006 Office Escape
   m_EditorClassIdentifier: 
   name: Office Escape
-  TaskBrief: '[Brief]'
-  DescriptionDialogue: '[Description]'
-  AcceptedDialogue: '[Accepted]'
-  DeclinedDialogue: '[Declined]'
-  FinishDialogue: '[Success]'
-  FailDialogue: '[Failure]'
-  WaitingDialogue: '[Waiting]'
+  TaskBrief: Imp, my fellow friend! I am super hungry right now and that is NOT FRESH.
+    Come and see me and it'll be worth your while.
+  DescriptionDialogue: 'Hey there Imp, lookin'' fresh. The boss is cracking down on
+    breaks and THAT is UNFRESH. n//n They''ve got some delightful delicatessens in
+    the kitchen, help us get our fins on that scrumptious sustenance! '
+  AcceptedDialogue: 'You will? Just make sure the boss doesn''t catch us, or well...
+    Yeah. '
+  DeclinedDialogue: Not fresh my Imp friend. We NEED you. I'll be waiting right here
+    for your cool answer.
+  FinishDialogue: 'Super fresh! Knew I could count on you, Imp! '
+  FailDialogue: 'Oh no, that there was some new level boss anger. Not fresh! Don''t
+    be surprised if I throw you under the bus. '
+  WaitingDialogue: Just go to the boss' office and make sure he's not looking. It'll
+    be easy.
   Quest_ID: 1006
   Repeatable: 0
   Presets: 3

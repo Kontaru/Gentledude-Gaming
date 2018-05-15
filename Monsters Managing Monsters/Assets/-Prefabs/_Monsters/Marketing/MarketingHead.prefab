@@ -335,8 +335,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560450116340538}
-  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -7.4100018, y: 0, z: -7.41}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.0399995, y: 0.15000004, z: 22.14}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4540868242170818}
@@ -448,7 +448,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1119021630868482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4342417031852916}
@@ -721,6 +721,7 @@ MonoBehaviour:
   BL_isIdle: 1
   GO_home: {fileID: 0}
   Bounds: []
+  FL_delay: 0
 --- !u!114 &114128284251067738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -927,7 +928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec97a042335624444878e3d59b2ae823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestIDs: ee030000
+  QuestIDs: ed030000
   Tasks: []
 --- !u!114 &114774573577876994
 MonoBehaviour:
@@ -989,6 +990,7 @@ MonoBehaviour:
     Repeatable: 0
     IN_actionPointWeight: 0
     IN_motivationAmount: 0
+    UsingDoor: 0
     step_tracker: 0
     Steps: []
     GO_belongsTo: {fileID: 0}

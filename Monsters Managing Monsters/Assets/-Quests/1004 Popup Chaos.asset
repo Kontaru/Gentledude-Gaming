@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Name: 1004 Popup Chaos
   m_EditorClassIdentifier: 
   name: Popup Chaos
-  TaskBrief: '[Brief]'
-  DescriptionDialogue: '[Description]'
-  AcceptedDialogue: '[Accepted]'
-  DeclinedDialogue: '[Declined]'
-  FinishDialogue: '[Success]'
-  FailDialogue: '[Failure]'
-  WaitingDialogue: '[Waiting]'
+  TaskBrief: You gotta help me! Please! Don't let anyone know!
+  DescriptionDialogue: "Oh man \u2013 Imp, you gotta help me! Someone downloaded something
+    and the popups \u2013 they just won't go away! n//n Honest to Hell, I did NOT
+    touch anything! ... AaaaAAAH THERE IT GOES AGAIN!! I can't keep up with them \u2013
+    do something! "
+  AcceptedDialogue: 'Take the keyboard! '
+  DeclinedDialogue: AaaAAAH come on Imp, you gotta do something!
+  FinishDialogue: "Hm... Who'd'a thunk it'd be that straightforward. Oh yeah \u2013
+    thanks I guess."
+  FailDialogue: 'I gotta... Take this computer to... The vault... There''s no saving
+    it. Yes, I mean my office.  '
+  WaitingDialogue: Come on or it'll be too late!
   Quest_ID: 1004
   Repeatable: 0
   Presets: 3
