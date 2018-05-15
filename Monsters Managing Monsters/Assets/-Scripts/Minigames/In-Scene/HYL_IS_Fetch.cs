@@ -23,13 +23,8 @@ public class HYL_IS_Fetch : QuestPart {
 
         foreach (InteractableObject obj in items)
         {
-
-            if (obj.acquired)
-                Destroy(obj.target);
-
-            if (obj.target != null)
-                BL_QuestComplete = false;
-
+            if (obj.acquired)       Destroy(obj.target);
+            if (obj.target != null) BL_QuestComplete = false;
         }
 
         if (BL_QuestComplete)
