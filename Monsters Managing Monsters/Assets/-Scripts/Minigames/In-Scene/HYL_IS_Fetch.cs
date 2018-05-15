@@ -5,6 +5,7 @@ using UnityEngine;
 public class HYL_IS_Fetch : QuestPart {
 
     public InteractableObject[] items;
+    public GameObject[] VisibilityTargets;
     public bool BL_QuestComplete;
 
     bool BL_FirstLoad = true;
@@ -12,27 +13,7 @@ public class HYL_IS_Fetch : QuestPart {
 	// Update is called once per frame
 	override public void Update () {
 
-        if (BL_IsInteractable)
-        {
-            if (BL_FirstLoad)
-            {
-                foreach (InteractableObject obj in items)
-                {
-                    if (obj.target != null)
-                    {
-                        obj.target.SetActive(true);
-                    }
-                }
-                BL_FirstLoad = false;
-            }
-        }else
-        {
-            foreach (InteractableObject obj in items)
-            {
-                if (obj.target != null)
-                    obj.target.SetActive(false);
-            }
-        }
+        SetObjectStates();
 
         if (!BL_IsInteractable) return;
 
@@ -58,4 +39,47 @@ public class HYL_IS_Fetch : QuestPart {
             BL_FirstLoad = true;
         }
 	}
+
+    void SetObjectStates()
+    {
+        if (BL_IsInteractable)
+        {
+            if (BL_FirstLoad)
+            {
+                MakeVisible(true);
+                BL_FirstLoad = false;
+            }
+        }
+        else MakeVisible(false);
+    }
+
+    void MakeVisible(bool state)
+    {
+        if (state == true)
+        {
+            foreach (GameObject target in VisibilityTargets)
+            {
+                target.SetActive(true);
+            }
+
+            foreach (InteractableObject obj in items)
+            {
+                if (obj.target != null)
+                    obj.target.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (GameObject target in VisibilityTargets)
+            {
+                target.SetActive(false);
+            }
+
+            foreach (InteractableObject obj in items)
+            {
+                if (obj.target != null)
+                    obj.target.SetActive(false);
+            }
+        }
+    }
 }

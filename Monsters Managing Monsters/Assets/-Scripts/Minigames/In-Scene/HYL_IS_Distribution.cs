@@ -5,6 +5,7 @@ using UnityEngine;
 public class HYL_IS_Distribution : QuestPart {
 
     public InteractableObject[] items;
+    public GameObject[] VisibilityTargets;
     public bool BL_QuestComplete;
 
     public int IN_maxItemCount;
@@ -44,16 +45,34 @@ public class HYL_IS_Distribution : QuestPart {
             {
                 IN_FinalCount = IN_maxItemCount;
                 IN_itemCount = IN_maxItemCount;
-                foreach (InteractableObject obj in items)
-                {
-                    if (obj.target != null)
-                        obj.target.SetActive(true);
-                }
+                MakeVisible(true);
                 BL_FirstLoad = false;
             }
         }
-        else
+        else MakeVisible(false);
+    }
+
+    void MakeVisible(bool state)
+    {
+        if (state == true)
         {
+            foreach (GameObject target in VisibilityTargets)
+            {
+                target.SetActive(true);
+            }
+
+            foreach (InteractableObject obj in items)
+            {
+                if (obj.target != null)
+                    obj.target.SetActive(true);
+            }
+        }else
+        {
+            foreach (GameObject target in VisibilityTargets)
+            {
+                target.SetActive(false);
+            }
+
             foreach (InteractableObject obj in items)
             {
                 if (obj.target != null)
