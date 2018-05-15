@@ -21,6 +21,11 @@ public class CI_PlayerBehaviour : MonoBehaviour
     public bool item1, item2, item3, item4;
     public bool repair1, repair2, repair3, repair4;
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        HandleDelivery(collision);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         InTrigger = true;
@@ -173,7 +178,11 @@ public class CI_PlayerBehaviour : MonoBehaviour
             ResetRepairs();
             repair4 = true;
         }
-        else if (collider.gameObject.name == "CI_Table1")
+    }
+
+    private void HandleDelivery(Collision2D collider)
+    {
+        if (collider.gameObject.name == "CI_Table1")
         {
             CI_Table table = collider.gameObject.GetComponent<CI_Table>();
             bool[] array = table.items;
@@ -208,7 +217,7 @@ public class CI_PlayerBehaviour : MonoBehaviour
                 remainingOrders--;
             }
             ResetItems();
-        }        
+        }
     }
 
     private bool CheckItems(bool[] items)
