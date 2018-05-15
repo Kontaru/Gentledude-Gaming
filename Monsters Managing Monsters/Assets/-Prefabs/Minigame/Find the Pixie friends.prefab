@@ -747,7 +747,7 @@ MonoBehaviour:
   target: {fileID: 0}
   interactDistance: 5
   text: I'm not lost. Definitely not lost, but I totally wouldn't mind if you gave
-    me a hand.
+    me a hand [internal screaming].
   acquired: 0
 --- !u!114 &114041895168594786
 MonoBehaviour:
@@ -930,6 +930,9 @@ MonoBehaviour:
   - {fileID: 114657040733597518}
   - {fileID: 114935428712250718}
   - {fileID: 114016202237649692}
+  VisibilityTargets:
+  - {fileID: 1463897774164546}
+  anim: {fileID: 0}
   BL_QuestComplete: 0
 --- !u!114 &114555290766752172
 MonoBehaviour:

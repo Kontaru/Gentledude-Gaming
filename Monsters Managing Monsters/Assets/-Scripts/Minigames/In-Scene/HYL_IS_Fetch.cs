@@ -6,6 +6,7 @@ public class HYL_IS_Fetch : QuestPart {
 
     public InteractableObject[] items;
     public GameObject[] VisibilityTargets;
+    public Animation anim;
     public bool BL_QuestComplete;
 
     bool BL_FirstLoad = true;
