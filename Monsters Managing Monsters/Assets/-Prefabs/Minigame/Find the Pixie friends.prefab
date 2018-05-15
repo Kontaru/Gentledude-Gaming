@@ -932,7 +932,7 @@ MonoBehaviour:
   - {fileID: 114016202237649692}
   VisibilityTargets:
   - {fileID: 1463897774164546}
-  anim: {fileID: 0}
+  anim: {fileID: 111590866335602340}
   BL_QuestComplete: 0
 --- !u!114 &114555290766752172
 MonoBehaviour:
