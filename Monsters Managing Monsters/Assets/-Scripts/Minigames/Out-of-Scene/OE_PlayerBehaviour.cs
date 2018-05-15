@@ -21,6 +21,7 @@ public class OE_PlayerBehaviour : MonoBehaviour
     public GameObject failScreen;
 
     public Text timerText, escapedText;
+    public Sprite stopFlag, goFlag;
 
     private List<GameObject> waitLine;
 
@@ -63,12 +64,12 @@ public class OE_PlayerBehaviour : MonoBehaviour
 
             if (BL_commandGO)
             {
-                // PC Sprite GO
+                GetComponent<SpriteRenderer>().sprite = goFlag;
                 StartCoroutine(LoopGo());
             }
             else
             {
-                // PC Sprite STOP
+                GetComponent<SpriteRenderer>().sprite = stopFlag;
                 WorkersStop();
             }
         }        
