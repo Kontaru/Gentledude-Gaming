@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.AI;
 
 public class Scene_Controller : MonoBehaviour {
 
     public static Scene_Controller instance;
 
+    public GameObject dayAlert;
     public GameObject DayOverStats;
+
+    public Text currentDay;
+
     public Animator summaryAnimator;
     public ScrollRect summaryRect;
     private bool BL_firstFlag;
@@ -66,6 +69,9 @@ public class Scene_Controller : MonoBehaviour {
             Invoke("HideSummary", 1);
 
             DayCycle.instance.NewDay();
+            int day = DayCycle.instance.IN_currentDay + 1;
+            currentDay.text = day < 10 ? "Day 0" + day.ToString() : "Day " + day.ToString();
+            dayAlert.SetActive(true);
             OfficeEntrance.instance.RespawnPlayer();
 
             BL_firstFlag = false;
