@@ -55,6 +55,7 @@ public class OfficeEntrance : MonoBehaviour {
 
         elevatorDoors.OpenDoors(true);
         Scene_Controller.instance.dayAlert.SetActive(false);
+        yield return new WaitForSeconds(1);
         player.SetActive(true);
         yield return new WaitForSeconds(2.0f);
         elevatorDoors.OpenDoors(false);        

@@ -32,21 +32,22 @@ public class OpenDoor : MonoBehaviour {
 	}
 	
 	public void Open()
-    {
-        anim.SetBool("open", true);
-        //StartCoroutine(WatchDoor());
+    {        
+        StartCoroutine(WatchDoor(true));
     }
 
     public void Close()
-    {
-        anim.SetBool("open", false);
-        //StartCoroutine(WatchDoor());
+    {        
+        StartCoroutine(WatchDoor(false));
     }
 
-    IEnumerator WatchDoor()
+    IEnumerator WatchDoor(bool state)
     {
-        CameraFollow.instance.otherLook = transform.gameObject;
         PC_Move.BL_canMove = false;
+        yield return new WaitForSeconds(1);
+        anim.SetBool("open", state);
+        CameraFollow.instance.otherLook = transform.gameObject;
+
         yield return new WaitForSeconds(2f);
         CameraFollow.instance.otherLook = null;
         PC_Move.BL_canMove = true;
