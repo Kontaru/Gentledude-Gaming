@@ -28,11 +28,11 @@ public class CI_Station : MonoBehaviour
 
     private int GetRandomSeconds()
     {
-        int value = Random.Range(15, 30);
+        int value = Random.Range(30, 60);
 
         while (value == previousValue)
         {
-            value = Random.Range(15, 30);
+            value = Random.Range(30, 60);
         }
         previousValue = value;
 
