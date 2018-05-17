@@ -71,8 +71,9 @@ public class Scene_Controller : MonoBehaviour {
             DayCycle.instance.NewDay();
             int day = DayCycle.instance.IN_currentDay + 1;
             currentDay.text = day < 10 ? "Day 0" + day.ToString() : "Day " + day.ToString();
+            
+            if (day < 6) dayAlert.SetActive(true);
             OpenDoor.instance.Close();
-            dayAlert.SetActive(true);
             OfficeEntrance.instance.RespawnPlayer();
 
             BL_firstFlag = false;
