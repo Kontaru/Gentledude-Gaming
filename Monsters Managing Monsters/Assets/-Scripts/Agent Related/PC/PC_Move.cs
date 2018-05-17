@@ -28,7 +28,8 @@ public class PC_Move : MonoBehaviour {
         FL_moveSpeed = FL_defaultSpeed;
         PlayerMove();
 
-        SR.flipX = RB_PC.velocity.x < 0 ? false : true;
+        if (Input.GetKeyDown(KeyCode.A)) SR.flipX = false;
+        else if (Input.GetKeyDown(KeyCode.D)) SR.flipX = true;
         //LookInput();
     }
 

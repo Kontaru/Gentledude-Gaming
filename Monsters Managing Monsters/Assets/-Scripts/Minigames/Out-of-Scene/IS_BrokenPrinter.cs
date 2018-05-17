@@ -110,7 +110,7 @@ public class IS_BrokenPrinter : QuestPart
 
     private void ShowFixedLabel()
     {
-        labelObject.GetComponentInChildren<Text>().text = "Fixed Printer";
+        labelObject.GetComponentInChildren<Text>().text = "Fixed Computer";
         labelObject.transform.GetChild(1).gameObject.SetActive(false);
         repairObject.SetActive(false);
     }
