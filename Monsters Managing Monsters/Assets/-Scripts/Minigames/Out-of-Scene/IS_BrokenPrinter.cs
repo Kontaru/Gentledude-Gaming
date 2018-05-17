@@ -46,15 +46,6 @@ public class IS_BrokenPrinter : QuestPart
     {
         base.Update();
 
-        if (!BL_IsInteractable)
-        {
-            HideLabels();
-            return;
-        }
-        else
-        {
-            ShowLabelObject();
-        }
         if (!BL_IsPlaying) return;
 
         CheckEndCondition();

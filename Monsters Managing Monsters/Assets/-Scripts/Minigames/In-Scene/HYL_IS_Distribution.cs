@@ -30,6 +30,7 @@ public class HYL_IS_Distribution : QuestPart {
 
         if (BL_QuestComplete)
         {
+            OpenDoor.instance.QuestEnded = true;
             BL_MinigameComplete = true;
             BL_FirstLoad = true;
         }
@@ -84,7 +85,7 @@ public class HYL_IS_Distribution : QuestPart {
     void CheckFailState()
     {
         if (IN_FinalCount < items.Length)
-        {
+        {           
             OpenDoor.instance.QuestEnded = true;
             BL_MinigameComplete = true;
             BL_MinigameFail = true;

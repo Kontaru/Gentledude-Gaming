@@ -30,6 +30,7 @@ public class HYL_IS_Fetch : QuestPart {
 
         if (BL_QuestComplete)
         {
+            Debug.Log("is fetch");
             OpenDoor.instance.QuestEnded = true;
             BL_MinigameComplete = true;
             BL_FirstLoad = true;

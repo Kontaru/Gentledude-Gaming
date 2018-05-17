@@ -43,13 +43,13 @@ public class OpenDoor : MonoBehaviour {
 
     IEnumerator WatchDoor(bool state)
     {
-        PC_Move.BL_canMove = false;
         yield return new WaitForSeconds(1);
         anim.SetBool("open", state);
-        CameraFollow.instance.otherLook = transform.gameObject;
-
-        yield return new WaitForSeconds(2f);
-        CameraFollow.instance.otherLook = null;
-        PC_Move.BL_canMove = true;
+        if (state)
+        {
+            CameraFollow.instance.otherLook = transform.gameObject;
+            yield return new WaitForSeconds(2f);
+            CameraFollow.instance.otherLook = null;
+        }            
     }
 }
