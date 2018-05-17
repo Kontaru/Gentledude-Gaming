@@ -9,7 +9,7 @@ public class TutorialSequence : MonoBehaviour {
 
     public GameObject fadeObject;
     public Image fadeImage;
-    public GameObject skipBtn;
+    public GameObject LevelLoader;
     public GameObject taxi;
     public GameObject traffic;
     public GameObject player;
@@ -82,10 +82,11 @@ public class TutorialSequence : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         // After she leaves...
         hrHead.SetActive(false);
-        EndDaySummary.instance.QuestGained(CurrentTasks.instance.currentTask[0].name);
-        yield return new WaitForSeconds(1.0f);
+        if (fung.GetBooleanVariable("bl_skip") == true)
+            LevelLoader.GetComponent<LoadLevel>().LoadByIndex(2);
+        else
+            EndDaySummary.instance.QuestGained(CurrentTasks.instance.currentTask[0].name);
         //PC_Move.BL_canMove = true;
-        skipBtn.SetActive(true);
     }
 
     IEnumerator FadeIn(float t, Image i)
