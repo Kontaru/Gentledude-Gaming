@@ -58,6 +58,7 @@ public class PDATutorial : QuestPart {
         {
             if(Interactable() && Input.GetKeyDown(GameManager.instance.KC_Interact))
             {
+                PC_Move.BL_canMove = false;
                 Fungus.Flowchart.BroadcastFungusMessage("PDATutorial");
                 CameraFollow.instance.otherLook = gameObject;
                 BL_inConversation = true;
@@ -65,6 +66,7 @@ public class PDATutorial : QuestPart {
 
             if(FungusDirector.instance.FungusFlow.GetBooleanVariable("bl_textCycleOver") && BL_inConversation)
             {
+                PC_Move.BL_canMove = true;
                 BL_inConversation = false;
                 CameraFollow.instance.otherLook = PDABoxes;
                 PDABoxes.GetComponent<ObjectInteraction>().BL_collectPDA = true;
@@ -87,6 +89,7 @@ public class PDATutorial : QuestPart {
         {
             if (Talkable())
             {
+                PC_Move.BL_canMove = false;
                 TutorialDialogue("ViewTaskTutorial");
             }
 
@@ -112,6 +115,7 @@ public class PDATutorial : QuestPart {
         {
             if (Talkable())
             {
+                PC_Move.BL_canMove = false;
                 TutorialDialogue("LocatorTutorial");
             }
 
@@ -136,6 +140,7 @@ public class PDATutorial : QuestPart {
         {
             if (Talkable())
             {
+                PC_Move.BL_canMove = false;
                 TutorialDialogue("TutorialConclude");
             }
 
@@ -197,6 +202,7 @@ IEnumerator TakingOnQuests()
 
     void EndConversation()
     {
+        PC_Move.BL_canMove = true;
         CameraFollow.instance.otherLook = null;
         BL_inConversation = false;
     }
